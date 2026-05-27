@@ -1,105 +1,9 @@
 import { useState, useMemo, useCallback } from "react";
 
 // ── Drug catalogue ─────────────────────────────────────────────────────────────
-// preferredVols: forced waypoint volumes in mL — mandatory row anchors that
-// appear regardless of whether the sequential filter would select them.
-// These represent clinically significant volumes (special syringe markings,
-// institutional snap points) that must appear explicitly in the table.
-// deviceLimited: true means fine-graduation steps are preferred at low volumes
-// (e.g. levetiracetam where 10 mg precision matters more than round numbers).
-const DRUG_DB = [
-  {
-    generic: "Acetaminophen",
-    formulations: [
-      { label: "160 mg/5 mL suspension (32 mg/mL)", concentration: 32, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 960,
-        preferredVols: [1.25, 2.5, 3.75, 8, 10],
-        deviceLimited: false },
-      { label: "325 mg tablet", concentration: 325, unit: "mg", form: "tablet",
-        doseUnit: "mg/kg", maxDose: 975, canHalf: true, canQuarter: true },
-      { label: "500 mg tablet", concentration: 500, unit: "mg", form: "tablet",
-        doseUnit: "mg/kg", maxDose: 1000, canHalf: true, canQuarter: false },
-    ],
-  },
-  {
-    generic: "Ibuprofen",
-    formulations: [
-      { label: "100 mg/5 mL suspension (20 mg/mL)", concentration: 20, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 800,
-        preferredVols: [], deviceLimited: false },
-      { label: "200 mg tablet", concentration: 200, unit: "mg", form: "tablet",
-        doseUnit: "mg/kg", maxDose: 800, canHalf: true, canQuarter: false },
-    ],
-  },
-  {
-    generic: "Amoxicillin",
-    formulations: [
-      { label: "250 mg/5 mL suspension (50 mg/mL)", concentration: 50, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 500,
-        preferredVols: [], deviceLimited: false },
-      { label: "400 mg/5 mL suspension (80 mg/mL)", concentration: 80, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 1000,
-        preferredVols: [], deviceLimited: false },
-    ],
-  },
-  {
-    // Meyers 2024 Table 1 — 5 mg/kg/dose BID; clean 2.5/5/7.5 mL doses
-    generic: "Cefpodoxime",
-    formulations: [
-      { label: "100 mg/5 mL suspension (20 mg/mL)", concentration: 20, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 400,
-        preferredVols: [], deviceLimited: false },
-    ],
-  },
-  {
-    // Meyers 2024 Table 1 — 25 mg/kg/dose; 5/10/15 mL natural doses
-    generic: "Cephalexin",
-    formulations: [
-      { label: "250 mg/5 mL suspension (50 mg/mL)", concentration: 50, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 1000,
-        preferredVols: [], deviceLimited: false },
-      { label: "500 mg capsule", concentration: 500, unit: "mg", form: "tablet",
-        doseUnit: "mg/kg", maxDose: 1000, canHalf: false, canQuarter: false },
-    ],
-  },
-  {
-    // Meyers 2024 Table 1 — 10 mg/kg/dose TID; quantum 15 mg (1 mL)
-    generic: "Clindamycin",
-    formulations: [
-      { label: "75 mg/5 mL solution (15 mg/mL)", concentration: 15, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 600,
-        preferredVols: [], deviceLimited: false },
-    ],
-  },
-  {
-    // Meyers 2024 Table 1 — fixed weight-tier dosing 30/45/60/75 mg BID
-    // Concentration 6 mg/mL; clean 5/7.5/10/12.5 mL doses
-    generic: "Oseltamivir",
-    formulations: [
-      { label: "6 mg/mL oral suspension", concentration: 6, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 75,
-        preferredVols: [], deviceLimited: false },
-    ],
-  },
-  {
-    generic: "Prednisolone",
-    formulations: [
-      { label: "15 mg/5 mL solution (3 mg/mL)", concentration: 3, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 60,
-        preferredVols: [], deviceLimited: false },
-      { label: "5 mg tablet", concentration: 5, unit: "mg", form: "tablet",
-        doseUnit: "mg/kg", maxDose: 60, canHalf: true, canQuarter: true },
-    ],
-  },
-  {
-    generic: "Levetiracetam",
-    formulations: [
-      { label: "100 mg/mL oral solution", concentration: 100, unit: "mg",
-        form: "liquid", doseUnit: "mg/kg", maxDose: 3000,
-        preferredVols: [], deviceLimited: true },
-    ],
-  },
-];
+// Loaded at runtime from formulary.json + aptos_params.json merged in index.html.
+// Falls back to empty array if not yet available (should not occur in normal flow).
+const DRUG_DB = window.APTOS_DRUG_DB || [];
 
 // ── Weight rounding ────────────────────────────────────────────────────────────
 // Three-tier precision matching clinical measurement precision:
@@ -636,8 +540,9 @@ export default function PedsDoseTable() {
       const f = drug.formulations[idx];
       setCanHalf(f.canHalf ?? false);
       setCanQuarter(f.canQuarter ?? false);
-      setMaxDoseText(String(f.maxDose));
-      setCommittedMax(f.maxDose);
+      const md = f.maxDose ?? "";
+      setMaxDoseText(md !== "" ? String(md) : "");
+      setCommittedMax(f.maxDose ?? null);
     } else {
       setMaxDoseText("");
     }
@@ -897,7 +802,9 @@ export default function PedsDoseTable() {
               setDoseText(""); setMaxDoseText("");
             }}>
             <option value={-1}>— select drug —</option>
-            {DRUG_DB.map((d, i) => <option key={i} value={i}>{d.generic}</option>)}
+            {DRUG_DB.map((d, i) =>
+              <option key={i} value={i}>{d.generic}</option>
+            )}
           </select>
         </div>
 
@@ -909,7 +816,8 @@ export default function PedsDoseTable() {
               onChange={e => selectForm(+e.target.value)}>
               <option value={-1}>— select —</option>
               {drug && drug.formulations.map((f, i) =>
-                <option key={i} value={i}>{f.label}</option>)}
+                <option key={i} value={i}>{f.label}</option>
+              )}
             </select>
           </div>
           <div>

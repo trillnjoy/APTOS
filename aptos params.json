@@ -1,0 +1,493 @@
+{
+  "_meta": {
+    "description": "Clinical parameter overlay for APTOS formulary.json. Keyed by normalized generic name matching formulary.json drugs[].generic. Each entry supplies doseUnit, maxDose, and optional formulation-specific overrides (preferredVols, deviceLimited) that cannot be derived from the formulary extract alone. Source annotations reference standard pediatric references.",
+    "sources": {
+      "DRUG_DB": "Hand-curated APTOS prototype DRUG_DB — validated in development sessions",
+      "Meyers2024": "Meyers RS. J Pediatr Pharmacol Ther. 2024;29(1):22-31. Table 1.",
+      "HarrietLane": "Harriet Lane Handbook, 23rd ed.",
+      "Nelson": "Nelson's Pediatric Antimicrobial Therapy, current edition",
+      "AAP": "AAP Red Book / Committee guidance",
+      "Lexicomp": "Lexicomp Pediatric & Neonatal Dosage Handbook"
+    }
+  },
+  "params": [
+    {
+      "generic": "Acetaminophen",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "160 mg/5 mL",
+          "maxDose": 960,
+          "preferredVols": [1.25, 2.5, 3.75, 8, 10],
+          "deviceLimited": false,
+          "note": "APAP special syringe marks 1.25/2.5/3.75 mL; 8/10 mL waypoints. DRUG_DB."
+        },
+        {
+          "match_label_fragment": "325 mg tablet",
+          "maxDose": 975,
+          "canHalf": true,
+          "canQuarter": true,
+          "note": "DRUG_DB."
+        },
+        {
+          "match_label_fragment": "500 mg tablet",
+          "maxDose": 1000,
+          "canHalf": true,
+          "canQuarter": false,
+          "note": "DRUG_DB."
+        }
+      ]
+    },
+    {
+      "generic": "Ibuprofen",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "suspension",
+          "maxDose": 800,
+          "note": "DRUG_DB. AAP max 40 mg/kg/day; single dose max 400 mg standard, 800 mg override for higher-dose regimens."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 800,
+          "note": "DRUG_DB."
+        }
+      ]
+    },
+    {
+      "generic": "Amoxicillin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "250 mg",
+          "maxDose": 500,
+          "note": "DRUG_DB. Standard dosing max 500 mg/dose."
+        },
+        {
+          "match_label_fragment": "400 mg",
+          "maxDose": 1000,
+          "note": "DRUG_DB. High-dose AOM/strep dosing max 1000 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Amoxicillin-clavulanate",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "125",
+          "maxDose": 500,
+          "note": "Amoxicillin component. HarrietLane/Nelson. Standard dose max 500 mg amoxicillin/dose."
+        },
+        {
+          "match_label_fragment": "200",
+          "maxDose": 500,
+          "note": "Amoxicillin component. HarrietLane/Nelson."
+        },
+        {
+          "match_label_fragment": "400",
+          "maxDose": 875,
+          "note": "Amoxicillin component. High-dose formulation max 875 mg/dose."
+        },
+        {
+          "match_label_fragment": "250/62.5",
+          "maxDose": 500,
+          "note": "Amoxicillin component tablet."
+        },
+        {
+          "match_label_fragment": "500/125",
+          "maxDose": 500,
+          "note": "Amoxicillin component tablet."
+        },
+        {
+          "match_label_fragment": "875/125",
+          "maxDose": 875,
+          "note": "Amoxicillin component tablet."
+        }
+      ]
+    },
+    {
+      "generic": "Cefpodoxime",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "100 mg/5 mL",
+          "maxDose": 400,
+          "note": "DRUG_DB. Meyers2024 Table 1."
+        }
+      ]
+    },
+    {
+      "generic": "Cephalexin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "suspension",
+          "maxDose": 1000,
+          "note": "DRUG_DB. Meyers2024 Table 1."
+        },
+        {
+          "match_label_fragment": "capsule",
+          "maxDose": 1000,
+          "note": "DRUG_DB."
+        }
+      ]
+    },
+    {
+      "generic": "Clindamycin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "75 mg/5 mL",
+          "maxDose": 600,
+          "note": "DRUG_DB. Meyers2024 Table 1."
+        }
+      ]
+    },
+    {
+      "generic": "Oseltamivir",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "6 mg/mL",
+          "maxDose": 75,
+          "note": "DRUG_DB. Meyers2024 Table 1. Fixed weight-tier dosing 30/45/60/75 mg BID."
+        }
+      ]
+    },
+    {
+      "generic": "Prednisolone",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "15 mg/5 mL",
+          "maxDose": 60,
+          "note": "DRUG_DB. BPD dosing valid to 300g."
+        },
+        {
+          "match_label_fragment": "5 mg tablet",
+          "maxDose": 60,
+          "note": "DRUG_DB."
+        }
+      ]
+    },
+    {
+      "generic": "Levetiracetam",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "100 mg/mL",
+          "maxDose": 3000,
+          "deviceLimited": true,
+          "note": "DRUG_DB. deviceLimited: precision > round numbers at low volumes."
+        }
+      ]
+    },
+    {
+      "generic": "Sulfamethoxazole-trimethoprim",
+      "doseUnit": "mg/kg",
+      "_doseUnit_note": "Dosed on TMP component. STR field in formulary = TMP mg.",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "SUSP",
+          "maxDose": 320,
+          "note": "TMP component max 320 mg/dose (= 1600 mg SMX). HarrietLane."
+        },
+        {
+          "match_label_fragment": "SS TAB",
+          "maxDose": 160,
+          "note": "SS tablet = 80 mg TMP / 400 mg SMX. Max 1 DS equivalent = 160 mg TMP."
+        },
+        {
+          "match_label_fragment": "DS TAB",
+          "maxDose": 320,
+          "note": "DS tablet = 160 mg TMP / 800 mg SMX. Max 2 tablets = 320 mg TMP."
+        },
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 320,
+          "note": "TMP component. IV dosing max 320 mg TMP/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Azithromycin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "suspension",
+          "maxDose": 500,
+          "note": "HarrietLane/Nelson. Community pneumonia/strep: 10 mg/kg day 1, 5 mg/kg days 2-5. Max 500 mg day 1, 250 mg days 2-5. Single-dose max 500 mg."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 500,
+          "note": "HarrietLane/Nelson."
+        }
+      ]
+    },
+    {
+      "generic": "Cetirizine",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "syrup",
+          "maxDose": 10,
+          "note": "HarrietLane. Max 10 mg/dose. Age-dependent dosing floors (2.5 mg age 6-23 mo, 5 mg age 2-5 yr, 10 mg age ≥6 yr)."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 10,
+          "note": "HarrietLane."
+        }
+      ]
+    },
+    {
+      "generic": "Diphenhydramine",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "liquid",
+          "maxDose": 50,
+          "note": "HarrietLane. Max 50 mg/dose; 300 mg/day. Not recommended <2 years."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 50,
+          "note": "HarrietLane."
+        },
+        {
+          "match_label_fragment": "capsule",
+          "maxDose": 50,
+          "note": "HarrietLane."
+        }
+      ]
+    },
+    {
+      "generic": "Metronidazole",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "suspension",
+          "maxDose": 500,
+          "note": "HarrietLane/Nelson. Anaerobic/C.diff: max 500 mg/dose TID."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 500,
+          "note": "HarrietLane/Nelson."
+        },
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 500,
+          "note": "IV: max 500 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Ondansetron",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "solution",
+          "maxDose": 8,
+          "note": "HarrietLane/AAP. Oral: 0.15 mg/kg/dose; max 8 mg/dose. Fixed-tier dosing preferred (2/4/8 mg by weight band)."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 8,
+          "note": "HarrietLane."
+        },
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 8,
+          "note": "IV: 0.15 mg/kg/dose; max 8 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Furosemide",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "solution",
+          "maxDose": 40,
+          "note": "HarrietLane/Lexicomp. Oral: 1-2 mg/kg/dose; max 40 mg/dose acute. Transition quantum drug — fine steps below 20 mg, coarser above (deferred in APTOS engine)."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 40,
+          "note": "HarrietLane."
+        },
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 40,
+          "note": "IV: 1 mg/kg/dose; max 40 mg/dose acute."
+        }
+      ]
+    },
+    {
+      "generic": "Dexamethasone",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 10,
+          "note": "HarrietLane. Croup: 0.6 mg/kg single dose, max 10 mg. Injectable given orally for croup per DRUG_DB batch walkthrough."
+        },
+        {
+          "match_label_fragment": "tablet",
+          "maxDose": 10,
+          "note": "HarrietLane."
+        }
+      ]
+    },
+    {
+      "generic": "Morphine",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 15,
+          "note": "HarrietLane/Lexicomp. IV/IM: 0.05-0.1 mg/kg/dose; max 15 mg/dose acute pain."
+        },
+        {
+          "match_label_fragment": "solution",
+          "maxDose": 15,
+          "note": "Oral: 0.2-0.5 mg/kg/dose; max 15 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Ketorolac",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 30,
+          "note": "HarrietLane. IV: 0.5 mg/kg/dose; max 30 mg/dose. Not for use >5 days."
+        }
+      ]
+    },
+    {
+      "generic": "Vancomycin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 750,
+          "note": "HarrietLane/Nelson. 15 mg/kg/dose IV; max 750 mg/dose empiric (AUC-guided dosing preferred; pharmacy TDM required)."
+        }
+      ]
+    },
+    {
+      "generic": "Gentamicin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 120,
+          "note": "HarrietLane/Nelson. Extended-interval: 5-7.5 mg/kg/dose; max 120 mg/dose. Pharmacy TDM required."
+        }
+      ]
+    },
+    {
+      "generic": "Ceftriaxone",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 2000,
+          "note": "HarrietLane/Nelson. General: 50-75 mg/kg/day; max 2000 mg/dose. Meningitis: 100 mg/kg/day, max 4000 mg/day."
+        }
+      ]
+    },
+    {
+      "generic": "Cefazolin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 2000,
+          "note": "HarrietLane/Nelson. 25-50 mg/kg/dose; max 2000 mg/dose surgical prophylaxis."
+        }
+      ]
+    },
+    {
+      "generic": "Ampicillin",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 3000,
+          "note": "HarrietLane/Nelson. Standard: 50 mg/kg/dose; max 2000 mg/dose. Meningitis: 100 mg/kg/dose, max 3000 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Phenobarbital",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 1000,
+          "note": "HarrietLane/Lexicomp. Loading dose: 20 mg/kg IV; max 1000 mg. Neonatal: device-limited precision required."
+        },
+        {
+          "match_label_fragment": "elixir",
+          "maxDose": 100,
+          "note": "Maintenance oral max 100 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Lorazepam",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 4,
+          "note": "HarrietLane. Status epilepticus: 0.05-0.1 mg/kg IV; max 4 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Diazepam",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 10,
+          "note": "HarrietLane. Seizure: 0.1-0.3 mg/kg IV; max 10 mg/dose."
+        }
+      ]
+    },
+    {
+      "generic": "Heparin",
+      "doseUnit": "unit/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 10000,
+          "note": "HarrietLane/Lexicomp. Therapeutic anticoagulation: bolus 75-100 units/kg; maintenance per nomogram. Max bolus 10000 units. Pharmacy protocol required."
+        }
+      ]
+    },
+    {
+      "generic": "Ranitidine",
+      "doseUnit": "mg/kg",
+      "formulation_overrides": [
+        {
+          "match_label_fragment": "syrup",
+          "maxDose": 150,
+          "note": "HarrietLane. Oral: 2-4 mg/kg/dose BID; max 150 mg/dose."
+        },
+        {
+          "match_label_fragment": "INJ",
+          "maxDose": 50,
+          "note": "IV: 0.5-1 mg/kg/dose; max 50 mg/dose."
+        }
+      ]
+    }
+  ]
+}

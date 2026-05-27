@@ -1,6 +1,6 @@
 // APTOS Service Worker
 // Bump CACHE_VERSION to match APP_VERSION in index.html on every deploy
-const CACHE_VERSION = "0.4";
+const CACHE_VERSION = "0.5";
 const CACHE_NAME    = `aptos-v${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [

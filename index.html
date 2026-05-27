@@ -41,7 +41,7 @@
     <img src="Aptos_512.png" alt="APTOS" />
     <div class="name">APTOS</div>
     <div class="tag">Doses Designed to Fit</div>
-    <div style="font-family: 'Courier New', monospace; font-size: 11px; color: #4a6080; margin-top: 8px; letter-spacing: 1px;">v0.4</div>
+    <div style="font-family: 'Courier New', monospace; font-size: 11px; color: #4a6080; margin-top: 8px; letter-spacing: 1px;">v0.5</div>
   </div>
   <div id="root"></div>
 
@@ -51,7 +51,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script defer>
-    const APP_VERSION = "0.4";
+    const APP_VERSION = "0.5";
 
     // Service worker registration
     if ('serviceWorker' in navigator) {
@@ -78,10 +78,80 @@
       const startTime = Date.now();
 
       try {
-        const response = await fetch('PedsDoseTable.jsx');
-        const code = await response.text();
+        // Fetch all three resources in parallel
+        const [jsxRes, formularyRes, paramsRes] = await Promise.all([
+          fetch('PedsDoseTable.jsx'),
+          fetch('formulary.json'),
+          fetch('aptos_params.json'),
+        ]);
 
-        // Strip import lines; strip export default
+        const [code, formularyData, paramsData] = await Promise.all([
+          jsxRes.text(),
+          formularyRes.json(),
+          paramsRes.json(),
+        ]);
+
+        // ── Merge formulary + params into DRUG_DB ──────────────────────────
+        const paramsMap = {};
+        for (const p of paramsData.params) {
+          paramsMap[p.generic.toLowerCase()] = p;
+        }
+
+        const mergedDrugs = [];
+        for (const drug of formularyData.drugs) {
+          const p = paramsMap[drug.generic.toLowerCase()];
+          const overrides = p?.formulation_overrides || [];
+
+          const formulations = [];
+          for (const f of drug.formulations) {
+            // Find matching override by label fragment (case-insensitive)
+            const ov = overrides.find(o =>
+              f.label.toLowerCase().includes(o.match_label_fragment.toLowerCase())
+            );
+
+            if (!ov) {
+              // No params — include as disabled placeholder
+              formulations.push({ ...f, doseUnit: null, maxDose: null, _disabled: true });
+              continue;
+            }
+
+            const merged = {
+              ...f,
+              doseUnit:      p.doseUnit ?? null,
+              maxDose:       ov.maxDose ?? null,
+              _disabled:     false,
+            };
+
+            // Apply optional overrides
+            if (ov.preferredVols  !== undefined) merged.preferredVols  = ov.preferredVols;
+            if (ov.deviceLimited  !== undefined) merged.deviceLimited  = ov.deviceLimited;
+            if (ov.canHalf        !== undefined) merged.canHalf        = ov.canHalf;
+            if (ov.canQuarter     !== undefined) merged.canQuarter     = ov.canQuarter;
+
+            // Ensure liquid defaults
+            if (merged.form === 'liquid' && merged.preferredVols === undefined) {
+              merged.preferredVols = [];
+            }
+            if (merged.form === 'liquid' && merged.deviceLimited === undefined) {
+              merged.deviceLimited = false;
+            }
+
+            formulations.push(merged);
+          }
+
+          mergedDrugs.push({
+            generic:      drug.generic,
+            formulary:    drug.formulary,
+            formulations,
+          });
+        }
+
+        // Sort alphabetically
+        mergedDrugs.sort((a, b) => a.generic.localeCompare(b.generic));
+
+        window.APTOS_DRUG_DB = mergedDrugs;
+
+        // ── Compile and mount component ────────────────────────────────────
         const cleaned = code
           .replace(/^import.*?;\n/gm, '')
           .replace(/export default /, '');
