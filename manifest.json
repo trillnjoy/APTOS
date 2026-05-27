@@ -1,0 +1,25 @@
+{
+  "name": "APTOS — Doses Designed to Fit",
+  "short_name": "APTOS",
+  "description": "Standardized weight-based pediatric dosing band generator for pharmacy and prescriber order set design.",
+  "start_url": "/APTOS/",
+  "scope": "/APTOS/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1c2333",
+  "theme_color": "#1c2333",
+  "icons": [
+    {
+      "src": "Aptos_192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "Aptos_512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
