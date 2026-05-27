@@ -142,11 +142,11 @@ function buildSyringePool(activeSyringes) {
       map.set(key, { vol: v, syringeLabel: label, tier });
   };
 
-  // 1 mL syringe owns 0.01–1.5 mL
+  // 1 mL syringe owns 0.01–1.0 mL; 1.0 mL shared with 3 mL (1 mL preferred when active)
   if (activeSyringes.has("1mL_005")) {
     for (let i = 1; i <= 30; i++) {
       const v = Math.round(i * 0.05 * 100000) / 100000;
-      if (v > 1.5) break;
+      if (v > 1.0) break;
       let tier = 4;
       if (Math.abs(v - Math.round(v)) < 0.0001)                                 tier = 0;
       else if (Math.abs(v * 2 - Math.round(v * 2)) < 0.0001)                    tier = 1;
@@ -157,7 +157,7 @@ function buildSyringePool(activeSyringes) {
   if (activeSyringes.has("1mL_001")) {
     for (let i = 1; i <= 150; i++) {
       const v = Math.round(i * 0.01 * 100000) / 100000;
-      if (v > 1.5) break;
+      if (v > 1.0) break;
       let tier = 5;
       if (Math.abs(v - Math.round(v)) < 0.0001)                                 tier = 0;
       else if (Math.abs(v * 2 - Math.round(v * 2)) < 0.0001)                    tier = 1;
@@ -167,11 +167,11 @@ function buildSyringePool(activeSyringes) {
     }
   }
 
-  // 3 mL syringe owns 1.6–3.0 mL (and 1.0–1.5 mL overlap when no 1 mL active)
+  // 3 mL syringe owns 1.1–3.0 mL
   if (activeSyringes.has("3mL")) {
     for (let i = 1; i <= 30; i++) {
       const v = Math.round(i * 0.1 * 100000) / 100000;
-      if (v <= 1.0) continue;  // 1 mL syringe owns ≤1.0 mL
+      if (v < 1.0) continue;  // 1 mL syringe preferred ≤1.0 mL but 3 mL can serve 1.0 mL
       let tier = 3;
       if (Math.abs(v - Math.round(v)) < 0.0001)                                 tier = 0;
       else if (Math.abs(v * 2 - Math.round(v * 2)) < 0.0001)                    tier = 1;
@@ -680,6 +680,179 @@ export default function PedsDoseTable() {
   const fmtPct = v =>
     v === null ? "—" : (v >= 0 ? "+" : "\u2212") + Math.abs(v).toFixed(1) + "%";
 
+  const generatePDF = useCallback(async () => {
+    if (!rows || !formulation || !drug) return;
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF({ orientation: "portrait", unit: "pt", format: "letter" });
+    const PW = doc.internal.pageSize.getWidth();   // 612
+    const PH = doc.internal.pageSize.getHeight();  // 792
+    const ML = 36, MR = 36, MT = 36;
+    let y = MT;
+
+    // ── Logo + header block ──────────────────────────────────────────────────
+    try {
+      const res = await fetch("Aptos_512.png");
+      const blob = await res.blob();
+      const b64 = await new Promise(resolve => {
+        const r = new FileReader();
+        r.onload = () => resolve(r.result);
+        r.readAsDataURL(blob);
+      });
+      const logoH = 48, logoW = 48;
+      doc.addImage(b64, "PNG", ML, y, logoW, logoH);
+    } catch(e) { /* logo unavailable — skip silently */ }
+
+    // APTOS wordmark
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(18);
+    doc.setTextColor(28, 35, 51);
+    doc.text("APTOS", ML + 56, y + 18);
+
+    // Tagline
+    doc.setFont("times", "italic");
+    doc.setFontSize(10);
+    doc.setTextColor(100, 120, 140);
+    doc.text("Doses Designed to Fit", ML + 56, y + 32);
+
+    // Date/time stamp
+    const now = new Date();
+    const stamp = now.toLocaleString(undefined, {
+      year: "numeric", month: "short", day: "numeric",
+      hour: "2-digit", minute: "2-digit"
+    });
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(8);
+    doc.setTextColor(140, 140, 140);
+    doc.text(stamp, PW - MR, y + 12, { align: "right" });
+
+    y += 56;
+
+    // ── Dark metadata band ───────────────────────────────────────────────────
+    const bandH = 46;
+    doc.setFillColor(28, 35, 51);
+    doc.rect(ML, y, PW - ML - MR, bandH, "F");
+
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(11);
+    doc.setTextColor(255, 255, 255);
+    doc.text(drug.generic, ML + 8, y + 13);
+
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+    doc.setTextColor(184, 207, 224);
+    doc.text(formulation.label, ML + 8, y + 24);
+
+    const meta = `${committedTarget} ${formulation.doseUnit}  ·  min ${effectiveMinWt} kg  ·  max ${effectiveMax} ${formulation.unit}  ·  ±${variance}%  ·  ${rows.length} rows`;
+    doc.setFontSize(8);
+    doc.text(meta, ML + 8, y + 36);
+
+    y += bandH;
+
+    // ── Column headers ───────────────────────────────────────────────────────
+    const colHeaders = isLiquid
+      ? ["Wt (kg)", "Dose", "Vol", "Syr", "Under", "Over"]
+      : ["Wt (kg)", "Dose", "Form", "Under", "Over"];
+    const colX = isLiquid
+      ? [ML, ML+110, ML+195, ML+265, ML+315, ML+385]
+      : [ML, ML+120, ML+210, ML+300, ML+370];
+    const colAlign = isLiquid
+      ? ["left","left","left","center","center","center"]
+      : ["left","left","left","center","center"];
+
+    const hdrH = 18;
+    doc.setFillColor(245, 245, 241);
+    doc.rect(ML, y, PW - ML - MR, hdrH, "F");
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(8);
+    doc.setTextColor(34, 34, 34);
+    colHeaders.forEach((h, i) => {
+      doc.text(h.toUpperCase(), colX[i] + (colAlign[i] === "center" ? 25 : 0), y + 12,
+        { align: colAlign[i] });
+    });
+    y += hdrH;
+
+    // ── Table rows ───────────────────────────────────────────────────────────
+    const rowH = 16;
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(9);
+
+    rows.forEach((r, idx) => {
+      if (y + rowH > PH - 36) {
+        doc.addPage();
+        y = MT;
+      }
+
+      // Alternating row background
+      if (idx % 2 === 0) {
+        doc.setFillColor(252, 252, 250);
+        doc.rect(ML, y, PW - ML - MR, rowH, "F");
+      }
+
+      // OOT highlight
+      if (r.flagged) {
+        doc.setFillColor(255, 252, 220);
+        doc.rect(ML, y, PW - ML - MR, rowH, "F");
+      }
+
+      const textY = y + 11;
+      const ootColor = r.oot ? [180,180,180] : null;
+
+      // Wt
+      doc.setTextColor(...(ootColor || [26,26,26]));
+      doc.setFont("helvetica", "normal");
+      const wtLabel = typeof r.wEnd === "string"
+        ? `≥ ${r.wStart}` : `${r.wStart}–${r.wEnd}`;
+      doc.text(wtLabel, colX[0], textY);
+
+      // Dose (bold)
+      doc.setFont("helvetica", "bold");
+      doc.text(r.doseLabel, colX[1], textY);
+
+      // Vol
+      doc.setFont("helvetica", "normal");
+      doc.text(isLiquid ? r.volLabel : r.volLabel, colX[2], textY);
+
+      if (isLiquid) {
+        // Syr
+        doc.setTextColor(...(ootColor || [85,85,85]));
+        doc.text(r.syringeLabel, colX[3] + 25, textY, { align: "center" });
+      }
+
+      // Under
+      const uIdx = isLiquid ? 4 : 3;
+      const uOot = !r.oot && r.underPct !== null && Math.abs(r.underPct) > variance + 0.05;
+      doc.setTextColor(...(ootColor || (uOot ? [192,57,43] : [68,68,68])));
+      doc.setFont("helvetica", uOot ? "bold" : "normal");
+      doc.text(fmtPct(r.underPct), colX[uIdx] + 25, textY, { align: "center" });
+
+      // Over
+      const oIdx = isLiquid ? 5 : 4;
+      const oOot = !r.oot && Math.abs(r.overPct) > variance + 0.05;
+      doc.setTextColor(...(ootColor || (oOot ? [192,57,43] : [68,68,68])));
+      doc.setFont("helvetica", oOot ? "bold" : "normal");
+      doc.text(fmtPct(r.overPct), colX[oIdx] + 25, textY, { align: "center" });
+
+      // Row border
+      doc.setDrawColor(220, 220, 216);
+      doc.line(ML, y + rowH, PW - MR, y + rowH);
+
+      y += rowH;
+    });
+
+    // ── Footer note ──────────────────────────────────────────────────────────
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(7);
+    doc.setTextColor(150, 150, 150);
+    doc.text(
+      "Weight bands: lower bound inclusive, upper bound exclusive  ·  Pharmacy verification required before clinical use",
+      PW / 2, y + 12, { align: "center" }
+    );
+
+    // ── Save ─────────────────────────────────────────────────────────────────
+    const fname = `APTOS_${drug.generic.replace(/\s+/g,"_")}_${now.toISOString().slice(0,10)}.pdf`;
+    doc.save(fname);
+  }, [rows, formulation, drug, committedTarget, effectiveMax, effectiveMinWt, variance, isLiquid, fmtPct]);
+
   // Column count: liquid tables have a syringe column, solid tables do not
   const colCount = isLiquid ? 6 : 5;
 
@@ -852,16 +1025,22 @@ export default function PedsDoseTable() {
               <thead>
                 {/* Metadata row */}
                 <tr style={{ background: "#1c2333" }}>
-                  <th colSpan={colCount} style={{ padding: "6px 10px", textAlign: "left" }}>
-                    <span style={{ color: "#fff", fontWeight: 700, fontSize: 13 }}>
-                      {drug.generic} · {formulation.label}
-                    </span>
-                    <span style={{ color: "#8fa3b8", fontSize: 11, marginLeft: 10 }}>
+                  <th colSpan={colCount} style={{ padding: "7px 10px", textAlign: "left" }}>
+                    <div style={{ color: "#fff", fontWeight: 700, fontSize: 13,
+                                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" }}>
+                      {drug.generic}
+                    </div>
+                    <div style={{ color: "#fff", fontWeight: 500, fontSize: 12, marginTop: 2,
+                                  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" }}>
+                      {formulation.label}
+                    </div>
+                    <div style={{ color: "#b8cfe0", fontSize: 11, marginTop: 3 }}>
                       {committedTarget} {formulation.doseUnit}
+                      {" · "}min {effectiveMinWt} kg
                       {" · "}max {effectiveMax} {formulation.unit}
                       {" · "}±{variance}%
                       {" · "}{rows.length} rows
-                    </span>
+                    </div>
                   </th>
                 </tr>
                 {/* Column headers */}
@@ -949,6 +1128,20 @@ export default function PedsDoseTable() {
           </div>
         )}
       </div>
+
+      {/* ── Floating PDF button ── */}
+      {rows && (
+        <div style={{ position: "fixed", bottom: 24, right: 20, zIndex: 100 }}>
+          <button onClick={generatePDF} style={{
+            background: "#1c2333", color: "#fff", border: "none", borderRadius: 28,
+            padding: "12px 22px", fontSize: 14, fontWeight: 700, cursor: "pointer",
+            fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
+            boxShadow: "0 4px 16px rgba(0,0,0,0.35)", letterSpacing: 0.3,
+          }}>
+            ⬇ PDF
+          </button>
+        </div>
+      )}
     </div>
   );
 }
