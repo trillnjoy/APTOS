@@ -566,6 +566,7 @@ function buildTable(formulation, targetMgKg, variancePct, canHalf, canQuarter, a
 
 // ── Styles ─────────────────────────────────────────────────────────────────────
 const MONO = "'DM Mono','Courier New',monospace";
+const INTER = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
 const ctrlBase = {
   fontFamily: MONO, fontSize: 15, border: "2px solid #b0b8c4", borderRadius: 5,
   background: "#fff", color: "#111", width: "100%", boxSizing: "border-box",
@@ -588,9 +589,12 @@ const CAP = {
 const TH = {
   padding: "6px 8px", fontSize: 11, fontWeight: 700, letterSpacing: 0.6,
   textTransform: "uppercase", borderBottom: "2px solid #ccc", whiteSpace: "nowrap",
-  color: "#222",
+  color: "#222", fontFamily: INTER, fontVariantNumeric: "tabular-nums",
 };
-const TD = { padding: "6px 8px", fontSize: 14, whiteSpace: "nowrap" };
+const TD = {
+  padding: "6px 8px", fontSize: 14, whiteSpace: "nowrap",
+  fontFamily: INTER, fontVariantNumeric: "tabular-nums",
+};
 
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function PedsDoseTable() {
@@ -797,40 +801,44 @@ export default function PedsDoseTable() {
       const textY = y + 11;
       const ootColor = r.oot ? [180,180,180] : null;
 
-      // Wt
+      // PDF-safe formatters (no unicode minus or ≥)
+      const pdfPct = v => v === null ? "--"
+        : (v >= 0 ? "+" : "-") + Math.abs(v).toFixed(1) + "%";
+
+      // Wt — ASCII-safe ≥ replacement
       doc.setTextColor(...(ootColor || [26,26,26]));
       doc.setFont("helvetica", "normal");
       const wtLabel = typeof r.wEnd === "string"
-        ? `≥ ${r.wStart}` : `${r.wStart}–${r.wEnd}`;
+        ? `>= ${r.wStart}` : `${r.wStart}-${r.wEnd}`;
       doc.text(wtLabel, colX[0], textY);
 
       // Dose (bold)
       doc.setFont("helvetica", "bold");
       doc.text(r.doseLabel, colX[1], textY);
 
-      // Vol
+      // Vol — right-aligned to column right edge
       doc.setFont("helvetica", "normal");
-      doc.text(isLiquid ? r.volLabel : r.volLabel, colX[2], textY);
+      doc.text(r.volLabel, colX[2] + 48, textY, { align: "right" });
 
       if (isLiquid) {
-        // Syr
+        // Syr — centered
         doc.setTextColor(...(ootColor || [85,85,85]));
-        doc.text(r.syringeLabel, colX[3] + 25, textY, { align: "center" });
+        doc.text(r.syringeLabel, colX[3] + 22, textY, { align: "center" });
       }
 
-      // Under
+      // Under — right-aligned
       const uIdx = isLiquid ? 4 : 3;
       const uOot = !r.oot && r.underPct !== null && Math.abs(r.underPct) > variance + 0.05;
       doc.setTextColor(...(ootColor || (uOot ? [192,57,43] : [68,68,68])));
       doc.setFont("helvetica", uOot ? "bold" : "normal");
-      doc.text(fmtPct(r.underPct), colX[uIdx] + 25, textY, { align: "center" });
+      doc.text(pdfPct(r.underPct), colX[uIdx] + 48, textY, { align: "right" });
 
-      // Over
+      // Over — right-aligned
       const oIdx = isLiquid ? 5 : 4;
       const oOot = !r.oot && Math.abs(r.overPct) > variance + 0.05;
       doc.setTextColor(...(ootColor || (oOot ? [192,57,43] : [68,68,68])));
       doc.setFont("helvetica", oOot ? "bold" : "normal");
-      doc.text(fmtPct(r.overPct), colX[oIdx] + 25, textY, { align: "center" });
+      doc.text(pdfPct(r.overPct), colX[oIdx] + 48, textY, { align: "right" });
 
       // Row border
       doc.setDrawColor(220, 220, 216);
@@ -1021,7 +1029,7 @@ export default function PedsDoseTable() {
         {rows ? (
           <div style={{ background: "#fff", borderRadius: 6, overflow: "hidden",
                         border: "1px solid #d0d0c8" }}>
-            <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: MONO }}>
+            <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: INTER }}>
               <thead>
                 {/* Metadata row */}
                 <tr style={{ background: "#1c2333" }}>
@@ -1047,14 +1055,14 @@ export default function PedsDoseTable() {
                 <tr style={{ background: "#f5f5f1" }}>
                   <th style={{ ...TH, textAlign: "left",   color: "#444" }}>Wt (kg)</th>
                   <th style={{ ...TH, textAlign: "left",   color: "#444" }}>Dose</th>
-                  <th style={{ ...TH, textAlign: "left",   color: "#444" }}>
+                  <th style={{ ...TH, textAlign: "right",   color: "#444" }}>
                     {isLiquid ? "Vol" : "Form"}
                   </th>
                   {isLiquid && (
                     <th style={{ ...TH, textAlign: "center", color: "#444", padding: "6px 4px" }}>Syr</th>
                   )}
-                  <th style={{ ...TH, textAlign: "center", color: "#444", padding: "6px 4px" }}>Under</th>
-                  <th style={{ ...TH, textAlign: "center", color: "#444", padding: "6px 4px" }}>Over</th>
+                  <th style={{ ...TH, textAlign: "right", color: "#444", padding: "6px 4px" }}>Under</th>
+                  <th style={{ ...TH, textAlign: "right", color: "#444", padding: "6px 4px" }}>Over</th>
                 </tr>
               </thead>
               <tbody>
@@ -1084,7 +1092,7 @@ export default function PedsDoseTable() {
                                   color: r.oot ? "#999" : "inherit" }}>
                       {r.doseLabel}
                     </td>
-                    <td style={{ ...TD, color: r.oot ? "#999" : "inherit" }}>
+                    <td style={{ ...TD, textAlign: "right", color: r.oot ? "#999" : "inherit" }}>
                       {r.volLabel}
                     </td>
                     {isLiquid && (
@@ -1094,13 +1102,13 @@ export default function PedsDoseTable() {
                         {r.syringeLabel}
                       </td>
                     )}
-                    <td style={{ ...TD, padding: "6px 4px", textAlign: "center", fontWeight: 600,
+                    <td style={{ ...TD, padding: "6px 4px", textAlign: "right", fontWeight: 600,
                                   color: r.oot ? "#bbb"
                                     : (r.underPct !== null && Math.abs(r.underPct) > variance + 0.05)
                                       ? "#c0392b" : "#444" }}>
                       {fmtPct(r.underPct)}
                     </td>
-                    <td style={{ ...TD, padding: "6px 4px", textAlign: "center", fontWeight: 600,
+                    <td style={{ ...TD, padding: "6px 4px", textAlign: "right", fontWeight: 600,
                                   color: r.oot ? "#bbb"
                                     : (Math.abs(r.overPct) > variance + 0.05)
                                       ? "#c0392b" : "#444" }}>
