@@ -1,7 +1,7 @@
 {
   "drugs": [
     {
-      "generic": "Abacavir",
+      "generic": "abacavir",
       "formulary": false,
       "formulations": [
         {
@@ -33,7 +33,7 @@
       ]
     },
     {
-      "generic": "Abciximab",
+      "generic": "abciximab",
       "formulary": true,
       "formulations": [
         {
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "generic": "Acetaminophen",
+      "generic": "acetaminophen",
       "formulary": true,
       "formulations": [
         {
@@ -122,7 +122,7 @@
       ]
     },
     {
-      "generic": "Acetaminophen-Codeine",
+      "generic": "acetaminophen-codeine",
       "formulary": true,
       "formulations": [
         {
@@ -180,7 +180,7 @@
       ]
     },
     {
-      "generic": "Acetaminophen-Hydrocodone",
+      "generic": "acetaminophen-hydrocodone",
       "formulary": true,
       "formulations": [
         {
@@ -225,7 +225,7 @@
       ]
     },
     {
-      "generic": "Acetaminophen-Oxycodone",
+      "generic": "acetaminophen-oxycodone",
       "formulary": true,
       "formulations": [
         {
@@ -244,7 +244,7 @@
       ]
     },
     {
-      "generic": "Acetazolamide",
+      "generic": "AcetaZOLAMIDE",
       "formulary": true,
       "formulations": [
         {
@@ -288,7 +288,7 @@
       ]
     },
     {
-      "generic": "Acetylcysteine",
+      "generic": "acetylcysteine",
       "formulary": true,
       "formulations": [
         {
@@ -333,7 +333,7 @@
       ]
     },
     {
-      "generic": "Acyclovir",
+      "generic": "acyclovir",
       "formulary": true,
       "formulations": [
         {
@@ -402,7 +402,7 @@
       ]
     },
     {
-      "generic": "Adenosine",
+      "generic": "adenosine",
       "formulary": true,
       "formulations": [
         {
@@ -420,7 +420,7 @@
       ]
     },
     {
-      "generic": "Al Hydroxide/asa/ca Carbonate/mg hydroxide",
+      "generic": "Al hydroxide/ASA/Ca carbonate/Mg hydroxide",
       "formulary": true,
       "formulations": [
         {
@@ -439,7 +439,7 @@
       ]
     },
     {
-      "generic": "Al Hydroxide/mg hydroxide/simethicone",
+      "generic": "Al hydroxide/Mg hydroxide/simethicone",
       "formulary": true,
       "formulations": [
         {
@@ -458,7 +458,7 @@
       ]
     },
     {
-      "generic": "Albendazole",
+      "generic": "albendazole",
       "formulary": true,
       "formulations": [
         {
@@ -477,7 +477,7 @@
       ]
     },
     {
-      "generic": "Albumin Human",
+      "generic": "albumin human",
       "formulary": true,
       "formulations": [
         {
@@ -519,7 +519,7 @@
       ]
     },
     {
-      "generic": "Albumin Human 25%",
+      "generic": "albumin human 25%",
       "formulary": true,
       "formulations": [
         {
@@ -597,7 +597,7 @@
       ]
     },
     {
-      "generic": "Albuterol",
+      "generic": "albuterol",
       "formulary": true,
       "formulations": [
         {
@@ -642,7 +642,7 @@
       ]
     },
     {
-      "generic": "Aldesleukin",
+      "generic": "aldesleukin",
       "formulary": false,
       "formulations": [
         {
@@ -660,7 +660,7 @@
       ]
     },
     {
-      "generic": "Alemtuzumab",
+      "generic": "alemtuzumab",
       "formulary": false,
       "formulations": [
         {
@@ -678,7 +678,7 @@
       ]
     },
     {
-      "generic": "Alendronate",
+      "generic": "alendronate",
       "formulary": false,
       "formulations": [
         {
@@ -723,7 +723,7 @@
       ]
     },
     {
-      "generic": "Allopurinol",
+      "generic": "allopurinol",
       "formulary": true,
       "formulations": [
         {
@@ -767,7 +767,7 @@
       ]
     },
     {
-      "generic": "Alprazolam",
+      "generic": "alprazolam",
       "formulary": true,
       "formulations": [
         {
@@ -812,7 +812,7 @@
       ]
     },
     {
-      "generic": "Alprostadil",
+      "generic": "alprostadil",
       "formulary": true,
       "formulations": [
         {
@@ -830,7 +830,7 @@
       ]
     },
     {
-      "generic": "Alprostadil 0.005 Mg/ml in D5w",
+      "generic": "ALPROSTADIL 0.005 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -848,7 +848,7 @@
       ]
     },
     {
-      "generic": "Alprostadil 0.01 Mg/ml in D5w",
+      "generic": "ALPROSTADIL 0.01 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -866,7 +866,7 @@
       ]
     },
     {
-      "generic": "Alprostadil 0.02 Mg/ml in D5w",
+      "generic": "ALPROSTADIL 0.02 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -884,7 +884,7 @@
       ]
     },
     {
-      "generic": "Alteplase",
+      "generic": "alteplase",
       "formulary": true,
       "formulations": [
         {
@@ -914,7 +914,7 @@
       ]
     },
     {
-      "generic": "Alum 1%",
+      "generic": "alum 1%",
       "formulary": true,
       "formulations": [
         {
@@ -933,7 +933,7 @@
       ]
     },
     {
-      "generic": "Aluminum Hydroxide",
+      "generic": "aluminum hydroxide",
       "formulary": true,
       "formulations": [
         {
@@ -952,7 +952,7 @@
       ]
     },
     {
-      "generic": "Aluminum Hydroxide-Magnesium Hydroxide",
+      "generic": "aluminum hydroxide-magnesium hydroxide",
       "formulary": true,
       "formulations": [
         {
@@ -984,7 +984,7 @@
       ]
     },
     {
-      "generic": "Amantadine",
+      "generic": "amantadine",
       "formulary": true,
       "formulations": [
         {
@@ -1016,7 +1016,7 @@
       ]
     },
     {
-      "generic": "Amifostine",
+      "generic": "amifostine",
       "formulary": true,
       "formulations": [
         {
@@ -1034,7 +1034,7 @@
       ]
     },
     {
-      "generic": "Amikacin",
+      "generic": "amikacin",
       "formulary": true,
       "formulations": [
         {
@@ -1088,7 +1088,7 @@
       ]
     },
     {
-      "generic": "Amino Acids 10% (aminosyn)",
+      "generic": "Amino Acids 10% (Aminosyn)",
       "formulary": false,
       "formulations": [
         {
@@ -1106,7 +1106,7 @@
       ]
     },
     {
-      "generic": "Amino Acids 10% (trophamine)",
+      "generic": "Amino Acids 10% (Trophamine)",
       "formulary": true,
       "formulations": [
         {
@@ -1124,7 +1124,7 @@
       ]
     },
     {
-      "generic": "Amino Acids 5.4% (nephramine)",
+      "generic": "Amino Acids 5.4% (Nephramine)",
       "formulary": true,
       "formulations": [
         {
@@ -1142,7 +1142,7 @@
       ]
     },
     {
-      "generic": "Amino Acids 8% (hepatamine)",
+      "generic": "Amino Acids 8% (HepatAmine)",
       "formulary": true,
       "formulations": [
         {
@@ -1160,7 +1160,7 @@
       ]
     },
     {
-      "generic": "Aminocaproic Acid",
+      "generic": "AminoCAPROIC ACID",
       "formulary": true,
       "formulations": [
         {
@@ -1204,7 +1204,7 @@
       ]
     },
     {
-      "generic": "Aminophylline",
+      "generic": "AminoPHYLLINE",
       "formulary": true,
       "formulations": [
         {
@@ -1234,7 +1234,7 @@
       ]
     },
     {
-      "generic": "Amiodarone",
+      "generic": "amiodarone",
       "formulary": true,
       "formulations": [
         {
@@ -1279,7 +1279,7 @@
       ]
     },
     {
-      "generic": "Amitriptyline",
+      "generic": "amitriptyline",
       "formulary": true,
       "formulations": [
         {
@@ -1324,7 +1324,7 @@
       ]
     },
     {
-      "generic": "Amlodipine",
+      "generic": "amlodipine",
       "formulary": true,
       "formulations": [
         {
@@ -1356,7 +1356,7 @@
       ]
     },
     {
-      "generic": "Ammonium Chloride",
+      "generic": "ammonium chloride",
       "formulary": true,
       "formulations": [
         {
@@ -1374,7 +1374,7 @@
       ]
     },
     {
-      "generic": "Amoxicillin",
+      "generic": "amoxicillin",
       "formulary": true,
       "formulations": [
         {
@@ -1419,7 +1419,7 @@
       ]
     },
     {
-      "generic": "Amoxicillin-Clavulanate",
+      "generic": "amoxicillin-clavulanate",
       "formulary": true,
       "formulations": [
         {
@@ -1503,7 +1503,7 @@
       ]
     },
     {
-      "generic": "Amphetamine-Dextroamphetamine",
+      "generic": "amphetamine-dextroamphetamine",
       "formulary": false,
       "formulations": [
         {
@@ -1626,7 +1626,7 @@
       ]
     },
     {
-      "generic": "Ampicillin",
+      "generic": "ampicillin",
       "formulary": true,
       "formulations": [
         {
@@ -1656,7 +1656,7 @@
       ]
     },
     {
-      "generic": "Ampicillin-Sulbactam",
+      "generic": "ampicillin-sulbactam",
       "formulary": true,
       "formulations": [
         {
@@ -1674,7 +1674,7 @@
       ]
     },
     {
-      "generic": "Amprenavir",
+      "generic": "amprenavir",
       "formulary": true,
       "formulations": [
         {
@@ -1706,7 +1706,7 @@
       ]
     },
     {
-      "generic": "Anakinra",
+      "generic": "anakinra",
       "formulary": false,
       "formulations": [
         {
@@ -1724,7 +1724,7 @@
       ]
     },
     {
-      "generic": "Anti-Inhibitor Coagulant Complex",
+      "generic": "anti-inhibitor coagulant complex",
       "formulary": true,
       "formulations": [
         {
@@ -1742,7 +1742,7 @@
       ]
     },
     {
-      "generic": "Anticoagulant Citrate Dextrose Solution",
+      "generic": "anticoagulant citrate dextrose solution",
       "formulary": false,
       "formulations": [
         {
@@ -1760,7 +1760,7 @@
       ]
     },
     {
-      "generic": "Antihemophilic Factor",
+      "generic": "antihemophilic factor",
       "formulary": true,
       "formulations": [
         {
@@ -1850,7 +1850,7 @@
       ]
     },
     {
-      "generic": "Antivenin (crotalidae) Polyvalent",
+      "generic": "antivenin (crotalidae) polyvalent",
       "formulary": true,
       "formulations": [
         {
@@ -1868,7 +1868,7 @@
       ]
     },
     {
-      "generic": "Aprotinin",
+      "generic": "aprotinin",
       "formulary": true,
       "formulations": [
         {
@@ -1899,7 +1899,7 @@
       ]
     },
     {
-      "generic": "Arginine",
+      "generic": "arginine",
       "formulary": true,
       "formulations": [
         {
@@ -1942,7 +1942,7 @@
       ]
     },
     {
-      "generic": "Arsenic Trioxide",
+      "generic": "arsenic trioxide",
       "formulary": false,
       "formulations": [
         {
@@ -1960,7 +1960,7 @@
       ]
     },
     {
-      "generic": "Asa/citric Acid/na bicarb",
+      "generic": "ASA/citric acid/Na bicarb",
       "formulary": true,
       "formulations": [
         {
@@ -1979,7 +1979,7 @@
       ]
     },
     {
-      "generic": "Ascorbic Acid",
+      "generic": "ascorbic acid",
       "formulary": true,
       "formulations": [
         {
@@ -2062,7 +2062,7 @@
       ]
     },
     {
-      "generic": "Asparaginase",
+      "generic": "asparaginase",
       "formulary": true,
       "formulations": [
         {
@@ -2080,7 +2080,7 @@
       ]
     },
     {
-      "generic": "Aspirin",
+      "generic": "aspirin",
       "formulary": true,
       "formulations": [
         {
@@ -2125,7 +2125,7 @@
       ]
     },
     {
-      "generic": "Atenolol",
+      "generic": "atenolol",
       "formulary": true,
       "formulations": [
         {
@@ -2170,7 +2170,7 @@
       ]
     },
     {
-      "generic": "Atovaquone",
+      "generic": "atovaquone",
       "formulary": true,
       "formulations": [
         {
@@ -2189,7 +2189,7 @@
       ]
     },
     {
-      "generic": "Atracurium",
+      "generic": "atracurium",
       "formulary": true,
       "formulations": [
         {
@@ -2207,7 +2207,7 @@
       ]
     },
     {
-      "generic": "Atropine",
+      "generic": "atropine",
       "formulary": true,
       "formulations": [
         {
@@ -2249,7 +2249,7 @@
       ]
     },
     {
-      "generic": "Atropine-Diphenoxylate",
+      "generic": "atropine-diphenoxylate",
       "formulary": true,
       "formulations": [
         {
@@ -2281,7 +2281,7 @@
       ]
     },
     {
-      "generic": "Azacitidine",
+      "generic": "azacitidine",
       "formulary": true,
       "formulations": [
         {
@@ -2299,7 +2299,7 @@
       ]
     },
     {
-      "generic": "Azathioprine",
+      "generic": "azathioprine",
       "formulary": true,
       "formulations": [
         {
@@ -2343,7 +2343,7 @@
       ]
     },
     {
-      "generic": "Azithromycin",
+      "generic": "azithromycin",
       "formulary": true,
       "formulations": [
         {
@@ -2399,7 +2399,7 @@
       ]
     },
     {
-      "generic": "Aztreonam",
+      "generic": "aztreonam",
       "formulary": true,
       "formulations": [
         {
@@ -2429,7 +2429,7 @@
       ]
     },
     {
-      "generic": "Bacitracin",
+      "generic": "bacitracin",
       "formulary": false,
       "formulations": [
         {
@@ -2459,7 +2459,7 @@
       ]
     },
     {
-      "generic": "Baclofen",
+      "generic": "baclofen",
       "formulary": true,
       "formulations": [
         {
@@ -2503,7 +2503,7 @@
       ]
     },
     {
-      "generic": "Basiliximab",
+      "generic": "basiliximab",
       "formulary": true,
       "formulations": [
         {
@@ -2521,7 +2521,7 @@
       ]
     },
     {
-      "generic": "Benztropine",
+      "generic": "benztropine",
       "formulary": true,
       "formulations": [
         {
@@ -2566,7 +2566,7 @@
       ]
     },
     {
-      "generic": "Betamethasone",
+      "generic": "betamethasone",
       "formulary": true,
       "formulations": [
         {
@@ -2596,7 +2596,7 @@
       ]
     },
     {
-      "generic": "Bethanechol",
+      "generic": "bethanechol",
       "formulary": true,
       "formulations": [
         {
@@ -2641,7 +2641,7 @@
       ]
     },
     {
-      "generic": "Biotin",
+      "generic": "biotin",
       "formulary": true,
       "formulations": [
         {
@@ -2660,7 +2660,7 @@
       ]
     },
     {
-      "generic": "Bismuth Subsalicylate",
+      "generic": "bismuth subsalicylate",
       "formulary": true,
       "formulations": [
         {
@@ -2679,7 +2679,7 @@
       ]
     },
     {
-      "generic": "Bleomycin",
+      "generic": "bleomycin",
       "formulary": true,
       "formulations": [
         {
@@ -2715,7 +2715,7 @@
       ]
     },
     {
-      "generic": "Botulism Immune Globulin",
+      "generic": "botulism immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -2733,7 +2733,7 @@
       ]
     },
     {
-      "generic": "Brompheniramine-Pseudoephedrine",
+      "generic": "brompheniramine-pseudoephedrine",
       "formulary": true,
       "formulations": [
         {
@@ -2752,7 +2752,7 @@
       ]
     },
     {
-      "generic": "Budesonide",
+      "generic": "budesonide",
       "formulary": true,
       "formulations": [
         {
@@ -2771,7 +2771,7 @@
       ]
     },
     {
-      "generic": "Bumetanide",
+      "generic": "bumetanide",
       "formulary": true,
       "formulations": [
         {
@@ -2814,7 +2814,7 @@
       ]
     },
     {
-      "generic": "Bupivacaine",
+      "generic": "bupivacaine",
       "formulary": true,
       "formulations": [
         {
@@ -2856,7 +2856,7 @@
       ]
     },
     {
-      "generic": "Bupivacaine-Epinephrine",
+      "generic": "bupivacaine-epinephrine",
       "formulary": true,
       "formulations": [
         {
@@ -2886,7 +2886,7 @@
       ]
     },
     {
-      "generic": "Bupropion",
+      "generic": "BuPROPion",
       "formulary": false,
       "formulations": [
         {
@@ -2931,7 +2931,7 @@
       ]
     },
     {
-      "generic": "Busulfan",
+      "generic": "busulfan",
       "formulary": true,
       "formulations": [
         {
@@ -2962,7 +2962,7 @@
       ]
     },
     {
-      "generic": "Butorphanol",
+      "generic": "butorphanol",
       "formulary": false,
       "formulations": [
         {
@@ -2980,7 +2980,7 @@
       ]
     },
     {
-      "generic": "Caffeine",
+      "generic": "caffeine",
       "formulary": true,
       "formulations": [
         {
@@ -2999,7 +2999,7 @@
       ]
     },
     {
-      "generic": "Calcitonin",
+      "generic": "calcitonin",
       "formulary": true,
       "formulations": [
         {
@@ -3030,7 +3030,7 @@
       ]
     },
     {
-      "generic": "Calcitriol",
+      "generic": "calcitriol",
       "formulary": true,
       "formulations": [
         {
@@ -3075,7 +3075,7 @@
       ]
     },
     {
-      "generic": "Calcium Acetate",
+      "generic": "calcium acetate",
       "formulary": false,
       "formulations": [
         {
@@ -3126,7 +3126,7 @@
       ]
     },
     {
-      "generic": "Calcium Carbonate",
+      "generic": "calcium carbonate",
       "formulary": true,
       "formulations": [
         {
@@ -3184,7 +3184,7 @@
       ]
     },
     {
-      "generic": "Calcium Chloride",
+      "generic": "calcium chloride",
       "formulary": true,
       "formulations": [
         {
@@ -3226,7 +3226,7 @@
       ]
     },
     {
-      "generic": "Calcium Glubionate",
+      "generic": "calcium glubionate",
       "formulary": true,
       "formulations": [
         {
@@ -3245,7 +3245,7 @@
       ]
     },
     {
-      "generic": "Calcium Gluconate",
+      "generic": "calcium gluconate",
       "formulary": true,
       "formulations": [
         {
@@ -3275,7 +3275,7 @@
       ]
     },
     {
-      "generic": "Candida Albicans Extract",
+      "generic": "candida albicans extract",
       "formulary": true,
       "formulations": [
         {
@@ -3293,7 +3293,7 @@
       ]
     },
     {
-      "generic": "Captopril",
+      "generic": "captopril",
       "formulary": true,
       "formulations": [
         {
@@ -3351,7 +3351,7 @@
       ]
     },
     {
-      "generic": "Carbamazepine",
+      "generic": "carbamazepine",
       "formulary": true,
       "formulations": [
         {
@@ -3435,7 +3435,7 @@
       ]
     },
     {
-      "generic": "Carbidopa-Levodopa",
+      "generic": "carbidopa-levodopa",
       "formulary": false,
       "formulations": [
         {
@@ -3454,7 +3454,7 @@
       ]
     },
     {
-      "generic": "Carbonyl Iron",
+      "generic": "carbonyl iron",
       "formulary": false,
       "formulations": [
         {
@@ -3473,7 +3473,7 @@
       ]
     },
     {
-      "generic": "Carboplatin",
+      "generic": "CARBOplatin",
       "formulary": true,
       "formulations": [
         {
@@ -3491,7 +3491,7 @@
       ]
     },
     {
-      "generic": "Carmustine",
+      "generic": "carmustine",
       "formulary": true,
       "formulations": [
         {
@@ -3509,7 +3509,7 @@
       ]
     },
     {
-      "generic": "Carvedilol",
+      "generic": "carvedilol",
       "formulary": true,
       "formulations": [
         {
@@ -3554,7 +3554,7 @@
       ]
     },
     {
-      "generic": "Cascara Sagrada",
+      "generic": "cascara sagrada",
       "formulary": true,
       "formulations": [
         {
@@ -3573,7 +3573,7 @@
       ]
     },
     {
-      "generic": "Caspofungin",
+      "generic": "caspofungin",
       "formulary": true,
       "formulations": [
         {
@@ -3603,7 +3603,7 @@
       ]
     },
     {
-      "generic": "Cefazolin",
+      "generic": "cefAZOLIN",
       "formulary": true,
       "formulations": [
         {
@@ -3633,7 +3633,7 @@
       ]
     },
     {
-      "generic": "Cefazolin fortified 100 Mg/ml",
+      "generic": "cefAZOLIN fortified 100 mg/mL",
       "formulary": true,
       "formulations": [
         {
@@ -3652,7 +3652,7 @@
       ]
     },
     {
-      "generic": "Cefdinir",
+      "generic": "cefdinir",
       "formulary": true,
       "formulations": [
         {
@@ -3671,7 +3671,7 @@
       ]
     },
     {
-      "generic": "Cefepime",
+      "generic": "cefEPIME",
       "formulary": true,
       "formulations": [
         {
@@ -3701,7 +3701,7 @@
       ]
     },
     {
-      "generic": "Cefotaxime",
+      "generic": "cefoTAXIME",
       "formulary": true,
       "formulations": [
         {
@@ -3755,7 +3755,7 @@
       ]
     },
     {
-      "generic": "Cefoxitin",
+      "generic": "cefoXITIN",
       "formulary": true,
       "formulations": [
         {
@@ -3797,7 +3797,7 @@
       ]
     },
     {
-      "generic": "Ceftazidime",
+      "generic": "ceftAZIDIME",
       "formulary": true,
       "formulations": [
         {
@@ -3827,7 +3827,7 @@
       ]
     },
     {
-      "generic": "Ceftriaxone",
+      "generic": "ceftRIAXONE",
       "formulary": true,
       "formulations": [
         {
@@ -3893,7 +3893,7 @@
       ]
     },
     {
-      "generic": "Cefuroxime",
+      "generic": "cefUROXIME",
       "formulary": true,
       "formulations": [
         {
@@ -3935,7 +3935,7 @@
       ]
     },
     {
-      "generic": "Celecoxib",
+      "generic": "celecoxib",
       "formulary": false,
       "formulations": [
         {
@@ -3967,7 +3967,7 @@
       ]
     },
     {
-      "generic": "Cephalexin",
+      "generic": "cephalexin",
       "formulary": true,
       "formulations": [
         {
@@ -4025,7 +4025,7 @@
       ]
     },
     {
-      "generic": "Cetirizine",
+      "generic": "cetirizine",
       "formulary": false,
       "formulations": [
         {
@@ -4070,7 +4070,7 @@
       ]
     },
     {
-      "generic": "Charcoal",
+      "generic": "charcoal",
       "formulary": true,
       "formulations": [
         {
@@ -4089,7 +4089,7 @@
       ]
     },
     {
-      "generic": "Charcoal-Sorbitol",
+      "generic": "charcoal-sorbitol",
       "formulary": true,
       "formulations": [
         {
@@ -4108,7 +4108,7 @@
       ]
     },
     {
-      "generic": "Chloral Hydrate",
+      "generic": "chloral hydrate",
       "formulary": true,
       "formulations": [
         {
@@ -4140,7 +4140,7 @@
       ]
     },
     {
-      "generic": "Chlorambucil",
+      "generic": "chlorambucil",
       "formulary": true,
       "formulations": [
         {
@@ -4159,7 +4159,7 @@
       ]
     },
     {
-      "generic": "Chloramphenicol",
+      "generic": "chloramphenicol",
       "formulary": true,
       "formulations": [
         {
@@ -4189,7 +4189,7 @@
       ]
     },
     {
-      "generic": "Chloroquine",
+      "generic": "chloroquine",
       "formulary": true,
       "formulations": [
         {
@@ -4208,7 +4208,7 @@
       ]
     },
     {
-      "generic": "Chlorothiazide",
+      "generic": "chlorothiazide",
       "formulary": true,
       "formulations": [
         {
@@ -4277,7 +4277,7 @@
       ]
     },
     {
-      "generic": "Chlorpheniramine",
+      "generic": "chlorpheniramine",
       "formulary": true,
       "formulations": [
         {
@@ -4309,7 +4309,7 @@
       ]
     },
     {
-      "generic": "Chlorpromazine",
+      "generic": "ChlorproMAZINE",
       "formulary": true,
       "formulations": [
         {
@@ -4366,7 +4366,7 @@
       ]
     },
     {
-      "generic": "Choline Salicylate-Magnesium Salicylate",
+      "generic": "choline salicylate-magnesium salicylate",
       "formulary": true,
       "formulations": [
         {
@@ -4411,7 +4411,7 @@
       ]
     },
     {
-      "generic": "Chorionic Gonadotropin",
+      "generic": "chorionic gonadotropin",
       "formulary": true,
       "formulations": [
         {
@@ -4429,7 +4429,7 @@
       ]
     },
     {
-      "generic": "Chromic Chloride Hexahydrate",
+      "generic": "chromic chloride hexahydrate",
       "formulary": true,
       "formulations": [
         {
@@ -4447,7 +4447,7 @@
       ]
     },
     {
-      "generic": "Cidofovir",
+      "generic": "cidofovir",
       "formulary": true,
       "formulations": [
         {
@@ -4465,7 +4465,7 @@
       ]
     },
     {
-      "generic": "Cimetidine",
+      "generic": "cimetidine",
       "formulary": false,
       "formulations": [
         {
@@ -4559,7 +4559,7 @@
       ]
     },
     {
-      "generic": "Ciprofloxacin",
+      "generic": "ciprofloxacin",
       "formulary": true,
       "formulations": [
         {
@@ -4666,7 +4666,7 @@
       ]
     },
     {
-      "generic": "Cisatracurium",
+      "generic": "cisatracurium",
       "formulary": true,
       "formulations": [
         {
@@ -4684,7 +4684,7 @@
       ]
     },
     {
-      "generic": "Cisplatin",
+      "generic": "CISplatin",
       "formulary": false,
       "formulations": [
         {
@@ -4702,7 +4702,7 @@
       ]
     },
     {
-      "generic": "Citalopram",
+      "generic": "citalopram",
       "formulary": true,
       "formulations": [
         {
@@ -4721,7 +4721,7 @@
       ]
     },
     {
-      "generic": "Citric Acid-Potassium Citrate",
+      "generic": "citric acid-potassium citrate",
       "formulary": false,
       "formulations": [
         {
@@ -4740,7 +4740,7 @@
       ]
     },
     {
-      "generic": "Citric Acid-Sodium Citrate",
+      "generic": "citric acid-sodium citrate",
       "formulary": true,
       "formulations": [
         {
@@ -4759,7 +4759,7 @@
       ]
     },
     {
-      "generic": "citric Acid/k Citrate/na citrate",
+      "generic": "citric acid/K citrate/Na citrate",
       "formulary": true,
       "formulations": [
         {
@@ -4778,7 +4778,7 @@
       ]
     },
     {
-      "generic": "Cladribine",
+      "generic": "cladribine",
       "formulary": true,
       "formulations": [
         {
@@ -4796,7 +4796,7 @@
       ]
     },
     {
-      "generic": "Clarithromycin",
+      "generic": "clarithromycin",
       "formulary": true,
       "formulations": [
         {
@@ -4854,7 +4854,7 @@
       ]
     },
     {
-      "generic": "Clindamycin",
+      "generic": "clindamycin",
       "formulary": true,
       "formulations": [
         {
@@ -4959,7 +4959,7 @@
       ]
     },
     {
-      "generic": "Clofarex (inv-Clo-212-All)",
+      "generic": "clofarex (inv-clo-212-all)",
       "formulary": false,
       "formulations": [
         {
@@ -4977,7 +4977,7 @@
       ]
     },
     {
-      "generic": "Clofarex (inv-Clo-222-Aml)",
+      "generic": "clofarex (inv-clo-222-aml)",
       "formulary": false,
       "formulations": [
         {
@@ -4995,7 +4995,7 @@
       ]
     },
     {
-      "generic": "Clofazimine",
+      "generic": "clofazimine",
       "formulary": true,
       "formulations": [
         {
@@ -5014,7 +5014,7 @@
       ]
     },
     {
-      "generic": "Clonazepam",
+      "generic": "cloNAZEPAM",
       "formulary": true,
       "formulations": [
         {
@@ -5059,7 +5059,7 @@
       ]
     },
     {
-      "generic": "Clonidine",
+      "generic": "cloNIDINE",
       "formulary": true,
       "formulations": [
         {
@@ -5129,7 +5129,7 @@
       ]
     },
     {
-      "generic": "Clorazepate",
+      "generic": "clorazepate",
       "formulary": true,
       "formulations": [
         {
@@ -5161,7 +5161,7 @@
       ]
     },
     {
-      "generic": "coagulation factor Viia",
+      "generic": "coagulation factor VIIa",
       "formulary": true,
       "formulations": [
         {
@@ -5179,7 +5179,7 @@
       ]
     },
     {
-      "generic": "Codeine",
+      "generic": "codeine",
       "formulary": true,
       "formulations": [
         {
@@ -5236,7 +5236,7 @@
       ]
     },
     {
-      "generic": "Codeine-Guaifenesin",
+      "generic": "codeine-guaifenesin",
       "formulary": true,
       "formulations": [
         {
@@ -5255,7 +5255,7 @@
       ]
     },
     {
-      "generic": "Codeine-Promethazine",
+      "generic": "codeine-promethazine",
       "formulary": true,
       "formulations": [
         {
@@ -5274,7 +5274,7 @@
       ]
     },
     {
-      "generic": "Codeine/phenylephrine/promethazine",
+      "generic": "codeine/phenylephrine/promethazine",
       "formulary": true,
       "formulations": [
         {
@@ -5312,7 +5312,7 @@
       ]
     },
     {
-      "generic": "Colchicine",
+      "generic": "colchicine",
       "formulary": true,
       "formulations": [
         {
@@ -5331,7 +5331,7 @@
       ]
     },
     {
-      "generic": "Colistimethate",
+      "generic": "colistimethate",
       "formulary": true,
       "formulations": [
         {
@@ -5361,7 +5361,7 @@
       ]
     },
     {
-      "generic": "Conjugated Estrogens",
+      "generic": "conjugated estrogens",
       "formulary": true,
       "formulations": [
         {
@@ -5418,7 +5418,7 @@
       ]
     },
     {
-      "generic": "Corticotropin",
+      "generic": "corticotropin",
       "formulary": true,
       "formulations": [
         {
@@ -5436,7 +5436,7 @@
       ]
     },
     {
-      "generic": "Cortisone",
+      "generic": "cortisone",
       "formulary": true,
       "formulations": [
         {
@@ -5467,7 +5467,7 @@
       ]
     },
     {
-      "generic": "Cosyntropin",
+      "generic": "cosyntropin",
       "formulary": true,
       "formulations": [
         {
@@ -5485,7 +5485,7 @@
       ]
     },
     {
-      "generic": "Cromolyn",
+      "generic": "cromolyn",
       "formulary": true,
       "formulations": [
         {
@@ -5504,7 +5504,7 @@
       ]
     },
     {
-      "generic": "Cyanocobalamin",
+      "generic": "cyanocobalamin",
       "formulary": true,
       "formulations": [
         {
@@ -5546,7 +5546,7 @@
       ]
     },
     {
-      "generic": "Cyclobenzaprine",
+      "generic": "cyclobenzaprine",
       "formulary": true,
       "formulations": [
         {
@@ -5565,7 +5565,7 @@
       ]
     },
     {
-      "generic": "Cyclopentolate/tropicamide/phenylephrine",
+      "generic": "cyclopentolate/tropicamide/phenylephrine",
       "formulary": true,
       "formulations": [
         {
@@ -5584,7 +5584,7 @@
       ]
     },
     {
-      "generic": "Cyclophosphamide",
+      "generic": "CycloPHOSPHAMIDE",
       "formulary": true,
       "formulations": [
         {
@@ -5628,7 +5628,7 @@
       ]
     },
     {
-      "generic": "Cycloserine",
+      "generic": "CycloSERINE",
       "formulary": true,
       "formulations": [
         {
@@ -5647,7 +5647,7 @@
       ]
     },
     {
-      "generic": "Cyclosporine",
+      "generic": "CycloSPORINE",
       "formulary": true,
       "formulations": [
         {
@@ -5704,7 +5704,7 @@
       ]
     },
     {
-      "generic": "Cyproheptadine",
+      "generic": "cyproheptadine",
       "formulary": true,
       "formulations": [
         {
@@ -5736,7 +5736,7 @@
       ]
     },
     {
-      "generic": "Cysteine",
+      "generic": "cysteine",
       "formulary": true,
       "formulations": [
         {
@@ -5755,7 +5755,7 @@
       ]
     },
     {
-      "generic": "Cytarabine",
+      "generic": "cytarabine",
       "formulary": true,
       "formulations": [
         {
@@ -5785,7 +5785,7 @@
       ]
     },
     {
-      "generic": "Cytomegalovirus Immune Globulin",
+      "generic": "cytomegalovirus immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -5803,7 +5803,7 @@
       ]
     },
     {
-      "generic": "Dacarbazine",
+      "generic": "dacarbazine",
       "formulary": true,
       "formulations": [
         {
@@ -5821,7 +5821,7 @@
       ]
     },
     {
-      "generic": "Daclizumab",
+      "generic": "daclizumab",
       "formulary": true,
       "formulations": [
         {
@@ -5851,7 +5851,7 @@
       ]
     },
     {
-      "generic": "Dactinomycin",
+      "generic": "dactinomycin",
       "formulary": true,
       "formulations": [
         {
@@ -5869,7 +5869,7 @@
       ]
     },
     {
-      "generic": "Dalfopristin-Quinupristin",
+      "generic": "dalfopristin-quinupristin",
       "formulary": false,
       "formulations": [
         {
@@ -5887,7 +5887,7 @@
       ]
     },
     {
-      "generic": "Danaparoid",
+      "generic": "danaparoid",
       "formulary": false,
       "formulations": [
         {
@@ -5905,7 +5905,7 @@
       ]
     },
     {
-      "generic": "Dantrolene",
+      "generic": "dantrolene",
       "formulary": true,
       "formulations": [
         {
@@ -5975,7 +5975,7 @@
       ]
     },
     {
-      "generic": "Dapsone",
+      "generic": "dapsone",
       "formulary": true,
       "formulations": [
         {
@@ -6007,7 +6007,7 @@
       ]
     },
     {
-      "generic": "Daunorubicin",
+      "generic": "DAUNOrubicin",
       "formulary": true,
       "formulations": [
         {
@@ -6025,7 +6025,7 @@
       ]
     },
     {
-      "generic": "Deferoxamine",
+      "generic": "deferoxamine",
       "formulary": true,
       "formulations": [
         {
@@ -6043,7 +6043,7 @@
       ]
     },
     {
-      "generic": "Delavirdine",
+      "generic": "delavirdine",
       "formulary": false,
       "formulations": [
         {
@@ -6062,7 +6062,7 @@
       ]
     },
     {
-      "generic": "Desipramine",
+      "generic": "desipramine",
       "formulary": false,
       "formulations": [
         {
@@ -6081,7 +6081,7 @@
       ]
     },
     {
-      "generic": "Desmopressin",
+      "generic": "desmopressin",
       "formulary": true,
       "formulations": [
         {
@@ -6149,7 +6149,7 @@
       ]
     },
     {
-      "generic": "Desmopressin Rhinal Tube 0.01%",
+      "generic": "desmopressin rhinal tube 0.01%",
       "formulary": true,
       "formulations": [
         {
@@ -6168,7 +6168,7 @@
       ]
     },
     {
-      "generic": "Dexamethasone",
+      "generic": "dexamethasone",
       "formulary": true,
       "formulations": [
         {
@@ -6339,7 +6339,7 @@
       ]
     },
     {
-      "generic": "Dexrazoxane",
+      "generic": "dexrazoxane",
       "formulary": true,
       "formulations": [
         {
@@ -6357,7 +6357,7 @@
       ]
     },
     {
-      "generic": "Dextroamphetamine",
+      "generic": "dextroamphetamine",
       "formulary": true,
       "formulations": [
         {
@@ -6376,7 +6376,7 @@
       ]
     },
     {
-      "generic": "Dextromethorphan",
+      "generic": "dextromethorphan",
       "formulary": false,
       "formulations": [
         {
@@ -6395,7 +6395,7 @@
       ]
     },
     {
-      "generic": "Dextromethorphan-Guaifenesin",
+      "generic": "dextromethorphan-guaifenesin",
       "formulary": true,
       "formulations": [
         {
@@ -6410,24 +6410,6 @@
           "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 1.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D1.5%/W SOLN",
-          "concentration": 1.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258922.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
         }
       ]
     },
@@ -6474,198 +6456,6 @@
       ]
     },
     {
-      "generic": "Dextrose 10% with 0.2% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D10%/0.2%NACL SOLN  500 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258951.00",
-          "ndc": "00074-4862-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        },
-        {
-          "label": "D10%/0.2%NACL SOLN 250 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258980.00",
-          "ndc": "00264-7623-20",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 250.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 10% with 0.45% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D10%/0.45%NACL SOLN 1000 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259007.00",
-          "ndc": "00264-7622-00",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 10% with 0.67% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D10%/0.67%NACL SOLN 1000 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259034.00",
-          "ndc": "00338-0095-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 10% with 0.9% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D10%/0.9%NACL SOLN 1000 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1301552.00",
-          "ndc": "00338-0095-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 12.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D12.5%/W SOLN",
-          "concentration": 12.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1489675.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 15% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D15%/W SOLN",
-          "concentration": 15.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1489802.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 17.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D17.5%/W SOLN",
-          "concentration": 17.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1489971.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 2.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D2.5%/W SOLN",
-          "concentration": 2.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1489604.00",
-          "ndc": "00074-1508-05",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 20% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D20%/W SOLN  500 ML",
-          "concentration": 20.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259266.00",
-          "ndc": "00338-0030-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 22.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D22.5%/W SOLN",
-          "concentration": 22.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1490098.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
       "generic": "Dextrose 25% in Water",
       "formulary": true,
       "formulations": [
@@ -6696,115 +6486,7 @@
       ]
     },
     {
-      "generic": "Dextrose 27.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D27.5%/W SOLN",
-          "concentration": 27.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1490357.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 3.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D3.5%/W SOLN",
-          "concentration": 3.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259382.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 30% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D30%/W SOLN",
-          "concentration": 30.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1490484.00",
-          "ndc": "00074-5823-25",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 35% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D35%/W SOLN",
-          "concentration": 35.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1490611.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 37.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D37.5%/W SOLN",
-          "concentration": 37.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1490739.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 40% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D40%/W SOLN",
-          "concentration": 40.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1490866.00",
-          "ndc": "00074-7937-19",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% + Heparin 25,000 Unit(s) (pre-mix)",
+      "generic": "Dextrose 5% + Heparin 25,000 Unit(s) (Pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -6822,7 +6504,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% 250 Ml + Aminophylline 500mg (pre-mix)",
+      "generic": "Dextrose 5% 250 mL + Aminophylline 500mg (Pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -6840,577 +6522,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% in Lactated Ringers Injection",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/LACTATED RINGERS SOLN 1000 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260224.00",
-          "ndc": "00338-0125-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "D5%/LACTATED RINGERS SOLN 500 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260253.00",
-          "ndc": "00338-0125-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/W SOLN 100 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260286.00",
-          "ndc": "00338-0017-48",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 100.0
-        },
-        {
-          "label": "D5%/W SOLN 1000 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260317.00",
-          "ndc": "00338-0017-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "D5%/W SOLN 150 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260348.00",
-          "ndc": "00338-0017-01",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 150.0
-        },
-        {
-          "label": "D5%/W SOLN 25 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260379.00",
-          "ndc": "00338-0017-10",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 25.0
-        },
-        {
-          "label": "D5%/W SOLN 250 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260410.00",
-          "ndc": "00338-0017-02",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 250.0
-        },
-        {
-          "label": "D5%/W SOLN 50 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260441.00",
-          "ndc": "00338-0017-41",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 50.0
-        },
-        {
-          "label": "D5%/W SOLN 500 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260472.00",
-          "ndc": "00338-0017-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 10meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.2%NACL+KCL 10MEQ 1000 ML SOLN",
-          "concentration": 0.01,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259614.00",
-          "ndc": "00338-0661-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 20meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.2%NACL+KCL 20MEQ 1000 ML SOLN",
-          "concentration": 0.02,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259643.00",
-          "ndc": "00338-0663-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 30meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.2%NACL+KCL 30MEQ 1000 ML SOLN",
-          "concentration": 0.03,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259672.00",
-          "ndc": "00338-0665-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 40meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.2%NACL+KCL 40MEQ 1000 ML SOLN",
-          "concentration": 0.04,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259701.00",
-          "ndc": "00338-0667-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.33% + Kcl 20meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.33%NACL+KCL 20MEQ 1000 ML SOLN",
-          "concentration": 0.02,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259817.00",
-          "ndc": "00338-0603-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 10meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.45%NACL+KCL 10MEQ 1000 ML SOLN",
-          "concentration": 0.01,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259932.00",
-          "ndc": "00338-0669-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 20meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.45%NACL+KCL 20MEQ 1000 ML SOLN",
-          "concentration": 0.02,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259961.00",
-          "ndc": "00338-0671-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 30meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.45%NACL+KCL 30MEQ 1000 ML SOLN",
-          "concentration": 0.03,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259990.00",
-          "ndc": "00338-0673-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 40meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.45%NACL+KCL 40MEQ 1000 ML SOLN",
-          "concentration": 0.04,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260019.00",
-          "ndc": "00338-0675-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.9% + Kcl 20 Meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.9%NACL + KCL 20MEQ 1000 ML  SOLN",
-          "concentration": 0.02,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260077.00",
-          "ndc": "00338-0803-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% Sodium Chloride 0.9% + Kcl 40 Meq (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.9%NACL + KCL 40MEQ 1000 ML  SOLN",
-          "concentration": 0.04,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260104.00",
-          "ndc": "00264-7652-00",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% with 0.2% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.2%NACL SOLN 1000 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259527.00",
-          "ndc": "00338-0077-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "D5%/0.2%NACL SOLN 250 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259556.00",
-          "ndc": "00338-0077-02",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 250.0
-        },
-        {
-          "label": "D5%/0.2%NACL SOLN 500 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259585.00",
-          "ndc": "00338-0077-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% with 0.33% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.33%NACL SOLN 1000 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259730.00",
-          "ndc": "00338-0081-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "D5%/0.33%NACL SOLN 250 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259759.00",
-          "ndc": "00338-0081-02",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 250.0
-        },
-        {
-          "label": "D5%/0.33%NACL SOLN 500 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259788.00",
-          "ndc": "00338-0081-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% with 0.45% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.45%NACL SOLN  250 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259846.00",
-          "ndc": "00338-0085-02",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 250.0
-        },
-        {
-          "label": "D5%/0.45%NACL SOLN 1000 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1298274.00",
-          "ndc": "00338-0085-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "D5%/0.45%NACL SOLN 500 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1259903.00",
-          "ndc": "00338-0085-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% with 0.67% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.67% NACL SOLN 1000 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1479033.00",
-          "ndc": "00074-7941-09",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 5% with 0.9% Nacl",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D5%/0.9%NACL SOLN 1000 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260131.00",
-          "ndc": "00338-0089-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "D5%/0.9%NACL SOLN 250 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260162.00",
-          "ndc": "00338-0089-02",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 250.0
-        },
-        {
-          "label": "D5%/0.9%NACL SOLN 500 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260193.00",
-          "ndc": "00338-0089-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 50% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D50%/W SOLN  500 ML",
-          "concentration": 50.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1260503.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        },
-        {
-          "label": "DEXTROSE 50% INJ 50 ML",
-          "concentration": 0.5,
-          "unit": "g",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1491120.00",
-          "ndc": "00074-1536-03",
-          "_source": "STR/VOL",
-          "vialVol": 50.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 7.5% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D7.5%/W SOLN",
-          "concentration": 7.5,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1490993.00",
-          "ndc": "00338-0036-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Dextrose 70% in Water",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "D70%/W SOLN  500 ML",
-          "concentration": 70.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1301581.00",
-          "ndc": "00074-5647-25",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Diazepam",
+      "generic": "diazepam",
       "formulary": true,
       "formulations": [
         {
@@ -7480,7 +6592,7 @@
       ]
     },
     {
-      "generic": "Diazoxide",
+      "generic": "diazoxide",
       "formulary": true,
       "formulations": [
         {
@@ -7511,7 +6623,7 @@
       ]
     },
     {
-      "generic": "Didanosine",
+      "generic": "didanosine",
       "formulary": true,
       "formulations": [
         {
@@ -7582,7 +6694,7 @@
       ]
     },
     {
-      "generic": "Digoxin",
+      "generic": "digoxin",
       "formulary": true,
       "formulations": [
         {
@@ -7651,7 +6763,7 @@
       ]
     },
     {
-      "generic": "digoxin immune Fab",
+      "generic": "digoxin immune FAB",
       "formulary": true,
       "formulations": [
         {
@@ -7669,7 +6781,7 @@
       ]
     },
     {
-      "generic": "Dihydroergotamine",
+      "generic": "dihydroergotamine",
       "formulary": true,
       "formulations": [
         {
@@ -7687,7 +6799,7 @@
       ]
     },
     {
-      "generic": "Diltiazem",
+      "generic": "diltiazem",
       "formulary": true,
       "formulations": [
         {
@@ -7718,7 +6830,7 @@
       ]
     },
     {
-      "generic": "Dimenhydrinate",
+      "generic": "DimenhyDRINATE",
       "formulary": true,
       "formulations": [
         {
@@ -7749,7 +6861,7 @@
       ]
     },
     {
-      "generic": "Dimercaprol",
+      "generic": "dimercaprol",
       "formulary": true,
       "formulations": [
         {
@@ -7767,7 +6879,7 @@
       ]
     },
     {
-      "generic": "Diphenhydramine",
+      "generic": "DiphenhydrAMINE",
       "formulary": true,
       "formulations": [
         {
@@ -7849,25 +6961,7 @@
       ]
     },
     {
-      "generic": "Diphtheria-Tetanus Toxoids",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DIPHTH/TET TOX (PEDS) INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1544104.00",
-          "ndc": "49281-0275-10",
-          "_source": "REF_DOSE_unparsed",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Diphtheria/hepb/pertussis,acel/polio/tetanus",
+      "generic": "diphtheria/hepB/pertussis,acel/polio/tetanus",
       "formulary": false,
       "formulations": [
         {
@@ -7885,7 +6979,7 @@
       ]
     },
     {
-      "generic": "Diphtheria/pertussis, Acellular/tetanus",
+      "generic": "diphtheria/pertussis, acellular/tetanus",
       "formulary": true,
       "formulations": [
         {
@@ -7903,7 +6997,7 @@
       ]
     },
     {
-      "generic": "Dipyridamole",
+      "generic": "dipyridamole",
       "formulary": true,
       "formulations": [
         {
@@ -7972,7 +7066,7 @@
       ]
     },
     {
-      "generic": "Disopyramide",
+      "generic": "disopyramide",
       "formulary": true,
       "formulations": [
         {
@@ -8004,7 +7098,7 @@
       ]
     },
     {
-      "generic": "Dobutamine",
+      "generic": "DOBUTamine",
       "formulary": true,
       "formulations": [
         {
@@ -8022,7 +7116,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 0.6 Mg/ml in D5w",
+      "generic": "DOBUTamine 0.6 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8040,7 +7134,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 1mg/ml in D5w",
+      "generic": "DOBUTamine 1mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8058,7 +7152,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 4 Mg/ml in D5w",
+      "generic": "DOBUTamine 4 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8076,7 +7170,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 6 Mg/ml in D5w",
+      "generic": "DOBUTamine 6 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8094,7 +7188,7 @@
       ]
     },
     {
-      "generic": "Docetaxel",
+      "generic": "DOCEtaxel",
       "formulary": true,
       "formulations": [
         {
@@ -8112,7 +7206,7 @@
       ]
     },
     {
-      "generic": "Docusate",
+      "generic": "docusate",
       "formulary": true,
       "formulations": [
         {
@@ -8183,7 +7277,7 @@
       ]
     },
     {
-      "generic": "Docusate-Senna",
+      "generic": "docusate-senna",
       "formulary": true,
       "formulations": [
         {
@@ -8202,7 +7296,7 @@
       ]
     },
     {
-      "generic": "Donepezil",
+      "generic": "donepezil",
       "formulary": false,
       "formulations": [
         {
@@ -8234,7 +7328,7 @@
       ]
     },
     {
-      "generic": "Dopamine",
+      "generic": "DOPamine",
       "formulary": true,
       "formulations": [
         {
@@ -8252,7 +7346,7 @@
       ]
     },
     {
-      "generic": "Dopamine 0.8 Mg/ml in D5w",
+      "generic": "DOPamine 0.8 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8270,7 +7364,7 @@
       ]
     },
     {
-      "generic": "Dopamine 1.6 Mg/ml in D5w",
+      "generic": "DOPamine 1.6 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8300,7 +7394,7 @@
       ]
     },
     {
-      "generic": "Dopamine 3.2 Mg/ml in D5w",
+      "generic": "DOPamine 3.2 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8318,7 +7412,7 @@
       ]
     },
     {
-      "generic": "Dopamine 6 Mg/ml in D5w",
+      "generic": "DOPamine 6 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8336,7 +7430,7 @@
       ]
     },
     {
-      "generic": "Dornase Alfa",
+      "generic": "dornase alfa",
       "formulary": true,
       "formulations": [
         {
@@ -8355,7 +7449,7 @@
       ]
     },
     {
-      "generic": "Doxapram",
+      "generic": "doxapram",
       "formulary": true,
       "formulations": [
         {
@@ -8373,7 +7467,7 @@
       ]
     },
     {
-      "generic": "Doxepin",
+      "generic": "doxepin",
       "formulary": true,
       "formulations": [
         {
@@ -8418,7 +7512,7 @@
       ]
     },
     {
-      "generic": "Doxorubicin",
+      "generic": "DOXOrubicin",
       "formulary": true,
       "formulations": [
         {
@@ -8448,7 +7542,7 @@
       ]
     },
     {
-      "generic": "Doxycycline",
+      "generic": "doxycycline",
       "formulary": true,
       "formulations": [
         {
@@ -8505,7 +7599,7 @@
       ]
     },
     {
-      "generic": "Dronabinol",
+      "generic": "dronabinol",
       "formulary": true,
       "formulations": [
         {
@@ -8537,7 +7631,7 @@
       ]
     },
     {
-      "generic": "Droperidol",
+      "generic": "droperidol",
       "formulary": true,
       "formulations": [
         {
@@ -8555,7 +7649,7 @@
       ]
     },
     {
-      "generic": "Drotrecogin Alfa",
+      "generic": "drotrecogin alfa",
       "formulary": true,
       "formulations": [
         {
@@ -8573,7 +7667,7 @@
       ]
     },
     {
-      "generic": "Edetate Calcium Disodium",
+      "generic": "edetate calcium disodium",
       "formulary": true,
       "formulations": [
         {
@@ -8591,7 +7685,7 @@
       ]
     },
     {
-      "generic": "Edrophonium",
+      "generic": "edrophonium",
       "formulary": true,
       "formulations": [
         {
@@ -8609,7 +7703,7 @@
       ]
     },
     {
-      "generic": "Efavirenz",
+      "generic": "efavirenz",
       "formulary": false,
       "formulations": [
         {
@@ -8654,37 +7748,7 @@
       ]
     },
     {
-      "generic": "Electrolyte Solution For Kidney Preservation",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "EURO-COLLINS MODIFIED SOLN 1000 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1305724.00",
-          "ndc": "00941-0473-21",
-          "_source": "unknown",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "EURO-COLLINS SOLN 1000 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1497944.00",
-          "ndc": "00941-0473-21",
-          "_source": "unknown",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Enalapril",
+      "generic": "enalapril",
       "formulary": true,
       "formulations": [
         {
@@ -8778,7 +7842,7 @@
       ]
     },
     {
-      "generic": "Enoxaparin",
+      "generic": "enoxaparin",
       "formulary": true,
       "formulations": [
         {
@@ -8868,7 +7932,7 @@
       ]
     },
     {
-      "generic": "Ephedrine",
+      "generic": "ephedrine",
       "formulary": true,
       "formulations": [
         {
@@ -8887,7 +7951,7 @@
       ]
     },
     {
-      "generic": "Epinephrine",
+      "generic": "epinephrine",
       "formulary": true,
       "formulations": [
         {
@@ -8929,7 +7993,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.016 Mg/ml in D5w",
+      "generic": "EPINEPHRINE 0.016 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8947,7 +8011,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.032 Mg/ml in D5w",
+      "generic": "EPINEPHRINE 0.032 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8965,7 +8029,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.064 Mg/ml in D5w",
+      "generic": "EPINEPHRINE 0.064 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -8983,7 +8047,7 @@
       ]
     },
     {
-      "generic": "epinephrine 0.1 Mg/ml = 1:10,000",
+      "generic": "epinephrine 0.1 mg/mL = 1:10,000",
       "formulary": true,
       "formulations": [
         {
@@ -9001,7 +8065,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.1 Mg/ml in D5w",
+      "generic": "EPINEPHRINE 0.1 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -9019,7 +8083,7 @@
       ]
     },
     {
-      "generic": "Epinephrine Auto Injector",
+      "generic": "epinephrine auto injector",
       "formulary": true,
       "formulations": [
         {
@@ -9037,7 +8101,7 @@
       ]
     },
     {
-      "generic": "Epinephrine Racemic",
+      "generic": "epinephrine racemic",
       "formulary": true,
       "formulations": [
         {
@@ -9056,7 +8120,7 @@
       ]
     },
     {
-      "generic": "Epinephrine-Lidocaine",
+      "generic": "epinephrine-lidocaine",
       "formulary": true,
       "formulations": [
         {
@@ -9074,7 +8138,7 @@
       ]
     },
     {
-      "generic": "Epinephrine-Lidocaine 1%",
+      "generic": "epinephrine-lidocaine 1%",
       "formulary": true,
       "formulations": [
         {
@@ -9092,7 +8156,7 @@
       ]
     },
     {
-      "generic": "Epinephrine-Lidocaine 2%",
+      "generic": "epinephrine-lidocaine 2%",
       "formulary": true,
       "formulations": [
         {
@@ -9110,7 +8174,7 @@
       ]
     },
     {
-      "generic": "Epoetin Alfa",
+      "generic": "epoetin alfa",
       "formulary": true,
       "formulations": [
         {
@@ -9152,7 +8216,7 @@
       ]
     },
     {
-      "generic": "Epoprostenol",
+      "generic": "epoprostenol",
       "formulary": true,
       "formulations": [
         {
@@ -9170,7 +8234,7 @@
       ]
     },
     {
-      "generic": "Epoprostenol Diluent",
+      "generic": "epoprostenol diluent",
       "formulary": true,
       "formulations": [
         {
@@ -9188,7 +8252,7 @@
       ]
     },
     {
-      "generic": "Ergocalciferol",
+      "generic": "ergocalciferol",
       "formulary": true,
       "formulations": [
         {
@@ -9220,7 +8284,7 @@
       ]
     },
     {
-      "generic": "Ertapenem",
+      "generic": "ertapenem",
       "formulary": true,
       "formulations": [
         {
@@ -9250,7 +8314,7 @@
       ]
     },
     {
-      "generic": "Erythromycin Base",
+      "generic": "erythromycin base",
       "formulary": true,
       "formulations": [
         {
@@ -9282,7 +8346,7 @@
       ]
     },
     {
-      "generic": "Erythromycin Ethylsuccinate",
+      "generic": "erythromycin ethylsuccinate",
       "formulary": true,
       "formulations": [
         {
@@ -9327,7 +8391,7 @@
       ]
     },
     {
-      "generic": "erythromycin Iv",
+      "generic": "erythromycin IV",
       "formulary": true,
       "formulations": [
         {
@@ -9357,7 +8421,7 @@
       ]
     },
     {
-      "generic": "Esmolol",
+      "generic": "esmolol",
       "formulary": true,
       "formulations": [
         {
@@ -9387,7 +8451,7 @@
       ]
     },
     {
-      "generic": "Estradiol",
+      "generic": "estradiol",
       "formulary": true,
       "formulations": [
         {
@@ -9405,7 +8469,7 @@
       ]
     },
     {
-      "generic": "Estradiol-Medroxyprogesterone",
+      "generic": "estradiol-medroxyprogesterone",
       "formulary": false,
       "formulations": [
         {
@@ -9423,7 +8487,7 @@
       ]
     },
     {
-      "generic": "Etanercept",
+      "generic": "etanercept",
       "formulary": true,
       "formulations": [
         {
@@ -9441,7 +8505,7 @@
       ]
     },
     {
-      "generic": "Ethacrynic Acid",
+      "generic": "ethacrynic acid",
       "formulary": true,
       "formulations": [
         {
@@ -9497,7 +8561,7 @@
       ]
     },
     {
-      "generic": "Ethambutol",
+      "generic": "ethambutol",
       "formulary": true,
       "formulations": [
         {
@@ -9529,7 +8593,7 @@
       ]
     },
     {
-      "generic": "Ethanol",
+      "generic": "ethanol",
       "formulary": true,
       "formulations": [
         {
@@ -9559,7 +8623,7 @@
       ]
     },
     {
-      "generic": "Ethinyl Estradiol-Levonorgestrel",
+      "generic": "ethinyl estradiol-levonorgestrel",
       "formulary": false,
       "formulations": [
         {
@@ -9578,7 +8642,7 @@
       ]
     },
     {
-      "generic": "Ethinyl Estradiol-Norgestimate",
+      "generic": "ethinyl estradiol-norgestimate",
       "formulary": false,
       "formulations": [
         {
@@ -9597,7 +8661,7 @@
       ]
     },
     {
-      "generic": "Ethinyl Estradiol-Norgestrel",
+      "generic": "ethinyl estradiol-norgestrel",
       "formulary": true,
       "formulations": [
         {
@@ -9629,7 +8693,7 @@
       ]
     },
     {
-      "generic": "Ethiodized Oil",
+      "generic": "ethiodized oil",
       "formulary": false,
       "formulations": [
         {
@@ -9647,7 +8711,7 @@
       ]
     },
     {
-      "generic": "Ethionamide",
+      "generic": "ethionamide",
       "formulary": true,
       "formulations": [
         {
@@ -9666,7 +8730,7 @@
       ]
     },
     {
-      "generic": "Ethosuximide",
+      "generic": "ethosuximide",
       "formulary": true,
       "formulations": [
         {
@@ -9698,7 +8762,7 @@
       ]
     },
     {
-      "generic": "Etidronate",
+      "generic": "ETIDRONate",
       "formulary": true,
       "formulations": [
         {
@@ -9729,7 +8793,7 @@
       ]
     },
     {
-      "generic": "Etomidate",
+      "generic": "ETOMIDate",
       "formulary": true,
       "formulations": [
         {
@@ -9747,7 +8811,7 @@
       ]
     },
     {
-      "generic": "Etoposide",
+      "generic": "etoposide",
       "formulary": true,
       "formulations": [
         {
@@ -9778,7 +8842,7 @@
       ]
     },
     {
-      "generic": "Etoposide-Phosphate",
+      "generic": "etoposide-phosphate",
       "formulary": false,
       "formulations": [
         {
@@ -9796,7 +8860,7 @@
       ]
     },
     {
-      "generic": "Factor Ix Complex",
+      "generic": "Factor IX Complex",
       "formulary": true,
       "formulations": [
         {
@@ -9814,7 +8878,7 @@
       ]
     },
     {
-      "generic": "Famotidine",
+      "generic": "famotidine",
       "formulary": true,
       "formulations": [
         {
@@ -9883,7 +8947,7 @@
       ]
     },
     {
-      "generic": "Fat Emulsion, Intravenous",
+      "generic": "fat emulsion, intravenous",
       "formulary": true,
       "formulations": [
         {
@@ -9925,7 +8989,7 @@
       ]
     },
     {
-      "generic": "Felbamate",
+      "generic": "felbamate",
       "formulary": true,
       "formulations": [
         {
@@ -9970,7 +9034,7 @@
       ]
     },
     {
-      "generic": "Fentanyl",
+      "generic": "fentanyl",
       "formulary": true,
       "formulations": [
         {
@@ -10000,7 +9064,7 @@
       ]
     },
     {
-      "generic": "Fentanyl 10 Mcg/ml in D5w",
+      "generic": "FENTANYL 10 mcg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -10018,7 +9082,7 @@
       ]
     },
     {
-      "generic": "Fentanyl 25 Mcg/ml in D5w",
+      "generic": "FENTANYL 25 mcg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -10036,7 +9100,7 @@
       ]
     },
     {
-      "generic": "Fentanyl 5 Mcg/ml in D5w",
+      "generic": "FENTANYL 5 mcg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -10054,7 +9118,7 @@
       ]
     },
     {
-      "generic": "Fentanyl 50 Mcg/ml Conc",
+      "generic": "FENTANYL 50 mcg/mL Conc",
       "formulary": true,
       "formulations": [
         {
@@ -10072,7 +9136,7 @@
       ]
     },
     {
-      "generic": "fentanyl Pca",
+      "generic": "fentanyl PCA",
       "formulary": true,
       "formulations": [
         {
@@ -10090,7 +9154,7 @@
       ]
     },
     {
-      "generic": "Ferrous Gluconate",
+      "generic": "ferrous gluconate",
       "formulary": true,
       "formulations": [
         {
@@ -10109,7 +9173,7 @@
       ]
     },
     {
-      "generic": "Ferrous Sulfate",
+      "generic": "ferrous sulfate",
       "formulary": true,
       "formulations": [
         {
@@ -10167,7 +9231,7 @@
       ]
     },
     {
-      "generic": "Fexofenadine",
+      "generic": "fexofenadine",
       "formulary": false,
       "formulations": [
         {
@@ -10186,7 +9250,7 @@
       ]
     },
     {
-      "generic": "Filgrastim",
+      "generic": "filgrastim",
       "formulary": true,
       "formulations": [
         {
@@ -10228,7 +9292,7 @@
       ]
     },
     {
-      "generic": "Flecainide",
+      "generic": "flecainide",
       "formulary": true,
       "formulations": [
         {
@@ -10273,7 +9337,7 @@
       ]
     },
     {
-      "generic": "Fluconazole",
+      "generic": "fluconazole",
       "formulary": true,
       "formulations": [
         {
@@ -10355,7 +9419,7 @@
       ]
     },
     {
-      "generic": "Flucytosine",
+      "generic": "FluCYTOSINE",
       "formulary": true,
       "formulations": [
         {
@@ -10400,7 +9464,7 @@
       ]
     },
     {
-      "generic": "Fludarabine",
+      "generic": "fludarabine",
       "formulary": true,
       "formulations": [
         {
@@ -10418,7 +9482,7 @@
       ]
     },
     {
-      "generic": "Fludrocortisone",
+      "generic": "fludrocortisone",
       "formulary": true,
       "formulations": [
         {
@@ -10437,7 +9501,7 @@
       ]
     },
     {
-      "generic": "Flumazenil",
+      "generic": "flumazenil",
       "formulary": true,
       "formulations": [
         {
@@ -10455,7 +9519,7 @@
       ]
     },
     {
-      "generic": "Fluoride",
+      "generic": "fluoride",
       "formulary": true,
       "formulations": [
         {
@@ -10474,7 +9538,7 @@
       ]
     },
     {
-      "generic": "Fluorouracil",
+      "generic": "fluOROURACIL",
       "formulary": true,
       "formulations": [
         {
@@ -10492,7 +9556,7 @@
       ]
     },
     {
-      "generic": "Fluoxetine",
+      "generic": "fluoxetine",
       "formulary": true,
       "formulations": [
         {
@@ -10537,7 +9601,7 @@
       ]
     },
     {
-      "generic": "Fluoxymesterone",
+      "generic": "fluoxymesterone",
       "formulary": true,
       "formulations": [
         {
@@ -10569,7 +9633,7 @@
       ]
     },
     {
-      "generic": "Folic Acid",
+      "generic": "folic acid",
       "formulary": true,
       "formulations": [
         {
@@ -10613,7 +9677,7 @@
       ]
     },
     {
-      "generic": "Fomepizole",
+      "generic": "fomepizole",
       "formulary": true,
       "formulations": [
         {
@@ -10631,7 +9695,7 @@
       ]
     },
     {
-      "generic": "Formaldehyde 1%",
+      "generic": "formaldehyde 1%",
       "formulary": true,
       "formulations": [
         {
@@ -10650,7 +9714,7 @@
       ]
     },
     {
-      "generic": "Formaldehyde 2%",
+      "generic": "formaldehyde 2%",
       "formulary": true,
       "formulations": [
         {
@@ -10669,7 +9733,7 @@
       ]
     },
     {
-      "generic": "Foscarnet",
+      "generic": "foscarnet",
       "formulary": true,
       "formulations": [
         {
@@ -10687,7 +9751,7 @@
       ]
     },
     {
-      "generic": "Fosphenytoin",
+      "generic": "fosphenytoin",
       "formulary": true,
       "formulations": [
         {
@@ -10717,7 +9781,7 @@
       ]
     },
     {
-      "generic": "Furazolidone",
+      "generic": "furazolidone",
       "formulary": false,
       "formulations": [
         {
@@ -10749,7 +9813,7 @@
       ]
     },
     {
-      "generic": "Furosemide",
+      "generic": "furosemide",
       "formulary": true,
       "formulations": [
         {
@@ -10867,7 +9931,7 @@
       ]
     },
     {
-      "generic": "Gabapentin",
+      "generic": "gabapentin",
       "formulary": true,
       "formulations": [
         {
@@ -10925,7 +9989,7 @@
       ]
     },
     {
-      "generic": "Ganciclovir",
+      "generic": "ganciclovir",
       "formulary": true,
       "formulations": [
         {
@@ -10981,7 +10045,7 @@
       ]
     },
     {
-      "generic": "Gelatin Empty Size 2",
+      "generic": "gelatin empty size 2",
       "formulary": true,
       "formulations": [
         {
@@ -11000,7 +10064,7 @@
       ]
     },
     {
-      "generic": "Gelatin Empty Size 3",
+      "generic": "gelatin empty size 3",
       "formulary": true,
       "formulations": [
         {
@@ -11019,7 +10083,7 @@
       ]
     },
     {
-      "generic": "Gemcitabine",
+      "generic": "gemCITABINE",
       "formulary": true,
       "formulations": [
         {
@@ -11037,7 +10101,7 @@
       ]
     },
     {
-      "generic": "Gemtuzumab",
+      "generic": "gemTUZUMAB",
       "formulary": true,
       "formulations": [
         {
@@ -11055,7 +10119,7 @@
       ]
     },
     {
-      "generic": "Gentamicin",
+      "generic": "gentamicin",
       "formulary": true,
       "formulations": [
         {
@@ -11133,7 +10197,7 @@
       ]
     },
     {
-      "generic": "gleevec (inv-aaml0123)",
+      "generic": "gleevec (INV-AAML0123)",
       "formulary": false,
       "formulations": [
         {
@@ -11151,7 +10215,7 @@
       ]
     },
     {
-      "generic": "Glucagon",
+      "generic": "glucagon",
       "formulary": true,
       "formulations": [
         {
@@ -11169,7 +10233,7 @@
       ]
     },
     {
-      "generic": "Glutaraldehyde",
+      "generic": "glutaraldehyde",
       "formulary": true,
       "formulations": [
         {
@@ -11187,7 +10251,7 @@
       ]
     },
     {
-      "generic": "Glycopyrrolate",
+      "generic": "glycopyrrolate",
       "formulary": true,
       "formulations": [
         {
@@ -11231,7 +10295,7 @@
       ]
     },
     {
-      "generic": "Gonadorelin",
+      "generic": "gonadorelin",
       "formulary": true,
       "formulations": [
         {
@@ -11249,7 +10313,7 @@
       ]
     },
     {
-      "generic": "Granisetron",
+      "generic": "granisetron",
       "formulary": true,
       "formulations": [
         {
@@ -11292,7 +10356,7 @@
       ]
     },
     {
-      "generic": "Griseofulvin",
+      "generic": "griseofulvin",
       "formulary": true,
       "formulations": [
         {
@@ -11324,7 +10388,7 @@
       ]
     },
     {
-      "generic": "Griseofulvin Microsize",
+      "generic": "griseofulvin microsize",
       "formulary": true,
       "formulations": [
         {
@@ -11369,7 +10433,7 @@
       ]
     },
     {
-      "generic": "Guaifenesin",
+      "generic": "guaifenesin",
       "formulary": true,
       "formulations": [
         {
@@ -11414,7 +10478,7 @@
       ]
     },
     {
-      "generic": "Guanfacine",
+      "generic": "guanfacine",
       "formulary": false,
       "formulations": [
         {
@@ -11433,43 +10497,7 @@
       ]
     },
     {
-      "generic": "haemophilus b conjugate (prp-t) vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HAEMOPHILUS B CONJ VACCINE",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1543870.00",
-          "ndc": "49281-0545-05",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "haemophilus b-hepatitis B vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HAEMOPH B - HEPATITIS B VAC 0.5 ML INJ",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1270175.00",
-          "ndc": "00006-4843-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Haloperidol",
+      "generic": "haloperidol",
       "formulary": true,
       "formulations": [
         {
@@ -11539,7 +10567,7 @@
       ]
     },
     {
-      "generic": "Halothane",
+      "generic": "halothane",
       "formulary": true,
       "formulations": [
         {
@@ -11584,7 +10612,7 @@
       ]
     },
     {
-      "generic": "Heparin",
+      "generic": "heparin",
       "formulary": true,
       "formulations": [
         {
@@ -11734,42 +10762,6 @@
       ]
     },
     {
-      "generic": "hepatitis A adult vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HEPATITIS A VAC (ADULT) INJ 1 ML",
-          "concentration": 50.0,
-          "unit": "unit",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1543624.00",
-          "ndc": "00006-4841-00",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1.0
-        }
-      ]
-    },
-    {
-      "generic": "hepatitis A pediatric vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HEPATITIS A VAC (PED/ADOL) INJ 0.5 ML",
-          "concentration": 50.0,
-          "unit": "unit",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1544215.00",
-          "ndc": "00006-4831-00",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
       "generic": "hepatitis B immune globulin",
       "formulary": true,
       "formulations": [
@@ -11788,25 +10780,7 @@
       ]
     },
     {
-      "generic": "hepatitis B vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HEPATITIS B (RECOMBIVAX) VAC 5 MCG/0.5 ML INJ",
-          "concentration": 10.0,
-          "unit": "mcg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1582106.00",
-          "ndc": "00006-4980-00",
-          "_source": "STR/VOL",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Histoplasmin",
+      "generic": "histoplasmin",
       "formulary": true,
       "formulations": [
         {
@@ -11824,7 +10798,7 @@
       ]
     },
     {
-      "generic": "Hyaluronidase",
+      "generic": "hyaluronidase",
       "formulary": true,
       "formulations": [
         {
@@ -11843,7 +10817,7 @@
       ]
     },
     {
-      "generic": "Hydralazine",
+      "generic": "HydrALAZINE",
       "formulary": true,
       "formulations": [
         {
@@ -11912,7 +10886,7 @@
       ]
     },
     {
-      "generic": "hydrochloric acid 0.1n",
+      "generic": "hydrochloric acid 0.1N",
       "formulary": true,
       "formulations": [
         {
@@ -11930,7 +10904,7 @@
       ]
     },
     {
-      "generic": "Hydrochlorothiazide",
+      "generic": "hydrochlorothiazide",
       "formulary": false,
       "formulations": [
         {
@@ -11962,7 +10936,7 @@
       ]
     },
     {
-      "generic": "Hydrochlorothiazide-Spironolactone",
+      "generic": "hydrochlorothiazide-spironolactone",
       "formulary": true,
       "formulations": [
         {
@@ -11981,7 +10955,7 @@
       ]
     },
     {
-      "generic": "Hydrocodone-Ibuprofen",
+      "generic": "hydrocodone-ibuprofen",
       "formulary": false,
       "formulations": [
         {
@@ -12000,7 +10974,7 @@
       ]
     },
     {
-      "generic": "Hydrocortisone",
+      "generic": "hydrocortisone",
       "formulary": true,
       "formulations": [
         {
@@ -12125,7 +11099,7 @@
       ]
     },
     {
-      "generic": "Hydromorphone",
+      "generic": "HYDROmorphone",
       "formulary": true,
       "formulations": [
         {
@@ -12219,7 +11193,7 @@
       ]
     },
     {
-      "generic": "Hydromorphone Pca",
+      "generic": "HYDROmorphone PCA",
       "formulary": true,
       "formulations": [
         {
@@ -12261,7 +11235,7 @@
       ]
     },
     {
-      "generic": "Hydroxychloroquine",
+      "generic": "hydroxychloroquine",
       "formulary": true,
       "formulations": [
         {
@@ -12280,7 +11254,7 @@
       ]
     },
     {
-      "generic": "Hydroxyurea",
+      "generic": "hydroxyurea",
       "formulary": true,
       "formulations": [
         {
@@ -12312,7 +11286,7 @@
       ]
     },
     {
-      "generic": "Hydroxyzine",
+      "generic": "HydrOXYzine",
       "formulary": true,
       "formulations": [
         {
@@ -12408,7 +11382,7 @@
       ]
     },
     {
-      "generic": "Ibuprofen",
+      "generic": "ibuprofen",
       "formulary": true,
       "formulations": [
         {
@@ -12492,7 +11466,7 @@
       ]
     },
     {
-      "generic": "Idarubicin",
+      "generic": "IDArubicin",
       "formulary": true,
       "formulations": [
         {
@@ -12534,7 +11508,7 @@
       ]
     },
     {
-      "generic": "Ifosfamide",
+      "generic": "ifosfamide",
       "formulary": true,
       "formulations": [
         {
@@ -12564,7 +11538,7 @@
       ]
     },
     {
-      "generic": "Imatinib",
+      "generic": "imatinib",
       "formulary": false,
       "formulations": [
         {
@@ -12596,7 +11570,7 @@
       ]
     },
     {
-      "generic": "Imipenem-Cilastatin",
+      "generic": "imipenem-cilastatin",
       "formulary": true,
       "formulations": [
         {
@@ -12638,7 +11612,7 @@
       ]
     },
     {
-      "generic": "Imipramine",
+      "generic": "imipramine",
       "formulary": true,
       "formulations": [
         {
@@ -12683,7 +11657,7 @@
       ]
     },
     {
-      "generic": "Immune Globulin Intramuscular",
+      "generic": "immune globulin intramuscular",
       "formulary": true,
       "formulations": [
         {
@@ -12701,7 +11675,7 @@
       ]
     },
     {
-      "generic": "Immune Globulin Intravenous",
+      "generic": "immune globulin intravenous",
       "formulary": true,
       "formulations": [
         {
@@ -12779,7 +11753,7 @@
       ]
     },
     {
-      "generic": "Indigo Carmine",
+      "generic": "indigo carmine",
       "formulary": true,
       "formulations": [
         {
@@ -12797,7 +11771,7 @@
       ]
     },
     {
-      "generic": "Indinavir",
+      "generic": "indinavir",
       "formulary": false,
       "formulations": [
         {
@@ -12829,7 +11803,7 @@
       ]
     },
     {
-      "generic": "Indomethacin",
+      "generic": "indomethacin",
       "formulary": true,
       "formulations": [
         {
@@ -12886,7 +11860,7 @@
       ]
     },
     {
-      "generic": "Infliximab",
+      "generic": "infliximab",
       "formulary": true,
       "formulations": [
         {
@@ -12904,25 +11878,7 @@
       ]
     },
     {
-      "generic": "Influenza Virus Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "INFLUENZA VIRUS VAC INJ  0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1301803.00",
-          "ndc": "49281-0370-15",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Insulin Aspart",
+      "generic": "insulin aspart",
       "formulary": true,
       "formulations": [
         {
@@ -12940,7 +11896,7 @@
       ]
     },
     {
-      "generic": "Insulin Glargine",
+      "generic": "insulin glargine",
       "formulary": true,
       "formulations": [
         {
@@ -12959,7 +11915,7 @@
       ]
     },
     {
-      "generic": "Insulin Isophane",
+      "generic": "insulin isophane",
       "formulary": true,
       "formulations": [
         {
@@ -12977,7 +11933,7 @@
       ]
     },
     {
-      "generic": "Insulin Isophane-Insulin Regular",
+      "generic": "insulin isophane-insulin regular",
       "formulary": true,
       "formulations": [
         {
@@ -12995,7 +11951,7 @@
       ]
     },
     {
-      "generic": "Insulin Regular",
+      "generic": "insulin regular",
       "formulary": true,
       "formulations": [
         {
@@ -13037,7 +11993,7 @@
       ]
     },
     {
-      "generic": "Insulin Zinc",
+      "generic": "insulin zinc",
       "formulary": true,
       "formulations": [
         {
@@ -13055,7 +12011,7 @@
       ]
     },
     {
-      "generic": "Insulin Zinc Extended",
+      "generic": "insulin zinc extended",
       "formulary": false,
       "formulations": [
         {
@@ -13073,7 +12029,7 @@
       ]
     },
     {
-      "generic": "Interferon alfa-2a",
+      "generic": "InterFERON alfa-2a",
       "formulary": true,
       "formulations": [
         {
@@ -13091,7 +12047,7 @@
       ]
     },
     {
-      "generic": "Interferon Alfa-2b",
+      "generic": "InterFERON alfa-2B",
       "formulary": true,
       "formulations": [
         {
@@ -13109,7 +12065,7 @@
       ]
     },
     {
-      "generic": "Interferon Beta-1a",
+      "generic": "interferon beta-1a",
       "formulary": false,
       "formulations": [
         {
@@ -13127,7 +12083,7 @@
       ]
     },
     {
-      "generic": "Interferon Gamma-1b",
+      "generic": "interferon gamma-1b",
       "formulary": false,
       "formulations": [
         {
@@ -13145,7 +12101,7 @@
       ]
     },
     {
-      "generic": "Iodoquinol",
+      "generic": "iodoquinol",
       "formulary": true,
       "formulations": [
         {
@@ -13177,7 +12133,7 @@
       ]
     },
     {
-      "generic": "Iohexol",
+      "generic": "iohexol",
       "formulary": false,
       "formulations": [
         {
@@ -13195,7 +12151,7 @@
       ]
     },
     {
-      "generic": "Ioversol",
+      "generic": "ioversol",
       "formulary": false,
       "formulations": [
         {
@@ -13213,7 +12169,7 @@
       ]
     },
     {
-      "generic": "Ipecac",
+      "generic": "ipecac",
       "formulary": true,
       "formulations": [
         {
@@ -13232,7 +12188,7 @@
       ]
     },
     {
-      "generic": "Ipratropium",
+      "generic": "ipratropium",
       "formulary": true,
       "formulations": [
         {
@@ -13251,7 +12207,7 @@
       ]
     },
     {
-      "generic": "Irinotecan",
+      "generic": "IRINOtecan",
       "formulary": true,
       "formulations": [
         {
@@ -13269,7 +12225,7 @@
       ]
     },
     {
-      "generic": "Iron Dextran",
+      "generic": "iron dextran",
       "formulary": true,
       "formulations": [
         {
@@ -13287,7 +12243,7 @@
       ]
     },
     {
-      "generic": "Isoflurane",
+      "generic": "isoflurane",
       "formulary": true,
       "formulations": [
         {
@@ -13332,7 +12288,7 @@
       ]
     },
     {
-      "generic": "Isoleucine",
+      "generic": "isoleucine",
       "formulary": false,
       "formulations": [
         {
@@ -13351,7 +12307,7 @@
       ]
     },
     {
-      "generic": "Isoniazid",
+      "generic": "isoniazid",
       "formulary": true,
       "formulations": [
         {
@@ -13408,7 +12364,7 @@
       ]
     },
     {
-      "generic": "Isoproterenol",
+      "generic": "isoproterenol",
       "formulary": true,
       "formulations": [
         {
@@ -13438,7 +12394,7 @@
       ]
     },
     {
-      "generic": "Isotretinoin",
+      "generic": "isotretinoin",
       "formulary": true,
       "formulations": [
         {
@@ -13483,7 +12439,7 @@
       ]
     },
     {
-      "generic": "Isradipine",
+      "generic": "isradipine",
       "formulary": true,
       "formulations": [
         {
@@ -13515,7 +12471,7 @@
       ]
     },
     {
-      "generic": "Itraconazole",
+      "generic": "itraconazole",
       "formulary": true,
       "formulations": [
         {
@@ -13559,7 +12515,7 @@
       ]
     },
     {
-      "generic": "Kaolin-Pectin",
+      "generic": "kaolin-pectin",
       "formulary": false,
       "formulations": [
         {
@@ -13578,7 +12534,7 @@
       ]
     },
     {
-      "generic": "Ketamine",
+      "generic": "ketamine",
       "formulary": true,
       "formulations": [
         {
@@ -13620,7 +12576,7 @@
       ]
     },
     {
-      "generic": "Ketoconazole",
+      "generic": "ketoconazole",
       "formulary": false,
       "formulations": [
         {
@@ -13639,7 +12595,7 @@
       ]
     },
     {
-      "generic": "Ketorolac",
+      "generic": "ketorolac",
       "formulary": true,
       "formulations": [
         {
@@ -13693,7 +12649,7 @@
       ]
     },
     {
-      "generic": "Labetalol",
+      "generic": "labetalol",
       "formulary": true,
       "formulations": [
         {
@@ -13750,7 +12706,7 @@
       ]
     },
     {
-      "generic": "Lactase",
+      "generic": "lactase",
       "formulary": false,
       "formulations": [
         {
@@ -13811,7 +12767,7 @@
       ]
     },
     {
-      "generic": "Lactobacillus Acidophilus And Bulgaricus",
+      "generic": "lactobacillus acidophilus and bulgaricus",
       "formulary": true,
       "formulations": [
         {
@@ -13830,7 +12786,7 @@
       ]
     },
     {
-      "generic": "Lactulose",
+      "generic": "lactulose",
       "formulary": true,
       "formulations": [
         {
@@ -13849,7 +12805,7 @@
       ]
     },
     {
-      "generic": "Lamivudine",
+      "generic": "lamivudine",
       "formulary": true,
       "formulations": [
         {
@@ -13881,7 +12837,7 @@
       ]
     },
     {
-      "generic": "Lamivudine-Zidovudine",
+      "generic": "lamivudine-zidovudine",
       "formulary": false,
       "formulations": [
         {
@@ -13900,7 +12856,7 @@
       ]
     },
     {
-      "generic": "Lamotrigine",
+      "generic": "lamotrigine",
       "formulary": true,
       "formulations": [
         {
@@ -13958,7 +12914,7 @@
       ]
     },
     {
-      "generic": "Lansoprazole",
+      "generic": "lansoprazole",
       "formulary": true,
       "formulations": [
         {
@@ -13977,7 +12933,7 @@
       ]
     },
     {
-      "generic": "Laronidase",
+      "generic": "laronidase",
       "formulary": true,
       "formulations": [
         {
@@ -13995,7 +12951,7 @@
       ]
     },
     {
-      "generic": "Leucine",
+      "generic": "leucine",
       "formulary": false,
       "formulations": [
         {
@@ -14014,7 +12970,7 @@
       ]
     },
     {
-      "generic": "Leucovorin",
+      "generic": "leucovorin",
       "formulary": true,
       "formulations": [
         {
@@ -14058,7 +13014,7 @@
       ]
     },
     {
-      "generic": "Leuprolide",
+      "generic": "leuprolide",
       "formulary": true,
       "formulations": [
         {
@@ -14100,7 +13056,7 @@
       ]
     },
     {
-      "generic": "Levalbuterol",
+      "generic": "levalbuterol",
       "formulary": false,
       "formulations": [
         {
@@ -14132,7 +13088,7 @@
       ]
     },
     {
-      "generic": "Levetiracetam",
+      "generic": "levetiracetam",
       "formulary": true,
       "formulations": [
         {
@@ -14190,7 +13146,7 @@
       ]
     },
     {
-      "generic": "Levocarnitine",
+      "generic": "levocarnitine",
       "formulary": true,
       "formulations": [
         {
@@ -14234,7 +13190,7 @@
       ]
     },
     {
-      "generic": "Levofloxacin",
+      "generic": "levofloxacin",
       "formulary": true,
       "formulations": [
         {
@@ -14278,7 +13234,7 @@
       ]
     },
     {
-      "generic": "Levothyroxine",
+      "generic": "levothyroxine",
       "formulary": true,
       "formulations": [
         {
@@ -14400,7 +13356,7 @@
       ]
     },
     {
-      "generic": "Lidocaine",
+      "generic": "lidocaine",
       "formulary": true,
       "formulations": [
         {
@@ -14454,7 +13410,7 @@
       ]
     },
     {
-      "generic": "Lidocaine 0.5%",
+      "generic": "lidocaine 0.5%",
       "formulary": true,
       "formulations": [
         {
@@ -14472,7 +13428,7 @@
       ]
     },
     {
-      "generic": "Lidocaine 1%",
+      "generic": "lidocaine 1%",
       "formulary": true,
       "formulations": [
         {
@@ -14490,7 +13446,7 @@
       ]
     },
     {
-      "generic": "Lidocaine 2%",
+      "generic": "lidocaine 2%",
       "formulary": true,
       "formulations": [
         {
@@ -14508,7 +13464,7 @@
       ]
     },
     {
-      "generic": "Lidocaine/epinephrine/tetracaine",
+      "generic": "lidocaine/epinephrine/tetracaine",
       "formulary": true,
       "formulations": [
         {
@@ -14527,7 +13483,7 @@
       ]
     },
     {
-      "generic": "Linezolid",
+      "generic": "linezolid",
       "formulary": true,
       "formulations": [
         {
@@ -14583,7 +13539,7 @@
       ]
     },
     {
-      "generic": "Lisinopril",
+      "generic": "lisinopril",
       "formulary": false,
       "formulations": [
         {
@@ -14628,7 +13584,7 @@
       ]
     },
     {
-      "generic": "Lithium",
+      "generic": "lithium",
       "formulary": true,
       "formulations": [
         {
@@ -14673,7 +13629,7 @@
       ]
     },
     {
-      "generic": "Lomustine",
+      "generic": "lomustine",
       "formulary": true,
       "formulations": [
         {
@@ -14718,7 +13674,7 @@
       ]
     },
     {
-      "generic": "Loperamide",
+      "generic": "loperamide",
       "formulary": true,
       "formulations": [
         {
@@ -14750,7 +13706,7 @@
       ]
     },
     {
-      "generic": "Lopinavir-Ritonavir",
+      "generic": "lopinavir-ritonavir",
       "formulary": true,
       "formulations": [
         {
@@ -14782,7 +13738,7 @@
       ]
     },
     {
-      "generic": "Loratadine",
+      "generic": "loratadine",
       "formulary": true,
       "formulations": [
         {
@@ -14814,7 +13770,7 @@
       ]
     },
     {
-      "generic": "Lorazepam",
+      "generic": "lorazepam",
       "formulary": true,
       "formulations": [
         {
@@ -14871,7 +13827,7 @@
       ]
     },
     {
-      "generic": "Lymphocyte Immune Globulin, Anti-Thymocyte",
+      "generic": "lymphocyte immune globulin, anti-thymocyte",
       "formulary": true,
       "formulations": [
         {
@@ -14913,7 +13869,7 @@
       ]
     },
     {
-      "generic": "Maalox/diphenhydramine/lidocaine",
+      "generic": "maalox/diphenhydramine/lidocaine",
       "formulary": false,
       "formulations": [
         {
@@ -14932,7 +13888,7 @@
       ]
     },
     {
-      "generic": "Magnesium Amino Acids Chelate",
+      "generic": "magnesium amino acids chelate",
       "formulary": true,
       "formulations": [
         {
@@ -14951,7 +13907,7 @@
       ]
     },
     {
-      "generic": "Magnesium Chloride",
+      "generic": "magnesium chloride",
       "formulary": false,
       "formulations": [
         {
@@ -14970,7 +13926,7 @@
       ]
     },
     {
-      "generic": "Magnesium Citrate",
+      "generic": "magnesium citrate",
       "formulary": true,
       "formulations": [
         {
@@ -14989,7 +13945,7 @@
       ]
     },
     {
-      "generic": "Magnesium Gluconate",
+      "generic": "magnesium gluconate",
       "formulary": true,
       "formulations": [
         {
@@ -15021,7 +13977,7 @@
       ]
     },
     {
-      "generic": "Magnesium Hydroxide",
+      "generic": "magnesium hydroxide",
       "formulary": true,
       "formulations": [
         {
@@ -15066,7 +14022,7 @@
       ]
     },
     {
-      "generic": "Magnesium Sulfate",
+      "generic": "magnesium sulfate",
       "formulary": true,
       "formulations": [
         {
@@ -15096,7 +14052,7 @@
       ]
     },
     {
-      "generic": "Mannitol",
+      "generic": "mannitol",
       "formulary": true,
       "formulations": [
         {
@@ -15150,7 +14106,7 @@
       ]
     },
     {
-      "generic": "Mannitol 25%",
+      "generic": "mannitol 25%",
       "formulary": true,
       "formulations": [
         {
@@ -15168,61 +14124,7 @@
       ]
     },
     {
-      "generic": "Measles Virus Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "MEASLES VIRUS VACC. INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1277657.00",
-          "ndc": "00006-4589-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Measles-Rubella Virus Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "MEASLES RUBELLA VACC. INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1277630.00",
-          "ndc": "00006-4677-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Measles/mumps/rubella Virus Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "MEASLES, MUMPS, RUBELLA VAC INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1277684.00",
-          "ndc": "00006-4681-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Mebendazole",
+      "generic": "mebendazole",
       "formulary": false,
       "formulations": [
         {
@@ -15241,7 +14143,7 @@
       ]
     },
     {
-      "generic": "Meclizine",
+      "generic": "meclizine",
       "formulary": true,
       "formulations": [
         {
@@ -15273,7 +14175,7 @@
       ]
     },
     {
-      "generic": "Medroxyprogesterone",
+      "generic": "MedroxyPROGESTERone",
       "formulary": true,
       "formulations": [
         {
@@ -15330,7 +14232,7 @@
       ]
     },
     {
-      "generic": "Megestrol",
+      "generic": "megestrol",
       "formulary": false,
       "formulations": [
         {
@@ -15375,7 +14277,7 @@
       ]
     },
     {
-      "generic": "Melphalan",
+      "generic": "melphalan",
       "formulary": true,
       "formulations": [
         {
@@ -15406,43 +14308,7 @@
       ]
     },
     {
-      "generic": "Meningococcal Conjugate Vaccine",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "MENINGOCOCCAL (MENACTRA) VACC 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1585875.00",
-          "ndc": "49281-0589-01",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Meningococcal Polysaccharide Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "MENINGOCOCCAL VACC. INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1278093.00",
-          "ndc": "49281-0489-01",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Meperidine",
+      "generic": "meperidine",
       "formulary": true,
       "formulations": [
         {
@@ -15497,7 +14363,7 @@
       ]
     },
     {
-      "generic": "Mephobarbital",
+      "generic": "mephobarbital",
       "formulary": true,
       "formulations": [
         {
@@ -15529,7 +14395,7 @@
       ]
     },
     {
-      "generic": "Mercaptopurine",
+      "generic": "mercaptopurine",
       "formulary": true,
       "formulations": [
         {
@@ -15548,7 +14414,7 @@
       ]
     },
     {
-      "generic": "Meropenem",
+      "generic": "meropenem",
       "formulary": true,
       "formulations": [
         {
@@ -15578,7 +14444,7 @@
       ]
     },
     {
-      "generic": "Mesalamine",
+      "generic": "mesalamine",
       "formulary": false,
       "formulations": [
         {
@@ -15597,7 +14463,7 @@
       ]
     },
     {
-      "generic": "Mesna",
+      "generic": "mesna",
       "formulary": true,
       "formulations": [
         {
@@ -15628,7 +14494,7 @@
       ]
     },
     {
-      "generic": "Metformin",
+      "generic": "metformin",
       "formulary": false,
       "formulations": [
         {
@@ -15647,7 +14513,7 @@
       ]
     },
     {
-      "generic": "Methadone",
+      "generic": "methadone",
       "formulary": true,
       "formulations": [
         {
@@ -15705,7 +14571,7 @@
       ]
     },
     {
-      "generic": "Methimazole",
+      "generic": "methimazole",
       "formulary": true,
       "formulations": [
         {
@@ -15724,7 +14590,7 @@
       ]
     },
     {
-      "generic": "Methohexital",
+      "generic": "methohexital",
       "formulary": true,
       "formulations": [
         {
@@ -15742,7 +14608,7 @@
       ]
     },
     {
-      "generic": "Methotrexate",
+      "generic": "methotrexate",
       "formulary": true,
       "formulations": [
         {
@@ -15785,7 +14651,7 @@
       ]
     },
     {
-      "generic": "Methsuximide",
+      "generic": "methsuximide",
       "formulary": true,
       "formulations": [
         {
@@ -15817,7 +14683,7 @@
       ]
     },
     {
-      "generic": "Methyldopa",
+      "generic": "methyldopa",
       "formulary": false,
       "formulations": [
         {
@@ -15887,7 +14753,7 @@
       ]
     },
     {
-      "generic": "Methylene Blue",
+      "generic": "methylene blue",
       "formulary": true,
       "formulations": [
         {
@@ -15905,7 +14771,7 @@
       ]
     },
     {
-      "generic": "Methylphenidate",
+      "generic": "methylphenidate",
       "formulary": true,
       "formulations": [
         {
@@ -16002,7 +14868,7 @@
       ]
     },
     {
-      "generic": "Methylprednisolone",
+      "generic": "MethylPREDNISolone",
       "formulary": true,
       "formulations": [
         {
@@ -16143,7 +15009,7 @@
       ]
     },
     {
-      "generic": "Metoclopramide",
+      "generic": "metoclopramide",
       "formulary": true,
       "formulations": [
         {
@@ -16249,7 +15115,7 @@
       ]
     },
     {
-      "generic": "Metolazone",
+      "generic": "metolazone",
       "formulary": true,
       "formulations": [
         {
@@ -16307,7 +15173,7 @@
       ]
     },
     {
-      "generic": "Metoprolol",
+      "generic": "metoprolol",
       "formulary": false,
       "formulations": [
         {
@@ -16339,7 +15205,7 @@
       ]
     },
     {
-      "generic": "Metronidazole",
+      "generic": "metronidazole",
       "formulary": true,
       "formulations": [
         {
@@ -16396,7 +15262,7 @@
       ]
     },
     {
-      "generic": "Metyrapone",
+      "generic": "metyrapone",
       "formulary": true,
       "formulations": [
         {
@@ -16415,7 +15281,7 @@
       ]
     },
     {
-      "generic": "Midazolam",
+      "generic": "midazolam",
       "formulary": true,
       "formulations": [
         {
@@ -16469,7 +15335,7 @@
       ]
     },
     {
-      "generic": "Midazolam 0.15 Mg/ml in D5w",
+      "generic": "MIDAZOLAM 0.15 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -16487,7 +15353,7 @@
       ]
     },
     {
-      "generic": "Midazolam 0.5 Mg/ml in D5w",
+      "generic": "MIDAZOLAM 0.5 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -16505,7 +15371,7 @@
       ]
     },
     {
-      "generic": "Midazolam 1 Mg/ml in D5w",
+      "generic": "MIDAZOLAM 1 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -16523,7 +15389,7 @@
       ]
     },
     {
-      "generic": "Midazolam 5 Mg/ml Conc",
+      "generic": "MIDAZOLAM 5 mg/mL Conc",
       "formulary": true,
       "formulations": [
         {
@@ -16541,7 +15407,7 @@
       ]
     },
     {
-      "generic": "Milrinone",
+      "generic": "milrinone",
       "formulary": true,
       "formulations": [
         {
@@ -16559,7 +15425,7 @@
       ]
     },
     {
-      "generic": "Milrinone 0.1 Mg/ml in D5w",
+      "generic": "MILRINONE 0.1 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -16577,7 +15443,7 @@
       ]
     },
     {
-      "generic": "Milrinone 0.2 Mg/ml in D5w",
+      "generic": "MILRINONE 0.2 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -16595,7 +15461,7 @@
       ]
     },
     {
-      "generic": "Milrinone 0.5 Mg/ml in D5w",
+      "generic": "MILRINONE 0.5 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -16613,7 +15479,7 @@
       ]
     },
     {
-      "generic": "Minocycline",
+      "generic": "minocycline",
       "formulary": false,
       "formulations": [
         {
@@ -16644,7 +15510,7 @@
       ]
     },
     {
-      "generic": "Mirtazapine",
+      "generic": "mirtazapine",
       "formulary": true,
       "formulations": [
         {
@@ -16663,7 +15529,7 @@
       ]
     },
     {
-      "generic": "Mitomycin",
+      "generic": "mitoMYCIN",
       "formulary": true,
       "formulations": [
         {
@@ -16681,7 +15547,7 @@
       ]
     },
     {
-      "generic": "Mitoxantrone",
+      "generic": "mitoXANTRONE",
       "formulary": true,
       "formulations": [
         {
@@ -16699,7 +15565,7 @@
       ]
     },
     {
-      "generic": "Mivacurium",
+      "generic": "mivacurium",
       "formulary": true,
       "formulations": [
         {
@@ -16729,7 +15595,7 @@
       ]
     },
     {
-      "generic": "Montelukast",
+      "generic": "montelukast",
       "formulary": true,
       "formulations": [
         {
@@ -16761,7 +15627,7 @@
       ]
     },
     {
-      "generic": "Morphine",
+      "generic": "morphine",
       "formulary": true,
       "formulations": [
         {
@@ -16904,7 +15770,7 @@
       ]
     },
     {
-      "generic": "Morphine Concentrate",
+      "generic": "morphine concentrate",
       "formulary": true,
       "formulations": [
         {
@@ -16923,7 +15789,7 @@
       ]
     },
     {
-      "generic": "morphine Pca",
+      "generic": "morphine PCA",
       "formulary": true,
       "formulations": [
         {
@@ -16977,7 +15843,7 @@
       ]
     },
     {
-      "generic": "morphine Pf",
+      "generic": "morphine PF",
       "formulary": true,
       "formulations": [
         {
@@ -16995,7 +15861,7 @@
       ]
     },
     {
-      "generic": "Moxifloxacin",
+      "generic": "moxifloxacin",
       "formulary": false,
       "formulations": [
         {
@@ -17014,7 +15880,7 @@
       ]
     },
     {
-      "generic": "Multivitamin",
+      "generic": "multivitamin",
       "formulary": true,
       "formulations": [
         {
@@ -17084,7 +15950,7 @@
       ]
     },
     {
-      "generic": "Multivitamin Infusion Adolescent",
+      "generic": "multivitamin infusion adolescent",
       "formulary": true,
       "formulations": [
         {
@@ -17102,7 +15968,7 @@
       ]
     },
     {
-      "generic": "Multivitamin Infusion Pediatric",
+      "generic": "multivitamin infusion pediatric",
       "formulary": true,
       "formulations": [
         {
@@ -17120,7 +15986,7 @@
       ]
     },
     {
-      "generic": "Multivitamin With Fluoride",
+      "generic": "multivitamin with fluoride",
       "formulary": true,
       "formulations": [
         {
@@ -17204,7 +16070,7 @@
       ]
     },
     {
-      "generic": "Multivitamin With Minerals",
+      "generic": "multivitamin with minerals",
       "formulary": true,
       "formulations": [
         {
@@ -17249,7 +16115,7 @@
       ]
     },
     {
-      "generic": "Mumps Skin Test Antigen",
+      "generic": "mumps skin test antigen",
       "formulary": true,
       "formulations": [
         {
@@ -17267,25 +16133,7 @@
       ]
     },
     {
-      "generic": "Mumps Virus Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "MUMPS LIVE VACC. INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1281305.00",
-          "ndc": "00006-4753-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Muromonab-cd3",
+      "generic": "muromonab-CD3",
       "formulary": true,
       "formulations": [
         {
@@ -17303,7 +16151,7 @@
       ]
     },
     {
-      "generic": "Mycophenolate Mofetil",
+      "generic": "mycophenolate mofetil",
       "formulary": true,
       "formulations": [
         {
@@ -17372,7 +16220,7 @@
       ]
     },
     {
-      "generic": "Nalbuphine",
+      "generic": "nalbuphine",
       "formulary": true,
       "formulations": [
         {
@@ -17390,7 +16238,7 @@
       ]
     },
     {
-      "generic": "Naloxone",
+      "generic": "naloxone",
       "formulary": true,
       "formulations": [
         {
@@ -17420,7 +16268,7 @@
       ]
     },
     {
-      "generic": "Naproxen",
+      "generic": "naproxen",
       "formulary": true,
       "formulations": [
         {
@@ -17478,7 +16326,7 @@
       ]
     },
     {
-      "generic": "Nefazodone",
+      "generic": "nefazodone",
       "formulary": false,
       "formulations": [
         {
@@ -17536,7 +16384,7 @@
       ]
     },
     {
-      "generic": "Nelfinavir",
+      "generic": "nelfinavir",
       "formulary": true,
       "formulations": [
         {
@@ -17555,7 +16403,7 @@
       ]
     },
     {
-      "generic": "Neomycin",
+      "generic": "neomycin",
       "formulary": true,
       "formulations": [
         {
@@ -17574,7 +16422,7 @@
       ]
     },
     {
-      "generic": "Neostigmine",
+      "generic": "neostigmine",
       "formulary": true,
       "formulations": [
         {
@@ -17592,7 +16440,7 @@
       ]
     },
     {
-      "generic": "Nesiritide",
+      "generic": "nesiritide",
       "formulary": true,
       "formulations": [
         {
@@ -17610,7 +16458,7 @@
       ]
     },
     {
-      "generic": "Nevirapine",
+      "generic": "nevirapine",
       "formulary": false,
       "formulations": [
         {
@@ -17642,7 +16490,7 @@
       ]
     },
     {
-      "generic": "Niacin",
+      "generic": "niacin",
       "formulary": true,
       "formulations": [
         {
@@ -17661,7 +16509,7 @@
       ]
     },
     {
-      "generic": "Nifedipine",
+      "generic": "NIFEdipine",
       "formulary": true,
       "formulations": [
         {
@@ -17719,7 +16567,7 @@
       ]
     },
     {
-      "generic": "Nimodipine",
+      "generic": "NIMOdipine",
       "formulary": false,
       "formulations": [
         {
@@ -17738,7 +16586,7 @@
       ]
     },
     {
-      "generic": "Nitrofurantoin",
+      "generic": "nitrofurantoin",
       "formulary": true,
       "formulations": [
         {
@@ -17796,7 +16644,7 @@
       ]
     },
     {
-      "generic": "Nitroglycerin",
+      "generic": "nitroglycerin",
       "formulary": true,
       "formulations": [
         {
@@ -17827,7 +16675,7 @@
       ]
     },
     {
-      "generic": "Nitroglycerin 0.2 Mg/ml in D5w",
+      "generic": "NITROGLYCERIN 0.2 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -17845,7 +16693,7 @@
       ]
     },
     {
-      "generic": "Nitroglycerin 0.4 Mg/ml in D5w",
+      "generic": "NITROGLYCERIN 0.4 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -17863,7 +16711,7 @@
       ]
     },
     {
-      "generic": "Nitroprusside",
+      "generic": "nitroprusside",
       "formulary": true,
       "formulations": [
         {
@@ -17881,7 +16729,7 @@
       ]
     },
     {
-      "generic": "Nitroprusside 0.5 Mg/ml in D5w",
+      "generic": "NITROPRUSSIDE 0.5 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -17899,7 +16747,7 @@
       ]
     },
     {
-      "generic": "Nitroprusside 1 Mg/ml in D5w",
+      "generic": "NITROPRUSSIDE 1 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -17917,7 +16765,7 @@
       ]
     },
     {
-      "generic": "Norepinephrine",
+      "generic": "norepinephrine",
       "formulary": true,
       "formulations": [
         {
@@ -17935,7 +16783,7 @@
       ]
     },
     {
-      "generic": "Norepinephrine 0.016 Mg/ml In D5w",
+      "generic": "NOREPINEPHRINE 0.016 mg/mL IN D5W",
       "formulary": true,
       "formulations": [
         {
@@ -17953,7 +16801,7 @@
       ]
     },
     {
-      "generic": "Norepinephrine 0.032 Mg/ml In D5w",
+      "generic": "NOREPINEPHRINE 0.032 mg/mL IN D5W",
       "formulary": true,
       "formulations": [
         {
@@ -17971,7 +16819,7 @@
       ]
     },
     {
-      "generic": "Norepinephrine 0.064 Mg/ml In D5w",
+      "generic": "NOREPINEPHRINE 0.064 mg/mL IN D5W",
       "formulary": true,
       "formulations": [
         {
@@ -17989,7 +16837,7 @@
       ]
     },
     {
-      "generic": "Norepinephrine 0.1 Mg/ml in D5w",
+      "generic": "NOREPINEPHRINE 0.1 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -18007,7 +16855,7 @@
       ]
     },
     {
-      "generic": "Norethindrone",
+      "generic": "norethindrone",
       "formulary": true,
       "formulations": [
         {
@@ -18026,7 +16874,7 @@
       ]
     },
     {
-      "generic": "Norfloxacin",
+      "generic": "norfloxacin",
       "formulary": false,
       "formulations": [
         {
@@ -18045,7 +16893,7 @@
       ]
     },
     {
-      "generic": "Nortriptyline",
+      "generic": "nortriptyline",
       "formulary": true,
       "formulations": [
         {
@@ -18103,7 +16951,7 @@
       ]
     },
     {
-      "generic": "Nystatin",
+      "generic": "nystatin",
       "formulary": true,
       "formulations": [
         {
@@ -18148,7 +16996,7 @@
       ]
     },
     {
-      "generic": "Nystatin/diphenhydramine/lidocaine",
+      "generic": "nystatin/diphenhydramine/lidocaine",
       "formulary": true,
       "formulations": [
         {
@@ -18167,7 +17015,7 @@
       ]
     },
     {
-      "generic": "Octreotide",
+      "generic": "octreotide",
       "formulary": true,
       "formulations": [
         {
@@ -18197,7 +17045,7 @@
       ]
     },
     {
-      "generic": "Olanzapine",
+      "generic": "olanzapine",
       "formulary": true,
       "formulations": [
         {
@@ -18229,7 +17077,7 @@
       ]
     },
     {
-      "generic": "Omeprazole",
+      "generic": "omeprazole",
       "formulary": false,
       "formulations": [
         {
@@ -18248,7 +17096,7 @@
       ]
     },
     {
-      "generic": "Ondansetron",
+      "generic": "ondansetron",
       "formulary": true,
       "formulations": [
         {
@@ -18304,7 +17152,7 @@
       ]
     },
     {
-      "generic": "Oprelvekin",
+      "generic": "oprelvekin",
       "formulary": false,
       "formulations": [
         {
@@ -18322,7 +17170,7 @@
       ]
     },
     {
-      "generic": "Oral Wound Rinse",
+      "generic": "oral wound rinse",
       "formulary": true,
       "formulations": [
         {
@@ -18341,7 +17189,7 @@
       ]
     },
     {
-      "generic": "Oseltamivir",
+      "generic": "oseltamivir",
       "formulary": true,
       "formulations": [
         {
@@ -18373,7 +17221,7 @@
       ]
     },
     {
-      "generic": "Oxacillin",
+      "generic": "oxacillin",
       "formulary": true,
       "formulations": [
         {
@@ -18427,7 +17275,7 @@
       ]
     },
     {
-      "generic": "Oxandrolone",
+      "generic": "oxandrolone",
       "formulary": false,
       "formulations": [
         {
@@ -18446,7 +17294,7 @@
       ]
     },
     {
-      "generic": "Oxcarbazepine",
+      "generic": "oxcarbazepine",
       "formulary": false,
       "formulations": [
         {
@@ -18491,7 +17339,7 @@
       ]
     },
     {
-      "generic": "Oxybutynin",
+      "generic": "oxybutynin",
       "formulary": true,
       "formulations": [
         {
@@ -18523,7 +17371,7 @@
       ]
     },
     {
-      "generic": "Oxycodone",
+      "generic": "oxycodone",
       "formulary": true,
       "formulations": [
         {
@@ -18607,7 +17455,7 @@
       ]
     },
     {
-      "generic": "Oxytocin",
+      "generic": "oxytocin",
       "formulary": true,
       "formulations": [
         {
@@ -18625,7 +17473,7 @@
       ]
     },
     {
-      "generic": "Paclitaxel",
+      "generic": "paCLITAXEL",
       "formulary": true,
       "formulations": [
         {
@@ -18643,7 +17491,7 @@
       ]
     },
     {
-      "generic": "Palivizumab",
+      "generic": "palivizumab",
       "formulary": true,
       "formulations": [
         {
@@ -18673,7 +17521,7 @@
       ]
     },
     {
-      "generic": "Pamidronate",
+      "generic": "pamidronate",
       "formulary": false,
       "formulations": [
         {
@@ -18691,7 +17539,7 @@
       ]
     },
     {
-      "generic": "Pancrelipase",
+      "generic": "pancrelipase",
       "formulary": true,
       "formulations": [
         {
@@ -18788,7 +17636,7 @@
       ]
     },
     {
-      "generic": "Pancuronium",
+      "generic": "pancuronium",
       "formulary": true,
       "formulations": [
         {
@@ -18806,7 +17654,7 @@
       ]
     },
     {
-      "generic": "Pantoprazole",
+      "generic": "pantoprazole",
       "formulary": false,
       "formulations": [
         {
@@ -18837,7 +17685,7 @@
       ]
     },
     {
-      "generic": "Papaverine",
+      "generic": "papaverine",
       "formulary": true,
       "formulations": [
         {
@@ -18855,7 +17703,7 @@
       ]
     },
     {
-      "generic": "Paricalcitol",
+      "generic": "paricalcitol",
       "formulary": true,
       "formulations": [
         {
@@ -18873,7 +17721,7 @@
       ]
     },
     {
-      "generic": "Paromomycin",
+      "generic": "paromomycin",
       "formulary": true,
       "formulations": [
         {
@@ -18892,7 +17740,7 @@
       ]
     },
     {
-      "generic": "Paroxetine",
+      "generic": "PaROXETINE",
       "formulary": false,
       "formulations": [
         {
@@ -18963,7 +17811,7 @@
       ]
     },
     {
-      "generic": "Pegaspargase",
+      "generic": "PEGaspargase",
       "formulary": true,
       "formulations": [
         {
@@ -18981,7 +17829,7 @@
       ]
     },
     {
-      "generic": "Pemoline",
+      "generic": "pemoline",
       "formulary": true,
       "formulations": [
         {
@@ -19000,7 +17848,7 @@
       ]
     },
     {
-      "generic": "Penicillamine",
+      "generic": "penicillamine",
       "formulary": true,
       "formulations": [
         {
@@ -19032,7 +17880,7 @@
       ]
     },
     {
-      "generic": "Penicillin",
+      "generic": "penicillin",
       "formulary": true,
       "formulations": [
         {
@@ -19246,7 +18094,7 @@
       ]
     },
     {
-      "generic": "Pentamidine",
+      "generic": "pentamidine",
       "formulary": true,
       "formulations": [
         {
@@ -19288,7 +18136,7 @@
       ]
     },
     {
-      "generic": "Pentobarbital",
+      "generic": "PENTobarbital",
       "formulary": true,
       "formulations": [
         {
@@ -19318,7 +18166,7 @@
       ]
     },
     {
-      "generic": "Pentoxifylline",
+      "generic": "pentoxifylline",
       "formulary": true,
       "formulations": [
         {
@@ -19350,7 +18198,7 @@
       ]
     },
     {
-      "generic": "Perfadex",
+      "generic": "perfadex",
       "formulary": false,
       "formulations": [
         {
@@ -19368,7 +18216,7 @@
       ]
     },
     {
-      "generic": "Peritoneal Dialysate",
+      "generic": "peritoneal dialysate",
       "formulary": false,
       "formulations": [
         {
@@ -19386,7 +18234,7 @@
       ]
     },
     {
-      "generic": "Phenazopyridine",
+      "generic": "phenazopyridine",
       "formulary": true,
       "formulations": [
         {
@@ -19418,7 +18266,7 @@
       ]
     },
     {
-      "generic": "Phenobarbital",
+      "generic": "phenobarbital",
       "formulary": true,
       "formulations": [
         {
@@ -19549,7 +18397,7 @@
       ]
     },
     {
-      "generic": "Phenoxybenzamine",
+      "generic": "phenoxybenzamine",
       "formulary": true,
       "formulations": [
         {
@@ -19568,7 +18416,7 @@
       ]
     },
     {
-      "generic": "Phentolamine",
+      "generic": "phentolamine",
       "formulary": true,
       "formulations": [
         {
@@ -19586,7 +18434,7 @@
       ]
     },
     {
-      "generic": "Phenylephrine",
+      "generic": "phenylephrine",
       "formulary": true,
       "formulations": [
         {
@@ -19604,7 +18452,7 @@
       ]
     },
     {
-      "generic": "Phenylephrine-Promethazine",
+      "generic": "phenylephrine-promethazine",
       "formulary": true,
       "formulations": [
         {
@@ -19623,7 +18471,7 @@
       ]
     },
     {
-      "generic": "Phenytoin",
+      "generic": "phenytoin",
       "formulary": true,
       "formulations": [
         {
@@ -19679,7 +18527,7 @@
       ]
     },
     {
-      "generic": "Physostigmine",
+      "generic": "physostigmine",
       "formulary": true,
       "formulations": [
         {
@@ -19697,7 +18545,7 @@
       ]
     },
     {
-      "generic": "Phytonadione",
+      "generic": "phytonadione",
       "formulary": true,
       "formulations": [
         {
@@ -19740,7 +18588,7 @@
       ]
     },
     {
-      "generic": "Piperacillin-Tazobactam",
+      "generic": "piperacillin-tazobactam",
       "formulary": true,
       "formulations": [
         {
@@ -19782,61 +18630,7 @@
       ]
     },
     {
-      "generic": "Pneumococcal 23-Valent Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PNEUMOCOCCAL VACCINE 23-VAL 0.5 ML INJ",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1542906.00",
-          "ndc": "00006-4943-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Pneumococcal 7-Valent Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PNEUMOCOCCAL VACCINE 7-VAL 0.5 ML INJ",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1543033.00",
-          "ndc": "00005-1970-67",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Poliovirus Vaccine, Inactivated",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "POLIOMYELITIS VACC. INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286791.00",
-          "ndc": "49281-0860-52",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Polyethylene Glycol Electrolyte Solution",
+      "generic": "polyethylene glycol electrolyte solution",
       "formulary": true,
       "formulations": [
         {
@@ -19855,7 +18649,7 @@
       ]
     },
     {
-      "generic": "Poractant",
+      "generic": "poractant",
       "formulary": true,
       "formulations": [
         {
@@ -19874,7 +18668,7 @@
       ]
     },
     {
-      "generic": "Potassium Acetate",
+      "generic": "potassium acetate",
       "formulary": true,
       "formulations": [
         {
@@ -19904,7 +18698,7 @@
       ]
     },
     {
-      "generic": "Potassium Bicarbonate-Potassium Chloride",
+      "generic": "potassium bicarbonate-potassium chloride",
       "formulary": true,
       "formulations": [
         {
@@ -19923,7 +18717,7 @@
       ]
     },
     {
-      "generic": "Potassium Bicarbonate-Potassium Citrate",
+      "generic": "potassium bicarbonate-potassium citrate",
       "formulary": true,
       "formulations": [
         {
@@ -19942,7 +18736,7 @@
       ]
     },
     {
-      "generic": "Potassium Chloride",
+      "generic": "potassium chloride",
       "formulary": true,
       "formulations": [
         {
@@ -20073,7 +18867,7 @@
       ]
     },
     {
-      "generic": "Potassium Iodide",
+      "generic": "potassium iodide",
       "formulary": true,
       "formulations": [
         {
@@ -20092,7 +18886,7 @@
       ]
     },
     {
-      "generic": "Potassium Phosphate",
+      "generic": "potassium phosphate",
       "formulary": true,
       "formulations": [
         {
@@ -20110,7 +18904,7 @@
       ]
     },
     {
-      "generic": "Pralidoxime",
+      "generic": "pralidoxime",
       "formulary": true,
       "formulations": [
         {
@@ -20128,7 +18922,7 @@
       ]
     },
     {
-      "generic": "Prednisolone",
+      "generic": "PrednisoLONE",
       "formulary": true,
       "formulations": [
         {
@@ -20160,7 +18954,7 @@
       ]
     },
     {
-      "generic": "Prednisone",
+      "generic": "PredniSONE",
       "formulary": true,
       "formulations": [
         {
@@ -20257,7 +19051,7 @@
       ]
     },
     {
-      "generic": "Primidone",
+      "generic": "primidone",
       "formulary": true,
       "formulations": [
         {
@@ -20289,7 +19083,7 @@
       ]
     },
     {
-      "generic": "Probenecid",
+      "generic": "probenecid",
       "formulary": true,
       "formulations": [
         {
@@ -20308,7 +19102,7 @@
       ]
     },
     {
-      "generic": "Procainamide",
+      "generic": "procainamide",
       "formulary": true,
       "formulations": [
         {
@@ -20377,7 +19171,7 @@
       ]
     },
     {
-      "generic": "Procainamide 4 Mg/ml in D5w",
+      "generic": "PROCAINAMIDE 4 mg/mL in D5W",
       "formulary": true,
       "formulations": [
         {
@@ -20395,7 +19189,7 @@
       ]
     },
     {
-      "generic": "Procarbazine",
+      "generic": "procarbazine",
       "formulary": true,
       "formulations": [
         {
@@ -20414,7 +19208,7 @@
       ]
     },
     {
-      "generic": "Prochlorperazine",
+      "generic": "prochlorperazine",
       "formulary": true,
       "formulations": [
         {
@@ -20470,7 +19264,7 @@
       ]
     },
     {
-      "generic": "Promethazine",
+      "generic": "promethazine",
       "formulary": true,
       "formulations": [
         {
@@ -20527,7 +19321,7 @@
       ]
     },
     {
-      "generic": "Propantheline",
+      "generic": "propantheline",
       "formulary": true,
       "formulations": [
         {
@@ -20559,7 +19353,7 @@
       ]
     },
     {
-      "generic": "Propofol",
+      "generic": "propofol",
       "formulary": true,
       "formulations": [
         {
@@ -20601,7 +19395,7 @@
       ]
     },
     {
-      "generic": "Propranolol",
+      "generic": "propranolol",
       "formulary": true,
       "formulations": [
         {
@@ -20684,7 +19478,7 @@
       ]
     },
     {
-      "generic": "Propylthiouracil",
+      "generic": "propylthiouracil",
       "formulary": true,
       "formulations": [
         {
@@ -20703,7 +19497,7 @@
       ]
     },
     {
-      "generic": "Protamine",
+      "generic": "protamine",
       "formulary": true,
       "formulations": [
         {
@@ -20721,7 +19515,7 @@
       ]
     },
     {
-      "generic": "Protirelin",
+      "generic": "protirelin",
       "formulary": true,
       "formulations": [
         {
@@ -20739,7 +19533,7 @@
       ]
     },
     {
-      "generic": "Pseudoephedrine",
+      "generic": "pseudoephedrine",
       "formulary": true,
       "formulations": [
         {
@@ -20784,7 +19578,7 @@
       ]
     },
     {
-      "generic": "Pseudoephedrine-Triprolidine",
+      "generic": "pseudoephedrine-triprolidine",
       "formulary": true,
       "formulations": [
         {
@@ -20816,7 +19610,7 @@
       ]
     },
     {
-      "generic": "Pyrazinamide",
+      "generic": "pyrazinamide",
       "formulary": true,
       "formulations": [
         {
@@ -20848,7 +19642,7 @@
       ]
     },
     {
-      "generic": "Pyridostigmine",
+      "generic": "pyridostigmine",
       "formulary": true,
       "formulations": [
         {
@@ -20893,7 +19687,7 @@
       ]
     },
     {
-      "generic": "Pyridoxine",
+      "generic": "pyridoxine",
       "formulary": true,
       "formulations": [
         {
@@ -20950,7 +19744,7 @@
       ]
     },
     {
-      "generic": "Pyrimethamine",
+      "generic": "pyrimethamine",
       "formulary": true,
       "formulations": [
         {
@@ -20969,7 +19763,7 @@
       ]
     },
     {
-      "generic": "Quetiapine",
+      "generic": "quetiapine",
       "formulary": false,
       "formulations": [
         {
@@ -21001,7 +19795,7 @@
       ]
     },
     {
-      "generic": "Quinidine",
+      "generic": "quinidine",
       "formulary": true,
       "formulations": [
         {
@@ -21032,7 +19826,7 @@
       ]
     },
     {
-      "generic": "Quinidine Sulfate",
+      "generic": "quinidine sulfate",
       "formulary": true,
       "formulations": [
         {
@@ -21077,7 +19871,7 @@
       ]
     },
     {
-      "generic": "Rabies Immune Globulin, Human",
+      "generic": "rabies immune globulin, human",
       "formulary": true,
       "formulations": [
         {
@@ -21095,7 +19889,7 @@
       ]
     },
     {
-      "generic": "Rabies, Human Diploid Cell Cultures",
+      "generic": "rabies, human diploid cell cultures",
       "formulary": true,
       "formulations": [
         {
@@ -21113,7 +19907,7 @@
       ]
     },
     {
-      "generic": "Ranitidine",
+      "generic": "ranitidine",
       "formulary": true,
       "formulations": [
         {
@@ -21182,7 +19976,7 @@
       ]
     },
     {
-      "generic": "Rasburicase",
+      "generic": "rasburicase",
       "formulary": false,
       "formulations": [
         {
@@ -21200,7 +19994,7 @@
       ]
     },
     {
-      "generic": "Remifentanil",
+      "generic": "remifentanil",
       "formulary": true,
       "formulations": [
         {
@@ -21218,7 +20012,7 @@
       ]
     },
     {
-      "generic": "Repaglinide",
+      "generic": "repaglinide",
       "formulary": false,
       "formulations": [
         {
@@ -21263,7 +20057,7 @@
       ]
     },
     {
-      "generic": "Respiratory Syncytial Virus Immune Globulin",
+      "generic": "respiratory syncytial virus immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -21281,7 +20075,7 @@
       ]
     },
     {
-      "generic": "Rho (d) immune globulin",
+      "generic": "RHo (D) immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -21299,7 +20093,7 @@
       ]
     },
     {
-      "generic": "Rho (d) immune globulin Im",
+      "generic": "RHo (D) immune globulin IM",
       "formulary": true,
       "formulations": [
         {
@@ -21329,7 +20123,7 @@
       ]
     },
     {
-      "generic": "Riboflavin",
+      "generic": "riboflavin",
       "formulary": true,
       "formulations": [
         {
@@ -21348,7 +20142,7 @@
       ]
     },
     {
-      "generic": "Rifabutin",
+      "generic": "rifabutin",
       "formulary": true,
       "formulations": [
         {
@@ -21367,7 +20161,7 @@
       ]
     },
     {
-      "generic": "Rifampin",
+      "generic": "rifampin",
       "formulary": true,
       "formulations": [
         {
@@ -21436,7 +20230,7 @@
       ]
     },
     {
-      "generic": "Risperidone",
+      "generic": "risperidone",
       "formulary": true,
       "formulations": [
         {
@@ -21494,7 +20288,7 @@
       ]
     },
     {
-      "generic": "Ritonavir",
+      "generic": "ritonavir",
       "formulary": false,
       "formulations": [
         {
@@ -21526,7 +20320,7 @@
       ]
     },
     {
-      "generic": "Rituximab",
+      "generic": "rituximab",
       "formulary": true,
       "formulations": [
         {
@@ -21544,7 +20338,7 @@
       ]
     },
     {
-      "generic": "Rocuronium",
+      "generic": "rocuronium",
       "formulary": true,
       "formulations": [
         {
@@ -21562,7 +20356,7 @@
       ]
     },
     {
-      "generic": "Rofecoxib",
+      "generic": "rofecoxib",
       "formulary": true,
       "formulations": [
         {
@@ -21607,7 +20401,7 @@
       ]
     },
     {
-      "generic": "Ropivacaine",
+      "generic": "ropivacaine",
       "formulary": true,
       "formulations": [
         {
@@ -21625,7 +20419,7 @@
       ]
     },
     {
-      "generic": "Ropivacaine 1%",
+      "generic": "ropivacaine 1%",
       "formulary": true,
       "formulations": [
         {
@@ -21643,25 +20437,7 @@
       ]
     },
     {
-      "generic": "Rubella Virus Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "RUBELLA VIRUS VACC. INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1290816.00",
-          "ndc": "00006-4673-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Saquinavir",
+      "generic": "saquinavir",
       "formulary": true,
       "formulations": [
         {
@@ -21680,7 +20456,7 @@
       ]
     },
     {
-      "generic": "Sargramostim",
+      "generic": "sargramostim",
       "formulary": true,
       "formulations": [
         {
@@ -21710,7 +20486,7 @@
       ]
     },
     {
-      "generic": "Scopolamine",
+      "generic": "scopolamine",
       "formulary": true,
       "formulations": [
         {
@@ -21728,7 +20504,7 @@
       ]
     },
     {
-      "generic": "Secretin",
+      "generic": "secretin",
       "formulary": false,
       "formulations": [
         {
@@ -21746,7 +20522,7 @@
       ]
     },
     {
-      "generic": "Selenious Acid",
+      "generic": "selenious acid",
       "formulary": true,
       "formulations": [
         {
@@ -21764,7 +20540,7 @@
       ]
     },
     {
-      "generic": "Senna",
+      "generic": "senna",
       "formulary": true,
       "formulations": [
         {
@@ -21796,7 +20572,7 @@
       ]
     },
     {
-      "generic": "Sertraline",
+      "generic": "sertraline",
       "formulary": false,
       "formulations": [
         {
@@ -21815,7 +20591,7 @@
       ]
     },
     {
-      "generic": "Sevelamer",
+      "generic": "sevelamer",
       "formulary": false,
       "formulations": [
         {
@@ -21834,7 +20610,7 @@
       ]
     },
     {
-      "generic": "Sevoflurane",
+      "generic": "sevoflurane",
       "formulary": true,
       "formulations": [
         {
@@ -21879,7 +20655,7 @@
       ]
     },
     {
-      "generic": "Sildenafil",
+      "generic": "sildenafil",
       "formulary": true,
       "formulations": [
         {
@@ -21911,7 +20687,7 @@
       ]
     },
     {
-      "generic": "Simethicone",
+      "generic": "simethicone",
       "formulary": true,
       "formulations": [
         {
@@ -21943,7 +20719,7 @@
       ]
     },
     {
-      "generic": "Sirolimus",
+      "generic": "sirolimus",
       "formulary": true,
       "formulations": [
         {
@@ -21975,7 +20751,7 @@
       ]
     },
     {
-      "generic": "Sodium Acetate",
+      "generic": "sodium acetate",
       "formulary": true,
       "formulations": [
         {
@@ -22041,7 +20817,7 @@
       ]
     },
     {
-      "generic": "Sodium Benzoate",
+      "generic": "sodium benzoate",
       "formulary": true,
       "formulations": [
         {
@@ -22060,7 +20836,7 @@
       ]
     },
     {
-      "generic": "Sodium Bicarbonate",
+      "generic": "sodium bicarbonate",
       "formulary": true,
       "formulations": [
         {
@@ -22177,7 +20953,7 @@
       ]
     },
     {
-      "generic": "Sodium Biphosphate-Sodium Phosphate",
+      "generic": "sodium biphosphate-sodium phosphate",
       "formulary": true,
       "formulations": [
         {
@@ -22196,58 +20972,9 @@
       ]
     },
     {
-      "generic": "Sodium Chloride",
+      "generic": "sodium chloride",
       "formulary": true,
       "formulations": [
-        {
-          "label": "SOD CHLORIDE 0.9% FOR INJ 10 ML VIAL",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1291802.00",
-          "ndc": "00074-4888-10",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 10.0
-        },
-        {
-          "label": "SOD CHLORIDE 120 MEQ/ 30 ML INJ",
-          "concentration": 4.0,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1291889.00",
-          "ndc": "00469-1187-25",
-          "_source": "STR/VOL",
-          "vialVol": 30.0
-        },
-        {
-          "label": "SOD CHLORIDE 5 MEQ/5ML VIAL",
-          "concentration": 1.0,
-          "unit": "meq",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1510306.00",
-          "ndc": "00469-1187-25",
-          "_source": "STR/VOL",
-          "vialVol": 5.0
-        },
-        {
-          "label": "SOD CHLORIDE 20 MEQ/5 ML SOL",
-          "concentration": 4.0,
-          "unit": "meq",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1306729.00",
-          "ndc": "88888-0011-44",
-          "_source": "STR/VOL",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
         {
           "label": "SOD CHLORIDE 1 GM TAB",
           "concentration": 1.0,
@@ -22264,253 +20991,7 @@
       ]
     },
     {
-      "generic": "Sodium Chloride 0.2%",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "0.2% NACL SOLN",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246144.00",
-          "ndc": "00264-7850-10",
-          "_source": "unknown",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.33%",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "0.33% NACL SOLN",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1579184.00",
-          "ndc": "00338-0013-04",
-          "_source": "unknown",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.45%",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "0.45%NACL SOLN  500 ML",
-          "concentration": 0.45,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246229.00",
-          "ndc": "00338-0043-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        },
-        {
-          "label": "0.45%NACL SOLN 1000 ML",
-          "concentration": 0.45,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246258.00",
-          "ndc": "00338-0043-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.67%",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "0.67% NACL SOLN",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246287.00",
-          "ndc": "00264-7850-10",
-          "_source": "unknown",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.9%",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "0.9%NACL SOLN 100 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246314.00",
-          "ndc": "00338-0049-48",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 100.0
-        },
-        {
-          "label": "0.9%NACL SOLN 1000 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246345.00",
-          "ndc": "00338-0049-04",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        },
-        {
-          "label": "0.9%NACL SOLN 150 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246376.00",
-          "ndc": "00338-0049-01",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 150.0
-        },
-        {
-          "label": "0.9%NACL SOLN 25 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246407.00",
-          "ndc": "00338-0049-10",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 25.0
-        },
-        {
-          "label": "0.9%NACL SOLN 250 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246438.00",
-          "ndc": "00338-0049-02",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 250.0
-        },
-        {
-          "label": "0.9%NACL SOLN 50 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246471.00",
-          "ndc": "00338-0049-41",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 50.0
-        },
-        {
-          "label": "0.9%NACL SOLN 500 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246502.00",
-          "ndc": "00338-0049-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.9% + Dextran 40 10% (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DEXTRAN 40 10%/NS 500 ML SOLN.",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1261577.00",
-          "ndc": "00264-1963-10",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.9% + hetastarch 6% (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HETASTARCH  6%/NS BAG 500 ML",
-          "concentration": 6.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1270900.00",
-          "ndc": "00056-0037-46",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.9%+ Heparin 1000 Units (pre-mix)",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HEPARIN 1,000 UNITS/NS 500ML",
-          "concentration": 2.0,
-          "unit": "unit",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1270552.00",
-          "ndc": "00074-7620-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 3%",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "3% NACL (HYPERTONIC) 500 ML",
-          "concentration": 3.0,
-          "unit": "%",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1246533.00",
-          "ndc": "00338-0054-03",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Ferric Gluconate Complex",
+      "generic": "sodium ferric gluconate complex",
       "formulary": true,
       "formulations": [
         {
@@ -22528,7 +21009,7 @@
       ]
     },
     {
-      "generic": "Sodium Phenylbutyrate",
+      "generic": "sodium phenylbutyrate",
       "formulary": true,
       "formulations": [
         {
@@ -22547,7 +21028,7 @@
       ]
     },
     {
-      "generic": "Sodium Phosphate",
+      "generic": "sodium phosphate",
       "formulary": true,
       "formulations": [
         {
@@ -22565,7 +21046,7 @@
       ]
     },
     {
-      "generic": "Sodium Polystyrene Sulfonate",
+      "generic": "sodium polystyrene sulfonate",
       "formulary": true,
       "formulations": [
         {
@@ -22584,7 +21065,7 @@
       ]
     },
     {
-      "generic": "Somatropin",
+      "generic": "somatropin",
       "formulary": true,
       "formulations": [
         {
@@ -22602,7 +21083,7 @@
       ]
     },
     {
-      "generic": "Sorbitol",
+      "generic": "sorbitol",
       "formulary": true,
       "formulations": [
         {
@@ -22621,7 +21102,7 @@
       ]
     },
     {
-      "generic": "Spironolactone",
+      "generic": "spironolactone",
       "formulary": true,
       "formulations": [
         {
@@ -22679,7 +21160,7 @@
       ]
     },
     {
-      "generic": "Stavudine",
+      "generic": "stavudine",
       "formulary": true,
       "formulations": [
         {
@@ -22750,7 +21231,7 @@
       ]
     },
     {
-      "generic": "Sterile Water",
+      "generic": "sterile water",
       "formulary": true,
       "formulations": [
         {
@@ -22818,7 +21299,7 @@
       ]
     },
     {
-      "generic": "Streptomycin",
+      "generic": "streptomycin",
       "formulary": true,
       "formulations": [
         {
@@ -22836,7 +21317,7 @@
       ]
     },
     {
-      "generic": "Streptozocin",
+      "generic": "streptozocin",
       "formulary": false,
       "formulations": [
         {
@@ -22854,7 +21335,7 @@
       ]
     },
     {
-      "generic": "Succimer",
+      "generic": "succimer",
       "formulary": true,
       "formulations": [
         {
@@ -22873,7 +21354,7 @@
       ]
     },
     {
-      "generic": "Succinylcholine",
+      "generic": "succinylcholine",
       "formulary": true,
       "formulations": [
         {
@@ -22891,7 +21372,7 @@
       ]
     },
     {
-      "generic": "Sucralfate",
+      "generic": "sucralfate",
       "formulary": true,
       "formulations": [
         {
@@ -22923,7 +21404,7 @@
       ]
     },
     {
-      "generic": "Sufentanil",
+      "generic": "sufentanil",
       "formulary": true,
       "formulations": [
         {
@@ -22941,7 +21422,7 @@
       ]
     },
     {
-      "generic": "Sulfadiazine",
+      "generic": "SulfADIAZINE",
       "formulary": true,
       "formulations": [
         {
@@ -22960,7 +21441,7 @@
       ]
     },
     {
-      "generic": "Sulfamethoxazole-Trimethoprim",
+      "generic": "sulfamethoxazole-trimethoprim",
       "formulary": true,
       "formulations": [
         {
@@ -23055,7 +21536,7 @@
       ]
     },
     {
-      "generic": "Sulfamethoxazole-Trimethoprim DS",
+      "generic": "sulfamethoxazole-trimethoprim DS",
       "formulary": true,
       "formulations": [
         {
@@ -23074,7 +21555,7 @@
       ]
     },
     {
-      "generic": "Sulfasalazine",
+      "generic": "sulfasalazine",
       "formulary": true,
       "formulations": [
         {
@@ -23093,7 +21574,7 @@
       ]
     },
     {
-      "generic": "Sulindac",
+      "generic": "sulindac",
       "formulary": true,
       "formulations": [
         {
@@ -23125,7 +21606,7 @@
       ]
     },
     {
-      "generic": "Sumatriptan",
+      "generic": "sumatriptan",
       "formulary": true,
       "formulations": [
         {
@@ -23156,7 +21637,7 @@
       ]
     },
     {
-      "generic": "Tacrolimus",
+      "generic": "tacrolimus",
       "formulary": true,
       "formulations": [
         {
@@ -23226,7 +21707,7 @@
       ]
     },
     {
-      "generic": "Temozolomide",
+      "generic": "temozolomide",
       "formulary": true,
       "formulations": [
         {
@@ -23284,63 +21765,7 @@
       ]
     },
     {
-      "generic": "Template Non Formulary",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "TEMPLATE NON FORMULARY CONT",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1488484.00",
-          "ndc": "00000-0000-01",
-          "_source": "unknown",
-          "vialVol": 1.0
-        },
-        {
-          "label": "TEMPLATE NON FORMULARY INV IV",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1488744.00",
-          "ndc": "00000-0000-01",
-          "_source": "unknown",
-          "vialVol": 1.0
-        },
-        {
-          "label": "TEMPLATE NON FORMULARY INV MED",
-          "concentration": null,
-          "unit": "mg",
-          "form": "tablet",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1488769.00",
-          "ndc": "00000-0000-01",
-          "_source": "unknown",
-          "canHalf": false,
-          "canQuarter": false
-        },
-        {
-          "label": "TEMPLATE NON FORMULARY MED",
-          "concentration": null,
-          "unit": "mg",
-          "form": "tablet",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1488461.00",
-          "ndc": "00000-0000-01",
-          "_source": "unknown",
-          "canHalf": false,
-          "canQuarter": false
-        }
-      ]
-    },
-    {
-      "generic": "Tenofovir",
+      "generic": "tenofovir",
       "formulary": true,
       "formulations": [
         {
@@ -23359,7 +21784,7 @@
       ]
     },
     {
-      "generic": "Terbinafine",
+      "generic": "terbinafine",
       "formulary": false,
       "formulations": [
         {
@@ -23378,7 +21803,7 @@
       ]
     },
     {
-      "generic": "Terbutaline",
+      "generic": "terbutaline",
       "formulary": true,
       "formulations": [
         {
@@ -23421,7 +21846,7 @@
       ]
     },
     {
-      "generic": "Testosterone",
+      "generic": "testosterone",
       "formulary": true,
       "formulations": [
         {
@@ -23451,7 +21876,7 @@
       ]
     },
     {
-      "generic": "Tetanus Immune Globulin",
+      "generic": "tetanus immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -23469,55 +21894,7 @@
       ]
     },
     {
-      "generic": "Tetanus Toxoid",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TETANUS TOXOID ADSORBED 0.5 ML SUS",
-          "concentration": 10.0,
-          "unit": "unit",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1300941.00",
-          "ndc": "00008-0339-01",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 0.5
-        },
-        {
-          "label": "TETANUS TOXOID SOL 1:5 0.1ML SKN TEST",
-          "concentration": 10.0,
-          "unit": "u",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1300968.00",
-          "ndc": "00008-0340-02",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 0.1
-        }
-      ]
-    },
-    {
-      "generic": "Tetanus-Diphtheria Toxoids",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DIPHTH/TET TOX (ADULT) INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1543993.00",
-          "ndc": "49281-0271-83",
-          "_source": "REF_DOSE_unparsed",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Tetracycline",
+      "generic": "tetracycline",
       "formulary": true,
       "formulations": [
         {
@@ -23549,7 +21926,7 @@
       ]
     },
     {
-      "generic": "Thalidomide",
+      "generic": "thalidomide",
       "formulary": true,
       "formulations": [
         {
@@ -23568,7 +21945,7 @@
       ]
     },
     {
-      "generic": "Theophylline",
+      "generic": "theophylline",
       "formulary": true,
       "formulations": [
         {
@@ -23587,7 +21964,7 @@
       ]
     },
     {
-      "generic": "Thiamine",
+      "generic": "thiamine",
       "formulary": true,
       "formulations": [
         {
@@ -23631,7 +22008,7 @@
       ]
     },
     {
-      "generic": "Thioguanine",
+      "generic": "thioguanine",
       "formulary": true,
       "formulations": [
         {
@@ -23650,7 +22027,7 @@
       ]
     },
     {
-      "generic": "Thiopental",
+      "generic": "thiopental",
       "formulary": true,
       "formulations": [
         {
@@ -23668,7 +22045,7 @@
       ]
     },
     {
-      "generic": "Thiotepa",
+      "generic": "thiotepa",
       "formulary": true,
       "formulations": [
         {
@@ -23686,7 +22063,7 @@
       ]
     },
     {
-      "generic": "Tiagabine",
+      "generic": "tiagabine",
       "formulary": false,
       "formulations": [
         {
@@ -23718,7 +22095,7 @@
       ]
     },
     {
-      "generic": "Ticarcillin-Clavulanate",
+      "generic": "ticarcillin-clavulanate",
       "formulary": false,
       "formulations": [
         {
@@ -23748,7 +22125,7 @@
       ]
     },
     {
-      "generic": "Tizanidine",
+      "generic": "tizanidine",
       "formulary": false,
       "formulations": [
         {
@@ -23767,7 +22144,7 @@
       ]
     },
     {
-      "generic": "Tobramycin",
+      "generic": "tobramycin",
       "formulary": true,
       "formulations": [
         {
@@ -23845,7 +22222,7 @@
       ]
     },
     {
-      "generic": "Tolmetin",
+      "generic": "tolmetin",
       "formulary": false,
       "formulations": [
         {
@@ -23877,7 +22254,7 @@
       ]
     },
     {
-      "generic": "Topiramate",
+      "generic": "topiramate",
       "formulary": true,
       "formulations": [
         {
@@ -23922,7 +22299,7 @@
       ]
     },
     {
-      "generic": "Topotecan",
+      "generic": "TOPOtecan",
       "formulary": true,
       "formulations": [
         {
@@ -23940,25 +22317,7 @@
       ]
     },
     {
-      "generic": "Tpn for documentation",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TPN FOR DOCUMENTATION",
-          "concentration": 1000.0,
-          "unit": "ml",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1304393.00",
-          "ndc": "88888-1037-26",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Tramadol",
+      "generic": "TRAMadol",
       "formulary": false,
       "formulations": [
         {
@@ -23977,7 +22336,7 @@
       ]
     },
     {
-      "generic": "Trazodone",
+      "generic": "trazodone",
       "formulary": true,
       "formulations": [
         {
@@ -24009,7 +22368,7 @@
       ]
     },
     {
-      "generic": "Tretinoin",
+      "generic": "tretinoin",
       "formulary": false,
       "formulations": [
         {
@@ -24028,7 +22387,7 @@
       ]
     },
     {
-      "generic": "Triamcinolone",
+      "generic": "triamcinolone",
       "formulary": true,
       "formulations": [
         {
@@ -24046,7 +22405,7 @@
       ]
     },
     {
-      "generic": "Triamcinolone 10",
+      "generic": "triamcinolone 10",
       "formulary": true,
       "formulations": [
         {
@@ -24064,7 +22423,7 @@
       ]
     },
     {
-      "generic": "Triamcinolone 40",
+      "generic": "triamcinolone 40",
       "formulary": true,
       "formulations": [
         {
@@ -24082,7 +22441,7 @@
       ]
     },
     {
-      "generic": "Triazolam",
+      "generic": "triazolam",
       "formulary": true,
       "formulations": [
         {
@@ -24114,7 +22473,7 @@
       ]
     },
     {
-      "generic": "Trihexyphenidyl",
+      "generic": "trihexyphenidyl",
       "formulary": true,
       "formulations": [
         {
@@ -24159,7 +22518,7 @@
       ]
     },
     {
-      "generic": "Trimethobenzamide",
+      "generic": "trimethobenzamide",
       "formulary": true,
       "formulations": [
         {
@@ -24190,7 +22549,7 @@
       ]
     },
     {
-      "generic": "Tromethamine",
+      "generic": "tromethamine",
       "formulary": true,
       "formulations": [
         {
@@ -24208,7 +22567,7 @@
       ]
     },
     {
-      "generic": "Tuberculin Purified Protein Derivative",
+      "generic": "tuberculin purified protein derivative",
       "formulary": true,
       "formulations": [
         {
@@ -24238,44 +22597,7 @@
       ]
     },
     {
-      "generic": "Typhoid Vaccine, Inactivated",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "TYPHOID VACC 0.5ML INJ",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1296201.00",
-          "ndc": "49281-0790-01",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Typhoid Vaccine, Live",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "TYPHOID ORAL CAP",
-          "concentration": null,
-          "unit": "mg",
-          "form": "capsule",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1296174.00",
-          "ndc": "58337-0003-01",
-          "_source": "unknown",
-          "canHalf": false,
-          "canQuarter": false
-        }
-      ]
-    },
-    {
-      "generic": "Ursodiol",
+      "generic": "ursodiol",
       "formulary": true,
       "formulations": [
         {
@@ -24307,7 +22629,7 @@
       ]
     },
     {
-      "generic": "Valacyclovir",
+      "generic": "valacyclovir",
       "formulary": false,
       "formulations": [
         {
@@ -24339,7 +22661,7 @@
       ]
     },
     {
-      "generic": "Valganciclovir",
+      "generic": "valganciclovir",
       "formulary": true,
       "formulations": [
         {
@@ -24358,7 +22680,7 @@
       ]
     },
     {
-      "generic": "Valine",
+      "generic": "valine",
       "formulary": false,
       "formulations": [
         {
@@ -24377,7 +22699,7 @@
       ]
     },
     {
-      "generic": "Valproic Acid",
+      "generic": "valproic acid",
       "formulary": true,
       "formulations": [
         {
@@ -24433,7 +22755,7 @@
       ]
     },
     {
-      "generic": "Vancomycin",
+      "generic": "vancomycin",
       "formulary": true,
       "formulations": [
         {
@@ -24463,7 +22785,7 @@
       ]
     },
     {
-      "generic": "Vancomycin-Gentamicin",
+      "generic": "vancomycin-gentamicin",
       "formulary": true,
       "formulations": [
         {
@@ -24482,25 +22804,7 @@
       ]
     },
     {
-      "generic": "Varicella Virus Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "VARICELLA VACC. INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1296741.00",
-          "ndc": "00006-4826-00",
-          "_source": "unknown",
-          "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Varicella Zoster Immune Globulin",
+      "generic": "varicella zoster immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -24518,7 +22822,7 @@
       ]
     },
     {
-      "generic": "Vasopressin",
+      "generic": "vasopressin",
       "formulary": true,
       "formulations": [
         {
@@ -24536,7 +22840,7 @@
       ]
     },
     {
-      "generic": "Vecuronium",
+      "generic": "vecuronium",
       "formulary": true,
       "formulations": [
         {
@@ -24566,7 +22870,7 @@
       ]
     },
     {
-      "generic": "Venlafaxine",
+      "generic": "venlafaxine",
       "formulary": false,
       "formulations": [
         {
@@ -24585,7 +22889,7 @@
       ]
     },
     {
-      "generic": "Verapamil",
+      "generic": "verapamil",
       "formulary": true,
       "formulations": [
         {
@@ -24616,7 +22920,7 @@
       ]
     },
     {
-      "generic": "Versenate Dipot 10%",
+      "generic": "versenate dipot 10%",
       "formulary": true,
       "formulations": [
         {
@@ -24634,7 +22938,7 @@
       ]
     },
     {
-      "generic": "Vinblastine",
+      "generic": "VinBLAStine",
       "formulary": true,
       "formulations": [
         {
@@ -24652,7 +22956,7 @@
       ]
     },
     {
-      "generic": "Vincristine",
+      "generic": "VinCRIStine",
       "formulary": true,
       "formulations": [
         {
@@ -24670,7 +22974,7 @@
       ]
     },
     {
-      "generic": "Vinorelbine",
+      "generic": "vinorelbine",
       "formulary": false,
       "formulations": [
         {
@@ -24841,7 +23145,7 @@
       ]
     },
     {
-      "generic": "Voriconazole",
+      "generic": "voriconazole",
       "formulary": true,
       "formulations": [
         {
@@ -24898,7 +23202,7 @@
       ]
     },
     {
-      "generic": "Warfarin",
+      "generic": "warfarin",
       "formulary": true,
       "formulations": [
         {
@@ -24969,25 +23273,7 @@
       ]
     },
     {
-      "generic": "Yellow Fever Vaccine",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "YELLOW FEVER VAC INJ 0.5 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1476151.00",
-          "ndc": "49281-0915-01",
-          "_source": "unknown",
-          "vialVol": 5.0
-        }
-      ]
-    },
-    {
-      "generic": "Zafirlukast",
+      "generic": "zafirlukast",
       "formulary": false,
       "formulations": [
         {
@@ -25019,7 +23305,7 @@
       ]
     },
     {
-      "generic": "Zalcitabine",
+      "generic": "zalcitabine",
       "formulary": true,
       "formulations": [
         {
@@ -25038,7 +23324,7 @@
       ]
     },
     {
-      "generic": "Zidovudine",
+      "generic": "zidovudine",
       "formulary": true,
       "formulations": [
         {
@@ -25082,7 +23368,7 @@
       ]
     },
     {
-      "generic": "Zinc Acetate",
+      "generic": "zinc acetate",
       "formulary": true,
       "formulations": [
         {
@@ -25101,7 +23387,7 @@
       ]
     },
     {
-      "generic": "Zinc Sulfate",
+      "generic": "zinc sulfate",
       "formulary": true,
       "formulations": [
         {
@@ -25145,7 +23431,7 @@
       ]
     },
     {
-      "generic": "Zolpidem",
+      "generic": "zolpidem",
       "formulary": false,
       "formulations": [
         {
@@ -25177,7 +23463,7 @@
       ]
     },
     {
-      "generic": "Zonisamide",
+      "generic": "zonisamide",
       "formulary": false,
       "formulations": [
         {
@@ -25224,7 +23510,7 @@
   ],
   "_review": [
     {
-      "drug": "Factor Ix Complex",
+      "drug": "Factor IX Complex",
       "formulation": "FACTOR IX (BENEFIX) INJ 1 UNIT",
       "form": "injectable",
       "ref_dose": "recombinant",
@@ -25268,84 +23554,7 @@
       "item_id": "1274726.00"
     },
     {
-      "drug": "Sodium Chloride 0.2%",
-      "formulation": "0.2% NACL SOLN",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "       1000.00",
-      "vol_unit": "mL",
-      "item_id": "1246144.00"
-    },
-    {
-      "drug": "Sodium Chloride 0.33%",
-      "formulation": "0.33% NACL SOLN",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "       1000.00",
-      "vol_unit": "mL",
-      "item_id": "1579184.00"
-    },
-    {
-      "drug": "Sodium Chloride 0.67%",
-      "formulation": "0.67% NACL SOLN",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "       1000.00",
-      "vol_unit": "mL",
-      "item_id": "1246287.00"
-    },
-    {
-      "drug": "Template Non Formulary",
-      "formulation": "TEMPLATE NON FORMULARY CONT",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Each",
-      "item_id": "1488484.00"
-    },
-    {
-      "drug": "Template Non Formulary",
-      "formulation": "TEMPLATE NON FORMULARY INV IV",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Each",
-      "item_id": "1488744.00"
-    },
-    {
-      "drug": "Template Non Formulary",
-      "formulation": "TEMPLATE NON FORMULARY INV MED",
-      "form": "tablet",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Each",
-      "item_id": "1488769.00"
-    },
-    {
-      "drug": "Template Non Formulary",
-      "formulation": "TEMPLATE NON FORMULARY MED",
-      "form": "tablet",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Each",
-      "item_id": "1488461.00"
-    },
-    {
-      "drug": "Antivenin (crotalidae) Polyvalent",
+      "drug": "antivenin (crotalidae) polyvalent",
       "formulation": "CROTALIDAE POLYVALENT IMMUNE FAB OVINE INJ 1 VIAL",
       "form": "injectable",
       "ref_dose": "",
@@ -25356,7 +23565,7 @@
       "item_id": "1258299.00"
     },
     {
-      "drug": "Bacitracin",
+      "drug": "bacitracin",
       "formulation": "BACITRACIN 50000 UNITS (Vial)",
       "form": "injectable",
       "ref_dose": "50,000 Unit(s)/mL",
@@ -25367,7 +23576,7 @@
       "item_id": "1251217.00"
     },
     {
-      "drug": "Calcitonin",
+      "drug": "calcitonin",
       "formulation": "CALCITONIN  NASAL SPRAY",
       "form": "liquid",
       "ref_dose": "200 I.U./Spray(s)",
@@ -25389,7 +23598,7 @@
       "item_id": "1253004.00"
     },
     {
-      "drug": "Candida Albicans Extract",
+      "drug": "candida albicans extract",
       "formulation": "CANDIDA SKIN TEST 0.1 ML",
       "form": "injectable",
       "ref_dose": "-",
@@ -25400,7 +23609,7 @@
       "item_id": "1253427.00"
     },
     {
-      "drug": "Clofarex (inv-Clo-212-All)",
+      "drug": "clofarex (inv-clo-212-all)",
       "formulation": "CLOFAREX (INV-CLO-212-ALL)",
       "form": "injectable",
       "ref_dose": "",
@@ -25411,7 +23620,7 @@
       "item_id": "1489520.00"
     },
     {
-      "drug": "Clofarex (inv-Clo-222-Aml)",
+      "drug": "clofarex (inv-clo-222-aml)",
       "formulation": "CLOFAREX (INV-CLO-222-AML)",
       "form": "injectable",
       "ref_dose": "",
@@ -25422,18 +23631,7 @@
       "item_id": "1489557.00"
     },
     {
-      "drug": "Diphtheria-Tetanus Toxoids",
-      "formulation": "DIPHTH/TET TOX (PEDS) INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "6.7 Units(s)/5 Units(s)",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1544104.00"
-    },
-    {
-      "drug": "Diphtheria/pertussis, Acellular/tetanus",
+      "drug": "diphtheria/pertussis, acellular/tetanus",
       "formulation": "DIPHTH/PERT, ACEL/TET VAC INJ 0.5 ML",
       "form": "injectable",
       "ref_dose": "for pts 6w-7y",
@@ -25444,7 +23642,7 @@
       "item_id": "1263034.00"
     },
     {
-      "drug": "Docusate-Senna",
+      "drug": "docusate-senna",
       "formulation": "DOCUSATE/SENNOSIDES 50/8.6MG TAB",
       "form": "tablet",
       "ref_dose": "50-8.6 mg",
@@ -25455,29 +23653,7 @@
       "item_id": "1538875.00"
     },
     {
-      "drug": "Electrolyte Solution For Kidney Preservation",
-      "formulation": "EURO-COLLINS MODIFIED SOLN 1000 ML",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "       1000.00",
-      "vol_unit": "mL",
-      "item_id": "1305724.00"
-    },
-    {
-      "drug": "Electrolyte Solution For Kidney Preservation",
-      "formulation": "EURO-COLLINS SOLN 1000 ML",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "       1000.00",
-      "vol_unit": "mL",
-      "item_id": "1497944.00"
-    },
-    {
-      "drug": "Ethinyl Estradiol-Norgestimate",
+      "drug": "ethinyl estradiol-norgestimate",
       "formulation": "ETHINYL ESTRADIOL-NORGESTIMATE TAB",
       "form": "tablet",
       "ref_dose": "triphasic",
@@ -25488,7 +23664,7 @@
       "item_id": "1265873.00"
     },
     {
-      "drug": "Formaldehyde 1%",
+      "drug": "formaldehyde 1%",
       "formulation": "FORMALIN 1% FOR IRRIGATION",
       "form": "liquid",
       "ref_dose": "",
@@ -25499,7 +23675,7 @@
       "item_id": "1303354.00"
     },
     {
-      "drug": "Formaldehyde 2%",
+      "drug": "formaldehyde 2%",
       "formulation": "FORMALIN 2% FOR IRRIGATION",
       "form": "liquid",
       "ref_dose": "",
@@ -25510,7 +23686,7 @@
       "item_id": "1303383.00"
     },
     {
-      "drug": "Gelatin Empty Size 2",
+      "drug": "gelatin empty size 2",
       "formulation": "GELATIN EMPTY SIZE NO. 2 CAP #25",
       "form": "capsule",
       "ref_dose": "",
@@ -25521,7 +23697,7 @@
       "item_id": "1306316.00"
     },
     {
-      "drug": "Gelatin Empty Size 3",
+      "drug": "gelatin empty size 3",
       "formulation": "GELATIN EMPTY SIZE NO. 3 CAP #25",
       "form": "capsule",
       "ref_dose": "",
@@ -25532,7 +23708,7 @@
       "item_id": "1306343.00"
     },
     {
-      "drug": "gleevec (inv-aaml0123)",
+      "drug": "gleevec (INV-AAML0123)",
       "formulation": "GLEEVEC/STI571 (INV-AAML0123)",
       "form": "injectable",
       "ref_dose": "",
@@ -25541,28 +23717,6 @@
       "vol": "          1.00",
       "vol_unit": "mL",
       "item_id": "1493021.00"
-    },
-    {
-      "drug": "haemophilus b conjugate (prp-t) vaccine",
-      "formulation": "HAEMOPHILUS B CONJ VACCINE",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1543870.00"
-    },
-    {
-      "drug": "haemophilus b-hepatitis B vaccine",
-      "formulation": "HAEMOPH B - HEPATITIS B VAC 0.5 ML INJ",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1270175.00"
     },
     {
       "drug": "hepatitis B immune globulin",
@@ -25576,7 +23730,7 @@
       "item_id": "1270846.00"
     },
     {
-      "drug": "Histoplasmin",
+      "drug": "histoplasmin",
       "formulation": "HISTOPLASMIN 1:100 SKIN TEST 0.1 ML",
       "form": "injectable",
       "ref_dose": "",
@@ -25587,7 +23741,7 @@
       "item_id": "1300303.00"
     },
     {
-      "drug": "Immune Globulin Intramuscular",
+      "drug": "immune globulin intramuscular",
       "formulation": "IMMUNE GLOBULIN (IM) 10 ML",
       "form": "injectable",
       "ref_dose": "-",
@@ -25598,18 +23752,7 @@
       "item_id": "1539000.00"
     },
     {
-      "drug": "Influenza Virus Vaccine",
-      "formulation": "INFLUENZA VIRUS VAC INJ  0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1301803.00"
-    },
-    {
-      "drug": "Insulin Isophane-Insulin Regular",
+      "drug": "insulin isophane-insulin regular",
       "formulation": "INSULIN NPH/REG  70/30 UNITS/ML  INJ",
       "form": "injectable",
       "ref_dose": "70 Units(s)-30 Unit(s)",
@@ -25620,7 +23763,7 @@
       "item_id": "1273329.00"
     },
     {
-      "drug": "Lymphocyte Immune Globulin, Anti-Thymocyte",
+      "drug": "lymphocyte immune globulin, anti-thymocyte",
       "formulation": "ANTI-THYMOCYTE (ATG) 1:1000 DILN SKIN TEST",
       "form": "injectable",
       "ref_dose": "1:1000",
@@ -25631,7 +23774,7 @@
       "item_id": "1250002.00"
     },
     {
-      "drug": "Maalox/diphenhydramine/lidocaine",
+      "drug": "maalox/diphenhydramine/lidocaine",
       "formulation": "MAALOX-DIPHENHY-LIDOCAINE SUSP 120 ML",
       "form": "liquid",
       "ref_dose": "1:1:1 ratio",
@@ -25642,62 +23785,7 @@
       "item_id": "1305886.00"
     },
     {
-      "drug": "Measles Virus Vaccine",
-      "formulation": "MEASLES VIRUS VACC. INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1277657.00"
-    },
-    {
-      "drug": "Measles-Rubella Virus Vaccine",
-      "formulation": "MEASLES RUBELLA VACC. INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1277630.00"
-    },
-    {
-      "drug": "Measles/mumps/rubella Virus Vaccine",
-      "formulation": "MEASLES, MUMPS, RUBELLA VAC INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1277684.00"
-    },
-    {
-      "drug": "Meningococcal Conjugate Vaccine",
-      "formulation": "MENINGOCOCCAL (MENACTRA) VACC 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1585875.00"
-    },
-    {
-      "drug": "Meningococcal Polysaccharide Vaccine",
-      "formulation": "MENINGOCOCCAL VACC. INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1278093.00"
-    },
-    {
-      "drug": "Multivitamin",
+      "drug": "multivitamin",
       "formulation": "MULTIVITAMIN DROPS 50 ML",
       "form": "liquid",
       "ref_dose": "Pediatric Multiple Vitami",
@@ -25708,7 +23796,7 @@
       "item_id": "1281197.00"
     },
     {
-      "drug": "Multivitamin",
+      "drug": "multivitamin",
       "formulation": "MULTIVITAMIN LIQUID 5 ML",
       "form": "liquid",
       "ref_dose": "Multiple Vitamins",
@@ -25719,7 +23807,7 @@
       "item_id": "1281224.00"
     },
     {
-      "drug": "Multivitamin",
+      "drug": "multivitamin",
       "formulation": "POLY-VI-SOL CHEWABLE TAB",
       "form": "tablet",
       "ref_dose": "Multiple Vitamins",
@@ -25730,7 +23818,7 @@
       "item_id": "1287007.00"
     },
     {
-      "drug": "Multivitamin",
+      "drug": "multivitamin",
       "formulation": "MULTIVITAMIN TAB",
       "form": "tablet",
       "ref_dose": "Therapeutic Multiple Vita",
@@ -25741,7 +23829,7 @@
       "item_id": "1281251.00"
     },
     {
-      "drug": "Multivitamin Infusion Adolescent",
+      "drug": "multivitamin infusion adolescent",
       "formulation": "MVI-12 (9+3)  INJ 10 ML",
       "form": "injectable",
       "ref_dose": "Multiple Vitamins",
@@ -25752,7 +23840,7 @@
       "item_id": "1281492.00"
     },
     {
-      "drug": "Multivitamin Infusion Pediatric",
+      "drug": "multivitamin infusion pediatric",
       "formulation": "MVI-PEDIATRIC INJ 5 ML",
       "form": "injectable",
       "ref_dose": "Pediatric Multiple Vitami",
@@ -25763,7 +23851,7 @@
       "item_id": "1281521.00"
     },
     {
-      "drug": "Multivitamin With Fluoride",
+      "drug": "multivitamin with fluoride",
       "formulation": "MULTIVIT AND FLUORIDE  0.25 MG/ML DRP 50 ML",
       "form": "liquid",
       "ref_dose": "Multiple Vitamins with Fl",
@@ -25774,7 +23862,7 @@
       "item_id": "1281143.00"
     },
     {
-      "drug": "Multivitamin With Fluoride",
+      "drug": "multivitamin with fluoride",
       "formulation": "MULTIVIT AND FLUORIDE  0.5 MG/ML DRP 50 ML",
       "form": "liquid",
       "ref_dose": "Multiple Vitamins with Fl",
@@ -25785,7 +23873,7 @@
       "item_id": "1281170.00"
     },
     {
-      "drug": "Multivitamin With Fluoride",
+      "drug": "multivitamin with fluoride",
       "formulation": "VIT A, D, C & FLUORIDE 0.25 MG/ML DRP 50 ML",
       "form": "liquid",
       "ref_dose": "Vitamin A, D and C with F",
@@ -25796,7 +23884,7 @@
       "item_id": "1297051.00"
     },
     {
-      "drug": "Multivitamin With Fluoride",
+      "drug": "multivitamin with fluoride",
       "formulation": "VIT A, D, C & FLUORIDE 0.5 MG/ML DRP 50 ML",
       "form": "liquid",
       "ref_dose": "Vitamin A, D and C with F",
@@ -25807,7 +23895,7 @@
       "item_id": "1297078.00"
     },
     {
-      "drug": "Multivitamin With Fluoride",
+      "drug": "multivitamin with fluoride",
       "formulation": "POLY-VI-FLOR 0.5 MG TAB",
       "form": "tablet",
       "ref_dose": "0.5 mg fluoride",
@@ -25818,7 +23906,7 @@
       "item_id": "1286953.00"
     },
     {
-      "drug": "Multivitamin With Fluoride",
+      "drug": "multivitamin with fluoride",
       "formulation": "POLY-VI-FLOR 1 MG TAB",
       "form": "tablet",
       "ref_dose": "1 mg fluoride",
@@ -25829,7 +23917,7 @@
       "item_id": "1286980.00"
     },
     {
-      "drug": "Multivitamin With Minerals",
+      "drug": "multivitamin with minerals",
       "formulation": "ADEK PEDIATRIC DROPS 2 OZ",
       "form": "liquid",
       "ref_dose": "Multiple Vitamins with Zi",
@@ -25840,7 +23928,7 @@
       "item_id": "1247609.00"
     },
     {
-      "drug": "Multivitamin With Minerals",
+      "drug": "multivitamin with minerals",
       "formulation": "ADEK CHEWABLE TAB",
       "form": "tablet",
       "ref_dose": "Multiple Vitamins",
@@ -25851,7 +23939,7 @@
       "item_id": "1247582.00"
     },
     {
-      "drug": "Multivitamin With Minerals",
+      "drug": "multivitamin with minerals",
       "formulation": "MULTIVITAMIN WITH MINERALS TAB",
       "form": "tablet",
       "ref_dose": "Therapeutic Multiple Vita",
@@ -25862,7 +23950,7 @@
       "item_id": "1281278.00"
     },
     {
-      "drug": "Mumps Skin Test Antigen",
+      "drug": "mumps skin test antigen",
       "formulation": "MUMPS SKIN TEST 0.1 ML",
       "form": "injectable",
       "ref_dose": "-",
@@ -25873,18 +23961,7 @@
       "item_id": "1281330.00"
     },
     {
-      "drug": "Mumps Virus Vaccine",
-      "formulation": "MUMPS LIVE VACC. INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1281305.00"
-    },
-    {
-      "drug": "Nystatin/diphenhydramine/lidocaine",
+      "drug": "nystatin/diphenhydramine/lidocaine",
       "formulation": "NYSTATIN-DIPHENHY-LIDOCAINE SUSP 120 ML",
       "form": "liquid",
       "ref_dose": "1:1:1 ratio",
@@ -25895,7 +23972,7 @@
       "item_id": "1305967.00"
     },
     {
-      "drug": "Oral Wound Rinse",
+      "drug": "oral wound rinse",
       "formulation": "RADIACARE ORAL WOUND RINSE 23 GM",
       "form": "liquid",
       "ref_dose": "",
@@ -25906,7 +23983,7 @@
       "item_id": "1300804.00"
     },
     {
-      "drug": "Pancrelipase",
+      "drug": "pancrelipase",
       "formulation": "PANCREASE EC MT- 20 CAP",
       "form": "capsule",
       "ref_dose": "56000 Unit(s)-20000 Unit(",
@@ -25917,7 +23994,7 @@
       "item_id": "1284293.00"
     },
     {
-      "drug": "Pancrelipase",
+      "drug": "pancrelipase",
       "formulation": "PANCREASE EC MT-10 CAP",
       "form": "capsule",
       "ref_dose": "30000 Unit(s)-10000 Unit(",
@@ -25928,7 +24005,7 @@
       "item_id": "1284320.00"
     },
     {
-      "drug": "Pancrelipase",
+      "drug": "pancrelipase",
       "formulation": "PANCREASE EC MT-16 CAP",
       "form": "capsule",
       "ref_dose": "48000 Unit(s)-16000 Unit(",
@@ -25939,7 +24016,7 @@
       "item_id": "1284347.00"
     },
     {
-      "drug": "Pancrelipase",
+      "drug": "pancrelipase",
       "formulation": "PANCREASE EC MT-4 CAP",
       "form": "capsule",
       "ref_dose": "12000 Unit(s)-4000 Unit(s",
@@ -25950,7 +24027,7 @@
       "item_id": "1284374.00"
     },
     {
-      "drug": "Pancrelipase",
+      "drug": "pancrelipase",
       "formulation": "ULTRASE MT-12 CAP",
       "form": "capsule",
       "ref_dose": "39000 Unit(s)-12000 Unit(",
@@ -25961,7 +24038,7 @@
       "item_id": "1296226.00"
     },
     {
-      "drug": "Pancrelipase",
+      "drug": "pancrelipase",
       "formulation": "ULTRASE MT-18 CAP",
       "form": "capsule",
       "ref_dose": "59000 Unit(s)-18000 Unit(",
@@ -25972,7 +24049,7 @@
       "item_id": "1296253.00"
     },
     {
-      "drug": "Pancrelipase",
+      "drug": "pancrelipase",
       "formulation": "ULTRASE MT-20 CAP",
       "form": "capsule",
       "ref_dose": "65000 Unit(s)-20000 Unit(",
@@ -25983,7 +24060,7 @@
       "item_id": "1296280.00"
     },
     {
-      "drug": "Penicillin",
+      "drug": "penicillin",
       "formulation": "PENICILLOATE  SOD BENZYL SKIN TEST  1X10-2 M",
       "form": "injectable",
       "ref_dose": "G potassium 1000000 u",
@@ -25994,7 +24071,7 @@
       "item_id": "1285207.00"
     },
     {
-      "drug": "Perfadex",
+      "drug": "perfadex",
       "formulation": "PERFADEX 1000 ML INJ",
       "form": "injectable",
       "ref_dose": "",
@@ -26005,7 +24082,7 @@
       "item_id": "1305994.00"
     },
     {
-      "drug": "Peritoneal Dialysate",
+      "drug": "peritoneal dialysate",
       "formulation": "DIALYSATE SOLUTION 1000 ML",
       "form": "injectable",
       "ref_dose": "dialysate soln",
@@ -26016,7 +24093,7 @@
       "item_id": "1508531.00"
     },
     {
-      "drug": "Piperacillin-Tazobactam",
+      "drug": "piperacillin-tazobactam",
       "formulation": "PIPERACILLIN/TAZ 2/0.25 GM INJ VIAL",
       "form": "injectable",
       "ref_dose": "2 g pip - 0.25 g taz",
@@ -26027,7 +24104,7 @@
       "item_id": "1286625.00"
     },
     {
-      "drug": "Piperacillin-Tazobactam",
+      "drug": "piperacillin-tazobactam",
       "formulation": "PIPERACILLIN/TAZ 3/0.375 GM INJ VIAL",
       "form": "injectable",
       "ref_dose": "3 g pip- 0.375 g taz",
@@ -26038,40 +24115,7 @@
       "item_id": "1286654.00"
     },
     {
-      "drug": "Pneumococcal 23-Valent Vaccine",
-      "formulation": "PNEUMOCOCCAL VACCINE 23-VAL 0.5 ML INJ",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1542906.00"
-    },
-    {
-      "drug": "Pneumococcal 7-Valent Vaccine",
-      "formulation": "PNEUMOCOCCAL VACCINE 7-VAL 0.5 ML INJ",
-      "form": "injectable",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1543033.00"
-    },
-    {
-      "drug": "Poliovirus Vaccine, Inactivated",
-      "formulation": "POLIOMYELITIS VACC. INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1286791.00"
-    },
-    {
-      "drug": "Polyethylene Glycol Electrolyte Solution",
+      "drug": "polyethylene glycol electrolyte solution",
       "formulation": "POLYETHYLENE GLYCOL ELECTROLYTE SOLN 4000 ML",
       "form": "liquid",
       "ref_dose": "",
@@ -26082,18 +24126,7 @@
       "item_id": "1286872.00"
     },
     {
-      "drug": "Rubella Virus Vaccine",
-      "formulation": "RUBELLA VIRUS VACC. INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1290816.00"
-    },
-    {
-      "drug": "Senna",
+      "drug": "senna",
       "formulation": "SENNA TAB",
       "form": "tablet",
       "ref_dose": "8.6 mg / tab",
@@ -26104,7 +24137,7 @@
       "item_id": "1291169.00"
     },
     {
-      "drug": "Sevoflurane",
+      "drug": "sevoflurane",
       "formulation": "SEVOFLURANE ANESTH 0-30 MINUTES",
       "form": "liquid",
       "ref_dose": "0-30 min",
@@ -26115,7 +24148,7 @@
       "item_id": "1291331.00"
     },
     {
-      "drug": "Sevoflurane",
+      "drug": "sevoflurane",
       "formulation": "SEVOFLURANE ANESTH 30-120 MINUTES",
       "form": "liquid",
       "ref_dose": "30-120 min",
@@ -26126,7 +24159,7 @@
       "item_id": "1291358.00"
     },
     {
-      "drug": "Sevoflurane",
+      "drug": "sevoflurane",
       "formulation": "SEVOFLURANE ANESTH >120 MINUTES",
       "form": "liquid",
       "ref_dose": "120-1440 min",
@@ -26137,7 +24170,7 @@
       "item_id": "1304311.00"
     },
     {
-      "drug": "Sterile Water",
+      "drug": "sterile water",
       "formulation": "STERILE WATER",
       "form": "injectable",
       "ref_dose": "",
@@ -26148,7 +24181,7 @@
       "item_id": "1292489.00"
     },
     {
-      "drug": "Sterile Water",
+      "drug": "sterile water",
       "formulation": "STERILE WATER 1000 ML INJ",
       "form": "injectable",
       "ref_dose": "-",
@@ -26159,7 +24192,7 @@
       "item_id": "1292518.00"
     },
     {
-      "drug": "Sterile Water",
+      "drug": "sterile water",
       "formulation": "STERILE WATER FOR INJ 10ML VIAL",
       "form": "injectable",
       "ref_dose": "-",
@@ -26170,7 +24203,7 @@
       "item_id": "1292547.00"
     },
     {
-      "drug": "Sterile Water",
+      "drug": "sterile water",
       "formulation": "WATER STERILE IRRIG 1000 ML",
       "form": "liquid",
       "ref_dose": "",
@@ -26181,7 +24214,7 @@
       "item_id": "1297472.00"
     },
     {
-      "drug": "Sterile Water",
+      "drug": "sterile water",
       "formulation": "WATER STERILE IRRIG 500 ML",
       "form": "liquid",
       "ref_dose": "-",
@@ -26192,18 +24225,7 @@
       "item_id": "1297501.00"
     },
     {
-      "drug": "Tetanus-Diphtheria Toxoids",
-      "formulation": "DIPHTH/TET TOX (ADULT) INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "2 Units(s)-5 Units(s)",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1543993.00"
-    },
-    {
-      "drug": "Ticarcillin-Clavulanate",
+      "drug": "ticarcillin-clavulanate",
       "formulation": "TICARCILLIN/CLAVULANATE 3/0.1 GM VIAL",
       "form": "injectable",
       "ref_dose": "3 g ticar - 0.1 g clav",
@@ -26212,39 +24234,6 @@
       "vol": "          1.00",
       "vol_unit": "Each",
       "item_id": "1294441.00"
-    },
-    {
-      "drug": "Typhoid Vaccine, Inactivated",
-      "formulation": "TYPHOID VACC 0.5ML INJ",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1296201.00"
-    },
-    {
-      "drug": "Typhoid Vaccine, Live",
-      "formulation": "TYPHOID ORAL CAP",
-      "form": "capsule",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Capsule",
-      "item_id": "1296174.00"
-    },
-    {
-      "drug": "Varicella Virus Vaccine",
-      "formulation": "VARICELLA VACC. INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          0.50",
-      "vol_unit": "mL",
-      "item_id": "1296741.00"
     },
     {
       "drug": "vitamin A, D, and C",
@@ -26267,28 +24256,17 @@
       "vol": "          1.00",
       "vol_unit": "Tablet",
       "item_id": "1302330.00"
-    },
-    {
-      "drug": "Yellow Fever Vaccine",
-      "formulation": "YELLOW FEVER VAC INJ 0.5 ML",
-      "form": "injectable",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          5.00",
-      "vol_unit": "mL",
-      "item_id": "1476151.00"
     }
   ],
   "_meta": {
-    "total_drugs": 777,
-    "total_formulations": 1640,
-    "review_count": 96,
+    "total_drugs": 704,
+    "total_formulations": 1534,
+    "review_count": 68,
     "form_counts": {
-      "liquid": 266,
-      "tablet": 481,
-      "injectable": 761,
-      "capsule": 132
+      "liquid": 265,
+      "tablet": 479,
+      "injectable": 659,
+      "capsule": 131
     }
   }
 }

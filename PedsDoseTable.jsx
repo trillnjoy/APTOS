@@ -463,9 +463,13 @@ function buildTabletTable(formulation, targetMgKg, variancePct, canHalf, canQuar
 }
 
 function buildTable(formulation, targetMgKg, variancePct, canHalf, canQuarter, activeSyringes) {
-  return formulation.form === "liquid"
-    ? buildLiquidTable(formulation, targetMgKg, variancePct, activeSyringes)
-    : buildTabletTable(formulation, targetMgKg, variancePct, canHalf, canQuarter);
+  if (formulation.form === "liquid" || formulation.form === "injectable") {
+    return buildLiquidTable(formulation, targetMgKg, variancePct, activeSyringes);
+  }
+  // tablet and capsule — capsule never splits regardless of canHalf/canQuarter
+  const half    = formulation.form === "tablet" ? canHalf    : false;
+  const quarter = formulation.form === "tablet" ? canQuarter : false;
+  return buildTabletTable(formulation, targetMgKg, variancePct, half, quarter);
 }
 
 // ── Styles ─────────────────────────────────────────────────────────────────────
@@ -519,9 +523,9 @@ export default function PedsDoseTable() {
 
   const drug        = drugIdx >= 0 ? DRUG_DB[drugIdx] : null;
   const formulation = drug && formIdx >= 0 ? drug.formulations[formIdx] : null;
-  const isLiquid    = formulation?.form === "liquid";
-  const isSolid     = formulation && !isLiquid;
-  const isApap      = isLiquid && drug?.generic === "Acetaminophen";
+  const isLiquid    = formulation?.form === "liquid" || formulation?.form === "injectable";
+  const isSolid     = formulation?.form === "tablet" || formulation?.form === "capsule";
+  const isApap      = formulation?.form === "liquid" && drug?.generic === "Acetaminophen";
 
   const toggleSyringe = useCallback((key) => {
     setActiveSyringes(prev => {
@@ -809,7 +813,7 @@ export default function PedsDoseTable() {
         </div>
 
         {/* Row 2: Formulation | Max Dose */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 90px", gap: 8 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 120px", gap: 8 }}>
           <div>
             <span style={CAP}>Formulation</span>
             <select style={selStyle} value={formIdx} disabled={!drug}
@@ -860,8 +864,8 @@ export default function PedsDoseTable() {
           </div>
         </div>
 
-        {/* Tablet: splittability checkboxes */}
-        {isSolid && (
+        {/* Tablet: splittability checkboxes — tablets only */}
+        {formulation?.form === "tablet" && (
           <div style={{ display: "flex", gap: 16, paddingTop: 2 }}>
             {[["canHalf", canHalf, setCanHalf, "Half-tab splittable"],
               ["canQtr",  canQuarter, setCanQuarter, "Quarter-tab splittable"]].map(
