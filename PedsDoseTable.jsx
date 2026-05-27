@@ -571,14 +571,19 @@ const ctrlBase = {
   background: "#fff", color: "#111", width: "100%", boxSizing: "border-box",
   padding: "8px 10px", height: 42,
 };
+// Injected via <style> — placeholder brightness fix
+const placeholderStyle = `
+  input::placeholder { color: #888 !important; opacity: 1; }
+`;
 const selStyle = {
   ...ctrlBase, appearance: "none", paddingRight: 28,
   backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23444' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E\")",
   backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center", cursor: "pointer",
 };
 const CAP = {
-  display: "block", fontSize: 11, fontWeight: 700, letterSpacing: 0.8,
-  textTransform: "uppercase", color: "#555", marginBottom: 4, fontFamily: MONO,
+  display: "block", fontSize: 13, fontWeight: 700, letterSpacing: 0.5,
+  textTransform: "uppercase", color: "#555", marginBottom: 4,
+  fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif",
 };
 const TH = {
   padding: "6px 8px", fontSize: 11, fontWeight: 700, letterSpacing: 0.6,
@@ -680,11 +685,13 @@ export default function PedsDoseTable() {
 
   return (
     <div style={{ fontFamily: MONO, background: "#f2f2ee", minHeight: "100vh", color: "#1a1a1a" }}>
+      <style>{placeholderStyle}</style>
 
       {/* ── Header ── */}
       <div style={{ background: "#1c2333", color: "#fff", padding: "10px 14px",
                     display: "flex", alignItems: "center", gap: 10 }}>
-        <span style={{ fontSize: 24 }}>💊</span>
+        <img src="Aptos_192.png" alt="APTOS"
+             style={{ width: 36, height: 36, borderRadius: 8, flexShrink: 0 }} />
         <div>
           <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: 4,
                         textTransform: "uppercase", fontFamily: "'Arial Black',Arial,sans-serif" }}>APTOS</div>
@@ -727,10 +734,7 @@ export default function PedsDoseTable() {
           <div>
             <span style={CAP}>Max ({formulation?.unit ?? "mg"})</span>
             <input
-              style={{
-                ...ctrlBase,
-                borderColor: committedMax !== formulation?.maxDose ? "#b8860b" : "#ced4da",
-              }}
+              style={ctrlBase}
               type="number" placeholder="e.g. 60"
               value={maxDoseText} onChange={e => setMaxDoseText(e.target.value)}
               onBlur={commitMax} onKeyDown={e => e.key === "Enter" && e.target.blur()}
@@ -787,31 +791,53 @@ export default function PedsDoseTable() {
         {isLiquid && (
           <div style={{ borderTop: "1px solid #eee", paddingTop: 5 }}>
             <span style={CAP}>Syringes available</span>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "3px 14px" }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "4px 0" }}>
+              {/* Row 1: 1 mL (0.05) | 3 mL (0.1) | 5 mL std | 10 mL */}
               {[
-                { key: "1mL_005", label: "1 mL (0.05)",  defaultOn: true  },
-                { key: "3mL",     label: "3 mL (0.1)",   defaultOn: true  },
-                { key: "5mL_std", label: "5 mL standard", defaultOn: true  },
+                { key: "1mL_005", label: "1 mL (0.05)", defaultOn: true  },
+                { key: "3mL",     label: "3 mL (0.1)",  defaultOn: true  },
+                { key: "5mL_std", label: "5 mL std",    defaultOn: true  },
                 { key: "10mL",    label: "10 mL",        defaultOn: true  },
-                { key: "1mL_001", label: "1 mL (0.01)",  defaultOn: false },
-                ...(isApap ? [{ key: "5mL_apap", label: "5 mL APAP", defaultOn: false }] : []),
               ].map(({ key, label, defaultOn }) => (
                 <label key={key} style={{
                   display: "flex", alignItems: "center", gap: 5,
-                  fontSize: 13, cursor: "pointer",
+                  fontSize: 12, cursor: "pointer",
                   color: activeSyringes.has(key) ? "#1c2333" : "#aaa",
                   fontWeight: activeSyringes.has(key) ? 700 : 400,
                 }}>
                   <input type="checkbox" checked={activeSyringes.has(key)}
                     onChange={() => toggleSyringe(key)}
-                    style={{ accentColor: "#1c2333", width: 15, height: 15 }} />
+                    style={{ accentColor: "#1c2333", width: 14, height: 14 }} />
                   {label}
-                  {!defaultOn && (
-                    <span style={{ fontSize: 9, background: "#e8e4d8", color: "#555",
-                      padding: "1px 4px", borderRadius: 2, marginLeft: 2, fontWeight: 700 }}>OPT</span>
-                  )}
                 </label>
               ))}
+              {/* Row 2: 1 mL (0.01) | (empty) | 5 mL APAP (if APAP) | (empty) */}
+              <label style={{
+                display: "flex", alignItems: "center", gap: 5,
+                fontSize: 12, cursor: "pointer",
+                color: activeSyringes.has("1mL_001") ? "#1c2333" : "#aaa",
+                fontWeight: activeSyringes.has("1mL_001") ? 700 : 400,
+              }}>
+                <input type="checkbox" checked={activeSyringes.has("1mL_001")}
+                  onChange={() => toggleSyringe("1mL_001")}
+                  style={{ accentColor: "#1c2333", width: 14, height: 14 }} />
+                1 mL (0.01)
+              </label>
+              <div />
+              {isApap ? (
+                <label style={{
+                  display: "flex", alignItems: "center", gap: 5,
+                  fontSize: 12, cursor: "pointer",
+                  color: activeSyringes.has("5mL_apap") ? "#1c2333" : "#aaa",
+                  fontWeight: activeSyringes.has("5mL_apap") ? 700 : 400,
+                }}>
+                  <input type="checkbox" checked={activeSyringes.has("5mL_apap")}
+                    onChange={() => toggleSyringe("5mL_apap")}
+                    style={{ accentColor: "#1c2333", width: 14, height: 14 }} />
+                  5 mL APAP
+                </label>
+              ) : <div />}
+              <div /> {/* col 4 empty */}
             </div>
           </div>
         )}
@@ -914,7 +940,7 @@ export default function PedsDoseTable() {
             </div>
           </div>
         ) : (
-          <div style={{ textAlign: "center", padding: "30px 0", color: "#999", fontSize: 14 }}>
+          <div style={{ textAlign: "center", padding: "30px 0", color: "#555", fontSize: 14 }}>
             {!formulation
               ? "Select drug and formulation"
               : !doseText
