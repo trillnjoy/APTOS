@@ -103,7 +103,12 @@
           const overrides = p?.formulation_overrides || [];
 
           const formulations = [];
+          const EXCLUDED_FORMS = new Set(['topical','ophthalmic','otic','nasal','inhalation','suppository']);
           for (const f of drug.formulations) {
+            // Suppress non-APTOS routes
+            if (EXCLUDED_FORMS.has(f.form)) continue;
+            const label = f.label.toLowerCase();
+            if (/ophthalm|otic|topical|nasal|inhal|suppository|cream|ointment|gel|lotion|patch|spray/.test(label)) continue;
             // Find matching override by label fragment (case-insensitive)
             const ov = overrides.find(o =>
               f.label.toLowerCase().includes(o.match_label_fragment.toLowerCase())
@@ -139,6 +144,7 @@
             formulations.push(merged);
           }
 
+          if (formulations.length === 0) continue;
           mergedDrugs.push({
             generic:      drug.generic,
             formulary:    drug.formulary,
@@ -154,7 +160,8 @@
         // ── Compile and mount component ────────────────────────────────────
         const cleaned = code
           .replace(/^import.*?;\n/gm, '')
-          .replace(/export default /, '');
+          .replace(/export default /, '')
+          .replace(/[^\x00-\x7F]/g, ' ');  // strip non-ASCII (em-dashes in comments)
 
         const transpiled = Babel.transform(cleaned, { presets: ['react'] }).code;
 
