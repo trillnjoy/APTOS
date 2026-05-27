@@ -593,6 +593,8 @@ export default function PedsDoseTable() {
   const fmtPct = v =>
     v === null ? "—" : (v >= 0 ? "+" : "\u2212") + Math.abs(v).toFixed(1) + "%";
 
+  const [showInfo, setShowInfo] = useState(false);
+
   const generatePDF = useCallback(async () => {
     if (!rows || !formulation || !drug) return;
     const { jsPDF } = window.jspdf;
@@ -790,11 +792,58 @@ export default function PedsDoseTable() {
             Doses Designed to Fit
           </div>
         </div>
-        <a href="Peds_Dosing_Summary.pdf" target="_blank" rel="noopener noreferrer"
-           title="Methodology: first principles, band math, syringe physics, and evidence base"
-           style={{ color: "#c8d8e8", fontSize: 22, textDecoration: "none",
-                    flexShrink: 0, lineHeight: 1 }}>ℹ️</a>
+        <button onClick={() => setShowInfo(true)}
+           title="About APTOS"
+           style={{ color: "#1c2333", background: "#c8d8e8", fontStyle: "italic",
+                    fontFamily: "Georgia,'Times New Roman',serif",
+                    fontSize: 13, fontWeight: 700, border: "none", cursor: "pointer",
+                    flexShrink: 0, width: 24, height: 24, borderRadius: "50%",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    lineHeight: 1 }}>i</button>
       </div>
+
+      {/* ── Info Modal ── */}
+      {showInfo && (
+        <div onClick={() => setShowInfo(false)}
+             style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.55)",
+                      zIndex: 200, display: "flex", alignItems: "center",
+                      justifyContent: "center", padding: 24 }}>
+          <div onClick={e => e.stopPropagation()}
+               style={{ background: "#fff", borderRadius: 10, padding: 24,
+                        maxWidth: 480, width: "100%", boxShadow: "0 8px 32px rgba(0,0,0,0.3)",
+                        fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" }}>
+            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between",
+                          marginBottom: 14 }}>
+              <div style={{ fontSize: 18, fontWeight: 800, letterSpacing: 2,
+                            fontFamily: "'Arial Black', Arial, sans-serif",
+                            textTransform: "uppercase", color: "#1c2333" }}>APTOS</div>
+              <button onClick={() => setShowInfo(false)}
+                      style={{ background: "none", border: "none", fontSize: 20,
+                               cursor: "pointer", color: "#888", lineHeight: 1, padding: 0 }}>x</button>
+            </div>
+            <div style={{ fontSize: 13, color: "#1c2333", lineHeight: 1.6 }}>
+              <p style={{ marginBottom: 10 }}>
+                <strong>Doses Designed to Fit.</strong>
+              </p>
+              <p style={{ marginBottom: 10 }}>
+                This application generates standardized weight-band dosing tables for the full pediatric size spectrum -- from the 350-gram premature infant to the bariatric adolescent -- across liquid, solid, and injectable drug formulations.
+              </p>
+              <p style={{ marginBottom: 10 }}>
+                Every band represents a physically dispensable dose from a split tab to a volume on an available syringe, with variance from the weight-based target bounded within a declared tolerance. The algorithm eliminates manual calculation, ensures no weight gap or overlap, and produces tables ready for pharmacy verification into standardized dosing tools in any commercial EHR that supports the function.
+              </p>
+              <p style={{ marginBottom: 16 }}>
+                Output is intended for pharmacists and prescribers building order sets and clinical decision support tools with an approach that embraces core medication safety principles while also preventing unwarranted variance, facilitating pharmacy verification and dispensing, avoiding waste of trivial volumes from additional vials, and optimizing efficiency. Pharmacy verification is required before clinical use.
+              </p>
+              <a href="Peds_Dosing_Summary.pdf" target="_blank" rel="noopener noreferrer"
+                 style={{ display: "inline-block", background: "#1c2333", color: "#fff",
+                          padding: "8px 16px", borderRadius: 6, fontSize: 13,
+                          fontWeight: 600, textDecoration: "none", letterSpacing: 0.3 }}>
+                Methodology and Evidence Base (PDF)
+              </a>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* ── Controls ── */}
       <div style={{ background: "#fff", borderBottom: "2px solid #1c2333",
