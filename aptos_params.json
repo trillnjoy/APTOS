@@ -103,6 +103,11 @@
           "match_label_fragment": "875/125",
           "maxDose": 875,
           "note": "Amoxicillin component tablet."
+        },
+        {
+          "match_label_fragment": "600/42.9",
+          "maxDose": 875,
+          "note": "*** MANUAL ENTRY — Augmentin ES 600/42.9 mg/5 mL (120 mg/mL amoxicillin). Not in formulary extract — verify at source. HarrietLane/Nelson. High-dose AOM: 90 mg/kg/day div BID; max 875 mg amoxicillin/dose."
         }
       ]
     },

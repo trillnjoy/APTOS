@@ -1499,6 +1499,19 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
+        },
+        {
+          "label": "AMOXICILLIN-CLAVULANATE 600/42.9 MG/5 ML SUSP ***",
+          "concentration": 120.0,
+          "unit": "mg",
+          "form": "liquid",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "***MANUAL***",
+          "ndc": "***MANUAL***",
+          "_source": "***MANUAL \u2014 not in formulary extract; verify at source***",
+          "preferredVols": [],
+          "deviceLimited": false
         }
       ]
     },
@@ -24260,7 +24273,7 @@
   ],
   "_meta": {
     "total_drugs": 704,
-    "total_formulations": 1534,
+    "total_formulations": 1535,
     "review_count": 68,
     "form_counts": {
       "liquid": 265,

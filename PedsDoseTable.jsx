@@ -346,7 +346,7 @@ function buildLiquidTable(formulation, targetMgKg, variancePct, activeSyringes) 
 
     rows.push({
       wStart:       roundW(rowWtL),
-      wEnd:         r.isLast ? `\u2265 ${roundW(rowWtL)}` : roundW(effectiveWtH),
+      wEnd:         r.isLast ? `>= ${roundW(rowWtL)}` : roundW(effectiveWtH),
       doseLabel:    `${r.dose} ${unit}`,
       volLabel:     `${r.vol} mL`,
       syringeLabel: r.syringeLabel,
@@ -453,7 +453,7 @@ function buildTabletTable(formulation, targetMgKg, variancePct, canHalf, canQuar
                      (!isLast && underPct !== null && Math.abs(underPct) > variancePct + 0.05);
     return {
       wStart:       roundW(rowWLow),
-      wEnd:         isLast ? `\u2265 ${roundW(rowWLow)}` : roundW(rowWHigh),
+      wEnd:         isLast ? `>= ${roundW(rowWLow)}` : roundW(rowWHigh),
       doseLabel:    `${step.dose} ${unit}`,
       volLabel:     step.label,
       syringeLabel: "",
@@ -988,7 +988,9 @@ export default function PedsDoseTable() {
                   }}>
                     {/* Weight range — inclusive lower, exclusive upper */}
                     <td style={{ ...TD, color: r.oot ? "#999" : "inherit" }}>
-                      {r.wStart}–{r.wEnd}
+                      {typeof r.wEnd === "string"
+                        ? r.wEnd
+                        : `${r.wStart}-${r.wEnd}`}
                       {r.oot && (
                         <span style={{ marginLeft: 4, background: "#888", color: "#fff",
                           fontSize: 7, fontWeight: 700, padding: "1px 3px",
