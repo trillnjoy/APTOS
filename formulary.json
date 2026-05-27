@@ -122,7 +122,7 @@
       ]
     },
     {
-      "generic": "Acetaminophen-codeine",
+      "generic": "Acetaminophen-Codeine",
       "formulary": true,
       "formulations": [
         {
@@ -180,7 +180,7 @@
       ]
     },
     {
-      "generic": "Acetaminophen-hydrocodone",
+      "generic": "Acetaminophen-Hydrocodone",
       "formulary": true,
       "formulations": [
         {
@@ -225,7 +225,7 @@
       ]
     },
     {
-      "generic": "Acetaminophen-oxycodone",
+      "generic": "Acetaminophen-Oxycodone",
       "formulary": true,
       "formulations": [
         {
@@ -284,82 +284,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Acetic Acid Otic",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "ACETIC ACID 2% OTIC SOLN 1/2 OZ",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1247216.00",
-          "ndc": "60432-0741-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Acetic Acid Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ACETIC ACID 0.25% IRRIG 1000 ML",
-          "concentration": 0.25,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1247187.00",
-          "ndc": "00074-6143-09",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Acetic Acid-aluminum Acetate Otic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ACETIC ACID/ALUM ACET DROPS 2 OZ",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1247243.00",
-          "ndc": "00026-4312-02",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Acetylcholine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ACETYLCHOLINE EYE DROPS 2 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1247270.00",
-          "ndc": "58768-0773-52",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -496,7 +420,7 @@
       ]
     },
     {
-      "generic": "Al Hydroxide/asa/ca Carbonate/mg Hydroxide",
+      "generic": "Al Hydroxide/asa/ca Carbonate/mg hydroxide",
       "formulary": true,
       "formulations": [
         {
@@ -515,7 +439,7 @@
       ]
     },
     {
-      "generic": "Al Hydroxide/mg Hydroxide/simethicone",
+      "generic": "Al Hydroxide/mg hydroxide/simethicone",
       "formulary": true,
       "formulations": [
         {
@@ -718,57 +642,6 @@
       ]
     },
     {
-      "generic": "Albuterol 0.083% Inhal Soln",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ALBUTEROL 0.083 % INH SOLN 3 ML",
-          "concentration": 0.083,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1247866.00",
-          "ndc": "49502-0697-03",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Albuterol 0.5% Inhal Soln",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ALBUTEROL 0.5% INH 0.5 ML SOLN",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1247897.00",
-          "ndc": "00173-0385-58",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "ALBUTEROL 0.5% INH SOLN 20 ML",
-          "concentration": 5.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1247926.00",
-          "ndc": "00173-0385-58",
-          "_source": "STR/VOL",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Aldesleukin",
       "formulary": false,
       "formulations": [
@@ -957,7 +830,7 @@
       ]
     },
     {
-      "generic": "Alprostadil 0.005 Mg/ml In D5w",
+      "generic": "Alprostadil 0.005 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -975,7 +848,7 @@
       ]
     },
     {
-      "generic": "Alprostadil 0.01 Mg/ml In D5w",
+      "generic": "Alprostadil 0.01 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -993,7 +866,7 @@
       ]
     },
     {
-      "generic": "Alprostadil 0.02 Mg/ml In D5w",
+      "generic": "Alprostadil 0.02 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -1079,7 +952,7 @@
       ]
     },
     {
-      "generic": "Aluminum Hydroxide-magnesium Hydroxide",
+      "generic": "Aluminum Hydroxide-Magnesium Hydroxide",
       "formulary": true,
       "formulations": [
         {
@@ -1107,25 +980,6 @@
           "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Aluminum Sulfate-calcium Acetate Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DOMEBORO TOP TAB",
-          "concentration": null,
-          "unit": "mg",
-          "form": "tablet",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1263619.00",
-          "ndc": "16500-0023-11",
-          "_source": "unknown",
-          "canHalf": false,
-          "canQuarter": false
         }
       ]
     },
@@ -1565,7 +1419,7 @@
       ]
     },
     {
-      "generic": "Amoxicillin-clavulanate",
+      "generic": "Amoxicillin-Clavulanate",
       "formulary": true,
       "formulations": [
         {
@@ -1649,7 +1503,7 @@
       ]
     },
     {
-      "generic": "Amphetamine-dextroamphetamine",
+      "generic": "Amphetamine-Dextroamphetamine",
       "formulary": false,
       "formulations": [
         {
@@ -1668,7 +1522,7 @@
       ]
     },
     {
-      "generic": "Amphotericin B",
+      "generic": "amphotericin B",
       "formulary": true,
       "formulations": [
         {
@@ -1724,7 +1578,7 @@
       ]
     },
     {
-      "generic": "Amphotericin B Lipid Complex",
+      "generic": "amphotericin B lipid complex",
       "formulary": false,
       "formulations": [
         {
@@ -1742,7 +1596,7 @@
       ]
     },
     {
-      "generic": "Amphotericin B Liposomal",
+      "generic": "amphotericin B liposomal",
       "formulary": true,
       "formulations": [
         {
@@ -1802,7 +1656,7 @@
       ]
     },
     {
-      "generic": "Ampicillin-sulbactam",
+      "generic": "Ampicillin-Sulbactam",
       "formulary": true,
       "formulations": [
         {
@@ -1870,7 +1724,7 @@
       ]
     },
     {
-      "generic": "Anti-inhibitor Coagulant Complex",
+      "generic": "Anti-Inhibitor Coagulant Complex",
       "formulary": true,
       "formulations": [
         {
@@ -1996,25 +1850,6 @@
       ]
     },
     {
-      "generic": "Antipyrine-benzocaine Otic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ANTIPYRINE-BENZOCAINE OTIC 15 ML",
-          "concentration": 54.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1249975.00",
-          "ndc": "00182-1175-33",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Antivenin (crotalidae) Polyvalent",
       "formulary": true,
       "formulations": [
@@ -2029,25 +1864,6 @@
           "ndc": "00281-0330-10",
           "_source": "unknown",
           "vialVol": 1.0
-        }
-      ]
-    },
-    {
-      "generic": "Apraclonidine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "APRACLONIDINE 0.5% EYE DROPS 5 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1250089.00",
-          "ndc": "00065-0665-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -2144,7 +1960,7 @@
       ]
     },
     {
-      "generic": "Asa/citric Acid/na Bicarb",
+      "generic": "Asa/citric Acid/na bicarb",
       "formulary": true,
       "formulations": [
         {
@@ -2433,39 +2249,7 @@
       ]
     },
     {
-      "generic": "Atropine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ATROPINE 1% EYE DROPS 2 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1250722.00",
-          "ndc": "58768-0705-12",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "ATROPINE 1% EYE DROPS 5 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1250749.00",
-          "ndc": "24208-0750-60",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Atropine-diphenoxylate",
+      "generic": "Atropine-Diphenoxylate",
       "formulary": true,
       "formulations": [
         {
@@ -2555,25 +2339,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Azelastine Ophthalmic",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "AZELASTINE 0.05% DROPS",
-          "concentration": 0.05,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1250973.00",
-          "ndc": "00451-7025-06",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -2756,25 +2521,6 @@
       ]
     },
     {
-      "generic": "Benoxinate-fluorescein Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "FLUORESCEIN SOD/BENOX EYE DROPS 5 ML",
-          "concentration": 0.4,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1267973.00",
-          "ndc": "24208-0732-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Benztropine",
       "formulary": true,
       "formulations": [
@@ -2846,38 +2592,6 @@
           "ndc": "00085-0566-05",
           "_source": "STR/VOL",
           "vialVol": 5.0
-        }
-      ]
-    },
-    {
-      "generic": "Betaxolol Ophthalmic",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "BETAXOLOL 0.5% OPHTH DROPS 5 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1252089.00",
-          "ndc": "00065-0245-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "BETAXOLOL 0.25% OPHTH SUSP 5ML",
-          "concentration": 0.25,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1252062.00",
-          "ndc": "00065-0246-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -2983,7 +2697,7 @@
       ]
     },
     {
-      "generic": "Botulinum Toxin Type A",
+      "generic": "botulinum toxin type A",
       "formulary": true,
       "formulations": [
         {
@@ -3019,7 +2733,7 @@
       ]
     },
     {
-      "generic": "Brompheniramine-pseudoephedrine",
+      "generic": "Brompheniramine-Pseudoephedrine",
       "formulary": true,
       "formulations": [
         {
@@ -3051,25 +2765,6 @@
           "item_id": "1252444.00",
           "ndc": "00186-1989-04",
           "_source": "STR/VOL",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Budesonide Nasal",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "BUDESONIDE AQ NASAL INHALER",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1252475.00",
-          "ndc": "00186-1075-09",
-          "_source": "REF_DOSE_unparsed",
           "preferredVols": [],
           "deviceLimited": false
         }
@@ -3161,7 +2856,7 @@
       ]
     },
     {
-      "generic": "Bupivacaine-epinephrine",
+      "generic": "Bupivacaine-Epinephrine",
       "formulary": true,
       "formulations": [
         {
@@ -3399,7 +3094,7 @@
       ]
     },
     {
-      "generic": "Calcium And Vitamin D Combination",
+      "generic": "calcium and vitamin D combination",
       "formulary": false,
       "formulations": [
         {
@@ -3740,45 +3435,7 @@
       ]
     },
     {
-      "generic": "Carbamide Peroxide Otic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CARBAMIDE PEROXIDE OTIC 6.5% 15 ML",
-          "concentration": 6.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1253829.00",
-          "ndc": "00904-3220-35",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Carbamide Peroxide Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CARBAMIDE PEROXIDE 10% TOPICAL 15 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1253856.00",
-          "ndc": "00088-1010-02",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Carbidopa-levodopa",
+      "generic": "Carbidopa-Levodopa",
       "formulary": false,
       "formulations": [
         {
@@ -3976,7 +3633,7 @@
       ]
     },
     {
-      "generic": "Cefazolin Fortified 100 Mg/ml",
+      "generic": "Cefazolin fortified 100 Mg/ml",
       "formulary": true,
       "formulations": [
         {
@@ -4432,7 +4089,7 @@
       ]
     },
     {
-      "generic": "Charcoal-sorbitol",
+      "generic": "Charcoal-Sorbitol",
       "formulary": true,
       "formulations": [
         {
@@ -4709,7 +4366,7 @@
       ]
     },
     {
-      "generic": "Choline Salicylate-magnesium Salicylate",
+      "generic": "Choline Salicylate-Magnesium Salicylate",
       "formulary": true,
       "formulations": [
         {
@@ -5009,44 +4666,6 @@
       ]
     },
     {
-      "generic": "Ciprofloxacin Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CIPROFLOXACIN 0.3% EYE DROPS 5ML",
-          "concentration": 0.3,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1256439.00",
-          "ndc": "00065-0656-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Ciprofloxacin-dexamethasone Otic",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "CIPROFLOXACIN-DEXA OTIC SUSP 7.5 ML",
-          "concentration": 0.3,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1547044.00",
-          "ndc": "00065-8533-02",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Cisatracurium",
       "formulary": true,
       "formulations": [
@@ -5102,7 +4721,7 @@
       ]
     },
     {
-      "generic": "Citric Acid-potassium Citrate",
+      "generic": "Citric Acid-Potassium Citrate",
       "formulary": false,
       "formulations": [
         {
@@ -5121,7 +4740,7 @@
       ]
     },
     {
-      "generic": "Citric Acid-sodium Citrate",
+      "generic": "Citric Acid-Sodium Citrate",
       "formulary": true,
       "formulations": [
         {
@@ -5140,7 +4759,7 @@
       ]
     },
     {
-      "generic": "Citric Acid/k Citrate/na Citrate",
+      "generic": "citric Acid/k Citrate/na citrate",
       "formulary": true,
       "formulations": [
         {
@@ -5340,26 +4959,7 @@
       ]
     },
     {
-      "generic": "Clindamycin Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CLINDAMYCIN 1% TOP SOLN 2 OZ",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1256942.00",
-          "ndc": "00781-6800-61",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Clofarex (inv-clo-212-all)",
+      "generic": "Clofarex (inv-Clo-212-All)",
       "formulary": false,
       "formulations": [
         {
@@ -5377,7 +4977,7 @@
       ]
     },
     {
-      "generic": "Clofarex (inv-clo-222-aml)",
+      "generic": "Clofarex (inv-Clo-222-Aml)",
       "formulary": false,
       "formulations": [
         {
@@ -5561,26 +5161,7 @@
       ]
     },
     {
-      "generic": "Clotrimazole Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CLOTRIMAZOLE 1% SOLN 10 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1257579.00",
-          "ndc": "00026-3092-10",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Coagulation Factor Viia",
+      "generic": "coagulation factor Viia",
       "formulary": true,
       "formulations": [
         {
@@ -5594,25 +5175,6 @@
           "ndc": "00169-7060-01",
           "_source": "STR/VOL",
           "vialVol": 0.0
-        }
-      ]
-    },
-    {
-      "generic": "Cocaine Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "COCAINE 4% TOPICAL SOLN",
-          "concentration": 40.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1257689.00",
-          "ndc": "00054-8163-03",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -5674,7 +5236,7 @@
       ]
     },
     {
-      "generic": "Codeine-guaifenesin",
+      "generic": "Codeine-Guaifenesin",
       "formulary": true,
       "formulations": [
         {
@@ -5693,7 +5255,7 @@
       ]
     },
     {
-      "generic": "Codeine-promethazine",
+      "generic": "Codeine-Promethazine",
       "formulary": true,
       "formulations": [
         {
@@ -5731,7 +5293,7 @@
       ]
     },
     {
-      "generic": "Coenzyme Q10",
+      "generic": "coenzyme Q10",
       "formulary": false,
       "formulations": [
         {
@@ -5942,44 +5504,6 @@
       ]
     },
     {
-      "generic": "Cromolyn Nasal",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CROMOLYN  4% NAS SPRAY 13 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258185.00",
-          "ndc": "00009-7709-01",
-          "_source": "REF_DOSE_unparsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Cromolyn Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CROMOLYN SODIUM 4% EYE DROP",
-          "concentration": 4.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258272.00",
-          "ndc": "17478-0291-11",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Cyanocobalamin",
       "formulary": true,
       "formulations": [
@@ -6037,64 +5561,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Cyclopentolate Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CYCLOPENTOLATE 0.5% EYE DRP 15 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258442.00",
-          "ndc": "00065-0395-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "CYCLOPENTOLATE 1% EYE DRP 2 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258469.00",
-          "ndc": "00065-0396-02",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "CYCLOPENTOLATE 1% EYE DRP 5 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258496.00",
-          "ndc": "00065-0396-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "CYCLOPENTOLATE 2% EYE DRP 5 ML",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1300249.00",
-          "ndc": "00065-0397-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -6403,7 +5869,7 @@
       ]
     },
     {
-      "generic": "Dalfopristin-quinupristin",
+      "generic": "Dalfopristin-Quinupristin",
       "formulary": false,
       "formulations": [
         {
@@ -6873,63 +6339,6 @@
       ]
     },
     {
-      "generic": "Dexamethasone Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DEXAMETHASONE 0.1% EYE SOLN 5 ML",
-          "concentration": 0.1,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1261108.00",
-          "ndc": "00998-0615-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Dexamethasone-tobramycin Ophthalmic",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "DEXAM-TOBRAMYCIN OPHTH SUSP 5 ML",
-          "concentration": 0.1,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1261523.00",
-          "ndc": "00065-0647-25",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Dexamethasone/neomycin/polymyxin B Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DEXAM-NEOMYC-POLYMYX OPHTH SUSP 5 ML",
-          "concentration": 1.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1261496.00",
-          "ndc": "00998-0630-06",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Dexrazoxane",
       "formulary": true,
       "formulations": [
@@ -6986,7 +6395,7 @@
       ]
     },
     {
-      "generic": "Dextromethorphan-guaifenesin",
+      "generic": "Dextromethorphan-Guaifenesin",
       "formulary": true,
       "formulations": [
         {
@@ -7005,7 +6414,7 @@
       ]
     },
     {
-      "generic": "Dextrose 1.5% In Water",
+      "generic": "Dextrose 1.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7023,7 +6432,7 @@
       ]
     },
     {
-      "generic": "Dextrose 10% In Water",
+      "generic": "Dextrose 10% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7065,7 +6474,7 @@
       ]
     },
     {
-      "generic": "Dextrose 10% With 0.2% Nacl",
+      "generic": "Dextrose 10% with 0.2% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7095,7 +6504,7 @@
       ]
     },
     {
-      "generic": "Dextrose 10% With 0.45% Nacl",
+      "generic": "Dextrose 10% with 0.45% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7113,7 +6522,7 @@
       ]
     },
     {
-      "generic": "Dextrose 10% With 0.67% Nacl",
+      "generic": "Dextrose 10% with 0.67% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7131,7 +6540,7 @@
       ]
     },
     {
-      "generic": "Dextrose 10% With 0.9% Nacl",
+      "generic": "Dextrose 10% with 0.9% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7149,7 +6558,7 @@
       ]
     },
     {
-      "generic": "Dextrose 12.5% In Water",
+      "generic": "Dextrose 12.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7167,7 +6576,7 @@
       ]
     },
     {
-      "generic": "Dextrose 15% In Water",
+      "generic": "Dextrose 15% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7185,7 +6594,7 @@
       ]
     },
     {
-      "generic": "Dextrose 17.5% In Water",
+      "generic": "Dextrose 17.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7203,7 +6612,7 @@
       ]
     },
     {
-      "generic": "Dextrose 2.5% In Water",
+      "generic": "Dextrose 2.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7221,7 +6630,7 @@
       ]
     },
     {
-      "generic": "Dextrose 20% In Water",
+      "generic": "Dextrose 20% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7239,7 +6648,7 @@
       ]
     },
     {
-      "generic": "Dextrose 22.5% In Water",
+      "generic": "Dextrose 22.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7257,7 +6666,7 @@
       ]
     },
     {
-      "generic": "Dextrose 25% In Water",
+      "generic": "Dextrose 25% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7287,7 +6696,7 @@
       ]
     },
     {
-      "generic": "Dextrose 27.5% In Water",
+      "generic": "Dextrose 27.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7305,7 +6714,7 @@
       ]
     },
     {
-      "generic": "Dextrose 3.5% In Water",
+      "generic": "Dextrose 3.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7323,7 +6732,7 @@
       ]
     },
     {
-      "generic": "Dextrose 30% In Water",
+      "generic": "Dextrose 30% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7341,7 +6750,7 @@
       ]
     },
     {
-      "generic": "Dextrose 35% In Water",
+      "generic": "Dextrose 35% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7359,7 +6768,7 @@
       ]
     },
     {
-      "generic": "Dextrose 37.5% In Water",
+      "generic": "Dextrose 37.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7377,7 +6786,7 @@
       ]
     },
     {
-      "generic": "Dextrose 40% In Water",
+      "generic": "Dextrose 40% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7431,7 +6840,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% In Lactated Ringers Injection",
+      "generic": "Dextrose 5% in Lactated Ringers Injection",
       "formulary": true,
       "formulations": [
         {
@@ -7461,7 +6870,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% In Water",
+      "generic": "Dextrose 5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7551,7 +6960,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 10mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 10meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7569,7 +6978,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 20mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 20meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7587,7 +6996,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 30mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 30meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7605,7 +7014,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 40mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.2% + Kcl 40meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7623,7 +7032,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.33% + Kcl 20mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.33% + Kcl 20meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7641,7 +7050,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 10mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 10meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7659,7 +7068,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 20mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 20meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7677,7 +7086,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 30mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 30meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7695,7 +7104,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 40mEq (pre-mix)",
+      "generic": "Dextrose 5% Sodium Chloride 0.45% + Kcl 40meq (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -7749,7 +7158,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% With 0.2% Nacl",
+      "generic": "Dextrose 5% with 0.2% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7791,7 +7200,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% With 0.33% Nacl",
+      "generic": "Dextrose 5% with 0.33% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7833,7 +7242,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% With 0.45% Nacl",
+      "generic": "Dextrose 5% with 0.45% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7875,7 +7284,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% With 0.67% Nacl",
+      "generic": "Dextrose 5% with 0.67% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7893,7 +7302,7 @@
       ]
     },
     {
-      "generic": "Dextrose 5% With 0.9% Nacl",
+      "generic": "Dextrose 5% with 0.9% Nacl",
       "formulary": true,
       "formulations": [
         {
@@ -7935,7 +7344,7 @@
       ]
     },
     {
-      "generic": "Dextrose 50% In Water",
+      "generic": "Dextrose 50% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7965,7 +7374,7 @@
       ]
     },
     {
-      "generic": "Dextrose 7.5% In Water",
+      "generic": "Dextrose 7.5% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -7983,7 +7392,7 @@
       ]
     },
     {
-      "generic": "Dextrose 70% In Water",
+      "generic": "Dextrose 70% in Water",
       "formulary": true,
       "formulations": [
         {
@@ -8242,7 +7651,7 @@
       ]
     },
     {
-      "generic": "Digoxin Immune Fab",
+      "generic": "digoxin immune Fab",
       "formulary": true,
       "formulations": [
         {
@@ -8440,7 +7849,7 @@
       ]
     },
     {
-      "generic": "Diphtheria-tetanus Toxoids",
+      "generic": "Diphtheria-Tetanus Toxoids",
       "formulary": true,
       "formulations": [
         {
@@ -8490,25 +7899,6 @@
           "ndc": "58160-0840-11",
           "_source": "REF_DOSE_unparsed",
           "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Dipivefrin Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DIPIVEFRIN 0.1% EYE DROPS 10 ML",
-          "concentration": 0.1,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1263117.00",
-          "ndc": "11098-0295-10",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -8632,7 +8022,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 0.6 Mg/ml In D5w",
+      "generic": "Dobutamine 0.6 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8650,7 +8040,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 1mg/mL In D5w",
+      "generic": "Dobutamine 1mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8668,7 +8058,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 4 Mg/ml In D5w",
+      "generic": "Dobutamine 4 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8686,7 +8076,7 @@
       ]
     },
     {
-      "generic": "Dobutamine 6 Mg/ml In D5w",
+      "generic": "Dobutamine 6 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8793,7 +8183,7 @@
       ]
     },
     {
-      "generic": "Docusate-senna",
+      "generic": "Docusate-Senna",
       "formulary": true,
       "formulations": [
         {
@@ -8862,7 +8252,7 @@
       ]
     },
     {
-      "generic": "Dopamine 0.8 Mg/ml In D5w",
+      "generic": "Dopamine 0.8 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8880,7 +8270,7 @@
       ]
     },
     {
-      "generic": "Dopamine 1.6 Mg/ml In D5w",
+      "generic": "Dopamine 1.6 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8910,7 +8300,7 @@
       ]
     },
     {
-      "generic": "Dopamine 3.2 Mg/ml In D5w",
+      "generic": "Dopamine 3.2 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8928,7 +8318,7 @@
       ]
     },
     {
-      "generic": "Dopamine 6 Mg/ml In D5w",
+      "generic": "Dopamine 6 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -8959,25 +8349,6 @@
           "item_id": "1263729.00",
           "ndc": "50242-0100-40",
           "_source": "STR/VOL",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Dorzolamide Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "DORZOLAMIDE 2% EYE DRP 5 ML",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1263760.00",
-          "ndc": "00006-3519-03",
-          "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false
         }
@@ -9558,7 +8929,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.016 Mg/ml In D5w",
+      "generic": "Epinephrine 0.016 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -9576,7 +8947,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.032 Mg/ml In D5w",
+      "generic": "Epinephrine 0.032 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -9594,7 +8965,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.064 Mg/ml In D5w",
+      "generic": "Epinephrine 0.064 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -9612,7 +8983,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.1 Mg/ml = 1:10,000",
+      "generic": "epinephrine 0.1 Mg/ml = 1:10,000",
       "formulary": true,
       "formulations": [
         {
@@ -9630,7 +9001,7 @@
       ]
     },
     {
-      "generic": "Epinephrine 0.1 Mg/ml In D5w",
+      "generic": "Epinephrine 0.1 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -9666,38 +9037,6 @@
       ]
     },
     {
-      "generic": "Epinephrine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "EPINEPHRINE 1% EYE DROPS 15 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1264799.00",
-          "ndc": "11980-0122-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "EPINEPHRINE 2% EYE DROPS 15 ML",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1264826.00",
-          "ndc": "11980-0058-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Epinephrine Racemic",
       "formulary": true,
       "formulations": [
@@ -9717,7 +9056,7 @@
       ]
     },
     {
-      "generic": "Epinephrine-lidocaine",
+      "generic": "Epinephrine-Lidocaine",
       "formulary": true,
       "formulations": [
         {
@@ -9735,7 +9074,7 @@
       ]
     },
     {
-      "generic": "Epinephrine-lidocaine 1%",
+      "generic": "Epinephrine-Lidocaine 1%",
       "formulary": true,
       "formulations": [
         {
@@ -9753,7 +9092,7 @@
       ]
     },
     {
-      "generic": "Epinephrine-lidocaine 2%",
+      "generic": "Epinephrine-Lidocaine 2%",
       "formulary": true,
       "formulations": [
         {
@@ -9988,7 +9327,7 @@
       ]
     },
     {
-      "generic": "Erythromycin Iv",
+      "generic": "erythromycin Iv",
       "formulary": true,
       "formulations": [
         {
@@ -10066,7 +9405,7 @@
       ]
     },
     {
-      "generic": "Estradiol-medroxyprogesterone",
+      "generic": "Estradiol-Medroxyprogesterone",
       "formulary": false,
       "formulations": [
         {
@@ -10220,7 +9559,7 @@
       ]
     },
     {
-      "generic": "Ethinyl Estradiol-levonorgestrel",
+      "generic": "Ethinyl Estradiol-Levonorgestrel",
       "formulary": false,
       "formulations": [
         {
@@ -10239,7 +9578,7 @@
       ]
     },
     {
-      "generic": "Ethinyl Estradiol-norgestimate",
+      "generic": "Ethinyl Estradiol-Norgestimate",
       "formulary": false,
       "formulations": [
         {
@@ -10258,7 +9597,7 @@
       ]
     },
     {
-      "generic": "Ethinyl Estradiol-norgestrel",
+      "generic": "Ethinyl Estradiol-Norgestrel",
       "formulary": true,
       "formulations": [
         {
@@ -10439,7 +9778,7 @@
       ]
     },
     {
-      "generic": "Etoposide-phosphate",
+      "generic": "Etoposide-Phosphate",
       "formulary": false,
       "formulations": [
         {
@@ -10661,7 +10000,7 @@
       ]
     },
     {
-      "generic": "Fentanyl 10 Mcg/ml In D5w",
+      "generic": "Fentanyl 10 Mcg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -10679,7 +10018,7 @@
       ]
     },
     {
-      "generic": "Fentanyl 25 Mcg/ml In D5w",
+      "generic": "Fentanyl 25 Mcg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -10697,7 +10036,7 @@
       ]
     },
     {
-      "generic": "Fentanyl 5 Mcg/ml In D5w",
+      "generic": "Fentanyl 5 Mcg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -10733,7 +10072,7 @@
       ]
     },
     {
-      "generic": "Fentanyl Pca",
+      "generic": "fentanyl Pca",
       "formulary": true,
       "formulations": [
         {
@@ -11116,62 +10455,6 @@
       ]
     },
     {
-      "generic": "Flunisolide Nasal",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "FLUNISOLIDE 25 MCG NASAL SPRAY  25ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1267726.00",
-          "ndc": "51479-0038-25",
-          "_source": "REF_DOSE_unparsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Fluocinonide Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "FLUOCINONIDE 0.05% SOLN 60 ML",
-          "concentration": 0.05,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1267890.00",
-          "ndc": "00168-0134-60",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Fluorescein Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "FLUORESCEIN  500 MG/5 ML INJ",
-          "concentration": 100.0,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1267917.00",
-          "ndc": "00065-0092-05",
-          "_source": "STR/VOL",
-          "vialVol": 5.0
-        }
-      ]
-    },
-    {
       "generic": "Fluoride",
       "formulary": true,
       "formulations": [
@@ -11185,57 +10468,6 @@
           "item_id": "1307964.00",
           "ndc": "00603-1244-47",
           "_source": "STR/VOL",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Fluoride Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "FLUORIDE 0.05% RINSE 12 OZ",
-          "concentration": 0.05,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1268000.00",
-          "ndc": "08137-0094-02",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Fluorometholone Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "FLUOROMETHOLONE 0.1% EYE 5 ML",
-          "concentration": 0.1,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1268054.00",
-          "ndc": "11980-0211-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "FLUOROMETHOLONE 0.25% EYE 5 ML",
-          "concentration": 0.25,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1268081.00",
-          "ndc": "11980-0228-05",
-          "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false
         }
@@ -11333,25 +10565,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Flurbiprofen Ophthalmic",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "FLURBIPROFEN 0.03% EYE DRP 2.5 ML",
-          "concentration": 0.03,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1268301.00",
-          "ndc": "24208-0314-25",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -11920,77 +11133,7 @@
       ]
     },
     {
-      "generic": "Gentamicin Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "GENTAMICIN 0.3% EYE DROPS 5 ML",
-          "concentration": 0.3,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1269366.00",
-          "ndc": "24208-0580-60",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "GENTAMICIN FORT EYE DRP 7 ML",
-          "concentration": 14.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1474539.00",
-          "ndc": "17478-0283-12",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Gentamicin-prednisolone Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PrednisoLONE/GENT OPHTH SUSP 5 ML",
-          "concentration": 0.3,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1287816.00",
-          "ndc": "00023-0106-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Gentian Violet Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "GENTIAN VIOLET 1% TOP SOLN 30 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1307157.00",
-          "ndc": "00395-1003-91",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Gleevec (inv-aaml0123)",
+      "generic": "gleevec (inv-aaml0123)",
       "formulary": false,
       "formulations": [
         {
@@ -12102,25 +11245,6 @@
           "ndc": "00046-0507-05",
           "_source": "STR/VOL",
           "vialVol": 0.0
-        }
-      ]
-    },
-    {
-      "generic": "Gramicidin/neomycin/polymyxin B Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "NEOSPORIN (NEO/GRAM/POLY) OPHTH DROP 10 ML",
-          "concentration": 0.025,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1282262.00",
-          "ndc": "24208-0790-62",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -12309,7 +11433,7 @@
       ]
     },
     {
-      "generic": "Haemophilus B Conjugate (prp-t) Vaccine",
+      "generic": "haemophilus b conjugate (prp-t) vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -12327,7 +11451,7 @@
       ]
     },
     {
-      "generic": "Haemophilus B-hepatitis B Vaccine",
+      "generic": "haemophilus b-hepatitis B vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -12610,7 +11734,7 @@
       ]
     },
     {
-      "generic": "Hepatitis A Adult Vaccine",
+      "generic": "hepatitis A adult vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -12628,7 +11752,7 @@
       ]
     },
     {
-      "generic": "Hepatitis A Pediatric Vaccine",
+      "generic": "hepatitis A pediatric vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -12646,7 +11770,7 @@
       ]
     },
     {
-      "generic": "Hepatitis B Immune Globulin",
+      "generic": "hepatitis B immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -12664,7 +11788,7 @@
       ]
     },
     {
-      "generic": "Hepatitis B Vaccine",
+      "generic": "hepatitis B vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -12696,38 +11820,6 @@
           "ndc": "38697-0102-03",
           "_source": "unknown",
           "vialVol": 0.1
-        }
-      ]
-    },
-    {
-      "generic": "Homatropine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HOMATROPINE 2% EYE DRP 5 ML",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1270983.00",
-          "ndc": "00998-0311-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "HOMATROPINE 5% EYE DRP 5 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1271010.00",
-          "ndc": "00998-0315-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -12820,7 +11912,7 @@
       ]
     },
     {
-      "generic": "Hydrochloric Acid 0.1N",
+      "generic": "hydrochloric acid 0.1n",
       "formulary": true,
       "formulations": [
         {
@@ -12870,7 +11962,7 @@
       ]
     },
     {
-      "generic": "Hydrochlorothiazide-spironolactone",
+      "generic": "Hydrochlorothiazide-Spironolactone",
       "formulary": true,
       "formulations": [
         {
@@ -12889,7 +11981,7 @@
       ]
     },
     {
-      "generic": "Hydrocodone-ibuprofen",
+      "generic": "Hydrocodone-Ibuprofen",
       "formulary": false,
       "formulations": [
         {
@@ -13014,7 +12106,7 @@
       ]
     },
     {
-      "generic": "Hydrocortisone/neomycin/polymyxin B Ophth",
+      "generic": "hydrocortisone/neomycin/polymyxin B ophth",
       "formulary": true,
       "formulations": [
         {
@@ -13026,57 +12118,6 @@
           "maxDose": null,
           "item_id": "1474709.00",
           "ndc": "61570-0036-75",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Hydrocortisone/neomycin/polymyxin B Otic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CORTISPORIN (NEO/POLY/HC) OTIC SOLN 10 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258021.00",
-          "ndc": "24208-0631-10",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "CORTISPORIN(NEO/POLY/HC) OTIC SUSP 10 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1258048.00",
-          "ndc": "00364-7374-54",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Hydrogen Peroxide Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HYDROGEN PEROXIDE SOLN 4 OZ",
-          "concentration": 3.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1271770.00",
-          "ndc": "00395-4214-94",
           "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false
@@ -13235,25 +12276,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Hydroxypropyl Methylcellulose Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ISOPTO TEARS OPTH DROPS 15ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1441520.00",
-          "ndc": "00998-0408-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -13574,7 +12596,7 @@
       ]
     },
     {
-      "generic": "Imipenem-cilastatin",
+      "generic": "Imipenem-Cilastatin",
       "formulary": true,
       "formulations": [
         {
@@ -13955,7 +12977,7 @@
       ]
     },
     {
-      "generic": "Insulin Isophane-insulin Regular",
+      "generic": "Insulin Isophane-Insulin Regular",
       "formulary": true,
       "formulations": [
         {
@@ -14051,7 +13073,7 @@
       ]
     },
     {
-      "generic": "Interferon Alfa-2a",
+      "generic": "Interferon alfa-2a",
       "formulary": true,
       "formulations": [
         {
@@ -14223,25 +13245,6 @@
           "item_id": "1273692.00",
           "ndc": "00054-8402-13",
           "_source": "STR/VOL",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Ipratropium Nasal",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "IPRATROPIUM 0.03% NAS SPRY 30 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1273665.00",
-          "ndc": "00597-0081-30",
-          "_source": "REF_DOSE_unparsed",
           "preferredVols": [],
           "deviceLimited": false
         }
@@ -14556,7 +13559,7 @@
       ]
     },
     {
-      "generic": "Kaolin-pectin",
+      "generic": "Kaolin-Pectin",
       "formulary": false,
       "formulations": [
         {
@@ -14878,7 +13881,7 @@
       ]
     },
     {
-      "generic": "Lamivudine-zidovudine",
+      "generic": "Lamivudine-Zidovudine",
       "formulary": false,
       "formulations": [
         {
@@ -14988,25 +13991,6 @@
           "ndc": "58468-0070-01",
           "_source": "STR/VOL",
           "vialVol": 5.0
-        }
-      ]
-    },
-    {
-      "generic": "Latanoprost Ophthalmic",
-      "formulary": false,
-      "formulations": [
-        {
-          "label": "LATANOPROST 0.005% EYE DRP 2.5 ML",
-          "concentration": 0.005,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1275110.00",
-          "ndc": "00013-8303-04",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -15202,38 +14186,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Levobunolol Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "LEVOBUNOLOL 0.25% EYE DRP 5 ML C CAP BID",
-          "concentration": 0.25,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1275500.00",
-          "ndc": "11980-0469-25",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "LEVOBUNOLOL 0.5% EYE DRP 5 ML C CAP QD",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1275554.00",
-          "ndc": "11980-0252-65",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -15556,38 +14508,6 @@
       ]
     },
     {
-      "generic": "Lidocaine Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "LIDOCAINE 2% VISCOUS SOLN 100 ML",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1276319.00",
-          "ndc": "00054-3500-49",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "LIDOCAINE 4% SOLN 50 ML",
-          "concentration": 4.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1276429.00",
-          "ndc": "00054-3505-47",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Lidocaine/epinephrine/tetracaine",
       "formulary": true,
       "formulations": [
@@ -15830,7 +14750,7 @@
       ]
     },
     {
-      "generic": "Lopinavir-ritonavir",
+      "generic": "Lopinavir-Ritonavir",
       "formulary": true,
       "formulations": [
         {
@@ -15951,7 +14871,7 @@
       ]
     },
     {
-      "generic": "Lymphocyte Immune Globulin, Anti-thymocyte",
+      "generic": "Lymphocyte Immune Globulin, Anti-Thymocyte",
       "formulary": true,
       "formulations": [
         {
@@ -16266,7 +15186,7 @@
       ]
     },
     {
-      "generic": "Measles-rubella Virus Vaccine",
+      "generic": "Measles-Rubella Virus Vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -17549,7 +16469,7 @@
       ]
     },
     {
-      "generic": "Midazolam 0.15 Mg/ml In D5w",
+      "generic": "Midazolam 0.15 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -17567,7 +16487,7 @@
       ]
     },
     {
-      "generic": "Midazolam 0.5 Mg/ml In D5w",
+      "generic": "Midazolam 0.5 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -17585,7 +16505,7 @@
       ]
     },
     {
-      "generic": "Midazolam 1 Mg/ml In D5w",
+      "generic": "Midazolam 1 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -17639,7 +16559,7 @@
       ]
     },
     {
-      "generic": "Milrinone 0.1 Mg/ml In D5w",
+      "generic": "Milrinone 0.1 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -17657,7 +16577,7 @@
       ]
     },
     {
-      "generic": "Milrinone 0.2 Mg/ml In D5w",
+      "generic": "Milrinone 0.2 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -17675,7 +16595,7 @@
       ]
     },
     {
-      "generic": "Milrinone 0.5 Mg/ml In D5w",
+      "generic": "Milrinone 0.5 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -18003,7 +16923,7 @@
       ]
     },
     {
-      "generic": "Morphine Pca",
+      "generic": "morphine Pca",
       "formulary": true,
       "formulations": [
         {
@@ -18057,7 +16977,7 @@
       ]
     },
     {
-      "generic": "Morphine Pf",
+      "generic": "morphine Pf",
       "formulary": true,
       "formulations": [
         {
@@ -18500,25 +17420,6 @@
       ]
     },
     {
-      "generic": "Naphazoline Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "NAPHAZOLINE 0.1% EYE DROPS 15 ML",
-          "concentration": 0.1,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1281776.00",
-          "ndc": "11980-0154-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Naproxen",
       "formulary": true,
       "formulations": [
@@ -18669,38 +17570,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Neomycin-polymyxin B Sulfate Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "NEOSPORIN GU IRRIG 1 ML VIAL",
-          "concentration": 40.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1282289.00",
-          "ndc": "00364-2190-41",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "NEOSPORIN GU IRRIG 20 ML VIAL",
-          "concentration": 40.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1282314.00",
-          "ndc": "00364-2191-55",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -18958,7 +17827,7 @@
       ]
     },
     {
-      "generic": "Nitroglycerin 0.2 Mg/ml In D5w",
+      "generic": "Nitroglycerin 0.2 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -18976,7 +17845,7 @@
       ]
     },
     {
-      "generic": "Nitroglycerin 0.4 Mg/ml In D5w",
+      "generic": "Nitroglycerin 0.4 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -19012,7 +17881,7 @@
       ]
     },
     {
-      "generic": "Nitroprusside 0.5 Mg/ml In D5w",
+      "generic": "Nitroprusside 0.5 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -19030,7 +17899,7 @@
       ]
     },
     {
-      "generic": "Nitroprusside 1 Mg/ml In D5w",
+      "generic": "Nitroprusside 1 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -19120,7 +17989,7 @@
       ]
     },
     {
-      "generic": "Norepinephrine 0.1 Mg/ml In D5w",
+      "generic": "Norepinephrine 0.1 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -19279,25 +18148,6 @@
       ]
     },
     {
-      "generic": "Nystatin Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "NYSTATIN TOPICAL 100,000 UNIT TAB",
-          "concentration": null,
-          "unit": "mg",
-          "form": "tablet",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1300642.00",
-          "ndc": "50111-0375-09",
-          "_source": "REF_DOSE_unparsed",
-          "canHalf": false,
-          "canQuarter": false
-        }
-      ]
-    },
-    {
       "generic": "Nystatin/diphenhydramine/lidocaine",
       "formulary": true,
       "formulations": [
@@ -19343,89 +18193,6 @@
           "ndc": "00078-0182-03",
           "_source": "STR/VOL",
           "vialVol": 1.0
-        }
-      ]
-    },
-    {
-      "generic": "Ocular Lubricant",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "ARTIFICIAL TEARS OPHTH DROP 15 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1441645.00",
-          "ndc": "49348-0699-29",
-          "_source": "REF_DOSE_unparsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "CELLUVISC 1% EYE DROPS 1ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1254864.00",
-          "ndc": "00023-4554-30",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "REFRESH EYE DROP 1 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1290078.00",
-          "ndc": "00023-0506-01",
-          "_source": "unknown",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Ofloxacin Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "OFLOXACIN 0.3% EYE DROPS 5ML",
-          "concentration": 0.3,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1283328.00",
-          "ndc": "11980-0779-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Ofloxacin Otic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "OFLOXACIN 0.3% EAR DROPS 5 ML",
-          "concentration": 0.3,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1283301.00",
-          "ndc": "63395-0101-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -19533,70 +18300,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Ophthalmic Irrigation, Extraocular",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "EYE STREAM EYE SOLN 4 OZ",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1266240.00",
-          "ndc": "00065-0530-04",
-          "_source": "unknown",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "EYE-STREAM (DACRIOSE) EYE SOLN 1 OZ",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1266267.00",
-          "ndc": "00065-0530-01",
-          "_source": "unknown",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Ophthalmic Irrigation, Intraocular",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "BSS SOLN 15 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1252386.00",
-          "ndc": "00065-0795-15",
-          "_source": "REF_DOSE_unparsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "BSS SOLN 500 ML",
-          "concentration": null,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1252415.00",
-          "ndc": "00065-0795-50",
-          "_source": "REF_DOSE_unparsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -19900,25 +18603,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Oxymetazoline Nasal",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "OXYMETAZOLINE 0.05% NASAL SPRAY 1/2 OZ",
-          "concentration": 0.05,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1284127.00",
-          "ndc": "51079-0219-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -20414,7 +19098,7 @@
       ]
     },
     {
-      "generic": "Penicillin G Benzathine",
+      "generic": "penicillin G benzathine",
       "formulary": true,
       "formulations": [
         {
@@ -20444,7 +19128,7 @@
       ]
     },
     {
-      "generic": "Penicillin G Potassium",
+      "generic": "penicillin G potassium",
       "formulary": true,
       "formulations": [
         {
@@ -20474,7 +19158,7 @@
       ]
     },
     {
-      "generic": "Penicillin G Sodium",
+      "generic": "penicillin G sodium",
       "formulary": true,
       "formulations": [
         {
@@ -20504,7 +19188,7 @@
       ]
     },
     {
-      "generic": "Penicillin V Potassium",
+      "generic": "penicillin V potassium",
       "formulary": true,
       "formulations": [
         {
@@ -20698,25 +19382,6 @@
           "ndc": "88888-1046-26",
           "_source": "REF_DOSE_unparsed",
           "vialVol": 1000.0
-        }
-      ]
-    },
-    {
-      "generic": "Permethrin Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PERMETHRIN 1% CREME RINSE 2 OZ",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1285487.00",
-          "ndc": "00501-3782-02",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -20939,84 +19604,7 @@
       ]
     },
     {
-      "generic": "Phenylephrine Nasal",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PHENYLEPHRIN 0.5% NAS DRP 1/2 OZ",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1285987.00",
-          "ndc": "00024-1351-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "PHENYLEPHRINE 1% NAS DRP 1/2 OZ",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286041.00",
-          "ndc": "00024-1355-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Phenylephrine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PHENYLEPHRINE 10% EYE DRP 5 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286097.00",
-          "ndc": "00364-2370-53",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "PHENYLEPHRINE 2.5% EYE DRP 15 ML",
-          "concentration": 2.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286124.00",
-          "ndc": "24208-0740-06",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "PHENYLEPHRINE 2.5% EYE DRP 3 ML",
-          "concentration": 2.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286151.00",
-          "ndc": "00065-0342-03",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Phenylephrine-promethazine",
+      "generic": "Phenylephrine-Promethazine",
       "formulary": true,
       "formulations": [
         {
@@ -21152,65 +19740,7 @@
       ]
     },
     {
-      "generic": "Pilocarpine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PILOCARPINE 0.5% EYE DRP 15 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286488.00",
-          "ndc": "24208-0806-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "PILOCARPINE 1% EYE DRP 15 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286515.00",
-          "ndc": "00364-7131-72",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "PILOCARPINE 2% EYE DRP 15 ML",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286542.00",
-          "ndc": "00998-0204-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "PILOCARPINE 4% EYE DRP 15 ML",
-          "concentration": 4.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286569.00",
-          "ndc": "61314-0206-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Piperacillin-tazobactam",
+      "generic": "Piperacillin-Tazobactam",
       "formulary": true,
       "formulations": [
         {
@@ -21252,7 +19782,7 @@
       ]
     },
     {
-      "generic": "Pneumococcal 23-valent Vaccine",
+      "generic": "Pneumococcal 23-Valent Vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -21270,7 +19800,7 @@
       ]
     },
     {
-      "generic": "Pneumococcal 7-valent Vaccine",
+      "generic": "Pneumococcal 7-Valent Vaccine",
       "formulary": true,
       "formulations": [
         {
@@ -21284,25 +19814,6 @@
           "ndc": "00005-1970-67",
           "_source": "unknown",
           "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Podophyllum Resin Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PODOPHYLLUM RESIN 25% TOP SOLN 5 ML",
-          "concentration": 25.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1476516.00",
-          "ndc": "54198-0131-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -21338,25 +19849,6 @@
           "item_id": "1286872.00",
           "ndc": "52268-0100-01",
           "_source": "unknown",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Polymyxin B-trimethoprim Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "POLYMYXIN /TMP EYE DROPS 10 ML",
-          "concentration": 10000.0,
-          "unit": "u",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1286926.00",
-          "ndc": "00023-7824-10",
-          "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false
         }
@@ -21412,7 +19904,7 @@
       ]
     },
     {
-      "generic": "Potassium Bicarbonate-potassium Chloride",
+      "generic": "Potassium Bicarbonate-Potassium Chloride",
       "formulary": true,
       "formulations": [
         {
@@ -21431,7 +19923,7 @@
       ]
     },
     {
-      "generic": "Potassium Bicarbonate-potassium Citrate",
+      "generic": "Potassium Bicarbonate-Potassium Citrate",
       "formulary": true,
       "formulations": [
         {
@@ -21668,38 +20160,6 @@
       ]
     },
     {
-      "generic": "Prednisolone Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PrednisoLONE  1% EYE SUSP 5 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1287704.00",
-          "ndc": "61314-0637-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "PrednisoLONE 0.12 % EYE SUSP 5 ML",
-          "concentration": 0.12,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1287731.00",
-          "ndc": "11980-0174-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Prednisone",
       "formulary": true,
       "formulations": [
@@ -21917,7 +20377,7 @@
       ]
     },
     {
-      "generic": "Procainamide 4 Mg/ml In D5w",
+      "generic": "Procainamide 4 Mg/ml in D5w",
       "formulary": true,
       "formulations": [
         {
@@ -22095,25 +20555,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Proparacaine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "PROPARACAINE 0.5% EYE DROPS",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1288882.00",
-          "ndc": "00998-0016-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -22343,7 +20784,7 @@
       ]
     },
     {
-      "generic": "Pseudoephedrine-triprolidine",
+      "generic": "Pseudoephedrine-Triprolidine",
       "formulary": true,
       "formulations": [
         {
@@ -22840,7 +21281,7 @@
       ]
     },
     {
-      "generic": "Rho (d) Immune Globulin",
+      "generic": "Rho (d) immune globulin",
       "formulary": true,
       "formulations": [
         {
@@ -22858,7 +21299,7 @@
       ]
     },
     {
-      "generic": "Rho (d) Immune Globulin Im",
+      "generic": "Rho (d) immune globulin Im",
       "formulary": true,
       "formulations": [
         {
@@ -23220,25 +21661,6 @@
       ]
     },
     {
-      "generic": "Salicylic Acid Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "SALICYLIC ACID TOPICAL 17% SOLN 15 ML",
-          "concentration": 17.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1477768.00",
-          "ndc": "11017-2041-00",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Saquinavir",
       "formulary": true,
       "formulations": [
@@ -23302,25 +21724,6 @@
           "ndc": "00469-0268-25",
           "_source": "STR/VOL",
           "vialVol": 1.0
-        }
-      ]
-    },
-    {
-      "generic": "Scopolamine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "SCOPOLAMINE 0.25% EYE DRP 5 ML",
-          "concentration": 0.25,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1291007.00",
-          "ndc": "00998-0331-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -23774,7 +22177,7 @@
       ]
     },
     {
-      "generic": "Sodium Biphosphate-sodium Phosphate",
+      "generic": "Sodium Biphosphate-Sodium Phosphate",
       "formulary": true,
       "formulations": [
         {
@@ -24053,7 +22456,7 @@
       ]
     },
     {
-      "generic": "Sodium Chloride 0.9% + Hetastarch 6% (pre-mix)",
+      "generic": "Sodium Chloride 0.9% + hetastarch 6% (pre-mix)",
       "formulary": true,
       "formulations": [
         {
@@ -24067,25 +22470,6 @@
           "ndc": "00056-0037-46",
           "_source": "REF_DOSE_parsed",
           "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride 0.9% For Irrigation",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "SOD CHLORIDE 0.9% IRRG 1000 ML",
-          "concentration": 0.9,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1495116.00",
-          "ndc": "00338-0049-04",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -24126,44 +22510,6 @@
       ]
     },
     {
-      "generic": "Sodium Chloride Nasal",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "SOD CHLORIDE 0.65% NAS SPRY 45 ML",
-          "concentration": 0.65,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1291775.00",
-          "ndc": "00182-6135-77",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Chloride, Hypertonic, Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "SOD CHLORIDE (HYPERTONIC)  5% EYE DROPS 30 ML",
-          "concentration": 5.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1292030.00",
-          "ndc": "24208-0277-30",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Sodium Ferric Gluconate Complex",
       "formulary": true,
       "formulations": [
@@ -24178,56 +22524,6 @@
           "ndc": "00364-2791-23",
           "_source": "STR/VOL",
           "vialVol": 5.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Hyaluronate Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "HYALURONATE SOD  8.5 MG/0.85 ML SYR",
-          "concentration": 10.0,
-          "unit": "mg",
-          "form": "injectable",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1271037.00",
-          "ndc": "00016-0310-85",
-          "_source": "REF_DOSE_parsed",
-          "vialVol": 1.0
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Hypochlorite Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "SODIUM HYPOCHLORITE 0.25 % SOLN  473 ML",
-          "concentration": 0.25,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1292084.00",
-          "ndc": "00436-0936-16",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "SODIUM HYPOCHLORITE 0.5% SOLN 473 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1300858.00",
-          "ndc": "00436-0946-16",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -24282,25 +22578,6 @@
           "item_id": "1292001.00",
           "ndc": "00054-8816-11",
           "_source": "STR/VOL",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Sodium Sulfacetamide Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "SULFACETAMIDE 10% EYE DROP  15ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1292715.00",
-          "ndc": "24208-0670-04",
-          "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false
         }
@@ -24683,7 +22960,7 @@
       ]
     },
     {
-      "generic": "Sulfamethoxazole-trimethoprim",
+      "generic": "Sulfamethoxazole-Trimethoprim",
       "formulary": true,
       "formulations": [
         {
@@ -24778,7 +23055,7 @@
       ]
     },
     {
-      "generic": "Sulfamethoxazole-trimethoprim Ds",
+      "generic": "Sulfamethoxazole-Trimethoprim DS",
       "formulary": true,
       "formulations": [
         {
@@ -25222,7 +23499,7 @@
       ]
     },
     {
-      "generic": "Tetanus-diphtheria Toxoids",
+      "generic": "Tetanus-Diphtheria Toxoids",
       "formulary": true,
       "formulations": [
         {
@@ -25236,44 +23513,6 @@
           "ndc": "49281-0271-83",
           "_source": "REF_DOSE_unparsed",
           "vialVol": 0.5
-        }
-      ]
-    },
-    {
-      "generic": "Tetracaine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TETRACAINE 0.5% EYE DRP 1 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1293845.00",
-          "ndc": "58768-0787-12",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Tetracaine Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TETRACAINE TOP 2% SOLN 1 OZ",
-          "concentration": 2.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1540241.00",
-          "ndc": "00074-1866-01",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -25479,7 +23718,7 @@
       ]
     },
     {
-      "generic": "Ticarcillin-clavulanate",
+      "generic": "Ticarcillin-Clavulanate",
       "formulary": false,
       "formulations": [
         {
@@ -25505,38 +23744,6 @@
           "ndc": "00029-6571-26",
           "_source": "REF_DOSE_unparsed",
           "vialVol": 1.0
-        }
-      ]
-    },
-    {
-      "generic": "Timolol Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TIMOLOL 0.25% EYE DROPS 5 ML",
-          "concentration": 0.25,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1294468.00",
-          "ndc": "00006-3366-03",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "TIMOLOL 0.5% EYE DROPS 5 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1294495.00",
-          "ndc": "00006-3367-03",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -25638,38 +23845,6 @@
       ]
     },
     {
-      "generic": "Tobramycin Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TOBRAMYCIN 0.3% EYE DROPS 5 ML",
-          "concentration": 0.3,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1294580.00",
-          "ndc": "00065-0643-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "TOBRAMYCIN FORT EYE DRP  7 ML",
-          "concentration": 14.0,
-          "unit": "mg",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1493879.00",
-          "ndc": "00065-0643-05",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Tolmetin",
       "formulary": false,
       "formulations": [
@@ -25698,25 +23873,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Tolnaftate Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TOLNAFTATE 1% TOP SOLN 10 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1294916.00",
-          "ndc": "00168-0009-10",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -25784,7 +23940,7 @@
       ]
     },
     {
-      "generic": "Tpn For Documentation",
+      "generic": "Tpn for documentation",
       "formulary": true,
       "formulations": [
         {
@@ -25872,25 +24028,6 @@
       ]
     },
     {
-      "generic": "Tretinoin Topical",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TRETINOIN 0.05% LIQ 28 ML",
-          "concentration": 0.05,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1295296.00",
-          "ndc": "00062-0075-07",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
       "generic": "Triamcinolone",
       "formulary": true,
       "formulations": [
@@ -25973,44 +24110,6 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true
-        }
-      ]
-    },
-    {
-      "generic": "Triethanolamine Polypeptide Oleate Otic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "CERUMENEX OTIC DROPS 6 ML",
-          "concentration": 10.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1255028.00",
-          "ndc": "00034-5490-06",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        }
-      ]
-    },
-    {
-      "generic": "Trifluridine Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TRIFLURIDINE 1% EYE DRP 7.5 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1295788.00",
-          "ndc": "00364-3044-71",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -26105,38 +24204,6 @@
           "ndc": "00074-1593-04",
           "_source": "REF_DOSE_parsed",
           "vialVol": 500.0
-        }
-      ]
-    },
-    {
-      "generic": "Tropicamide Ophthalmic",
-      "formulary": true,
-      "formulations": [
-        {
-          "label": "TROPICAMIDE 0.5% EYE DRP 15 ML",
-          "concentration": 0.5,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1296095.00",
-          "ndc": "00998-0354-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
-        },
-        {
-          "label": "TROPICAMIDE 1% EYE DRP 15 ML",
-          "concentration": 1.0,
-          "unit": "%",
-          "form": "liquid",
-          "doseUnit": null,
-          "maxDose": null,
-          "item_id": "1296122.00",
-          "ndc": "00998-0355-15",
-          "_source": "REF_DOSE_parsed",
-          "preferredVols": [],
-          "deviceLimited": false
         }
       ]
     },
@@ -26396,7 +24463,7 @@
       ]
     },
     {
-      "generic": "Vancomycin-gentamicin",
+      "generic": "Vancomycin-Gentamicin",
       "formulary": true,
       "formulations": [
         {
@@ -26621,7 +24688,7 @@
       ]
     },
     {
-      "generic": "Vitamin A",
+      "generic": "vitamin A",
       "formulary": true,
       "formulations": [
         {
@@ -26678,7 +24745,7 @@
       ]
     },
     {
-      "generic": "Vitamin A, D, And C",
+      "generic": "vitamin A, D, and C",
       "formulary": true,
       "formulations": [
         {
@@ -26697,7 +24764,7 @@
       ]
     },
     {
-      "generic": "Vitamin B And C Complex",
+      "generic": "vitamin B and C complex",
       "formulary": true,
       "formulations": [
         {
@@ -26716,7 +24783,7 @@
       ]
     },
     {
-      "generic": "Vitamin E",
+      "generic": "vitamin E",
       "formulary": true,
       "formulations": [
         {
@@ -27278,17 +25345,6 @@
       "item_id": "1488461.00"
     },
     {
-      "drug": "Aluminum Sulfate-calcium Acetate Topical",
-      "formulation": "DOMEBORO TOP TAB",
-      "form": "tablet",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Tablet",
-      "item_id": "1263619.00"
-    },
-    {
       "drug": "Antivenin (crotalidae) Polyvalent",
       "formulation": "CROTALIDAE POLYVALENT IMMUNE FAB OVINE INJ 1 VIAL",
       "form": "injectable",
@@ -27311,17 +25367,6 @@
       "item_id": "1251217.00"
     },
     {
-      "drug": "Budesonide Nasal",
-      "formulation": "BUDESONIDE AQ NASAL INHALER",
-      "form": "liquid",
-      "ref_dose": "0.032 mg/Inhalation",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Spray",
-      "item_id": "1252475.00"
-    },
-    {
       "drug": "Calcitonin",
       "formulation": "CALCITONIN  NASAL SPRAY",
       "form": "liquid",
@@ -27333,7 +25378,7 @@
       "item_id": "1253261.00"
     },
     {
-      "drug": "Calcium And Vitamin D Combination",
+      "drug": "calcium and vitamin D combination",
       "formulation": "CAL CARB W/VIT D 250MG/125 I.U.TAB",
       "form": "tablet",
       "ref_dose": "250 mg elem Ca-125 I.U. v",
@@ -27355,7 +25400,7 @@
       "item_id": "1253427.00"
     },
     {
-      "drug": "Clofarex (inv-clo-212-all)",
+      "drug": "Clofarex (inv-Clo-212-All)",
       "formulation": "CLOFAREX (INV-CLO-212-ALL)",
       "form": "injectable",
       "ref_dose": "",
@@ -27366,7 +25411,7 @@
       "item_id": "1489520.00"
     },
     {
-      "drug": "Clofarex (inv-clo-222-aml)",
+      "drug": "Clofarex (inv-Clo-222-Aml)",
       "formulation": "CLOFAREX (INV-CLO-222-AML)",
       "form": "injectable",
       "ref_dose": "",
@@ -27377,18 +25422,7 @@
       "item_id": "1489557.00"
     },
     {
-      "drug": "Cromolyn Nasal",
-      "formulation": "CROMOLYN  4% NAS SPRAY 13 ML",
-      "form": "liquid",
-      "ref_dose": "5.2 mg/Spray(s)",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Spray",
-      "item_id": "1258185.00"
-    },
-    {
-      "drug": "Diphtheria-tetanus Toxoids",
+      "drug": "Diphtheria-Tetanus Toxoids",
       "formulation": "DIPHTH/TET TOX (PEDS) INJ 0.5 ML",
       "form": "injectable",
       "ref_dose": "6.7 Units(s)/5 Units(s)",
@@ -27410,7 +25444,7 @@
       "item_id": "1263034.00"
     },
     {
-      "drug": "Docusate-senna",
+      "drug": "Docusate-Senna",
       "formulation": "DOCUSATE/SENNOSIDES 50/8.6MG TAB",
       "form": "tablet",
       "ref_dose": "50-8.6 mg",
@@ -27443,7 +25477,7 @@
       "item_id": "1497944.00"
     },
     {
-      "drug": "Ethinyl Estradiol-norgestimate",
+      "drug": "Ethinyl Estradiol-Norgestimate",
       "formulation": "ETHINYL ESTRADIOL-NORGESTIMATE TAB",
       "form": "tablet",
       "ref_dose": "triphasic",
@@ -27452,17 +25486,6 @@
       "vol": "          1.00",
       "vol_unit": "Tablet",
       "item_id": "1265873.00"
-    },
-    {
-      "drug": "Flunisolide Nasal",
-      "formulation": "FLUNISOLIDE 25 MCG NASAL SPRAY  25ML",
-      "form": "liquid",
-      "ref_dose": "25 mcg/Spray",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Spray",
-      "item_id": "1267726.00"
     },
     {
       "drug": "Formaldehyde 1%",
@@ -27509,7 +25532,7 @@
       "item_id": "1306343.00"
     },
     {
-      "drug": "Gleevec (inv-aaml0123)",
+      "drug": "gleevec (inv-aaml0123)",
       "formulation": "GLEEVEC/STI571 (INV-AAML0123)",
       "form": "injectable",
       "ref_dose": "",
@@ -27520,7 +25543,7 @@
       "item_id": "1493021.00"
     },
     {
-      "drug": "Haemophilus B Conjugate (prp-t) Vaccine",
+      "drug": "haemophilus b conjugate (prp-t) vaccine",
       "formulation": "HAEMOPHILUS B CONJ VACCINE",
       "form": "injectable",
       "ref_dose": "",
@@ -27531,7 +25554,7 @@
       "item_id": "1543870.00"
     },
     {
-      "drug": "Haemophilus B-hepatitis B Vaccine",
+      "drug": "haemophilus b-hepatitis B vaccine",
       "formulation": "HAEMOPH B - HEPATITIS B VAC 0.5 ML INJ",
       "form": "injectable",
       "ref_dose": "-",
@@ -27542,7 +25565,7 @@
       "item_id": "1270175.00"
     },
     {
-      "drug": "Hepatitis B Immune Globulin",
+      "drug": "hepatitis B immune globulin",
       "formulation": "HEPATITIS B IM GLOB INJ 5 ML",
       "form": "injectable",
       "ref_dose": "",
@@ -27586,7 +25609,7 @@
       "item_id": "1301803.00"
     },
     {
-      "drug": "Insulin Isophane-insulin Regular",
+      "drug": "Insulin Isophane-Insulin Regular",
       "formulation": "INSULIN NPH/REG  70/30 UNITS/ML  INJ",
       "form": "injectable",
       "ref_dose": "70 Units(s)-30 Unit(s)",
@@ -27597,18 +25620,7 @@
       "item_id": "1273329.00"
     },
     {
-      "drug": "Ipratropium Nasal",
-      "formulation": "IPRATROPIUM 0.03% NAS SPRY 30 ML",
-      "form": "liquid",
-      "ref_dose": "21 mcg/Inhalation",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Spray",
-      "item_id": "1273665.00"
-    },
-    {
-      "drug": "Lymphocyte Immune Globulin, Anti-thymocyte",
+      "drug": "Lymphocyte Immune Globulin, Anti-Thymocyte",
       "formulation": "ANTI-THYMOCYTE (ATG) 1:1000 DILN SKIN TEST",
       "form": "injectable",
       "ref_dose": "1:1000",
@@ -27641,7 +25653,7 @@
       "item_id": "1277657.00"
     },
     {
-      "drug": "Measles-rubella Virus Vaccine",
+      "drug": "Measles-Rubella Virus Vaccine",
       "formulation": "MEASLES RUBELLA VACC. INJ 0.5 ML",
       "form": "injectable",
       "ref_dose": "-",
@@ -27872,17 +25884,6 @@
       "item_id": "1281305.00"
     },
     {
-      "drug": "Nystatin Topical",
-      "formulation": "NYSTATIN TOPICAL 100,000 UNIT TAB",
-      "form": "tablet",
-      "ref_dose": "100000 Unit(s)",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Tablet",
-      "item_id": "1300642.00"
-    },
-    {
       "drug": "Nystatin/diphenhydramine/lidocaine",
       "formulation": "NYSTATIN-DIPHENHY-LIDOCAINE SUSP 120 ML",
       "form": "liquid",
@@ -27892,72 +25893,6 @@
       "vol": "          5.00",
       "vol_unit": "mL",
       "item_id": "1305967.00"
-    },
-    {
-      "drug": "Ocular Lubricant",
-      "formulation": "ARTIFICIAL TEARS OPHTH DROP 15 ML",
-      "form": "liquid",
-      "ref_dose": "preserved",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Drop",
-      "item_id": "1441645.00"
-    },
-    {
-      "drug": "Ocular Lubricant",
-      "formulation": "REFRESH EYE DROP 1 ML",
-      "form": "liquid",
-      "ref_dose": "",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Drop",
-      "item_id": "1290078.00"
-    },
-    {
-      "drug": "Ophthalmic Irrigation, Extraocular",
-      "formulation": "EYE STREAM EYE SOLN 4 OZ",
-      "form": "liquid",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Drop",
-      "item_id": "1266240.00"
-    },
-    {
-      "drug": "Ophthalmic Irrigation, Extraocular",
-      "formulation": "EYE-STREAM (DACRIOSE) EYE SOLN 1 OZ",
-      "form": "liquid",
-      "ref_dose": "-",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "          1.00",
-      "vol_unit": "Drop",
-      "item_id": "1266267.00"
-    },
-    {
-      "drug": "Ophthalmic Irrigation, Intraocular",
-      "formulation": "BSS SOLN 15 ML",
-      "form": "liquid",
-      "ref_dose": "Balanced Salt Solution",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "         15.00",
-      "vol_unit": "mL",
-      "item_id": "1252386.00"
-    },
-    {
-      "drug": "Ophthalmic Irrigation, Intraocular",
-      "formulation": "BSS SOLN 500 ML",
-      "form": "liquid",
-      "ref_dose": "Balanced Salt Solution",
-      "str": "          0.00",
-      "str_unit": "",
-      "vol": "        500.00",
-      "vol_unit": "mL",
-      "item_id": "1252415.00"
     },
     {
       "drug": "Oral Wound Rinse",
@@ -28081,7 +26016,7 @@
       "item_id": "1508531.00"
     },
     {
-      "drug": "Piperacillin-tazobactam",
+      "drug": "Piperacillin-Tazobactam",
       "formulation": "PIPERACILLIN/TAZ 2/0.25 GM INJ VIAL",
       "form": "injectable",
       "ref_dose": "2 g pip - 0.25 g taz",
@@ -28092,7 +26027,7 @@
       "item_id": "1286625.00"
     },
     {
-      "drug": "Piperacillin-tazobactam",
+      "drug": "Piperacillin-Tazobactam",
       "formulation": "PIPERACILLIN/TAZ 3/0.375 GM INJ VIAL",
       "form": "injectable",
       "ref_dose": "3 g pip- 0.375 g taz",
@@ -28103,7 +26038,7 @@
       "item_id": "1286654.00"
     },
     {
-      "drug": "Pneumococcal 23-valent Vaccine",
+      "drug": "Pneumococcal 23-Valent Vaccine",
       "formulation": "PNEUMOCOCCAL VACCINE 23-VAL 0.5 ML INJ",
       "form": "injectable",
       "ref_dose": "",
@@ -28114,7 +26049,7 @@
       "item_id": "1542906.00"
     },
     {
-      "drug": "Pneumococcal 7-valent Vaccine",
+      "drug": "Pneumococcal 7-Valent Vaccine",
       "formulation": "PNEUMOCOCCAL VACCINE 7-VAL 0.5 ML INJ",
       "form": "injectable",
       "ref_dose": "",
@@ -28257,7 +26192,7 @@
       "item_id": "1297501.00"
     },
     {
-      "drug": "Tetanus-diphtheria Toxoids",
+      "drug": "Tetanus-Diphtheria Toxoids",
       "formulation": "DIPHTH/TET TOX (ADULT) INJ 0.5 ML",
       "form": "injectable",
       "ref_dose": "2 Units(s)-5 Units(s)",
@@ -28268,7 +26203,7 @@
       "item_id": "1543993.00"
     },
     {
-      "drug": "Ticarcillin-clavulanate",
+      "drug": "Ticarcillin-Clavulanate",
       "formulation": "TICARCILLIN/CLAVULANATE 3/0.1 GM VIAL",
       "form": "injectable",
       "ref_dose": "3 g ticar - 0.1 g clav",
@@ -28312,7 +26247,7 @@
       "item_id": "1296741.00"
     },
     {
-      "drug": "Vitamin A, D, And C",
+      "drug": "vitamin A, D, and C",
       "formulation": "VIT A, D AND C DROPS 50 ML",
       "form": "liquid",
       "ref_dose": "Vitamin A, D and C",
@@ -28323,7 +26258,7 @@
       "item_id": "1297024.00"
     },
     {
-      "drug": "Vitamin B And C Complex",
+      "drug": "vitamin B and C complex",
       "formulation": "VIT B/C COMPLEX TAB (NEPHROVITE)",
       "form": "tablet",
       "ref_dose": "-",
@@ -28346,13 +26281,13 @@
     }
   ],
   "_meta": {
-    "total_drugs": 859,
-    "total_formulations": 1751,
-    "review_count": 108,
+    "total_drugs": 777,
+    "total_formulations": 1640,
+    "review_count": 96,
     "form_counts": {
-      "liquid": 373,
-      "tablet": 483,
-      "injectable": 763,
+      "liquid": 266,
+      "tablet": 481,
+      "injectable": 761,
       "capsule": 132
     }
   }

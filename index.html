@@ -41,7 +41,7 @@
     <img src="Aptos_512.png" alt="APTOS" />
     <div class="name">APTOS</div>
     <div class="tag">Doses Designed to Fit</div>
-    <div style="font-family: 'Courier New', monospace; font-size: 11px; color: #4a6080; margin-top: 8px; letter-spacing: 1px;">v0.6</div>
+    <div style="font-family: 'Courier New', monospace; font-size: 11px; color: #4a6080; margin-top: 8px; letter-spacing: 1px;">v0.7</div>
   </div>
   <div id="root"></div>
 
@@ -51,7 +51,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script defer>
-    const APP_VERSION = "0.6";
+    const APP_VERSION = "0.7";
 
     // Service worker registration
     if ('serviceWorker' in navigator) {
@@ -152,8 +152,8 @@
           });
         }
 
-        // Sort alphabetically
-        mergedDrugs.sort((a, b) => a.generic.localeCompare(b.generic));
+        // True alphabetic sort — locale-aware, case-insensitive
+        mergedDrugs.sort((a, b) => a.generic.localeCompare(b.generic, 'en', { sensitivity: 'base' }));
 
         window.APTOS_DRUG_DB = mergedDrugs;
 
