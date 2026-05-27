@@ -782,7 +782,7 @@ export default function PedsDoseTable() {
                     display: "flex", alignItems: "center", gap: 10 }}>
         <img src="Aptos_192.png" alt="APTOS"
              style={{ width: 36, height: 36, borderRadius: 8, flexShrink: 0 }} />
-        <div>
+        <div style={{ flex: 1 }}>
           <div style={{ fontSize: 22, fontWeight: 900, letterSpacing: 4,
                         textTransform: "uppercase", fontFamily: "'Arial Black',Arial,sans-serif" }}>APTOS</div>
           <div style={{ fontSize: 13, color: "#c8d8e8", fontStyle: "italic",
@@ -790,6 +790,10 @@ export default function PedsDoseTable() {
             Doses Designed to Fit
           </div>
         </div>
+        <a href="Peds_Dosing_Summary.pdf" target="_blank" rel="noopener noreferrer"
+           title="Methodology: first principles, band math, syringe physics, and evidence base"
+           style={{ color: "#c8d8e8", fontSize: 22, textDecoration: "none",
+                    flexShrink: 0, lineHeight: 1 }}>ℹ️</a>
       </div>
 
       {/* ── Controls ── */}
