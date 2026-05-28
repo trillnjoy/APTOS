@@ -12,10 +12,11 @@
           "doseUnit": null,
           "maxDose": null,
           "item_id": "1299364.00",
-          "ndc": "00017-3066-40",
+          "ndc": "0173-0664-00",
           "_source": "STR/VOL",
           "preferredVols": [],
-          "deviceLimited": false
+          "deviceLimited": false,
+          "_ndc_note": "***CORRECTED \u2014 source extract had transposed digits 00017-3066-40***"
         },
         {
           "label": "ABACAVIR 300 MG TAB",
