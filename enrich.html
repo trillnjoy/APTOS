@@ -213,14 +213,42 @@ async function startEnrichment() {
 
     await sleep(DELAY_MS);
 
-    // Step 2: Name fallback
+    // Step 2: Constructed string fallback via approximateTerm
+    if (!rxcui) {
+      const formReadable = {
+        liquid:     'oral solution',
+        tablet:     'tablet',
+        capsule:    'capsule',
+        injectable: 'injectable solution',
+      }[form.form] || '';
+      const conc = form.concentration || '';
+      const unit = form.unit || 'mg';
+      const base = drug.generic.toLowerCase();
+      const query = [base, conc, unit, formReadable].filter(Boolean).join(' ');
+
+      const data = await fetchJSON(
+        `${BASE}/approximateTerm.json?term=${encodeURIComponent(query)}&maxEntries=3`
+      );
+      const candidates = data?.approximateGroup?.candidate || [];
+      const best = candidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 10);
+      if (best) {
+        rxcui = best.rxcui;
+        src   = `approx_score${parseFloat(best.score).toFixed(1)}`;
+      }
+      await sleep(DELAY_MS);
+    }
+
+    // Step 3: Generic-only approximateTerm last resort
     if (!rxcui) {
       const base = drug.generic.toLowerCase().split(/[-/\s]/)[0];
-      const data = await fetchJSON(`${BASE}/rxcui.json?name=${encodeURIComponent(base)}&allsources=1`);
-      const ids  = data?.idGroup?.rxnormId;
-      if (ids && ids.length > 0) {
-        rxcui = String(ids[0]);
-        src   = 'name_fallback';
+      const data = await fetchJSON(
+        `${BASE}/approximateTerm.json?term=${encodeURIComponent(base)}&maxEntries=1`
+      );
+      const candidates = data?.approximateGroup?.candidate || [];
+      const best = candidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 12);
+      if (best) {
+        rxcui = best.rxcui;
+        src   = `approx_generic_score${parseFloat(best.score).toFixed(1)}`;
       }
       await sleep(DELAY_MS);
     }
@@ -241,7 +269,7 @@ async function startEnrichment() {
     processed++;
     if (rxcui) {
       found++;
-      log(`OK  ${drug.generic.padEnd(25)} RxCUI:${rxcui}  ${rxnorm_name || ''}`, 'ok');
+      log(`OK  ${drug.generic.padEnd(25)} RxCUI:${rxcui}  [${src}]  ${rxnorm_name || ''}`, 'ok');
     } else {
       missed++;
       log(`--  ${drug.generic.padEnd(25)} ${form.label.substring(0, 45)}`, 'miss');
