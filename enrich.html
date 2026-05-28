@@ -98,6 +98,7 @@
     <button class="btn btn-primary" id="btnLoad" onclick="loadFile()">Load formulary.json</button>
     <button class="btn btn-primary" id="btnStart" onclick="startEnrichment()" disabled>Start Enrichment</button>
     <button class="btn btn-danger"  id="btnStop"  onclick="stopEnrichment()"  disabled>Pause</button>
+    <button class="btn btn-primary" id="btnReprocess" onclick="reprocessIngredient()" disabled>Re-process Ingredient-level Matches</button>
     <button class="btn btn-success" id="btnDL"    onclick="downloadResult()"  disabled>Download Enriched formulary.json</button>
   </div>
   <input type="file" id="fileInput" accept=".json" style="display:none" onchange="onFileChosen(event)" />
@@ -146,6 +147,7 @@ function onFileChosen(e) {
       document.getElementById('statDone').textContent  = done;
       document.getElementById('btnStart').disabled = false;
       document.getElementById('btnDL').disabled = false;
+      document.getElementById('btnReprocess').disabled = false;
       log(`Loaded ${file.name}: ${total} formulations, ${done} already enriched`, 'info');
     } catch(err) {
       alert('Failed to parse JSON: ' + err.message);
@@ -304,6 +306,38 @@ function stopEnrichment() {
 }
 
 // ── Download ──────────────────────────────────────────────────────────────
+
+function reprocessIngredient() {
+  if (!formularyData) return;
+
+  // An ingredient-level match is identified by:
+  // 1. _rxnorm_src === 'name_fallback' (old coarse lookup), OR
+  // 2. rxnorm_name exists but contains no digit (no strength = ingredient level)
+  //    e.g. "montelukast" vs "montelukast 4 MG Chewable Tablet"
+  let cleared = 0;
+  for (const drug of formularyData.drugs) {
+    for (const form of drug.formulations) {
+      const isIngredientLevel =
+        form._rxnorm_src === 'name_fallback' ||
+        (form.rxnorm_name && !/\d/.test(form.rxnorm_name));
+
+      if (isIngredientLevel) {
+        delete form._rxnorm_src;
+        delete form.rxcui;
+        delete form.rxnorm_name;
+        cleared++;
+      }
+    }
+  }
+
+  const total = countFormulations();
+  const done  = countEnriched();
+  document.getElementById('statDone').textContent  = done;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('btnStart').disabled = false;
+  log(`Cleared ${cleared} ingredient-level entries — ready to re-enrich`, 'info');
+  setStatus(`${cleared} ingredient-level entries cleared. Click Start Enrichment to re-process.`);
+}
 
 function downloadResult() {
   if (!formularyData) return;
