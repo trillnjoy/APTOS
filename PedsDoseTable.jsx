@@ -868,7 +868,20 @@ export default function PedsDoseTable() {
         {/* Row 2: Formulation | Max Dose */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 120px", gap: 8 }}>
           <div>
-            <span style={CAP}>Formulation</span>
+            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between",
+                          marginBottom: 4 }}>
+              <span style={CAP}>Formulation</span>
+              {formulation?.ndc && formulation.ndc !== "***MANUAL***" && (
+                <span
+                  onClick={() => navigator.clipboard?.writeText(formulation.ndc)}
+                  title="Tap to copy NDC"
+                  style={{ fontSize: 11, color: "#999", cursor: "pointer",
+                           fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
+                           userSelect: "all" }}>
+                  NDC {formulation.ndc}
+                </span>
+              )}
+            </div>
             <select style={selStyle} value={formIdx} disabled={!drug}
               onChange={e => selectForm(+e.target.value)}>
               <option value={-1}>— select —</option>
