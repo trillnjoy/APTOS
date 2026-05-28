@@ -2,8 +2,34 @@ import { useState, useMemo, useCallback } from "react";
 
 // ── Drug catalogue ─────────────────────────────────────────────────────────────
 // Loaded at runtime from formulary.json + aptos_params.json merged in index.html.
-// Falls back to empty array if not yet available (should not occur in normal flow).
-const DRUG_DB = window.APTOS_DRUG_DB || [];
+// Falls back to sample entries when window.APTOS_DRUG_DB is unavailable (artifact sandbox).
+const FALLBACK_DB = [
+  {
+    generic: "Acetaminophen",
+    formulary: true,
+    formulations: [
+      { label: "160 mg/5 mL suspension (32 mg/mL)", concentration: 32, unit: "mg",
+        form: "liquid", doseUnit: "mg/kg", maxDose: 960,
+        preferredVols: [1.25, 2.5, 3.75, 8, 10], deviceLimited: false,
+        ndc: "50580-0140-04", item_id: "SAMPLE", _source: "FALLBACK" },
+      { label: "325 mg tablet", concentration: 325, unit: "mg",
+        form: "tablet", doseUnit: "mg/kg", maxDose: 975,
+        canHalf: true, canQuarter: true,
+        ndc: "50580-0449-30", item_id: "SAMPLE", _source: "FALLBACK" },
+    ]
+  },
+  {
+    generic: "morphine",
+    formulary: true,
+    formulations: [
+      { label: "MORPHINE 2 MG/ML INJ VIAL", concentration: 2, unit: "mg",
+        form: "injectable", doseUnit: "mg/kg", maxDose: 15,
+        vialVol: 10, ndc: "00641-6008-25", item_id: "SAMPLE", _source: "FALLBACK" },
+    ]
+  },
+];
+
+const DRUG_DB = window.APTOS_DRUG_DB || FALLBACK_DB;
 
 // ── Weight rounding ────────────────────────────────────────────────────────────
 // Three-tier precision matching clinical measurement precision:
@@ -657,7 +683,7 @@ export default function PedsDoseTable() {
     doc.setTextColor(184, 207, 224);
     doc.text(formulation.label, ML + 8, y + 24);
 
-    const meta = `${committedTarget} ${formulation.doseUnit}  ·  min ${effectiveMinWt} kg  ·  max ${effectiveMax} ${formulation.unit}  ·  ±${variance}%  ·  ${rows.length} rows`;
+    const meta = `Target ${committedTarget} ${formulation.doseUnit}   ·   min ${effectiveMinWt} kg   ·   max ${effectiveMax} ${formulation.unit}   ·   +/-${variance}%   ·   ${rows.length} rows`;
     doc.setFontSize(8);
     doc.text(meta, ML + 8, y + 36);
 
@@ -873,7 +899,10 @@ export default function PedsDoseTable() {
               <span style={CAP}>Formulation</span>
               {formulation?.ndc && formulation.ndc !== "***MANUAL***" && (
                 <span
-                  onClick={() => navigator.clipboard?.writeText(formulation.ndc)}
+                  onClick={() => {
+                    const ndc = formulation.ndc.replace(/^0(\d{4}-)/, '$1');
+                    navigator.clipboard?.writeText(ndc);
+                  }}
                   title="Tap to copy NDC"
                   style={{ fontSize: 11, color: "#999", cursor: "pointer",
                            fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
@@ -1020,12 +1049,14 @@ export default function PedsDoseTable() {
                                   fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif" }}>
                       {formulation.label}
                     </div>
-                    <div style={{ color: "#b8cfe0", fontSize: 11, marginTop: 3 }}>
-                      {committedTarget} {formulation.doseUnit}
-                      {" · "}min {effectiveMinWt} kg
-                      {" · "}max {effectiveMax} {formulation.unit}
-                      {" · "}±{variance}%
-                      {" · "}{rows.length} rows
+                    <div style={{ color: "#b8cfe0", fontSize: 11, marginTop: 3,
+                                  whiteSpace: "nowrap", overflow: "hidden",
+                                  textOverflow: "ellipsis" }}>
+                      Target {committedTarget} {formulation.doseUnit}
+                      {"   ·   "}min {effectiveMinWt} kg
+                      {"   ·   "}max {effectiveMax} {formulation.unit}
+                      {"   ·   "}±{variance}%
+                      {"   ·   "}{rows.length} rows
                     </div>
                   </th>
                 </tr>
