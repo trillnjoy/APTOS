@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>APTOS — RxNorm Enrichment v5</title>
+  <title>APTOS — RxNorm Enrichment v6</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -80,7 +80,7 @@
 <div class="header">
   <div>
     <h1>APTOS</h1>
-    <p>Formulary RxNorm Enrichment — v5</p>
+    <p>Formulary RxNorm Enrichment — v6</p>
   </div>
 </div>
 
@@ -101,6 +101,7 @@
     <button class="btn btn-danger"  id="btnStop"  onclick="stopEnrichment()"  disabled>Pause</button>
     <button class="btn btn-primary" id="btnReprocess" onclick="reprocessIngredient()" disabled>Re-process T2/T3 &amp; Concentration Mismatches</button>
     <button class="btn btn-success" id="btnDL"    onclick="downloadResult()"  disabled>Download Enriched formulary.json</button>
+    <button class="btn btn-primary" id="btnIgnore" onclick="applyAutoIgnore()" disabled>Apply Auto-Ignore Rules</button>
   </div>
   <input type="file" id="fileInput" accept=".json" style="display:none" onchange="onFileChosen(event)" />
   <p class="note" id="fileNote">No file loaded.</p>
