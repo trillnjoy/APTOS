@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APTOS - Formulary RxNorm Enrichment</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: #f2f2ee; color: #1c2333; padding: 24px;
+    }
+    .header {
+      background: #1c2333; color: #fff; padding: 16px 20px;
+      border-radius: 8px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header h1 {
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 20px; letter-spacing: 3px; text-transform: uppercase;
+    }
+    .header p {
+      font-family: Georgia, serif; font-style: italic;
+      font-size: 12px; color: #c8d8e8; margin-top: 2px;
+    }
+    .card {
+      background: #fff; border-radius: 8px; padding: 20px;
+      border: 1px solid #d8d8d0; margin-bottom: 16px;
+    }
+    h2 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #1c2333; }
+    p { font-size: 13px; line-height: 1.6; color: #444; margin-bottom: 8px; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 6px;
+      font-size: 13px; font-weight: 700; cursor: pointer; border: none;
+      font-family: inherit; letter-spacing: 0.3px;
+    }
+    .btn-primary { background: #1c2333; color: #fff; }
+    .btn-primary:disabled { background: #aaa; cursor: not-allowed; }
+    .btn-success { background: #27ae60; color: #fff; }
+    .btn-danger  { background: #c0392b; color: #fff; }
+    .progress-wrap {
+      background: #eee; border-radius: 4px; height: 10px;
+      margin: 12px 0; overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%; background: #1c2333;
+      transition: width 0.3s ease; border-radius: 4px;
+    }
+    #stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+      margin: 12px 0;
+    }
+    .stat {
+      background: #f8f8f5; border-radius: 6px; padding: 8px 10px;
+      text-align: center;
+    }
+    .stat-val { font-size: 20px; font-weight: 700; color: #1c2333; }
+    .stat-lbl { font-size: 10px; color: #888; text-transform: uppercase;
+                letter-spacing: 0.5px; margin-top: 2px; }
+    #log {
+      font-family: 'Courier New', monospace; font-size: 11px;
+      background: #1c2333; color: #c8d8e8; padding: 12px;
+      border-radius: 6px; height: 220px; overflow-y: auto;
+      line-height: 1.5;
+    }
+    .log-ok   { color: #2ecc71; }
+    .log-miss { color: #e67e22; }
+    .log-err  { color: #e74c3c; }
+    .log-info { color: #95a5a6; }
+    #status {
+      font-size: 13px; font-weight: 600; color: #555;
+      margin: 8px 0; min-height: 20px;
+    }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .note { font-size: 11px; color: #888; margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>APTOS</h1>
+    <p>Formulary RxNorm Enrichment Tool</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Instructions</h2>
+  <p>This tool enriches your <strong>formulary.json</strong> with RxCUI and RxNorm concept names from the NLM RxNorm public API. Run it once on desktop Safari or Chrome.</p>
+  <p>1. Click <strong>Load formulary.json</strong> and select the file from your downloads or repo folder.<br>
+     2. Click <strong>Start Enrichment</strong> — it will run for ~25-30 minutes.<br>
+     3. When complete, click <strong>Download Enriched formulary.json</strong> and upload it to GitHub.</p>
+  <p>Safe to pause and resume — already-enriched formulations are skipped on reload.</p>
+</div>
+
+<div class="card">
+  <div class="controls">
+    <button class="btn btn-primary" id="btnLoad" onclick="loadFile()">Load formulary.json</button>
+    <button class="btn btn-primary" id="btnStart" onclick="startEnrichment()" disabled>Start Enrichment</button>
+    <button class="btn btn-danger"  id="btnStop"  onclick="stopEnrichment()"  disabled>Pause</button>
+    <button class="btn btn-primary" id="btnReprocess" onclick="reprocessIngredient()" disabled>Re-process Ingredient-level Matches</button>
+    <button class="btn btn-success" id="btnDL"    onclick="downloadResult()"  disabled>Download Enriched formulary.json</button>
+  </div>
+  <input type="file" id="fileInput" accept=".json" style="display:none" onchange="onFileChosen(event)" />
+  <p class="note" id="fileNote">No file loaded.</p>
+</div>
+
+<div class="card">
+  <div id="status">Ready.</div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+  <div id="stats">
+    <div class="stat"><div class="stat-val" id="statTotal">--</div><div class="stat-lbl">Total</div></div>
+    <div class="stat"><div class="stat-val" id="statDone">0</div><div class="stat-lbl">Done</div></div>
+    <div class="stat"><div class="stat-val" id="statFound">0</div><div class="stat-lbl">Matched</div></div>
+    <div class="stat"><div class="stat-val" id="statMiss">0</div><div class="stat-lbl">No Match</div></div>
+  </div>
+  <div id="log"></div>
+</div>
+
+<script>
+const BASE = 'https://rxnav.nlm.nih.gov/REST';
+const DELAY_MS = 600;
+
+let formularyData = null;
+let running = false;
+let stopRequested = false;
+let processed = 0, found = 0, missed = 0;
+
+// ── TTY quality tiers ─────────────────────────────────────────────────────────
+// Tier 1 (preferred): full clinical drug with strength + form
+const TTY_PREFERRED = new Set(['SCD','SBD','SCDC','GPCK','BPCK']);
+// Tier 2 (fallback): dose-form or ingredient level — better than nothing
+const TTY_FALLBACK  = new Set(['SCDF','IN','MIN','PIN']);
+// BN (brand name only) and others — not useful for clinical label retrieval
+
+function ttyTier(tty) {
+  if (TTY_PREFERRED.has(tty)) return 1;
+  if (TTY_FALLBACK.has(tty))  return 2;
+  return 3; // reject
+}
+
+// ── Concentration normalizer ──────────────────────────────────────────────────
+function normalizeConc(conc, unit, form) {
+  const u = (unit || 'mg').toLowerCase();
+  if (u === '%' && (form === 'injectable' || form === 'liquid'))
+    return { c: conc * 10, u: 'MG/ML' };   // 5% → 50 MG/ML
+  if (u === 'g')
+    return { c: conc * 1000, u: form === 'injectable' || form === 'liquid' ? 'MG/ML' : 'MG' };
+  if (u === 'mg')
+    return { c: conc, u: form === 'injectable' || form === 'liquid' ? 'MG/ML' : 'MG' };
+  return { c: conc, u: u.toUpperCase() };
+}
+
+// ── Label cleaner ─────────────────────────────────────────────────────────────
+function cleanLabel(label) {
+  return label
+    .toLowerCase()
+    // Strip admixture/context qualifiers
+    .replace(/in\s+ns/g, '')
+    .replace(/in\s+d5w/g, '')
+    .replace(/in\s+d10w/g, '')
+    .replace(/in\s+lr/g, '')
+    .replace(/in\s+sw/g, '')
+    .replace(/additive/g, '')
+    .replace(/(icu|ci)/g, '')
+    .replace(/\([^)]*\)/g, '')           // strip parenthetical qualifiers e.g. (DIAMOX)
+    // Dose form synonyms → RxNorm canonical
+    .replace(/meltaway/g, 'disintegrating tablet')
+    .replace(/chewable/g, 'chewable tablet')
+    .replace(/disintegrat\w+/g, 'disintegrating tablet')
+    .replace(/efferves\w+/g, 'effervescent tablet')
+    .replace(/sprinkle/g, 'sprinkle capsule')
+    .replace(/sublingual/g, 'sublingual tablet')
+    .replace(/buccal/g, 'buccal tablet')
+    // Abbreviation expansions
+    .replace(/cod/g, 'codeine')
+    .replace(/susp/g, 'suspension')
+    .replace(/soln/g, 'solution')
+    .replace(/sol/g, 'solution')
+    .replace(/tab/g, 'tablet')
+    .replace(/cap/g, 'capsule')
+    .replace(/inj/g, 'injection')
+    .replace(/vial/g, 'injection')
+    .replace(/\//g, ' ')
+    .replace(/\d+\s*ml/g, '')        // strip volume like 5ML
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// ── RxNorm canonical form strings ─────────────────────────────────────────────
+const FORM_RXNORM = {
+  liquid:     'oral solution',
+  tablet:     'tablet',
+  capsule:    'capsule',
+  injectable: 'injection',
+};
+
+// ── Validate RxCUI and get name + tty in one call ─────────────────────────────
+async function validateRxCUI(rxcui) {
+  const data = await fetchJSON(`${BASE}/rxcui/${rxcui}/properties.json`);
+  const p = data?.properties;
+  if (!p?.name) return null;
+  return { name: p.name, tty: p.tty || '' };
+}
+
+// ── Single approximateTerm query returning best candidate with tty ─────────────
+async function approxQuery(term, maxEntries, minScore) {
+  const data = await fetchJSON(
+    `${BASE}/approximateTerm.json?term=${encodeURIComponent(term)}&maxEntries=${maxEntries}`
+  );
+  const candidates = data?.approximateGroup?.candidate || [];
+  // Return all RXNORM candidates above score threshold
+  return candidates.filter(c => c.source === 'RXNORM' && parseFloat(c.score) >= minScore);
+}
+
+// ── Pick best candidate by tty tier, then score ───────────────────────────────
+async function pickBestCandidate(candidates) {
+  // Validate and get tty for each, pick best tier then highest score
+  let best = null;
+  for (const c of candidates) {
+    const props = await validateRxCUI(c.rxcui);
+    await sleep(DELAY_MS);
+    if (!props) continue;
+    const tier = ttyTier(props.tty);
+    if (tier === 3) continue; // reject BN etc.
+    if (!best || tier < best.tier || (tier === best.tier && parseFloat(c.score) > best.score)) {
+      best = { rxcui: c.rxcui, name: props.name, tty: props.tty, tier, score: parseFloat(c.score) };
+    }
+  }
+  return best;
+}
+
+// ── File loading ──────────────────────────────────────────────────────────────
+
+function loadFile() { document.getElementById('fileInput').click(); }
+
+function onFileChosen(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = evt => {
+    try {
+      formularyData = JSON.parse(evt.target.result);
+      const total = countFormulations();
+      const done  = countEnriched();
+      document.getElementById('fileNote').textContent =
+        `Loaded: ${file.name}  |  ${formularyData.drugs.length} drugs, ${total} formulations, ${done} already enriched`;
+      document.getElementById('statTotal').textContent = total;
+      document.getElementById('statDone').textContent  = done;
+      document.getElementById('btnStart').disabled = false;
+      document.getElementById('btnDL').disabled = false;
+      document.getElementById('btnReprocess').disabled = false;
+      log(`Loaded ${file.name}: ${total} formulations, ${done} already enriched`, 'info');
+    } catch(err) { alert('Failed to parse JSON: ' + err.message); }
+  };
+  reader.readAsText(file);
+}
+
+function countFormulations() {
+  return formularyData.drugs.reduce((n, d) => n + d.formulations.length, 0);
+}
+function countEnriched() {
+  return formularyData.drugs.reduce((n, d) =>
+    n + d.formulations.filter(f => '_rxnorm_src' in f).length, 0);
+}
+
+// ── Main enrichment loop ──────────────────────────────────────────────────────
+
+async function startEnrichment() {
+  if (!formularyData) return;
+  running = true; stopRequested = false;
+  document.getElementById('btnStart').disabled = true;
+  document.getElementById('btnStop').disabled  = false;
+  document.getElementById('btnLoad').disabled  = true;
+
+  const allForms = [];
+  for (const drug of formularyData.drugs)
+    for (const form of drug.formulations)
+      allForms.push({ drug, form });
+
+  const total = allForms.length;
+  processed = countEnriched();
+  found  = formularyData.drugs.reduce((n,d) => n + d.formulations.filter(f => f._rxnorm_src && f._rxnorm_src !== 'not_found').length, 0);
+  missed = formularyData.drugs.reduce((n,d) => n + d.formulations.filter(f => f._rxnorm_src === 'not_found').length, 0);
+  updateStats(total);
+
+  for (const { drug, form } of allForms) {
+    if (stopRequested) { setStatus('Paused. Click Start to resume.'); break; }
+    if ('_rxnorm_src' in form) continue;
+
+    setStatus(`Processing ${drug.generic} -- ${form.label.substring(0,50)}...`);
+
+    const ndc11 = ndcTo11Digit(form.ndc);
+    // bestPref = best tier-1 result found so far; bestFall = best tier-2 fallback
+    let bestPref = null, bestFall = null;
+
+    // ── Step 1: NDC lookup ────────────────────────────────────────────────────
+    if (ndc11) {
+      const data = await fetchJSON(`${BASE}/ndcstatus.json?ndc=${ndc11}`);
+      const candidate = data?.ndcStatus?.rxcui?.trim() || null;
+      if (candidate) {
+        await sleep(DELAY_MS);
+        const props = await validateRxCUI(candidate);
+        if (props) {
+          const tier = ttyTier(props.tty);
+          if (tier === 1) bestPref = { rxcui: candidate, name: props.name, tty: props.tty, src: 'ndc' };
+          else if (tier === 2) bestFall = { rxcui: candidate, name: props.name, tty: props.tty, src: 'ndc' };
+          else log(`  NDC ${ndc11} → RxCUI ${candidate} (${props.tty}) not useful — continuing`, 'info');
+        } else {
+          log(`  NDC ${ndc11} → RxCUI ${candidate} retired — skipping`, 'info');
+        }
+      }
+      await sleep(DELAY_MS);
+    }
+
+    // ── Step 1b: NDC derotation ───────────────────────────────────────────────
+    if (!bestPref && ndc11) {
+      const derot = ndc11.slice(1) + ndc11[0];
+      if (derot !== ndc11) {
+        const data2 = await fetchJSON(`${BASE}/ndcstatus.json?ndc=${derot}`);
+        const candidate2 = data2?.ndcStatus?.rxcui?.trim() || null;
+        if (candidate2) {
+          await sleep(DELAY_MS);
+          const props2 = await validateRxCUI(candidate2);
+          if (props2) {
+            const tier = ttyTier(props2.tty);
+            if (tier === 1) bestPref = { rxcui: candidate2, name: props2.name, tty: props2.tty, src: 'ndc_derotated' };
+            else if (tier === 2 && !bestFall) bestFall = { rxcui: candidate2, name: props2.name, tty: props2.tty, src: 'ndc_derotated' };
+          } else {
+            log(`  NDC derot ${derot} → RxCUI ${candidate2} retired — skipping`, 'info');
+          }
+        }
+        await sleep(DELAY_MS);
+      }
+    }
+
+    // ── Step 2: Label approximation ───────────────────────────────────────────
+    if (!bestPref) {
+      const labelClean = cleanLabel(form.label);
+      const candidates = await approxQuery(labelClean, 5, 8);
+      await sleep(DELAY_MS);
+      if (candidates.length) {
+        const best = await pickBestCandidate(candidates);
+        if (best) {
+          const entry = { rxcui: best.rxcui, name: best.name, tty: best.tty, src: `approx_label_score${best.score.toFixed(1)}` };
+          if (best.tier === 1) bestPref = entry;
+          else if (best.tier === 2 && !bestFall) bestFall = entry;
+        }
+      }
+    }
+
+    // ── Step 3: Constructed string ────────────────────────────────────────────
+    if (!bestPref) {
+      const norm = normalizeConc(form.concentration, form.unit, form.form);
+      const isPerML = form.form === 'injectable' || form.form === 'liquid';
+      const concStr = isPerML ? `${norm.c} ${norm.u}` : `${norm.c} ${norm.u}`;
+      const formStr = FORM_RXNORM[form.form] || '';
+      const query = [drug.generic.toLowerCase(), concStr, formStr].filter(Boolean).join(' ');
+
+      const candidates = await approxQuery(query, 5, 6);
+      await sleep(DELAY_MS);
+      if (candidates.length) {
+        const best = await pickBestCandidate(candidates);
+        if (best) {
+          const entry = { rxcui: best.rxcui, name: best.name, tty: best.tty, src: `approx_constructed_score${best.score.toFixed(1)}` };
+          if (best.tier === 1) bestPref = entry;
+          else if (best.tier === 2 && !bestFall) bestFall = entry;
+        }
+      }
+
+      // Step 3b: for liquids try per-5mL alternate expression
+      if (!bestPref && form.form === 'liquid') {
+        const conc5 = norm.c * 5;
+        const query5 = [drug.generic.toLowerCase(), `${conc5} MG/5ML`, formStr].filter(Boolean).join(' ');
+        const cands5 = await approxQuery(query5, 5, 6);
+        await sleep(DELAY_MS);
+        if (cands5.length) {
+          const best5 = await pickBestCandidate(cands5);
+          if (best5) {
+            const entry = { rxcui: best5.rxcui, name: best5.name, tty: best5.tty, src: `approx_per5ml_score${best5.score.toFixed(1)}` };
+            if (best5.tier === 1) bestPref = entry;
+            else if (best5.tier === 2 && !bestFall) bestFall = entry;
+          }
+        }
+      }
+    }
+
+    // ── Step 4: Generic fallback ──────────────────────────────────────────────
+    if (!bestPref && !bestFall) {
+      const base = drug.generic.toLowerCase().split(/[-\/\s]/)[0];
+      const candidates = await approxQuery(base, 1, 10);
+      await sleep(DELAY_MS);
+      if (candidates.length) {
+        const best = await pickBestCandidate(candidates);
+        if (best && best.tier <= 2) {
+          bestFall = { rxcui: best.rxcui, name: best.name, tty: best.tty, src: `approx_generic_score${best.score.toFixed(1)}` };
+        }
+      }
+    }
+
+    // ── Commit best available result ──────────────────────────────────────────
+    const winner = bestPref || bestFall || null;
+    form.rxcui        = winner?.rxcui || null;
+    form.rxnorm_name  = winner?.name  || null;
+    form.rxnorm_tty   = winner?.tty   || null;
+    form._rxnorm_src  = winner?.src   || 'not_found';
+
+    processed++;
+    if (winner) {
+      found++;
+      const tier = bestPref ? 'SCD' : 'FALL';
+      log(`${tier} ${drug.generic.padEnd(25)} RxCUI:${winner.rxcui} [${winner.src}] ${winner.tty} ${winner.name}`, bestPref ? 'ok' : 'miss');
+    } else {
+      missed++;
+      log(`--  ${drug.generic.padEnd(25)} ${form.label.substring(0,45)}`, 'miss');
+    }
+    updateStats(total);
+  }
+
+  if (!stopRequested) {
+    formularyData._meta = formularyData._meta || {};
+    formularyData._meta.rxnorm_enriched   = found;
+    formularyData._meta.rxnorm_not_found  = missed;
+    formularyData._meta.rxnorm_run_date   = new Date().toISOString();
+    setStatus('Enrichment complete! Click Download to save.');
+    log('--- Complete ---', 'info');
+    document.getElementById('btnStart').disabled = true;
+  } else {
+    document.getElementById('btnStart').disabled = false;
+  }
+  document.getElementById('btnStop').disabled = true;
+  document.getElementById('btnLoad').disabled = false;
+  document.getElementById('btnDL').disabled   = false;
+  running = false;
+}
+
+function stopEnrichment() {
+  stopRequested = true;
+  setStatus('Pausing after current item...');
+}
+
+// ── Re-process ────────────────────────────────────────────────────────────────
+function reprocessIngredient() {
+  if (!formularyData) return;
+  let cleared = 0;
+  for (const drug of formularyData.drugs) {
+    for (const form of drug.formulations) {
+      const tty = form.rxnorm_tty || '';
+      const src = form._rxnorm_src || '';
+      // Clear if: ingredient/fallback tty, generic fallback source, or no-digit name (old runs)
+      const isFallback =
+        TTY_FALLBACK.has(tty) ||
+        src === 'name_fallback' ||
+        src.startsWith('approx_generic') ||
+        (form.rxnorm_name && !/\d/.test(form.rxnorm_name) && !tty);
+      if (isFallback) {
+        delete form._rxnorm_src;
+        delete form.rxcui;
+        delete form.rxnorm_name;
+        delete form.rxnorm_tty;
+        cleared++;
+      }
+    }
+  }
+  const total = countFormulations();
+  const done  = countEnriched();
+  document.getElementById('statDone').textContent  = done;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('btnStart').disabled = false;
+  log(`Cleared ${cleared} fallback-level entries — ready to re-enrich`, 'info');
+  setStatus(`${cleared} fallback entries cleared. Click Start Enrichment to re-process.`);
+}
+
+// ── Download ──────────────────────────────────────────────────────────────────
+function downloadResult() {
+  if (!formularyData) return;
+  const blob = new Blob([JSON.stringify(formularyData, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = 'formulary.json'; a.click();
+  URL.revokeObjectURL(url);
+  log('Downloaded enriched formulary.json', 'info');
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function ndcTo11Digit(ndc) {
+  if (!ndc || ndc === '***MANUAL***') return null;
+  const digits = ndc.replace(/-/g, '');
+  if (digits.length === 11) return digits;
+  if (digits.length === 10) return '0' + digits;
+  return null;
+}
+
+async function fetchJSON(url) {
+  try {
+    const res = await fetch(url, { headers: { Accept: 'application/json' } });
+    if (!res.ok) return null;
+    return await res.json();
+  } catch(e) { return null; }
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function setStatus(msg) { document.getElementById('status').textContent = msg; }
+
+function updateStats(total) {
+  const pct = total > 0 ? (processed / total * 100) : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statDone').textContent  = processed;
+  document.getElementById('statFound').textContent = found;
+  document.getElementById('statMiss').textContent  = missed;
+}
+
+function log(msg, type = '') {
+  const el   = document.getElementById('log');
+  const line = document.createElement('div');
+  if (type) line.className = 'log-' + type;
+  line.textContent = msg;
+  el.appendChild(line);
+  el.scrollTop = el.scrollHeight;
+}
+</script>
+</body>
+</html>
