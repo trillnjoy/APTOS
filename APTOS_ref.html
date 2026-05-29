@@ -307,7 +307,7 @@ let selectedFormIdx = null;
 // ── INIT ──────────────────────────────────────────────────────────────────────
 async function initApp() {
   try {
-    const res = await fetch(`formulary.json?v=${Date.now()}`);
+    const res = await fetch('formulary.json');
     DRUGS = (await res.json()).drugs;
   } catch(e) {
     // fallback: empty, show error
@@ -392,7 +392,7 @@ async function fetchDrugInfo(rxcui) {
   // Step 1: DailyMed via RxCUI
   try {
     const splRes = await fetch(
-      `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?rxcui=${rxcui}&pagesize=1`
+      `https://dailymed.nlm.nih.gov/dailymed/services/v2/rxcuis/${rxcui}/spls.json?pagesize=1`
     );
     if (splRes.ok) {
       const splData = await splRes.json();
