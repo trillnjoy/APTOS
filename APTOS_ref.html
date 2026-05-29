@@ -307,7 +307,7 @@ let selectedFormIdx = null;
 // ── INIT ──────────────────────────────────────────────────────────────────────
 async function initApp() {
   try {
-    const res = await fetch('formulary.json');
+    const res = await fetch(`formulary.json?v=${Date.now()}`);
     DRUGS = (await res.json()).drugs;
   } catch(e) {
     // fallback: empty, show error
