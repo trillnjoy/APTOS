@@ -4610,10 +4610,10 @@
           "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "2180",
-          "rxnorm_name": "cefazolin",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score12.5"
+          "rxcui": "1665051",
+          "rxnorm_name": "cefazolin 500 MG",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_per5ml_score12.4"
         }
       ]
     },
@@ -30424,6 +30424,6 @@
     },
     "rxnorm_enriched": 1479,
     "rxnorm_not_found": 56,
-    "rxnorm_run_date": "2026-05-29T16:52:39.517Z"
+    "rxnorm_run_date": "2026-05-29T17:59:56.289Z"
   }
 }
