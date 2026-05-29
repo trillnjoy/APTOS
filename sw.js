@@ -1,6 +1,6 @@
 // APTOS Service Worker
 // Bump CACHE_VERSION to match APP_VERSION in index.html on every deploy
-const CACHE_VERSION = "1.1";
+const CACHE_VERSION = "1.2";
 const CACHE_NAME    = `aptos-v${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
@@ -9,6 +9,7 @@ const PRECACHE_URLS = [
   "/APTOS/manifest.json",
   "/APTOS/Aptos_192.png",
   "/APTOS/Aptos_512.png",
+  "/APTOS/PedsDoseTable.jsx",
 ];
 
 // Install: precache all static assets
@@ -39,6 +40,12 @@ self.addEventListener("fetch", event => {
 
   // Let CDN requests (Babel, React) go straight to network
   if (!url.origin.includes("trillnjoy.github.io")) {
+    return;
+  }
+
+  // Data files always fetched fresh — never served from cache
+  if (url.pathname.includes('formulary.json') ||
+      url.pathname.includes('aptos_params.json')) {
     return;
   }
 
