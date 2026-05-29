@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APTOS Ref</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+  :root {
+    --navy:    #1e2a3a;
+    --navy2:   #263244;
+    --bg:      #eeeef0;
+    --surface: #f7f7f8;
+    --white:   #ffffff;
+    --border:  #d4d6db;
+    --border2: #e4e5e9;
+    --accent:  #3a6fd8;
+    --green:   #2a7a4b;
+    --green-bg:#e8f5ee;
+    --green-bd:#b8ddc8;
+    --muted:   #6b7280;
+    --muted2:  #9ca3af;
+    --text:    #1a1f2e;
+    --warn:    #b45309;
+    --warn-bg: #fef3c7;
+    --danger:  #991b1b;
+    --danger-bg:#fee2e2;
+    --danger-bd:#fca5a5;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --r: 8px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  .app-header {
+    background: var(--navy);
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    flex-shrink: 0;
+  }
+  .app-logo {
+    width: 40px; height: 40px;
+    border-radius: 9px;
+    background: var(--navy2);
+    border: 1px solid rgba(255,255,255,0.12);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); font-size: 0.55rem;
+    color: rgba(255,255,255,0.5); letter-spacing: 0.05em;
+    flex-shrink: 0;
+  }
+  .app-title { flex: 1; }
+  .app-title h1 {
+    font-family: var(--mono); font-size: 1.15rem; font-weight: 600;
+    color: #fff; letter-spacing: 0.08em;
+  }
+  .app-title p { font-size: 0.76rem; color: rgba(255,255,255,0.45); font-style: italic; font-weight: 300; }
+  .header-info-btn {
+    width: 30px; height: 30px; border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,0.3);
+    background: none; color: rgba(255,255,255,0.55);
+    font-size: 0.82rem; font-weight: 600; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--mono); flex-shrink: 0;
+  }
+
+  /* ── CONTROLS ROW ── */
+  .controls-row {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+  .field-label {
+    font-family: var(--mono);
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.1em; color: var(--muted);
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .generic-select {
+    flex: 1;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: var(--r);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+    transition: border-color 0.15s;
+  }
+  .generic-select:focus { border-color: var(--accent); }
+
+  /* ── FORMULATION LIST ── */
+  .formulations-panel {
+    flex-shrink: 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+  }
+  .formulations-panel.hidden { display: none; }
+
+  .form-item {
+    display: flex; align-items: center; gap: 0.65rem;
+    padding: 0.55rem 1rem;
+    border-bottom: 1px solid var(--border2);
+    cursor: pointer;
+    transition: background 0.1s;
+  }
+  .form-item:last-child { border-bottom: none; }
+  .form-item:hover { background: var(--bg); }
+  .form-item.selected { background: #eef2fb; border-left: 3px solid var(--accent); padding-left: calc(1rem - 2px); }
+
+  .form-icon { font-size: 0.95rem; flex-shrink: 0; width: 1.2rem; text-align: center; }
+  .form-label { flex: 1; font-size: 0.82rem; font-weight: 500; }
+  .form-ndc { font-family: var(--mono); font-size: 0.67rem; color: var(--muted2); flex-shrink: 0; }
+  .info-btn {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: none; color: var(--muted2);
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 600;
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .info-btn:hover,
+  .form-item.selected .info-btn { border-color: var(--accent); color: var(--accent); background: #e8eef8; }
+
+  /* ── CONTENT AREA ── */
+  .content-area {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+  }
+
+  .empty-state {
+    display: flex; align-items: center; justify-content: center;
+    height: 100%; min-height: 120px;
+    color: var(--muted2); font-size: 0.85rem; font-style: italic;
+    font-family: var(--mono);
+  }
+
+  /* Spinner */
+  .spinner {
+    display: flex; align-items: center; gap: 0.6rem;
+    color: var(--muted); font-size: 0.82rem; font-style: italic;
+    padding: 1rem 0;
+  }
+  .spin {
+    width: 1rem; height: 1rem;
+    border: 2px solid var(--border); border-top-color: var(--accent);
+    border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── DRUG CARD ── */
+  .drug-card {}
+
+  .card-eyebrow {
+    display: flex; align-items: center; gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+  .ndc-badge {
+    font-family: var(--mono); font-size: 0.67rem; font-weight: 500;
+    color: var(--accent); background: #e8eef8;
+    border: 1px solid #c5d3ef; border-radius: 4px;
+    padding: 0.12rem 0.45rem;
+  }
+  .ndc-badge.derotated { color: var(--warn); background: var(--warn-bg); border-color: #fcd34d; }
+
+  .card-drug-name { font-size: 1.05rem; font-weight: 600; line-height: 1.3; margin-bottom: 0.15rem; }
+  .card-generic   { font-size: 0.78rem; color: var(--muted); font-style: italic; margin-bottom: 1rem; }
+
+  /* Boxed warning */
+  .boxed-warn {
+    background: var(--danger-bg); border: 1.5px solid var(--danger-bd);
+    border-radius: var(--r); padding: 0.65rem 0.8rem; margin-bottom: 0.9rem;
+  }
+  .boxed-warn-label {
+    font-family: var(--mono); font-size: 0.62rem; font-weight: 600;
+    color: var(--danger); letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 0.3rem;
+  }
+  .boxed-warn-text { font-size: 0.78rem; color: #7f1d1d; line-height: 1.55; }
+
+  /* Section label */
+  .section-label {
+    font-family: var(--mono); font-size: 0.62rem; font-weight: 600;
+    color: var(--muted2); letter-spacing: 0.1em; text-transform: uppercase;
+    margin: 0.9rem 0 0.4rem;
+  }
+  .section-label:first-of-type { margin-top: 0; }
+
+  /* Data grid */
+  .data-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 5px; margin-bottom: 0.1rem;
+  }
+  .data-cell {
+    background: var(--bg); border: 1px solid var(--border2);
+    border-radius: 6px; padding: 0.45rem 0.6rem;
+  }
+  .data-cell.full { grid-column: 1 / -1; }
+  .cell-label {
+    font-family: var(--mono); font-size: 0.59rem; color: var(--muted2);
+    letter-spacing: 0.07em; text-transform: uppercase; margin-bottom: 0.18rem;
+  }
+  .cell-value { font-size: 0.8rem; font-weight: 500; }
+  .cell-value.mono { font-family: var(--mono); color: var(--accent); font-size: 0.74rem; }
+  .cell-value.null { color: var(--muted2); font-style: italic; font-weight: 400; }
+
+  /* Collapsible narratives */
+  .narr {
+    border: 1px solid var(--border2); border-radius: 6px;
+    margin-bottom: 4px; overflow: hidden;
+  }
+  .narr-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.5rem 0.7rem;
+    background: var(--bg); cursor: pointer; user-select: none;
+    transition: background 0.1s;
+  }
+  .narr-head:hover { background: #e4e6eb; }
+  .narr-title {
+    font-family: var(--mono); font-size: 0.64rem; font-weight: 600;
+    color: var(--muted); letter-spacing: 0.07em; text-transform: uppercase;
+  }
+  .narr-title.warn   { color: var(--warn); }
+  .narr-title.danger { color: var(--danger); }
+  .narr-chev { font-size: 0.58rem; color: var(--muted2); transition: transform 0.2s; }
+  .narr.open .narr-chev { transform: rotate(180deg); }
+  .narr-body {
+    display: none; padding: 0.65rem 0.75rem;
+    background: var(--white); font-size: 0.78rem; line-height: 1.65;
+    color: var(--muted); border-top: 1px solid var(--border2);
+  }
+  .narr.open .narr-body { display: block; }
+
+  .error-state {
+    background: var(--warn-bg); border: 1px solid #fcd34d;
+    border-radius: var(--r); padding: 0.75rem 0.85rem;
+    color: var(--warn); font-size: 0.82rem; line-height: 1.55;
+  }
+</style>
+</head>
+<body>
+
+<div class="app-header">
+  <div class="app-logo">APTOS</div>
+  <div class="app-title">
+    <h1>APTOS</h1>
+    <p>Doses Designed to Fit</p>
+  </div>
+  <button class="header-info-btn">i</button>
+</div>
+
+<div class="controls-row">
+  <span class="field-label">Drug</span>
+  <select class="generic-select" id="generic-select" onchange="selectGeneric(this.value)">
+    <option value="">select drug</option>
+  </select>
+</div>
+
+<div class="formulations-panel hidden" id="formulations-panel">
+  <div id="formulation-list"></div>
+</div>
+
+<div class="content-area" id="content-area">
+  <div class="empty-state" id="empty-state">Select drug and formulation</div>
+  <div id="drug-content" style="display:none"></div>
+</div>
+
+<script>
+let DRUGS = [];
+
+const FORM_ICONS = {
+  tablet:'💊', capsule:'💊', liquid:'🧪', injectable:'💉',
+  patch:'🩹', cream:'🧴', ointment:'🧴', solution:'🧪', suspension:'🧪',
+};
+const fIcon = f => FORM_ICONS[f?.toLowerCase()] ?? '💊';
+
+let selectedGeneric = null;
+let selectedFormIdx = null;
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+async function initApp() {
+  try {
+    const res = await fetch('formulary.json');
+    DRUGS = (await res.json()).drugs;
+  } catch(e) {
+    // fallback: empty, show error
+    document.getElementById('empty-state').textContent = 'Error loading formulary.json';
+    return;
+  }
+  const sel = document.getElementById('generic-select');
+  DRUGS.forEach(d => {
+    const opt = document.createElement('option');
+    opt.value = d.generic;
+    opt.textContent = d.generic;
+    sel.appendChild(opt);
+  });
+}
+initApp();
+
+// ── GENERIC SELECT ────────────────────────────────────────────────────────────
+function selectGeneric(name) {
+  selectedFormIdx = null;
+  document.getElementById('drug-content').style.display = 'none';
+  document.getElementById('empty-state').style.display = 'flex';
+
+  if (!name) {
+    selectedGeneric = null;
+    document.getElementById('formulations-panel').classList.add('hidden');
+    return;
+  }
+
+  selectedGeneric = DRUGS.find(d => d.generic === name);
+  renderFormulations(selectedGeneric);
+  document.getElementById('formulations-panel').classList.remove('hidden');
+}
+
+// ── FORMULATIONS ──────────────────────────────────────────────────────────────
+function renderFormulations(drug) {
+  document.getElementById('formulation-list').innerHTML =
+    drug.formulations.map((f, i) => `
+      <div class="form-item" id="fitem-${i}" onclick="selectFormulation(${i})">
+        <span class="form-icon">${fIcon(f.form)}</span>
+        <span class="form-label">${f.label}</span>
+        <span class="form-ndc">${f.rxcui ? 'RxCUI '+f.rxcui : f.ndc || '—'}</span>
+        <button class="info-btn" onclick="event.stopPropagation(); fetchAndShow(${i})" title="openFDA info">i</button>
+      </div>`).join('');
+}
+
+function selectFormulation(idx) {
+  document.querySelectorAll('.form-item').forEach(el => el.classList.remove('selected'));
+  document.getElementById(`fitem-${idx}`)?.classList.add('selected');
+  selectedFormIdx = idx;
+}
+
+// ── FETCH + SHOW ────────────────────────────────────────────────
+function fetchAndShow(idx) {
+  selectFormulation(idx);
+  const f = selectedGeneric.formulations[idx];
+
+  document.getElementById('empty-state').style.display = 'none';
+  document.getElementById('drug-content').style.display = 'block';
+
+  const rxcui = f.rxcui || null;
+  const tty   = f.rxnorm_tty || null;
+
+  if (!rxcui) {
+    showContent(f, null, null);
+    return;
+  }
+
+  const isFallback = tty && !['SCD','SBD','SCDC','GPCK','BPCK'].includes(tty);
+  const statusMsg  = isFallback
+    ? `Querying DailyMed (RxCUI ${rxcui} — ${tty} level)…`
+    : `Querying DailyMed (RxCUI ${rxcui})…`;
+
+  document.getElementById('drug-content').innerHTML =
+    `<div class="spinner"><div class="spin"></div>${statusMsg}</div>`;
+
+  fetchDrugInfo(rxcui).then(info => showContent(f, info, isFallback));
+}
+
+// ── DailyMed + openFDA fetch chain ─────────────────────────────
+
+async function fetchDrugInfo(rxcui) {
+  // Step 1: DailyMed via RxCUI
+  try {
+    const splRes = await fetch(
+      `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls.json?rxcui=${rxcui}&pagesize=1`
+    );
+    if (splRes.ok) {
+      const splData = await splRes.json();
+      const setId = splData?.data?.[0]?.setid;
+      if (setId) {
+        const labelRes = await fetch(
+          `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/${setId}.json`
+        );
+        if (labelRes.ok) {
+          const label = await labelRes.json();
+          const info = parseDailyMed(label);
+          if (info) return info;
+        }
+      }
+    }
+  } catch(_) {}
+
+  // Step 2: openFDA fallback via RxCUI
+  try {
+    const fdaRes = await fetch(
+      `https://api.fda.gov/drug/label.json?search=openfda.rxcui:"${rxcui}"&limit=1`
+    );
+    if (fdaRes.ok) {
+      const fdaData = await fdaRes.json();
+      const r = fdaData.results?.[0];
+      if (r) return parseFDA(r);
+    }
+  } catch(_) {}
+
+  return null;
+}
+
+// ── DailyMed SPL section codes ────────────────────────────────
+const DM_SECTIONS = {
+  '34067-9': 'indications',
+  '34068-7': 'dosage',
+  '34081-0': 'pediatricUse',
+  '43685-7': 'warnings',
+  '34071-1': 'warningsBoxed',
+  '34070-3': 'contraindications',
+  '34084-4': 'adverseReactions',
+  '34088-5': 'overdosage',
+  '44425-7': 'storageHandling',
+};
+
+function parseDailyMed(label) {
+  const spl = label?.spl || label;
+  if (!spl) return null;
+
+  const info = {
+    source: 'dailymed',
+    brandName: spl.title || null,
+    genericName: null, manufacturer: spl.labeler_name || null,
+    route: null, productType: spl.product_type || null,
+    substanceName: null, rxcui: null,
+    indications: null, dosage: null, pediatricUse: null,
+    warnings: null, warningsBoxed: null, contraindications: null,
+    adverseReactions: null, overdosage: null, storageHandling: null,
+  };
+
+  const sections = spl.sections || spl.set_sections || [];
+  for (const sec of sections) {
+    const key = DM_SECTIONS[sec.loinc_code || sec.code];
+    if (key && sec.text) info[key] = sec.text;
+  }
+
+  const p = (spl.products || [])[0];
+  if (p) {
+    info.genericName   = p.generic_name || null;
+    info.route         = p.route        || null;
+    info.substanceName = p.active_ingredient_name || null;
+  }
+
+  return info;
+}
+
+function parseFDA(r) {
+  return {
+    source:            'openfda',
+    brandName:         r.openfda?.brand_name?.[0]       ?? null,
+    genericName:       r.openfda?.generic_name?.[0]      ?? null,
+    manufacturer:      r.openfda?.manufacturer_name?.[0] ?? null,
+    route:             r.openfda?.route?.[0]             ?? null,
+    productType:       r.openfda?.product_type?.[0]      ?? null,
+    substanceName:     r.openfda?.substance_name?.[0]    ?? null,
+    rxcui:             r.openfda?.rxcui?.[0]             ?? null,
+    indications:       r.indications_and_usage?.[0]      ?? null,
+    dosage:            r.dosage_and_administration?.[0]  ?? null,
+    pediatricUse:      r.pediatric_use?.[0]              ?? null,
+    warnings:          r.warnings?.[0]                   ?? null,
+    warningsBoxed:     r.boxed_warning?.[0]              ?? null,
+    contraindications: r.contraindications?.[0]          ?? null,
+    adverseReactions:  r.adverse_reactions?.[0]          ?? null,
+    overdosage:        r.overdosage?.[0]                 ?? null,
+    storageHandling:   r.storage_and_handling?.[0]       ?? null,
+  };
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────────
+
+function cell(label, value, mono=false) {
+  return `<div class="data-cell">
+    <div class="cell-label">${label}</div>
+    <div class="cell-value${mono?' mono':''}${!value?' null':''}">${value ?? '—'}</div>
+  </div>`;
+}
+
+function narr(title, text, style='') {
+  if (!text) return '';
+  return `<div class="narr" onclick="this.classList.toggle('open')">
+    <div class="narr-head">
+      <span class="narr-title ${style}">${title}</span>
+      <span class="narr-chev">▼</span>
+    </div>
+    <div class="narr-body">${text}</div>
+  </div>`;
+}
+
+function showContent(formulation, info, isFallback) {
+  const el = document.getElementById('drug-content');
+
+  if (!info) {
+    el.innerHTML = `
+      <div class="card-eyebrow">
+        <span class="ndc-badge">${formulation.rxcui ? 'RxCUI '+formulation.rxcui : formulation.ndc || 'NO RxCUI'}</span>
+      </div>
+      <div class="card-drug-name">${formulation.label}</div>
+      <div class="card-generic">${selectedGeneric.generic}</div>
+      <div class="error-state" style="margin-top:1rem">
+        ${formulation.rxcui ? 'No label data found in DailyMed or openFDA for RxCUI '+formulation.rxcui+'.' : 'No RxCUI available for this formulation — enrichment may be incomplete.'}</div>`;
+    return;
+  }
+
+  const badgeClass = isFallback ? 'ndc-badge derotated' : 'ndc-badge';
+  const ndcNote = isFallback ? ` <span style="font-size:0.65rem;color:var(--warn)">(${f.rxnorm_tty || 'fallback'} level match)</span>` : '';
+  const f = formulation;
+
+  const boxed = info.warningsBoxed ? `
+    <div class="boxed-warn">
+      <div class="boxed-warn-label">⚠ Boxed Warning</div>
+      <div class="boxed-warn-text">${info.warningsBoxed.slice(0,320)}${info.warningsBoxed.length>320?'…':''}</div>
+    </div>` : '';
+
+  el.innerHTML = `
+    <div class="card-eyebrow">
+      <span class="${badgeClass}">${formulation.rxcui ? 'RxCUI '+formulation.rxcui : formulation.ndc||''}</span>${ndcNote}
+    </div>
+    <div class="card-drug-name">${info.brandName ?? formulation.label}</div>
+    <div class="card-generic">${info.genericName ?? selectedGeneric.generic}${info.manufacturer ? ' · ' + info.manufacturer : ''}</div>
+
+    ${boxed}
+
+    <div class="section-label">Identity</div>
+    <div class="data-grid">
+      ${cell('Route', info.route)}
+      ${cell('Product Type', info.productType)}
+      ${cell('Substance', info.substanceName)}
+      ${cell('RxCUI', formulation.rxcui, true)}
+      ${cell('Source', info.source || '—')}
+    </div>
+
+    <div class="section-label">Dose Reference</div>
+    ${narr('Indications & Usage', info.indications)}
+    ${narr('Dosage & Administration', info.dosage)}
+    ${narr('Pediatric Use', info.pediatricUse)}
+
+    <div class="section-label">Safety</div>
+    ${narr('Warnings', info.warnings, 'warn')}
+    ${narr('Contraindications', info.contraindications, 'warn')}
+    ${narr('Adverse Reactions', info.adverseReactions)}
+    ${narr('Overdosage', info.overdosage, 'danger')}
+    ${narr('Storage & Handling', info.storageHandling)}
+  `;
+}
+</script>
+</body>
+</html>
