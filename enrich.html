@@ -202,31 +202,31 @@ async function startEnrichment() {
 
     setStatus(`Processing ${drug.generic} -- ${form.label.substring(0, 50)}...`);
 
-    const ndc10  = stripLeadingZero(form.ndc);
+    const ndc11 = ndcTo11Digit(form.ndc);
     let rxcui = null, src = null, rxnorm_name = null;
 
-    // Step 1: NDC lookup
-    if (ndc10) {
-      const plain = ndc10.replace(/-/g, '');
-      const data  = await fetchJSON(`${BASE}/ndcstatus.json?ndc=${plain}`);
+    // Step 1: NDC lookup (11-digit no-dash)
+    if (ndc11) {
+      const data  = await fetchJSON(`${BASE}/ndcstatus.json?ndc=${ndc11}`);
       rxcui = data?.ndcStatus?.rxcui?.trim() || null;
       if (rxcui) src = 'ndc';
     }
 
     await sleep(DELAY_MS);
 
-    // Step 2: Label-first approximateTerm — cleans the formulary label into a search string
-    if (!rxcui) {
-      const formReadable = {
-        liquid:     'oral solution',
-        tablet:     'tablet',
-        capsule:    'capsule',
-        injectable: 'injectable solution',
-      }[form.form] || '';
+    // Step 1b: NDC derotation fallback — try rotated NDC if first missed
+    if (!rxcui && ndc11) {
+      const derot = ndc11.slice(1) + ndc11[0];
+      if (derot !== ndc11) {
+        const data2 = await fetchJSON(`${BASE}/ndcstatus.json?ndc=${derot}`);
+        rxcui = data2?.ndcStatus?.rxcui?.trim() || null;
+        if (rxcui) src = 'ndc_derotated';
+        await sleep(DELAY_MS);
+      }
+    }
 
-      // Clean label: lowercase, replace slashes with spaces, strip trailing units like 5ML
-      // e.g. "AMOXICILLIN-CLAVULANATE 125/31.25 5ML SUSP" → "amoxicillin clavulanate 125 31.25 suspension"
-      // e.g. "ACETAMINOPHEN/COD #2 TAB" → "acetaminophen codeine #2 tablet"
+    // Step 2: Label-first approximateTerm
+    if (!rxcui) {
       const labelClean = form.label
         .toLowerCase()
         .replace(/\//g, ' ')
@@ -236,18 +236,19 @@ async function startEnrichment() {
         .replace(/\bsol\b/g, 'solution')
         .replace(/\btab\b/g, 'tablet')
         .replace(/\bcap\b/g, 'capsule')
-        .replace(/\binj\b/g, 'injectable solution')
-        .replace(/\bvial\b/g, 'injectable solution')
-        .replace(/\b\d+\s*ml\b/g, '')   // strip volume like "5ML"
+        .replace(/\binj\b/g, 'injection')
+        .replace(/\bvial\b/g, 'injection')
+        .replace(/\b\d+\s*ml\b/g, '')
         .replace(/\bmg\b/g, 'mg')
         .replace(/\s+/g, ' ')
         .trim();
 
       const labelData = await fetchJSON(
-        `${BASE}/approximateTerm.json?term=${encodeURIComponent(labelClean)}&maxEntries=3`
+        `${BASE}/approximateTerm.json?term=${encodeURIComponent(labelClean)}&maxEntries=5`
       );
       const labelCandidates = labelData?.approximateGroup?.candidate || [];
-      const labelBest = labelCandidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 10);
+      // Prefer SCD/SBD (have digits in name = strength present); score >= 8
+      const labelBest = labelCandidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 8);
       if (labelBest) {
         rxcui = labelBest.rxcui;
         src   = `approx_label_score${parseFloat(labelBest.score).toFixed(1)}`;
@@ -255,21 +256,33 @@ async function startEnrichment() {
       await sleep(DELAY_MS);
     }
 
-    // Step 3: Constructed string fallback — generic + concentration + unit + form
+    // Step 3: Constructed string — generic + normalized concentration + form
     if (!rxcui) {
+      // RxNorm canonical form strings
       const formReadable = {
         liquid:     'oral solution',
         tablet:     'tablet',
         capsule:    'capsule',
-        injectable: 'injectable solution',
+        injectable: 'injection',
       }[form.form] || '';
-      const query = [drug.generic.toLowerCase(), form.concentration, form.unit, formReadable]
+
+      // Concentration string: injectables and liquids are per-mL (MG/ML)
+      // Solids use flat strength (MG, units, etc.)
+      const isPerML = form.form === 'injectable' || form.form === 'liquid';
+      const unitStr = form.unit ? form.unit.toUpperCase() : 'MG';
+      const concStr = isPerML
+        ? `${form.concentration} ${unitStr}/ML`
+        : `${form.concentration} ${unitStr}`;
+
+      const query = [drug.generic.toLowerCase(), concStr, formReadable]
         .filter(Boolean).join(' ');
+
       const data = await fetchJSON(
-        `${BASE}/approximateTerm.json?term=${encodeURIComponent(query)}&maxEntries=3`
+        `${BASE}/approximateTerm.json?term=${encodeURIComponent(query)}&maxEntries=5`
       );
       const candidates = data?.approximateGroup?.candidate || [];
-      const best = candidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 10);
+      // Lower threshold for constructed queries — we control the input string
+      const best = candidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 6);
       if (best) {
         rxcui = best.rxcui;
         src   = `approx_constructed_score${parseFloat(best.score).toFixed(1)}`;
@@ -277,14 +290,14 @@ async function startEnrichment() {
       await sleep(DELAY_MS);
     }
 
-    // Step 4: Generic-only last resort
+    // Step 4: Generic-only last resort — ingredient level, flagged for review
     if (!rxcui) {
       const base = drug.generic.toLowerCase().split(/[-/\s]/)[0];
       const data = await fetchJSON(
         `${BASE}/approximateTerm.json?term=${encodeURIComponent(base)}&maxEntries=1`
       );
       const candidates = data?.approximateGroup?.candidate || [];
-      const best = candidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 12);
+      const best = candidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 10);
       if (best) {
         rxcui = best.rxcui;
         src   = `approx_generic_score${parseFloat(best.score).toFixed(1)}`;
@@ -347,15 +360,13 @@ function stopEnrichment() {
 function reprocessIngredient() {
   if (!formularyData) return;
 
-  // An ingredient-level match is identified by:
-  // 1. _rxnorm_src === 'name_fallback' (old coarse lookup), OR
-  // 2. rxnorm_name exists but contains no digit (no strength = ingredient level)
-  //    e.g. "montelukast" vs "montelukast 4 MG Chewable Tablet"
+  // Ingredient-level match: no digits in name, OR sourced from generic fallback
   let cleared = 0;
   for (const drug of formularyData.drugs) {
     for (const form of drug.formulations) {
       const isIngredientLevel =
         form._rxnorm_src === 'name_fallback' ||
+        (form._rxnorm_src && form._rxnorm_src.startsWith('approx_generic')) ||
         (form.rxnorm_name && !/\d/.test(form.rxnorm_name));
 
       if (isIngredientLevel) {
@@ -391,13 +402,14 @@ function downloadResult() {
 
 // ── Helpers ───────────────────────────────────────────────────────────────
 
-function stripLeadingZero(ndc) {
+function ndcTo11Digit(ndc) {
+  // Returns 11-digit no-dash string for RxNorm ndcstatus, or null if invalid.
+  // Handles both dashed (5-4-2, 4-4-2) and undashed formats.
   if (!ndc || ndc === '***MANUAL***') return null;
-  const m1 = ndc.match(/^0(\d{4}-\d{4}-\d{2})$/);
-  if (m1) return m1[1];
-  const m2 = ndc.match(/^0(\d{10})$/);
-  if (m2) return m2[1];
-  return ndc;
+  const digits = ndc.replace(/-/g, '');
+  if (digits.length === 11) return digits;           // already correct
+  if (digits.length === 10) return '0' + digits;     // pad to 11
+  return null;                                        // unexpected length
 }
 
 async function fetchJSON(url) {
