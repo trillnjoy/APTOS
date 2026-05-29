@@ -215,7 +215,7 @@ async function startEnrichment() {
 
     await sleep(DELAY_MS);
 
-    // Step 2: Constructed string fallback via approximateTerm
+    // Step 2: Label-first approximateTerm — cleans the formulary label into a search string
     if (!rxcui) {
       const formReadable = {
         liquid:     'oral solution',
@@ -223,11 +223,48 @@ async function startEnrichment() {
         capsule:    'capsule',
         injectable: 'injectable solution',
       }[form.form] || '';
-      const conc = form.concentration || '';
-      const unit = form.unit || 'mg';
-      const base = drug.generic.toLowerCase();
-      const query = [base, conc, unit, formReadable].filter(Boolean).join(' ');
 
+      // Clean label: lowercase, replace slashes with spaces, strip trailing units like 5ML
+      // e.g. "AMOXICILLIN-CLAVULANATE 125/31.25 5ML SUSP" → "amoxicillin clavulanate 125 31.25 suspension"
+      // e.g. "ACETAMINOPHEN/COD #2 TAB" → "acetaminophen codeine #2 tablet"
+      const labelClean = form.label
+        .toLowerCase()
+        .replace(/\//g, ' ')
+        .replace(/\bcod\b/g, 'codeine')
+        .replace(/\bsusp\b/g, 'suspension')
+        .replace(/\bsoln\b/g, 'solution')
+        .replace(/\bsol\b/g, 'solution')
+        .replace(/\btab\b/g, 'tablet')
+        .replace(/\bcap\b/g, 'capsule')
+        .replace(/\binj\b/g, 'injectable solution')
+        .replace(/\bvial\b/g, 'injectable solution')
+        .replace(/\b\d+\s*ml\b/g, '')   // strip volume like "5ML"
+        .replace(/\bmg\b/g, 'mg')
+        .replace(/\s+/g, ' ')
+        .trim();
+
+      const labelData = await fetchJSON(
+        `${BASE}/approximateTerm.json?term=${encodeURIComponent(labelClean)}&maxEntries=3`
+      );
+      const labelCandidates = labelData?.approximateGroup?.candidate || [];
+      const labelBest = labelCandidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 10);
+      if (labelBest) {
+        rxcui = labelBest.rxcui;
+        src   = `approx_label_score${parseFloat(labelBest.score).toFixed(1)}`;
+      }
+      await sleep(DELAY_MS);
+    }
+
+    // Step 3: Constructed string fallback — generic + concentration + unit + form
+    if (!rxcui) {
+      const formReadable = {
+        liquid:     'oral solution',
+        tablet:     'tablet',
+        capsule:    'capsule',
+        injectable: 'injectable solution',
+      }[form.form] || '';
+      const query = [drug.generic.toLowerCase(), form.concentration, form.unit, formReadable]
+        .filter(Boolean).join(' ');
       const data = await fetchJSON(
         `${BASE}/approximateTerm.json?term=${encodeURIComponent(query)}&maxEntries=3`
       );
@@ -235,12 +272,12 @@ async function startEnrichment() {
       const best = candidates.find(c => c.source === 'RXNORM' && parseFloat(c.score) >= 10);
       if (best) {
         rxcui = best.rxcui;
-        src   = `approx_score${parseFloat(best.score).toFixed(1)}`;
+        src   = `approx_constructed_score${parseFloat(best.score).toFixed(1)}`;
       }
       await sleep(DELAY_MS);
     }
 
-    // Step 3: Generic-only approximateTerm last resort
+    // Step 4: Generic-only last resort
     if (!rxcui) {
       const base = drug.generic.toLowerCase().split(/[-/\s]/)[0];
       const data = await fetchJSON(
