@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APTOS — RxNorm Enrichment v5</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+      background: #f2f2ee; color: #1c2333; padding: 24px;
+    }
+    .header {
+      background: #1c2333; color: #fff; padding: 16px 20px;
+      border-radius: 8px; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .header h1 {
+      font-family: 'Arial Black', Arial, sans-serif;
+      font-size: 20px; letter-spacing: 3px; text-transform: uppercase;
+    }
+    .header p {
+      font-family: Georgia, serif; font-style: italic;
+      font-size: 12px; color: #c8d8e8; margin-top: 2px;
+    }
+    .card {
+      background: #fff; border-radius: 8px; padding: 20px;
+      border: 1px solid #d8d8d0; margin-bottom: 16px;
+    }
+    h2 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: #1c2333; }
+    p { font-size: 13px; line-height: 1.6; color: #444; margin-bottom: 8px; }
+    .btn {
+      display: inline-block; padding: 10px 20px; border-radius: 6px;
+      font-size: 13px; font-weight: 700; cursor: pointer; border: none;
+      font-family: inherit; letter-spacing: 0.3px;
+    }
+    .btn-primary { background: #1c2333; color: #fff; }
+    .btn-primary:disabled { background: #aaa; cursor: not-allowed; }
+    .btn-success { background: #27ae60; color: #fff; }
+    .btn-danger  { background: #c0392b; color: #fff; }
+    .progress-wrap {
+      background: #eee; border-radius: 4px; height: 10px;
+      margin: 12px 0; overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%; background: #1c2333;
+      transition: width 0.3s ease; border-radius: 4px;
+    }
+    #stats {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;
+      margin: 12px 0;
+    }
+    .stat {
+      background: #f8f8f5; border-radius: 6px; padding: 8px 10px;
+      text-align: center;
+    }
+    .stat-val { font-size: 20px; font-weight: 700; color: #1c2333; }
+    .stat-lbl { font-size: 10px; color: #888; text-transform: uppercase;
+                letter-spacing: 0.5px; margin-top: 2px; }
+    #log {
+      font-family: 'Courier New', monospace; font-size: 11px;
+      background: #1c2333; color: #c8d8e8; padding: 12px;
+      border-radius: 6px; height: 220px; overflow-y: auto;
+      line-height: 1.5;
+    }
+    .log-ok   { color: #2ecc71; }
+    .log-miss { color: #e67e22; }
+    .log-err  { color: #e74c3c; }
+    .log-info { color: #95a5a6; }
+    #status {
+      font-size: 13px; font-weight: 600; color: #555;
+      margin: 8px 0; min-height: 20px;
+    }
+    .controls { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    .note { font-size: 11px; color: #888; margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div>
+    <h1>APTOS</h1>
+    <p>Formulary RxNorm Enrichment — v5</p>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Instructions</h2>
+  <p>This tool enriches your <strong>formulary.json</strong> with RxCUI and RxNorm concept names from the NLM RxNorm public API. Run it once on desktop Safari or Chrome.</p>
+  <p>1. Click <strong>Load formulary.json</strong> — select from iCloud or Downloads.<br>
+     2. Optionally click <strong>Re-process T2/T3 &amp; Concentration Mismatches</strong> to clear suboptimal prior matches.<br>
+     3. Click <strong>Start Enrichment</strong> — runs ~25-35 min for full formulary.<br>
+     4. When complete, click <strong>Download</strong> and commit to GitHub.</p>
+  <p>Safe to pause and resume — enriched formulations are skipped on reload. Log shows T1 (green) / T2 (orange) / no-match (--) per formulation.</p>
+</div>
+
+<div class="card">
+  <div class="controls">
+    <button class="btn btn-primary" id="btnLoad" onclick="loadFile()">Load formulary.json</button>
+    <button class="btn btn-primary" id="btnStart" onclick="startEnrichment()" disabled>Start Enrichment</button>
+    <button class="btn btn-danger"  id="btnStop"  onclick="stopEnrichment()"  disabled>Pause</button>
+    <button class="btn btn-primary" id="btnReprocess" onclick="reprocessIngredient()" disabled>Re-process T2/T3 &amp; Concentration Mismatches</button>
+    <button class="btn btn-success" id="btnDL"    onclick="downloadResult()"  disabled>Download Enriched formulary.json</button>
+  </div>
+  <input type="file" id="fileInput" accept=".json" style="display:none" onchange="onFileChosen(event)" />
+  <p class="note" id="fileNote">No file loaded.</p>
+</div>
+
+<div class="card">
+  <div id="status">Ready.</div>
+  <div class="progress-wrap"><div class="progress-bar" id="progressBar" style="width:0%"></div></div>
+  <div id="stats">
+    <div class="stat"><div class="stat-val" id="statTotal">--</div><div class="stat-lbl">Total</div></div>
+    <div class="stat"><div class="stat-val" id="statDone">0</div><div class="stat-lbl">Done</div></div>
+    <div class="stat"><div class="stat-val" id="statFound">0</div><div class="stat-lbl">T1 Matched</div></div>
+    <div class="stat"><div class="stat-val" id="statMiss">0</div><div class="stat-lbl">No Match / T3</div></div>
+  </div>
+  <div id="log"></div>
+</div>
+
+<script>
+const BASE = 'https://rxnav.nlm.nih.gov/REST';
+const DELAY_MS = 600;
+
+let formularyData = null;
+let running = false;
+let stopRequested = false;
+let processed = 0, found = 0, missed = 0;
+
+// ── Manual RxCUI overrides ───────────────────────────────────────────────
+// Key: exact form.label string => RxCUI string or 'IGNORE'
+// Applied before any API call. Add entries here as issues are identified.
+const MANUAL_OVERRIDES = {
+  // Note: drips (in D5W/NS) and PCAs are caught automatically by autoIgnoreReason()
+  // No need to list them here — manual table is for edge cases only
+  // Aminophylline premix: diluent+drug pattern not caught by drip regex — explicit ignore
+  'DEXTROSE 5% 250 ML + AMINOPHYLLINE 500MG (PRE-MIX)': 'IGNORE',
+  // Placeholders
+  'DUMMY PRODUCT (USE IVSET FOR NS IVPB)':        'IGNORE',
+  'DUMMY PRODUCT (USE IVSET FOR D5W IVPB)':       'IGNORE',
+  'DUMMY PRODUCT ( USE IVSET )':                  'IGNORE',
+  'RADIACARE ORAL WOUND RINSE 23 GM':             'IGNORE',
+  'ANTICOAG CITRATE DEXT (ACD) SOLN':             'IGNORE',
+  // Known correct SCDs for SCDF injectables
+  'AMIKACIN 100 MG/2 ML VIAL':                   '1665485',
+  'AMIKACIN 500 MG/2 ML INJ':                    '1665487',
+  'ATROPINE 0.4 MG/ML INJ':                      '1049500',
+  'LABETALOL 5 MG/ML INJ':                        '895994',
+  'MIDAZOLAM 5 mg/mL Conc':                       '41493',
+  'MORPHINE 25 MG/ML INJ':                        '1731532',
+};
+
+// ── Auto-ignore pattern matching ───────────────────────────────────────────
+// Returns reason string if formulation should be ignored, null otherwise
+function autoIgnoreReason(generic, label) {
+  const g = generic.toLowerCase();
+  const l = label.toLowerCase();
+  if (/\bin\s+(d5w|ns|d10w|d5ns|lr)\b/.test(g))           return 'drip_admixture';
+  if (/\bpca\b/.test(g))                                    return 'pca';
+  if (/multivitamin|poly-vi-|adek|nephrovite|vitamin b and c/.test(g)) return 'multivitamin';
+  if (/pancrelipase/.test(g))                               return 'pancrelipase';
+  if (/inv-/.test(l) || /clofarex|gleevec.*inv/.test(g))    return 'investigational';
+  if (/sterile water/.test(g))                              return 'sterile_water';
+  if (/dialysate|perfadex/.test(g))                         return 'dialysate';
+  if (/halothane|isoflurane|sevoflurane|desflurane/.test(g) || /anesth\s+\d/.test(l)) return 'inhalational';
+  if (/skin test/.test(l) || /histoplasmin|mumps skin test|candida albicans extract/.test(g)) return 'skin_test';
+  if (/iohexol|ioversol|ethiodized/.test(g))                return 'contrast_agent';
+  if (/dummy product/.test(l))                              return 'placeholder';
+  if (/\bconc\.?\s*\.?$/.test(g) && /d5w|ns/.test(g))    return 'drip_admixture';
+  return null;
+}
+
+// ── TTY quality tiers ─────────────────────────────────────────────────────────
+// Tier 1: full clinical drug — strength + dose form
+const TTY_T1 = new Set(['SCD','SBD','GPCK','BPCK']);
+// Tier 2: strength present, dose form absent (SCDC) or branded component (SBDC)
+const TTY_T2 = new Set(['SCDC','SBDC']);
+// Tier 3: dose form only or ingredient level
+const TTY_T3 = new Set(['SCDF','IN','MIN','PIN']);
+// BN, SY, etc. — not useful
+
+function ttyTier(tty) {
+  if (TTY_T1.has(tty)) return 1;
+  if (TTY_T2.has(tty)) return 2;
+  if (TTY_T3.has(tty)) return 3;
+  return 4; // reject
+}
+
+// ── Generic name normalizer ───────────────────────────────────────────
+// - Lowercases tall-man lettering (DOBUTamine → dobutamine)
+// - Extracts active drug from diluent+drug generics (D5W + Aminophylline → aminophylline)
+// - Strips admixture/context qualifiers (in D5W, PCA, ICU, CI)
+// - Does NOT split on hyphen — hyphenated combos (amoxicillin-clavulanate) stay intact
+function normalizeName(name) {
+  let n = name.toLowerCase();
+  // Diluent + active drug: take everything after the +
+  if (n.includes('+')) n = n.split('+').pop();
+  // Strip leading diluent phrase (dextrose 5%, NS, D5W etc.)
+  n = n.replace(/^(dextrose\s*[\d.]+\s*%?|normal\s*saline|sodium\s*chloride\s*[\d.]+\s*%?|d5w|d10w|d5ns|d5lr|ns|lr|sw)\s*/i, '');
+  // Strip inline qualifiers
+  n = n
+    .replace(/in\s+(ns|d5w|d10w|d5ns|d5lr|lr|sw|normal\s*saline|sodium\s*chloride)/gi, '')
+    .replace(/pca/gi, '')
+    .replace(/(icu|ci|conc\.?|fortified|additive)/gi, '')
+    .replace(/\([^)]*\)/g, '')
+    // Strip ALL trailing numeric+unit tokens (concentration bleeds from generic field)
+    .replace(/\s+[\d.]+\s*(mg\/ml|mcg\/ml|meq\/ml|mg|mcg|meq|ml|g|%)\s*$/gi, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  return n;
+}
+
+// ── Concentration normalizer ──────────────────────────────────────────────────
+function normalizeConc(conc, unit, form) {
+  const u = (unit || 'mg').toLowerCase();
+  const isPerML = form === 'injectable' || form === 'liquid';
+  if (u === '%' && isPerML)  return { c: conc * 10,   u: 'MG/ML' };
+  if (u === 'g' && isPerML)  return { c: conc * 1000, u: 'MG/ML' };
+  if (u === 'g')             return { c: conc * 1000, u: 'MG' };
+  if (u === 'mg' && isPerML) return { c: conc,        u: 'MG/ML' };
+  if (u === 'mg')            return { c: conc,        u: 'MG' };
+  if (u === 'mcg' && isPerML)return { c: conc,        u: 'MCG/ML' };
+  if (u === 'mcg')           return { c: conc,        u: 'MCG' };
+  if (u === 'meq' && isPerML)return { c: conc,        u: 'MEQ/ML' };
+  if (u === 'meq')           return { c: conc,        u: 'MEQ' };
+  if (u === 'unit' || u === 'units') return { c: conc, u: isPerML ? 'UNT/ML' : 'UNT' };
+  return { c: conc, u: u.toUpperCase() };
+}
+
+// ── Detect specialty dose form from label ─────────────────────────────────────
+function detectDoseForm(label, defaultForm) {
+  const l = label.toLowerCase();
+  if (/meltaway|disintegrat/.test(l))  return 'disintegrating tablet';
+  if (/chewable/.test(l))              return 'chewable tablet';
+  if (/efferves/.test(l))              return 'effervescent tablet';
+  if (/sprinkle/.test(l))              return 'sprinkle capsule';
+  if (/sublingual/.test(l))            return 'sublingual tablet';
+  if (/buccal/.test(l))                return 'buccal tablet';
+  if (/ext.*rel|er\b|xr\b/.test(l))   return 'extended release tablet';
+  if (/delayed.*rel|dr\b/.test(l))     return 'delayed release capsule';
+  const MAP = { liquid:'oral solution', tablet:'tablet', capsule:'capsule', injectable:'injection' };
+  return MAP[defaultForm] || '';
+}
+
+// ── Label cleaner ─────────────────────────────────────────────────────────────
+function cleanLabel(label) {
+  return label
+    .toLowerCase()
+    .replace(/\bin\s+(ns|d5w|d10w|lr|sw|d5ns|d5lr)\b/gi, '')
+    .replace(/\bpca\b/gi, '')
+    .replace(/\b(icu|ci|conc\.?|fortified|additive)\b/gi, '')
+    .replace(/\([^)]*\)/g, '')
+    .replace(/\bcod\b/g, 'codeine')
+    .replace(/\bsusp\b/g, 'suspension')
+    .replace(/\bsoln?\b/g, 'solution')
+    .replace(/\btab\b/g, 'tablet')
+    .replace(/\bcap\b/g, 'capsule')
+    .replace(/\binj\b/g, 'injection')
+    .replace(/\bvial\b/g, 'injection')
+    .replace(/\bmeltaway\b/g, 'disintegrating tablet')
+    .replace(/\bchewable\b/g, 'chewable tablet')
+    .replace(/\bsprinkle\b/g, 'sprinkle capsule')
+    .replace(/\//g, ' ')
+    .replace(/\b\d+\s*ml\b/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+// ── Validate RxCUI: returns {name, tty} if active, null if retired ─────────────
+async function validateRxCUI(rxcui) {
+  const data = await fetchJSON(`${BASE}/rxcui/${rxcui}/properties.json`);
+  const p = data?.properties;
+  if (!p?.name) return null;
+  return { name: p.name, tty: p.tty || '' };
+}
+
+// ── approximateTerm query ─────────────────────────────────────────────────────
+async function approxQuery(term, maxEntries, minScore) {
+  const data = await fetchJSON(
+    `${BASE}/approximateTerm.json?term=${encodeURIComponent(term)}&maxEntries=${maxEntries}`
+  );
+  return (data?.approximateGroup?.candidate || [])
+    .filter(c => c.source === 'RXNORM' && parseFloat(c.score) >= minScore);
+}
+
+// ── Pick best candidate by tty tier then score ────────────────────────────────
+async function pickBest(candidates) {
+  let best = null;
+  for (const c of candidates) {
+    const props = await validateRxCUI(c.rxcui);
+    await sleep(DELAY_MS);
+    if (!props) continue;
+    const tier = ttyTier(props.tty);
+    if (tier === 4) continue;
+    if (!best || tier < best.tier || (tier === best.tier && parseFloat(c.score) > best.score)) {
+      best = { rxcui: c.rxcui, name: props.name, tty: props.tty, tier, score: parseFloat(c.score) };
+    }
+  }
+  return best;
+}
+
+// ── Reprocess check ───────────────────────────────────────────────────────────
+// Returns true if this formulation should be cleared and reprocessed
+function shouldReprocess(form) {
+  // Never touch ignored or manually overridden entries
+  if (form._rxnorm_ignore || form._rxnorm_src === 'ignored' ||
+      form._rxnorm_src === 'manual_override') return false;
+  const tty = form.rxnorm_tty || '';
+  const src = form._rxnorm_src || '';
+  return TTY_T2.has(tty) || TTY_T3.has(tty) ||
+         src === 'name_fallback' || src.startsWith('approx_generic');
+}
+
+// ── Concentration mismatch check for SCDC ────────────────────────────────────
+// Returns true if the SCDC match has a concentration error outside ±25%
+// accounting for common multi-mL vial/suspension expressions
+function sccdConcMismatch(form) {
+  if (form.rxnorm_tty !== 'SCDC') return false;
+  const name = form.rxnorm_name || '';
+  const m = name.match(/([\d.]+)\s*(MG|MCG|MEQ|UNT)(?:\/ML)?/i);
+  if (!m) return false;
+  const rnVal = parseFloat(m[1]);
+  const fConc = form.concentration;
+  if (!rnVal || !fConc) return false;
+  const ratio = fConc / rnVal;
+  // Accept: direct match, per-5mL, per-2mL expressions
+  const directOk = ratio >= 0.75 && ratio <= 1.33;
+  const per5Ok   = Math.abs(fConc * 5  - rnVal) / rnVal < 0.1;
+  const per2Ok   = Math.abs(fConc * 2  - rnVal) / rnVal < 0.1;
+  const per10Ok  = Math.abs(fConc * 10 - rnVal) / rnVal < 0.1;
+  return !directOk && !per5Ok && !per2Ok && !per10Ok;
+}
+
+// ── File loading ──────────────────────────────────────────────────────────────
+function loadFile() { document.getElementById('fileInput').click(); }
+
+function onFileChosen(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = evt => {
+    try {
+      formularyData = JSON.parse(evt.target.result);
+      const total = countForms();
+      const done  = countEnriched();
+      document.getElementById('fileNote').textContent =
+        `Loaded: ${file.name}  |  ${formularyData.drugs.length} drugs, ${total} formulations, ${done} enriched`;
+      document.getElementById('statTotal').textContent = total;
+      document.getElementById('statDone').textContent  = done;
+      document.getElementById('btnStart').disabled = false;
+      document.getElementById('btnDL').disabled = false;
+      document.getElementById('btnReprocess').disabled = false;
+      document.getElementById('btnIgnore').disabled = false;
+      log(`Loaded ${file.name}: ${total} formulations, ${done} enriched`, 'info');
+    } catch(err) { alert('Failed to parse JSON: ' + err.message); }
+  };
+  reader.readAsText(file);
+}
+
+function countForms() {
+  return formularyData.drugs.reduce((n,d) => n + d.formulations.length, 0);
+}
+function countEnriched() {
+  return formularyData.drugs.reduce((n,d) =>
+    n + d.formulations.filter(f => '_rxnorm_src' in f).length, 0);
+}
+
+// ── Main enrichment loop ──────────────────────────────────────────────────────
+async function startEnrichment() {
+  if (!formularyData) return;
+  running = true; stopRequested = false;
+  document.getElementById('btnStart').disabled = true;
+  document.getElementById('btnStop').disabled  = false;
+  document.getElementById('btnLoad').disabled  = true;
+
+  const allForms = [];
+  for (const drug of formularyData.drugs)
+    for (const form of drug.formulations)
+      allForms.push({ drug, form });
+
+  const total = allForms.length;
+  processed = countEnriched();
+  found  = formularyData.drugs.reduce((n,d) => n + d.formulations.filter(f => f._rxnorm_src && f._rxnorm_src !== 'not_found').length, 0);
+  missed = formularyData.drugs.reduce((n,d) => n + d.formulations.filter(f => f._rxnorm_src === 'not_found').length, 0);
+  updateStats(total);
+
+  for (const { drug, form } of allForms) {
+    if (stopRequested) { setStatus('Paused.'); break; }
+    if ('_rxnorm_src' in form) continue;
+
+    setStatus(`${drug.generic} — ${form.label.substring(0,50)}…`);
+
+    const ndc11 = ndcTo11Digit(form.ndc);
+    let bestT1 = null, bestT2 = null, bestT3 = null;
+
+    // ── Pre-check: manual override or auto-ignore ──────────────────────────────
+    const manualRxcui = MANUAL_OVERRIDES[form.label];
+    if (manualRxcui === 'IGNORE' || autoIgnoreReason(drug.generic, form.label)) {
+      const reason = manualRxcui === 'IGNORE'
+        ? (autoIgnoreReason(drug.generic, form.label) || 'manual')
+        : autoIgnoreReason(drug.generic, form.label);
+      form.rxcui = null; form.rxnorm_name = null;
+      form.rxnorm_tty = null; form._rxnorm_src = 'ignored';
+      form._rxnorm_ignore = reason;
+      processed++; missed++;
+      log(`-- [IGNORE:${reason}] ${drug.generic} | ${form.label.substring(0,40)}`, 'info');
+      updateStats(total);
+      continue;
+    }
+    if (manualRxcui) {
+      await sleep(DELAY_MS);
+      const props = await validateRxCUI(manualRxcui);
+      if (props) {
+        form.rxcui = manualRxcui; form.rxnorm_name = props.name;
+        form.rxnorm_tty = props.tty; form._rxnorm_src = 'manual_override';
+        processed++; found++;
+        log(`T1 [MANUAL] ${drug.generic.padEnd(25)} ${props.tty} ${manualRxcui} ${props.name}`, 'ok');
+        updateStats(total);
+        continue;
+      }
+    }
+
+        // ── Step 1: NDC ────────────────────────────────────────────────────────
+    if (ndc11) {
+      const data = await fetchJSON(`${BASE}/ndcstatus.json?ndc=${ndc11}`);
+      const cand = data?.ndcStatus?.rxcui?.trim();
+      if (cand) {
+        await sleep(DELAY_MS);
+        const props = await validateRxCUI(cand);
+        if (props) {
+          const t = ttyTier(props.tty);
+          const entry = { rxcui: cand, name: props.name, tty: props.tty, src: 'ndc' };
+          if (t===1) bestT1=entry; else if (t===2) bestT2=entry; else if (t===3) bestT3=entry;
+          else log(`  NDC ${ndc11} → ${cand} (${props.tty}) not useful`, 'info');
+        } else log(`  NDC ${ndc11} → ${cand} retired`, 'info');
+      }
+      await sleep(DELAY_MS);
+    }
+
+    // ── Step 1b: NDC derotation ────────────────────────────────────────────
+    if (!bestT1 && ndc11) {
+      const derot = ndc11.slice(1) + ndc11[0];
+      if (derot !== ndc11) {
+        const data2 = await fetchJSON(`${BASE}/ndcstatus.json?ndc=${derot}`);
+        const cand2 = data2?.ndcStatus?.rxcui?.trim();
+        if (cand2) {
+          await sleep(DELAY_MS);
+          const props2 = await validateRxCUI(cand2);
+          if (props2) {
+            const t = ttyTier(props2.tty);
+            const entry = { rxcui: cand2, name: props2.name, tty: props2.tty, src: 'ndc_derotated' };
+            if (t===1 && !bestT1) bestT1=entry;
+            else if (t===2 && !bestT2) bestT2=entry;
+            else if (t===3 && !bestT3) bestT3=entry;
+          } else log(`  NDC derot ${derot} retired`, 'info');
+        }
+        await sleep(DELAY_MS);
+      }
+    }
+
+    // ── Step 2: Label approximation ────────────────────────────────────────
+    if (!bestT1) {
+      const lc = cleanLabel(form.label);
+      const cands = await approxQuery(lc, 5, 8);
+      await sleep(DELAY_MS);
+      if (cands.length) {
+        const b = await pickBest(cands);
+        if (b) {
+          const entry = { rxcui: b.rxcui, name: b.name, tty: b.tty,
+                          src: `approx_label_score${b.score.toFixed(1)}` };
+          if (b.tier===1) bestT1=entry;
+          else if (b.tier===2 && !bestT2) bestT2=entry;
+          else if (b.tier===3 && !bestT3) bestT3=entry;
+        }
+      }
+    }
+
+    // ── Step 3: Constructed string ─────────────────────────────────────────
+    if (!bestT1) {
+      const norm    = normalizeConc(form.concentration, form.unit, form.form);
+      const formStr = detectDoseForm(form.label, form.form);
+      const generic = normalizeName(drug.generic);
+      const query   = [generic, `${norm.c} ${norm.u}`, formStr].filter(Boolean).join(' ');
+
+      const cands = await approxQuery(query, 5, 6);
+      await sleep(DELAY_MS);
+      if (cands.length) {
+        const b = await pickBest(cands);
+        if (b) {
+          const entry = { rxcui: b.rxcui, name: b.name, tty: b.tty,
+                          src: `approx_constructed_score${b.score.toFixed(1)}` };
+          if (b.tier===1) bestT1=entry;
+          else if (b.tier===2 && !bestT2) bestT2=entry;
+          else if (b.tier===3 && !bestT3) bestT3=entry;
+        }
+      }
+
+      // Step 3b: per-5mL alternate for oral liquids
+      if (!bestT1 && form.form === 'liquid') {
+        const q5 = [generic, `${norm.c * 5} MG/5ML`, formStr].filter(Boolean).join(' ');
+        const c5 = await approxQuery(q5, 5, 6);
+        await sleep(DELAY_MS);
+        if (c5.length) {
+          const b5 = await pickBest(c5);
+          if (b5) {
+            const entry = { rxcui: b5.rxcui, name: b5.name, tty: b5.tty,
+                            src: `approx_per5ml_score${b5.score.toFixed(1)}` };
+            if (b5.tier===1) bestT1=entry;
+            else if (b5.tier===2 && !bestT2) bestT2=entry;
+            else if (b5.tier===3 && !bestT3) bestT3=entry;
+          }
+        }
+      }
+    }
+
+    // ── Step 4: Generic fallback ────────────────────────────────────────────
+    if (!bestT1 && !bestT2 && !bestT3) {
+      const base = normalizeName(drug.generic).split(/[-\/\s]/)[0];
+      const cands = await approxQuery(base, 1, 10);
+      await sleep(DELAY_MS);
+      if (cands.length) {
+        const b = await pickBest(cands);
+        if (b && b.tier <= 3) {
+          bestT3 = { rxcui: b.rxcui, name: b.name, tty: b.tty,
+                     src: `approx_generic_score${b.score.toFixed(1)}` };
+        }
+      }
+    }
+
+    // ── Commit best available ──────────────────────────────────────────────
+    const winner = bestT1 || bestT2 || bestT3 || null;
+    form.rxcui       = winner?.rxcui || null;
+    form.rxnorm_name = winner?.name  || null;
+    form.rxnorm_tty  = winner?.tty   || null;
+    form._rxnorm_src = winner?.src   || 'not_found';
+
+    processed++;
+    if (winner) {
+      found++;
+      const tier = bestT1 ? 'T1' : bestT2 ? 'T2' : 'T3';
+      log(`${tier} ${drug.generic.padEnd(25)} ${winner.tty} ${winner.rxcui} [${winner.src}] ${winner.name}`,
+          bestT1 ? 'ok' : 'miss');
+    } else {
+      missed++;
+      log(`-- ${drug.generic.padEnd(25)} ${form.label.substring(0,45)}`, 'miss');
+    }
+    updateStats(total);
+  }
+
+  if (!stopRequested) {
+    formularyData._meta = formularyData._meta || {};
+    formularyData._meta.rxnorm_enriched  = found;
+    formularyData._meta.rxnorm_not_found = missed;
+    formularyData._meta.rxnorm_run_date  = new Date().toISOString();
+    setStatus('Complete! Click Download to save.');
+    log('--- Complete ---', 'info');
+    document.getElementById('btnStart').disabled = true;
+  } else {
+    document.getElementById('btnStart').disabled = false;
+  }
+  document.getElementById('btnStop').disabled = true;
+  document.getElementById('btnLoad').disabled = false;
+  document.getElementById('btnDL').disabled   = false;
+  running = false;
+}
+
+function stopEnrichment() { stopRequested = true; setStatus('Pausing…'); }
+
+// ── Re-process button ─────────────────────────────────────────────────────────
+function reprocessIngredient() {
+  if (!formularyData) return;
+  let cleared = 0;
+  for (const drug of formularyData.drugs) {
+    for (const form of drug.formulations) {
+      // Clear T2/T3 tty, generic fallback source, conc-mismatched SCDCs
+      if (shouldReprocess(form) || sccdConcMismatch(form)) {
+        delete form._rxnorm_src;
+        delete form.rxcui;
+        delete form.rxnorm_name;
+        delete form.rxnorm_tty;
+        cleared++;
+      }
+    }
+  }
+  const total = countForms();
+  const done  = countEnriched();
+  document.getElementById('statDone').textContent  = done;
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('btnStart').disabled = false;
+  log(`Cleared ${cleared} entries for reprocessing`, 'info');
+  setStatus(`${cleared} entries cleared. Click Start to re-enrich.`);
+}
+
+// ── Apply auto-ignore rules ─────────────────────────────────────────────────
+function applyAutoIgnore() {
+  if (!formularyData) return;
+  let ignored = 0;
+  for (const drug of formularyData.drugs) {
+    for (const form of drug.formulations) {
+      if (form._rxnorm_ignore || form._rxnorm_src === 'ignored' ||
+          form._rxnorm_src === 'manual_override') continue;
+      const isManualIgnore = MANUAL_OVERRIDES[form.label] === 'IGNORE';
+      const reason = isManualIgnore
+        ? (autoIgnoreReason(drug.generic, form.label) || 'manual')
+        : autoIgnoreReason(drug.generic, form.label);
+      if (reason) {
+        delete form._rxnorm_src; delete form.rxcui;
+        delete form.rxnorm_name; delete form.rxnorm_tty;
+        form._rxnorm_ignore = reason;
+        ignored++;
+      }
+    }
+  }
+  document.getElementById('statDone').textContent = countEnriched();
+  log(`Marked ${ignored} entries as ignored (excluded from future enrichment)`, 'info');
+  setStatus(`${ignored} entries ignored. Click Re-process then Start to continue.`);
+}
+
+// ── Download ──────────────────────────────────────────────────────────────────
+function downloadResult() {
+  if (!formularyData) return;
+  const blob = new Blob([JSON.stringify(formularyData, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a'); a.href=url; a.download='formulary.json'; a.click();
+  URL.revokeObjectURL(url);
+  log('Downloaded formulary.json', 'info');
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
+function ndcTo11Digit(ndc) {
+  if (!ndc || ndc === '***MANUAL***') return null;
+  const d = ndc.replace(/-/g,'');
+  if (d.length===11) return d;
+  if (d.length===10) return '0'+d;
+  return null;
+}
+async function fetchJSON(url) {
+  try {
+    const r = await fetch(url, { headers: { Accept: 'application/json' } });
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+function setStatus(msg) { document.getElementById('status').textContent = msg; }
+function updateStats(total) {
+  const pct = total > 0 ? (processed/total*100) : 0;
+  document.getElementById('progressBar').style.width = pct+'%';
+  document.getElementById('statTotal').textContent = total;
+  document.getElementById('statDone').textContent  = processed;
+  document.getElementById('statFound').textContent = found;
+  document.getElementById('statMiss').textContent  = missed;
+}
+function log(msg, type='') {
+  const el = document.getElementById('log');
+  const ln = document.createElement('div');
+  if (type) ln.className = 'log-'+type;
+  ln.textContent = msg;
+  el.appendChild(ln);
+  el.scrollTop = el.scrollHeight;
+}
+</script>
+
+</body>
+</html>
