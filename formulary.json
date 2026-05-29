@@ -1320,7 +1320,7 @@
           "rxcui": "1723155",
           "rxnorm_name": "amikacin Injection",
           "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_constructed_score12.1"
+          "_rxnorm_src": "approx_label_score12.1"
         },
         {
           "label": "AMIKACIN 25MG/ML IN NS",
@@ -1780,10 +1780,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "329104",
-          "rxnorm_name": "amoxicillin 80 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score12.5"
+          "rxcui": "308189",
+          "rxnorm_name": "amoxicillin 80 MG/ML Oral Suspension",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score12.2"
         }
       ]
     },
@@ -2427,10 +2427,10 @@
           "ndc": "00013-0436-24",
           "_source": "STR/VOL",
           "vialVol": 20,
-          "rxcui": "89918",
-          "rxnorm_name": "arginine hydrochloride",
-          "rxnorm_tty": "PIN",
-          "_rxnorm_src": "approx_label_score10.9"
+          "rxcui": "800254",
+          "rxnorm_name": "arginine 5.07 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_constructed_score10.4"
         },
         {
           "label": "ARGININE HCL 10% SOLN 300 ML",
@@ -2443,10 +2443,10 @@
           "ndc": "00013-0436-24",
           "_source": "STR/VOL",
           "vialVol": 300,
-          "rxcui": "1091",
-          "rxnorm_name": "arginine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_constructed_score9.8"
+          "rxcui": "800254",
+          "rxnorm_name": "arginine 5.07 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_constructed_score10.4"
         },
         {
           "label": "ARGININE HCL 5 MEQ/5 ML SOLN",
@@ -2544,10 +2544,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "315404",
-          "rxnorm_name": "ascorbic acid 50 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.8"
+          "rxcui": "1151",
+          "rxnorm_name": "ascorbic acid",
+          "rxnorm_tty": "IN",
+          "_rxnorm_src": "approx_label_score12.3"
         },
         {
           "label": "ASCORBIC ACID 500 MG CHEW TAB",
@@ -2850,7 +2850,7 @@
           "rxcui": "1666780",
           "rxnorm_name": "atropine Injection",
           "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_constructed_score10.7"
+          "_rxnorm_src": "approx_label_score10.7"
         }
       ]
     },
@@ -3270,10 +3270,10 @@
           "ndc": "00085-0879-05",
           "_source": "STR/VOL",
           "vialVol": 5,
-          "rxcui": "340130",
-          "rxnorm_name": "betamethasone 0.5 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score10.8"
+          "rxcui": "578803",
+          "rxnorm_name": "betamethasone 3 MG/ML / betamethasone acetate 3 MG/ML Injectable Suspension",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score10.7"
         },
         {
           "label": "BETAMETHASONE 30 MG/5 ML INJ",
@@ -3369,7 +3369,7 @@
           "rxcui": "2704019",
           "rxnorm_name": "biotin 50 MG/ML",
           "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.4"
+          "_rxnorm_src": "approx_label_score10.5"
         }
       ]
     },
@@ -3481,7 +3481,7 @@
           "rxcui": "214326",
           "rxnorm_name": "brompheniramine / pseudoephedrine",
           "rxnorm_tty": "MIN",
-          "_rxnorm_src": "approx_label_score18.8"
+          "_rxnorm_src": "approx_label_score20.8"
         }
       ]
     },
@@ -4022,10 +4022,10 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "315538",
-          "rxnorm_name": "calcium carbonate 400 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score13.1"
+          "rxcui": "317865",
+          "rxnorm_name": "calcium carbonate 400 MG Chewable Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score12.9"
         }
       ]
     },
@@ -4741,10 +4741,10 @@
           "ndc": "00039-0017-10",
           "_source": "STR/VOL",
           "vialVol": 0,
-          "rxcui": "1656671",
-          "rxnorm_name": "cefotaxime 500 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.9"
+          "rxcui": "309068",
+          "rxnorm_name": "cefotaxime 500 MG Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score13.8"
         }
       ]
     },
@@ -4903,10 +4903,10 @@
           "ndc": "00004-1962-01",
           "_source": "STR/VOL",
           "vialVol": 1,
-          "rxcui": "1664991",
-          "rxnorm_name": "ceftriaxone 250 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.9"
+          "rxcui": "309092",
+          "rxnorm_name": "ceftriaxone 250 MG Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score13.7"
         },
         {
           "label": "ceftRIAXONE 500 MG VIAL",
@@ -4919,10 +4919,10 @@
           "ndc": "00004-1963-01",
           "_source": "STR/VOL",
           "vialVol": 0,
-          "rxcui": "1665004",
-          "rxnorm_name": "ceftriaxone 500 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.5"
+          "rxcui": "1665005",
+          "rxnorm_name": "ceftriaxone 500 MG Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score13.4"
         }
       ]
     },
@@ -4973,10 +4973,10 @@
           "ndc": "00173-0352-31",
           "_source": "STR/VOL",
           "vialVol": 0,
-          "rxcui": "1665448",
-          "rxnorm_name": "cefuroxime 750 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score13.7"
+          "rxcui": "1665449",
+          "rxnorm_name": "cefuroxime 750 MG Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score14.5"
         }
       ]
     },
@@ -5275,10 +5275,10 @@
           "ndc": "00071-4057-03",
           "_source": "STR/VOL",
           "vialVol": 0,
-          "rxcui": "438419",
-          "rxnorm_name": "chloramphenicol 1000 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score13.1"
+          "rxcui": "1232971",
+          "rxnorm_name": "chloramphenicol 1000 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score12.0"
         },
         {
           "label": "CHLORAMPHENICOL 100 MG/ML INJ",
@@ -5900,10 +5900,10 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "328288",
-          "rxnorm_name": "ciprofloxacin 750 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score13.3"
+          "rxcui": "197512",
+          "rxnorm_name": "ciprofloxacin 750 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score13.1"
         }
       ]
     },
@@ -6016,7 +6016,7 @@
           "rxcui": "91198",
           "rxnorm_name": "citric acid / sodium citrate",
           "rxnorm_tty": "MIN",
-          "_rxnorm_src": "approx_label_score18.3"
+          "_rxnorm_src": "approx_label_score20.3"
         }
       ]
     },
@@ -7265,10 +7265,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "577766",
-          "rxnorm_name": "cysteine 50 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.1"
+          "rxcui": "1486165",
+          "rxnorm_name": "cysteine hydrochloride 50 MG/ML Injectable Solution",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score11.0"
         }
       ]
     },
@@ -7838,10 +7838,10 @@
           "ndc": "00469-1650-00",
           "_source": "STR/VOL",
           "vialVol": 2,
-          "rxcui": "332984",
-          "rxnorm_name": "dexamethasone 0.4 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.0"
+          "rxcui": "2045404",
+          "rxnorm_name": "0.005 ML dexamethasone 103.4 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score12.2"
         },
         {
           "label": "DEXAMETHASONE 20 MG/5 ML VIAL",
@@ -8232,10 +8232,10 @@
           "ndc": "00338-0441-02",
           "_source": "REF_DOSE_parsed",
           "vialVol": 250,
-          "rxcui": "343058",
-          "rxnorm_name": "aminophylline 250 MG",
+          "rxcui": "343059",
+          "rxnorm_name": "aminophylline 500 MG",
           "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.7"
+          "_rxnorm_src": "approx_label_score12.3"
         }
       ]
     },
@@ -9030,10 +9030,10 @@
           "ndc": "00186-1931-03",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "3616",
-          "rxnorm_name": "dobutamine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score13.1"
+          "rxcui": "309985",
+          "rxnorm_name": "250 ML dobutamine 1 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score14.7"
         }
       ]
     },
@@ -9052,10 +9052,10 @@
           "ndc": "00186-1931-03",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "3616",
-          "rxnorm_name": "dobutamine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score13.1"
+          "rxcui": "328218",
+          "rxnorm_name": "dobutamine 4 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score13.0"
         }
       ]
     },
@@ -9074,10 +9074,10 @@
           "ndc": "00186-1931-03",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "3616",
-          "rxnorm_name": "dobutamine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score13.1"
+          "rxcui": "334605",
+          "rxnorm_name": "dobutamine 50 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score11.1"
         }
       ]
     },
@@ -9153,10 +9153,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "1245685",
-          "rxnorm_name": "docusate sodium 10 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.3"
+          "rxcui": "1245686",
+          "rxnorm_name": "docusate sodium 10 MG/ML Oral Solution",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score10.4"
         },
         {
           "label": "DOCUSATE NA 50 MG/5 ML LIQ",
@@ -9673,10 +9673,10 @@
           "ndc": "00002-7559-01",
           "_source": "STR/VOL",
           "vialVol": 2.5,
-          "rxcui": "353475",
-          "rxnorm_name": "drotrecogin alfa 2 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score16.0"
+          "rxcui": "351146",
+          "rxnorm_name": "drotrecogin alfa 2 MG/ML Injectable Solution",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score15.9"
         }
       ]
     },
@@ -9828,10 +9828,10 @@
           "ndc": "00006-3508-04",
           "_source": "STR/VOL",
           "vialVol": 2,
-          "rxcui": "858803",
-          "rxnorm_name": "enalapril maleate 2.5 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.0"
+          "rxcui": "858821",
+          "rxnorm_name": "enalapril maleate 1.25 MG/ML Injectable Solution",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score11.5"
         },
         {
           "label": "ENALAPRIL 1 MG/ML SUSP",
@@ -10607,10 +10607,10 @@
           "ndc": "00074-6482-01",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "328353",
-          "rxnorm_name": "erythromycin 50 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.9"
+          "rxcui": "597193",
+          "rxnorm_name": "erythromycin 50 MG/ML Oral Suspension",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score11.1"
         },
         {
           "label": "ERYTHROMYCIN LACT 500 MG VIAL",
@@ -10623,10 +10623,10 @@
           "ndc": "00074-6482-01",
           "_source": "STR/VOL",
           "vialVol": 0,
-          "rxcui": "315877",
-          "rxnorm_name": "erythromycin 500 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.7"
+          "rxcui": "1668267",
+          "rxnorm_name": "erythromycin lactobionate 500 MG Injection [Erythrocin]",
+          "rxnorm_tty": "SBD",
+          "_rxnorm_src": "approx_label_score11.8"
         }
       ]
     },
@@ -10645,10 +10645,10 @@
           "ndc": "10019-0015-71",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "979427",
-          "rxnorm_name": "esmolol hydrochloride 10 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score14.0"
+          "rxcui": "1736546",
+          "rxnorm_name": "10 ML esmolol hydrochloride 10 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score12.4"
         },
         {
           "label": "ESMOLOL 250 MG/ML  10 ML AMP",
@@ -10661,10 +10661,10 @@
           "ndc": "10019-0025-18",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "1736540",
-          "rxnorm_name": "esmolol Injection",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_constructed_score12.4"
+          "rxcui": "979435",
+          "rxnorm_name": "esmolol hydrochloride 250 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score11.8"
         }
       ]
     },
@@ -10988,7 +10988,7 @@
           "rxcui": "4125",
           "rxnorm_name": "ethiodized oil",
           "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score13.6"
+          "_rxnorm_src": "approx_label_score16.6"
         }
       ]
     },
@@ -11073,7 +11073,7 @@
           "rxcui": "42682",
           "rxnorm_name": "etidronate",
           "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score13.6"
+          "_rxnorm_src": "approx_label_score11.6"
         },
         {
           "label": "ETIDRONate 200 MG TAB",
@@ -11540,10 +11540,10 @@
           "ndc": "00641-1118-34",
           "_source": "STR/VOL",
           "vialVol": 30,
-          "rxcui": "4337",
-          "rxnorm_name": "fentanyl",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.4"
+          "rxcui": "706898",
+          "rxnorm_name": "fentanyl 0.3 MG Buccal Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score12.6"
         }
       ]
     },
@@ -12221,10 +12221,10 @@
           "ndc": "62161-0003-34",
           "_source": "STR/VOL",
           "vialVol": 1.5,
-          "rxcui": "317375",
-          "rxnorm_name": "fomepizole 1000 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score14.5"
+          "rxcui": "310414",
+          "rxnorm_name": "1.5 ML fomepizole 1000 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score14.0"
         }
       ]
     },
@@ -12327,10 +12327,10 @@
           "ndc": "00071-4007-05",
           "_source": "STR/VOL",
           "vialVol": 2,
-          "rxcui": "1670194",
-          "rxnorm_name": "fosphenytoin Injection",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_constructed_score12.5"
+          "rxcui": "1670200",
+          "rxnorm_name": "2 ML fosphenytoin sodium 75 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score12.3"
         }
       ]
     },
@@ -12670,7 +12670,7 @@
           "rxcui": "1999530",
           "rxnorm_name": "ganciclovir 50 MG/ML",
           "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.1"
+          "_rxnorm_src": "approx_label_score11.3"
         }
       ]
     },
@@ -13041,10 +13041,10 @@
           "ndc": "00029-4149-01",
           "_source": "STR/VOL",
           "vialVol": 1,
-          "rxcui": "328343",
-          "rxnorm_name": "granisetron 1 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.2"
+          "rxcui": "1734399",
+          "rxnorm_name": "1 ML granisetron 1 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score13.1"
         },
         {
           "label": "GRANISETRON 1 MG TAB",
@@ -13058,9 +13058,9 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "328344",
-          "rxnorm_name": "granisetron 1 MG",
-          "rxnorm_tty": "SCDC",
+          "rxcui": "310599",
+          "rxnorm_name": "granisetron 1 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
           "_rxnorm_src": "approx_label_score11.8"
         }
       ]
@@ -14181,10 +14181,10 @@
           "ndc": "00044-1017-10",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "3423",
-          "rxnorm_name": "hydromorphone",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.7"
+          "rxcui": "763042",
+          "rxnorm_name": "hydromorphone Prefilled Syringe",
+          "rxnorm_tty": "SCDF",
+          "_rxnorm_src": "approx_label_score11.5"
         }
       ]
     },
@@ -14317,10 +14317,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "372441",
-          "rxnorm_name": "hydroxyzine Oral Solution",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_constructed_score11.2"
+          "rxcui": "1484090",
+          "rxnorm_name": "hydroxyzine pamoate 25 MG",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score15.3"
         },
         {
           "label": "HydrOXYzine 10 MG/5 ML SYRUP",
@@ -15819,7 +15819,7 @@
           "rxcui": "214665",
           "rxnorm_name": "kaolin / pectin",
           "rxnorm_tty": "MIN",
-          "_rxnorm_src": "approx_constructed_score24.8"
+          "_rxnorm_src": "approx_label_score26.8"
         }
       ]
     },
@@ -16002,10 +16002,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "896986",
-          "rxnorm_name": "labetalol hydrochloride 50 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score10.4"
+          "rxcui": "896987",
+          "rxnorm_name": "labetalol hydrochloride 50 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_per5ml_score10.8"
         },
         {
           "label": "LABETALOL 100 MG TAB",
@@ -16364,10 +16364,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "800152",
-          "rxnorm_name": "leucine 8.5 MG/ML",
+          "rxcui": "800227",
+          "rxnorm_name": "leucine 10 MG/ML",
           "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.1"
+          "_rxnorm_src": "approx_constructed_score12.0"
         }
       ]
     },
@@ -17533,7 +17533,7 @@
           "rxcui": "1008182",
           "rxnorm_name": "diphenhydramine / lidocaine",
           "rxnorm_tty": "MIN",
-          "_rxnorm_src": "approx_constructed_score12.8"
+          "_rxnorm_src": "approx_label_score12.8"
         }
       ]
     },
@@ -17679,10 +17679,10 @@
           "_source": "REF_DOSE_parsed",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "316211",
-          "rxnorm_name": "magnesium hydroxide 80 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score14.1"
+          "rxcui": "253017",
+          "rxnorm_name": "magnesium hydroxide 80 MG/ML Oral Suspension",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score13.6"
         },
         {
           "label": "MILK OF MAG 311MG TAB",
@@ -18214,10 +18214,10 @@
           "ndc": "00310-0321-30",
           "_source": "STR/VOL",
           "vialVol": 0,
-          "rxcui": "1722938",
-          "rxnorm_name": "meropenem 1000 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score13.6"
+          "rxcui": "1722939",
+          "rxnorm_name": "meropenem 1000 MG Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score14.4"
         },
         {
           "label": "MEROPENEM 20MG/ML *NS* INJ",
@@ -18568,10 +18568,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "6876",
-          "rxnorm_name": "methyldopa",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score12.8"
+          "rxcui": "316283",
+          "rxnorm_name": "methyldopa 250 MG",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score13.0"
         },
         {
           "label": "METHYLDOPA 125 MG TAB",
@@ -19337,10 +19337,10 @@
           "ndc": "00004-1974-01",
           "_source": "STR/VOL",
           "vialVol": 1,
-          "rxcui": "330809",
-          "rxnorm_name": "midazolam 5 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.6"
+          "rxcui": "6960",
+          "rxnorm_name": "midazolam",
+          "rxnorm_tty": "IN",
+          "_rxnorm_src": "approx_generic_score12.2"
         },
         {
           "label": "MIDAZOLAM 50 MG/10 ML VIAL",
@@ -19353,10 +19353,10 @@
           "ndc": "00004-1946-01",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "2173490",
-          "rxnorm_name": "midazolam 50 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.3"
+          "rxcui": "2541170",
+          "rxnorm_name": "50 ML midazolam 1 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score11.9"
         },
         {
           "label": "MIDAZOLAM PF 2 MG/2 ML VIAL",
@@ -19391,10 +19391,10 @@
           "ndc": "00004-1998-06",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "336755",
-          "rxnorm_name": "midazolam 15 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.3"
+          "rxcui": "248630",
+          "rxnorm_name": "midazolam 15 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score11.4"
         }
       ]
     },
@@ -19416,7 +19416,7 @@
           "rxcui": "330809",
           "rxnorm_name": "midazolam 5 MG/ML",
           "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.5"
+          "_rxnorm_src": "approx_label_score11.6"
         }
       ]
     },
@@ -19435,10 +19435,10 @@
           "ndc": "00004-1946-01",
           "_source": "REF_DOSE_parsed",
           "vialVol": 50,
-          "rxcui": "2173490",
-          "rxnorm_name": "midazolam 50 MG/ML",
+          "rxcui": "328485",
+          "rxnorm_name": "midazolam 1 MG/ML",
           "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score13.2"
+          "_rxnorm_src": "approx_label_score11.6"
         }
       ]
     },
@@ -19457,10 +19457,10 @@
           "ndc": "00004-1946-01",
           "_source": "REF_DOSE_parsed",
           "vialVol": 50,
-          "rxcui": "2173490",
-          "rxnorm_name": "midazolam 50 MG/ML",
+          "rxcui": "330809",
+          "rxnorm_name": "midazolam 5 MG/ML",
           "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score13.2"
+          "_rxnorm_src": "approx_label_score11.6"
         }
       ]
     },
@@ -19523,10 +19523,10 @@
           "ndc": "00024-1200-10",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "1791838",
-          "rxnorm_name": "milrinone lactate 0.2 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score16.0"
+          "rxcui": "1791842",
+          "rxnorm_name": "200 ML milrinone lactate 0.2 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score14.8"
         }
       ]
     },
@@ -19545,10 +19545,10 @@
           "ndc": "00024-1200-10",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "52769",
-          "rxnorm_name": "milrinone",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score13.3"
+          "rxcui": "1791842",
+          "rxnorm_name": "200 ML milrinone lactate 0.2 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score12.7"
         }
       ]
     },
@@ -19815,10 +19815,10 @@
           "ndc": "39769-0353-10",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "328697",
-          "rxnorm_name": "morphine 10 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.2"
+          "rxcui": "1728776",
+          "rxnorm_name": "morphine Injection",
+          "rxnorm_tty": "SCDF",
+          "_rxnorm_src": "approx_label_score10.6"
         },
         {
           "label": "MORPHINE SULFATE 50MG/ML  10 ML INJ",
@@ -19961,10 +19961,10 @@
           "ndc": "00074-6023-04",
           "_source": "STR/VOL",
           "vialVol": 30,
-          "rxcui": "7052",
-          "rxnorm_name": "morphine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.4"
+          "rxcui": "746938",
+          "rxnorm_name": "morphine Prefilled Syringe",
+          "rxnorm_tty": "SCDF",
+          "_rxnorm_src": "approx_label_score11.3"
         },
         {
           "label": "MORPHINE PCA 150 MG/30 ML SYR",
@@ -19977,10 +19977,10 @@
           "ndc": "00074-6028-04",
           "_source": "STR/VOL",
           "vialVol": 30,
-          "rxcui": "7052",
-          "rxnorm_name": "morphine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.4"
+          "rxcui": "894931",
+          "rxnorm_name": "morphine sulfate 150 MG",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score10.4"
         },
         {
           "label": "MORPHINE PCA 25 MG/ML 50 ML SYR",
@@ -19993,10 +19993,10 @@
           "ndc": "39769-0353-10",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "7052",
-          "rxnorm_name": "morphine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.4"
+          "rxcui": "746938",
+          "rxnorm_name": "morphine Prefilled Syringe",
+          "rxnorm_tty": "SCDF",
+          "_rxnorm_src": "approx_label_score11.3"
         },
         {
           "label": "MORPHINE PCA 5 MG/ML 50 ML SYR",
@@ -20009,10 +20009,10 @@
           "ndc": "39769-0353-10",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "7052",
-          "rxnorm_name": "morphine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.4"
+          "rxcui": "746938",
+          "rxnorm_name": "morphine Prefilled Syringe",
+          "rxnorm_tty": "SCDF",
+          "_rxnorm_src": "approx_label_score11.3"
         }
       ]
     },
@@ -20054,10 +20054,10 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "330383",
-          "rxnorm_name": "moxifloxacin 400 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score13.1"
+          "rxcui": "311787",
+          "rxnorm_name": "moxifloxacin 400 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score12.9"
         }
       ]
     },
@@ -20807,10 +20807,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "316333",
-          "rxnorm_name": "nevirapine 10 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score12.8"
+          "rxcui": "311943",
+          "rxnorm_name": "nevirapine 10 MG/ML Oral Suspension",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score12.4"
         },
         {
           "label": "NEVIRAPINE 200 MG TAB",
@@ -21040,10 +21040,10 @@
           "ndc": "61703-0213-11",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "4917",
-          "rxnorm_name": "nitroglycerin",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.8"
+          "rxcui": "237205",
+          "rxnorm_name": "10 ML nitroglycerin 5 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score11.2"
         },
         {
           "label": "NITRIC OXIDE GAS",
@@ -21079,10 +21079,10 @@
           "ndc": "61703-0213-11",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "4917",
-          "rxnorm_name": "nitroglycerin",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.8"
+          "rxcui": "316363",
+          "rxnorm_name": "nitroglycerin 0.2 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score12.4"
         }
       ]
     },
@@ -21101,10 +21101,10 @@
           "ndc": "61703-0213-11",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30,
-          "rxcui": "4917",
-          "rxnorm_name": "nitroglycerin",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score11.8"
+          "rxcui": "316366",
+          "rxnorm_name": "nitroglycerin 0.4 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score12.7"
         }
       ]
     },
@@ -21397,10 +21397,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "328868",
-          "rxnorm_name": "nortriptyline 10 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.1"
+          "rxcui": "312036",
+          "rxnorm_name": "nortriptyline 2 MG/ML Oral Solution",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score13.2"
         }
       ]
     },
@@ -21650,9 +21650,9 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "328450",
-          "rxnorm_name": "ondansetron 4 MG",
-          "rxnorm_tty": "SCDC",
+          "rxcui": "198052",
+          "rxnorm_name": "ondansetron 4 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
           "_rxnorm_src": "approx_label_score11.9"
         }
       ]
@@ -22137,10 +22137,10 @@
           "ndc": "00083-2601-04",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "1737458",
-          "rxnorm_name": "pamidronate disodium 30 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.1"
+          "rxcui": "1737459",
+          "rxnorm_name": "pamidronate disodium 30 MG Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score12.8"
         }
       ]
     },
@@ -22674,10 +22674,10 @@
           "ndc": "00008-0021-37",
           "_source": "STR/VOL",
           "vialVol": 1,
-          "rxcui": "731542",
-          "rxnorm_name": "penicillin G benzathine 600000 UNT/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score20.4"
+          "rxcui": "731572",
+          "rxnorm_name": "penicillin G benzathine 600000 UNT/ML Injectable Suspension",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score20.5"
         },
         {
           "label": "PENICILLIN G BENZTHNE 1,200,000 UNITS IM",
@@ -23704,10 +23704,10 @@
           "ndc": "88888-1038-26",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "1302194",
-          "rxnorm_name": "potassium chloride 1.33 MEQ",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_constructed_score13.5"
+          "rxcui": "1860132",
+          "rxnorm_name": "5 ML potassium chloride 2 MEQ/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score13.8"
         },
         {
           "label": "POTASSIUM CL IN WATER(CENTRAL LINE)",
@@ -24435,10 +24435,10 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "328585",
-          "rxnorm_name": "propantheline 7.5 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score14.3"
+          "rxcui": "312673",
+          "rxnorm_name": "propantheline 7.5 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score14.0"
         }
       ]
     },
@@ -24644,7 +24644,7 @@
           "rxcui": "8826",
           "rxnorm_name": "protamines",
           "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score12.8"
+          "_rxnorm_src": "approx_label_score10.8"
         }
       ]
     },
@@ -25222,10 +25222,10 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "329156",
-          "rxnorm_name": "ranitidine 75 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.8"
+          "rxcui": "312773",
+          "rxnorm_name": "ranitidine 75 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score12.7"
         }
       ]
     },
@@ -26417,10 +26417,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "1537117",
-          "rxnorm_name": "potassium bicarbonate 10 MEQ",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score14.1"
+          "rxcui": "312973",
+          "rxnorm_name": "5 ML sodium bicarbonate 40 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_per5ml_score12.3"
         },
         {
           "label": "SOD BICARB 325 MG TAB",
@@ -26974,10 +26974,10 @@
           "ndc": "00074-6629-02",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "10154",
-          "rxnorm_name": "succinylcholine",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score12.7"
+          "rxcui": "373965",
+          "rxnorm_name": "succinylcholine Injectable Solution",
+          "rxnorm_tty": "SCDF",
+          "_rxnorm_src": "approx_label_score11.3"
         }
       ]
     },
@@ -27517,10 +27517,10 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "329055",
-          "rxnorm_name": "terbinafine 250 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score12.8"
+          "rxcui": "313222",
+          "rxnorm_name": "terbinafine 250 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score12.6"
         }
       ]
     },
@@ -28637,10 +28637,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "800236",
-          "rxnorm_name": "valine 5 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.6"
+          "rxcui": "11115",
+          "rxnorm_name": "valine",
+          "rxnorm_tty": "IN",
+          "_rxnorm_src": "approx_generic_score12.2"
         }
       ]
     },
@@ -28875,10 +28875,10 @@
           "_source": "STR/VOL",
           "canHalf": true,
           "canQuarter": true,
-          "rxcui": "330822",
-          "rxnorm_name": "venlafaxine 25 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score11.9"
+          "rxcui": "313582",
+          "rxnorm_name": "venlafaxine 25 MG Oral Tablet",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score11.8"
         }
       ]
     },
@@ -28897,10 +28897,10 @@
           "ndc": "00044-1816-21",
           "_source": "STR/VOL",
           "vialVol": 2,
-          "rxcui": "11170",
-          "rxnorm_name": "verapamil",
-          "rxnorm_tty": "IN",
-          "_rxnorm_src": "approx_generic_score12.1"
+          "rxcui": "1665056",
+          "rxnorm_name": "verapamil Injection",
+          "rxnorm_tty": "SCDF",
+          "_rxnorm_src": "approx_label_score11.3"
         },
         {
           "label": "VERAPAMIL 80 MG TAB",
@@ -29002,10 +29002,10 @@
           "ndc": "00173-0656-01",
           "_source": "STR/VOL",
           "vialVol": 1,
-          "rxcui": "330562",
-          "rxnorm_name": "vinorelbine 10 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score13.3"
+          "rxcui": "1729418",
+          "rxnorm_name": "1 ML vinorelbine 10 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_label_score13.4"
         }
       ]
     },
@@ -29501,10 +29501,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "802714",
-          "rxnorm_name": "zinc acetate 10 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score15.7"
+          "rxcui": "1098625",
+          "rxnorm_name": "zinc acetate 1 MG/ML Topical Solution",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_constructed_score12.0"
         }
       ]
     },
@@ -29557,10 +29557,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "316919",
-          "rxnorm_name": "zinc sulfate 5 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score14.7"
+          "rxcui": "237512",
+          "rxnorm_name": "5 ML zinc sulfate 5 MG/ML Injection",
+          "rxnorm_tty": "SCD",
+          "_rxnorm_src": "approx_per5ml_score12.1"
         }
       ]
     },
@@ -30424,6 +30424,6 @@
     },
     "rxnorm_enriched": 1479,
     "rxnorm_not_found": 56,
-    "rxnorm_run_date": "2026-05-29T13:34:12.499Z"
+    "rxnorm_run_date": "2026-05-29T16:52:39.517Z"
   }
 }
