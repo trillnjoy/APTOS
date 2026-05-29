@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 
 // ── Drug catalogue ─────────────────────────────────────────────────────────────
 // Loaded at runtime from formulary.json + aptos_params.json merged in index.html.
@@ -11,11 +11,13 @@ const FALLBACK_DB = [
       { label: "160 mg/5 mL suspension (32 mg/mL)", concentration: 32, unit: "mg",
         form: "liquid", doseUnit: "mg/kg", maxDose: 960,
         preferredVols: [1.25, 2.5, 3.75, 8, 10], deviceLimited: false,
-        ndc: "50580-0140-04", item_id: "SAMPLE", _source: "FALLBACK" },
+        ndc: "50580-0140-04", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "1148399", rxnorm_name: "Acetaminophen 32 MG/ML Oral Solution", _rxnorm_src: "ndc" },
       { label: "325 mg tablet", concentration: 325, unit: "mg",
         form: "tablet", doseUnit: "mg/kg", maxDose: 975,
         canHalf: true, canQuarter: true,
-        ndc: "50580-0449-30", item_id: "SAMPLE", _source: "FALLBACK" },
+        ndc: "50580-0449-30", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "198440", rxnorm_name: "Acetaminophen 325 MG Oral Tablet", _rxnorm_src: "ndc" },
     ]
   },
   {
@@ -24,7 +26,8 @@ const FALLBACK_DB = [
     formulations: [
       { label: "MORPHINE 2 MG/ML INJ VIAL", concentration: 2, unit: "mg",
         form: "injectable", doseUnit: "mg/kg", maxDose: 15,
-        vialVol: 10, ndc: "00641-6008-25", item_id: "SAMPLE", _source: "FALLBACK" },
+        vialVol: 10, ndc: "00641-6008-25", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "892473", rxnorm_name: "Morphine Sulfate 2 MG/ML Injectable Solution", _rxnorm_src: "ndc" },
     ]
   },
 ];
@@ -530,6 +533,28 @@ const TD = {
   fontFamily: INTER, fontVariantNumeric: "tabular-nums",
 };
 
+// ── RefSection — collapsible narrative section ────────────────────────────────
+function RefSection({ title, text }) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div style={{ borderTop: "1px solid #eee", marginTop: 4 }}>
+      <div onClick={() => setOpen(o => !o)}
+           style={{ display: "flex", justifyContent: "space-between", alignItems: "center",
+                    padding: "7px 0", cursor: "pointer", userSelect: "none" }}>
+        <span style={{ fontSize: 12, fontWeight: 600, color: "#444" }}>{title}</span>
+        <span style={{ fontSize: 11, color: "#aaa", transform: open ? "rotate(180deg)" : "none",
+                       transition: "transform 0.15s", display: "inline-block" }}>v</span>
+      </div>
+      {open && (
+        <div style={{ fontSize: 12, color: "#333", lineHeight: 1.6,
+                      paddingBottom: 8, whiteSpace: "pre-wrap" }}>
+          {text}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function PedsDoseTable() {
   const [drugIdx,          setDrugIdx]          = useState(-1);
@@ -546,6 +571,9 @@ export default function PedsDoseTable() {
   );
   const [minWtText,        setMinWtText]        = useState("");
   const [committedMinWt,   setCommittedMinWt]   = useState(null);
+  const [refOpen,          setRefOpen]          = useState(false);
+  const [refInfo,          setRefInfo]          = useState(null);
+  const [refLoading,       setRefLoading]       = useState(false);
 
   const drug        = drugIdx >= 0 ? DRUG_DB[drugIdx] : null;
   const formulation = drug && formIdx >= 0 ? drug.formulations[formIdx] : null;
@@ -582,6 +610,103 @@ export default function PedsDoseTable() {
     const v = parseFloat(doseText);
     setCommittedTarget(isNaN(v) || v <= 0 ? null : v);
   }, [doseText]);
+
+  // ── Drug reference fetch ───────────────────────────────────────────────────
+  const parseFDA = useCallback((r) => ({
+    source:            'openFDA',
+    brandName:         r.openfda?.brand_name?.[0]        ?? null,
+    genericName:       r.openfda?.generic_name?.[0]       ?? null,
+    manufacturer:      r.openfda?.manufacturer_name?.[0]  ?? null,
+    route:             r.openfda?.route?.[0]              ?? null,
+    productType:       r.openfda?.product_type?.[0]       ?? null,
+    substanceName:     r.openfda?.substance_name?.[0]     ?? null,
+    rxcui:             r.openfda?.rxcui?.[0]              ?? null,
+    indications:       r.indications_and_usage?.[0]       ?? null,
+    dosage:            r.dosage_and_administration?.[0]   ?? null,
+    pediatricUse:      r.pediatric_use?.[0]               ?? null,
+    warnings:          r.warnings?.[0]                    ?? null,
+    warningsBoxed:     r.boxed_warning?.[0]               ?? null,
+    contraindications: r.contraindications?.[0]           ?? null,
+    adverseReactions:  r.adverse_reactions?.[0]           ?? null,
+    overdosage:        r.overdosage?.[0]                  ?? null,
+    storageHandling:   r.storage_and_handling?.[0]        ?? null,
+  }), []);
+
+  const fetchDrugInfo = useCallback(async (rxcui) => {
+    // DailyMed (CORS-blocked from GitHub Pages — will fail silently)
+    try {
+      const splRes = await fetch(
+        `https://dailymed.nlm.nih.gov/dailymed/services/v2/rxcuis/${rxcui}/spls.json?pagesize=1`
+      );
+      if (splRes.ok) {
+        const splData = await splRes.json();
+        const setId = splData?.data?.[0]?.setid;
+        if (setId) {
+          const labelRes = await fetch(
+            `https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/${setId}.json`
+          );
+          if (labelRes.ok) {
+            const label = await labelRes.json();
+            const spl = label?.spl || label;
+            if (spl) {
+              const DM_SECTIONS = {
+                '34067-9': 'indications', '34068-7': 'dosage',
+                '34081-0': 'pediatricUse', '43685-7': 'warnings',
+                '34071-1': 'warningsBoxed', '34070-3': 'contraindications',
+                '34084-4': 'adverseReactions', '34088-5': 'overdosage',
+                '44425-7': 'storageHandling',
+              };
+              const info = {
+                source: 'DailyMed',
+                brandName: spl.title || null,
+                genericName: null, manufacturer: spl.labeler_name || null,
+                route: null, productType: spl.product_type || null,
+                substanceName: null, rxcui: null,
+                indications: null, dosage: null, pediatricUse: null,
+                warnings: null, warningsBoxed: null, contraindications: null,
+                adverseReactions: null, overdosage: null, storageHandling: null,
+              };
+              for (const sec of (spl.sections || spl.set_sections || [])) {
+                const key = DM_SECTIONS[sec.loinc_code || sec.code];
+                if (key && sec.text) info[key] = sec.text;
+              }
+              const p = (spl.products || [])[0];
+              if (p) {
+                info.genericName   = p.generic_name || null;
+                info.route         = p.route        || null;
+                info.substanceName = p.active_ingredient_name || null;
+              }
+              return info;
+            }
+          }
+        }
+      }
+    } catch(_) {}
+
+    // openFDA fallback
+    try {
+      const fdaRes = await fetch(
+        `https://api.fda.gov/drug/label.json?search=openfda.rxcui:"${rxcui}"&limit=1`
+      );
+      if (fdaRes.ok) {
+        const fdaData = await fdaRes.json();
+        const r = fdaData.results?.[0];
+        if (r) return parseFDA(r);
+      }
+    } catch(_) {}
+
+    return null;
+  }, [parseFDA]);
+
+  // Silent background fetch on formulation selection
+  useEffect(() => {
+    setRefInfo(null);
+    if (!formulation?.rxcui) return;
+    setRefLoading(true);
+    fetchDrugInfo(formulation.rxcui)
+      .then(info => { setRefInfo(info); setRefLoading(false); })
+      .catch(() => setRefLoading(false));
+  }, [formulation?.rxcui, fetchDrugInfo]);
 
   const commitMax = useCallback(() => {
     const v = parseFloat(maxDoseText);
@@ -894,22 +1019,9 @@ export default function PedsDoseTable() {
         {/* Row 2: Formulation | Max Dose */}
         <div style={{ display: "grid", gridTemplateColumns: "1fr 120px", gap: 8 }}>
           <div>
-            <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between",
+            <div style={{ display: "flex", alignItems: "baseline",
                           marginBottom: 4 }}>
               <span style={CAP}>Formulation</span>
-              {formulation?.ndc && formulation.ndc !== "***MANUAL***" && (
-                <span
-                  onClick={() => {
-                    const ndc = formulation.ndc.replace(/^0(\d{4}-)/, '$1');
-                    navigator.clipboard?.writeText(ndc);
-                  }}
-                  title="Tap to copy NDC"
-                  style={{ fontSize: 11, color: "#999", cursor: "pointer",
-                           fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
-                           userSelect: "all" }}>
-                  NDC {formulation.ndc}
-                </span>
-              )}
             </div>
             <select style={selStyle} value={formIdx} disabled={!drug}
               onChange={e => selectForm(+e.target.value)}>
@@ -1030,6 +1142,147 @@ export default function PedsDoseTable() {
           </div>
         )}
       </div>
+
+      {/* ── Identifiers ── */}
+      {formulation && (
+        <div style={{ padding: "6px 10px 4px", borderBottom: "1px solid #ddd",
+                      background: "#f8f8f5" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 18px", alignItems: "baseline" }}>
+            {[
+              { label: "NDC",
+                value: formulation.ndc && formulation.ndc !== "***MANUAL***" ? formulation.ndc : null,
+                copy:  formulation.ndc ? formulation.ndc.replace(/^0(\d{4}-)/, '$1') : null },
+              { label: "RxCUI",
+                value: formulation.rxcui || null,
+                copy:  formulation.rxcui || null },
+              { label: "RxNorm",
+                value: formulation.rxnorm_name || null,
+                copy:  formulation.rxnorm_name || null },
+            ].map(({ label, value, copy }) => value ? (
+              <div key={label} style={{ display: "flex", alignItems: "baseline", gap: 5 }}>
+                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 0.8,
+                               textTransform: "uppercase", color: "#999",
+                               fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif" }}>
+                  {label}
+                </span>
+                <span
+                  onClick={() => navigator.clipboard?.writeText(copy)}
+                  title={`Tap to copy ${label}`}
+                  style={{ fontSize: 11, color: "#555", cursor: "pointer",
+                           fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
+                           userSelect: "all" }}>
+                  {value}
+                </span>
+              </div>
+            ) : null)}
+          </div>
+        </div>
+      )}
+
+      {/* ── Drug Reference Windowshade ── */}
+      {formulation && (
+        <div style={{ borderBottom: "1px solid #d8d8d0" }}>
+          {/* Shade header — always visible */}
+          <div
+            onClick={() => setRefOpen(o => !o)}
+            style={{ display: "flex", alignItems: "center", justifyContent: "space-between",
+                     padding: "8px 12px", cursor: "pointer", userSelect: "none",
+                     background: refOpen ? "#f0f0ec" : "#f5f5f1",
+                     borderBottom: refOpen ? "1px solid #d8d8d0" : "none" }}>
+            <span style={{ fontSize: 12, fontWeight: 600, color: "#444",
+                           fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif" }}>
+              Drug Reference Info
+              {formulation.rxcui
+                ? ` (RxCUI: ${formulation.rxcui})`
+                : " (no RxCUI)"}
+              {refLoading && (
+                <span style={{ marginLeft: 8, fontSize: 10, color: "#999",
+                               fontStyle: "italic" }}>loading...</span>
+              )}
+            </span>
+            <span style={{ fontSize: 12, color: "#888", transform: refOpen ? "rotate(180deg)" : "none",
+                           transition: "transform 0.2s", display: "inline-block" }}>v</span>
+          </div>
+
+          {/* Shade body */}
+          {refOpen && (
+            <div style={{ padding: "12px 14px", background: "#fff",
+                          fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
+              {!formulation.rxcui ? (
+                <div style={{ fontSize: 12, color: "#999", fontStyle: "italic" }}>
+                  No RxCUI available for this formulation. Enrichment may be incomplete.
+                </div>
+              ) : !refInfo && !refLoading ? (
+                <div style={{ fontSize: 12, color: "#999", fontStyle: "italic" }}>
+                  No label data found in DailyMed or openFDA for RxCUI {formulation.rxcui}.
+                </div>
+              ) : refLoading ? (
+                <div style={{ fontSize: 12, color: "#888", fontStyle: "italic" }}>
+                  Fetching drug reference data...
+                </div>
+              ) : (
+                <div>
+                  {/* Brand / generic / manufacturer */}
+                  <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 2 }}>
+                    {refInfo.brandName ?? formulation.label}
+                  </div>
+                  <div style={{ fontSize: 12, color: "#666", fontStyle: "italic", marginBottom: 10 }}>
+                    {refInfo.genericName ?? drug.generic}
+                    {refInfo.manufacturer ? ` · ${refInfo.manufacturer}` : ""}
+                  </div>
+
+                  {/* Identity grid */}
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr",
+                                gap: 5, marginBottom: 10 }}>
+                    {[
+                      ["Route",        refInfo.route],
+                      ["Product Type", refInfo.productType],
+                      ["Substance",    refInfo.substanceName],
+                      ["RxCUI",        formulation.rxcui],
+                      ["Source",       refInfo.source],
+                    ].map(([lbl, val]) => (
+                      <div key={lbl} style={{ background: "#f5f5f1", borderRadius: 5,
+                                              padding: "5px 8px", border: "1px solid #e4e5e9" }}>
+                        <div style={{ fontSize: 9, fontWeight: 700, letterSpacing: 0.7,
+                                      textTransform: "uppercase", color: "#aaa", marginBottom: 2 }}>
+                          {lbl}
+                        </div>
+                        <div style={{ fontSize: 12, fontWeight: 500, color: val ? "#1c2333" : "#bbb" }}>
+                          {val ?? "--"}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* DailyMed link */}
+                  <a href={`https://dailymed.nlm.nih.gov/dailymed/search.cfm?labeltype=all&query=RXCUI:${formulation.rxcui}`}
+                     target="_blank" rel="noopener noreferrer"
+                     style={{ display: "inline-block", fontSize: 11, fontWeight: 600,
+                              color: "#3a6fd8", border: "1px solid #c5d3ef",
+                              background: "#e8eef8", borderRadius: 4,
+                              padding: "3px 8px", textDecoration: "none", marginBottom: 12 }}>
+                    View on DailyMed
+                  </a>
+
+                  {/* Collapsible narrative sections */}
+                  {[
+                    ["Indications & Usage",       refInfo.indications],
+                    ["Dosage & Administration",    refInfo.dosage],
+                    ["Pediatric Use",              refInfo.pediatricUse],
+                    ["Warnings",                   refInfo.warnings],
+                    ["Contraindications",          refInfo.contraindications],
+                    ["Adverse Reactions",          refInfo.adverseReactions],
+                    ["Overdosage",                 refInfo.overdosage],
+                    ["Storage & Handling",         refInfo.storageHandling],
+                  ].filter(([, text]) => text).map(([title, text]) => (
+                    <RefSection key={title} title={title} text={text} />
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* ── Table output ── */}
       <div style={{ padding: "8px 10px" }}>
