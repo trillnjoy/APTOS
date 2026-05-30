@@ -504,8 +504,9 @@ function buildTable(formulation, targetMgKg, variancePct, canHalf, canQuarter, a
 // ── Styles ─────────────────────────────────────────────────────────────────────
 const MONO = "'DM Mono','Courier New',monospace";
 const INTER = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
+const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif";
 const ctrlBase = {
-  fontFamily: MONO, fontSize: 15, border: "2px solid #b0b8c4", borderRadius: 5,
+  fontFamily: SANS, fontSize: 15, border: "2px solid #b0b8c4", borderRadius: 5,
   background: "#fff", color: "#111", width: "100%", boxSizing: "border-box",
   padding: "8px 10px", height: 42,
 };
@@ -574,6 +575,9 @@ export default function PedsDoseTable() {
   const [refOpen,          setRefOpen]          = useState(false);
   const [refInfo,          setRefInfo]          = useState(null);
   const [refLoading,       setRefLoading]       = useState(false);
+  const [drugOpen,         setDrugOpen]         = useState(false);
+  const [drugFilter,       setDrugFilter]       = useState("");
+  const [formOpen,         setFormOpen]         = useState(false);
 
   const drug        = drugIdx >= 0 ? DRUG_DB[drugIdx] : null;
   const formulation = drug && formIdx >= 0 ? drug.formulations[formIdx] : null;
@@ -927,7 +931,8 @@ export default function PedsDoseTable() {
   const colCount = isLiquid ? 6 : 5;
 
   return (
-    <div style={{ fontFamily: MONO, background: "#f2f2ee", minHeight: "100vh", color: "#1a1a1a" }}>
+    <div style={{ fontFamily: MONO, background: "#f2f2ee", minHeight: "100vh", color: "#1a1a1a" }}
+         onClick={() => { setDrugOpen(false); setFormOpen(false); }}>
       <style>{placeholderStyle}</style>
 
       {/* ── Header ── */}
@@ -1000,41 +1005,98 @@ export default function PedsDoseTable() {
       <div style={{ background: "#fff", borderBottom: "2px solid #1c2333",
                     padding: "10px 12px", display: "flex", flexDirection: "column", gap: 7 }}>
 
-        {/* Row 1: Drug (full width) */}
-        <div>
+        {/* Row 1: Drug — custom searchable dropdown */}
+        <div style={{ position: "relative" }}>
           <span style={CAP}>Drug</span>
-          <select style={selStyle} value={drugIdx}
-            onChange={e => {
-              setDrugIdx(+e.target.value);
-              setFormIdx(-1); setCommittedTarget(null); setCommittedMax(null);
-              setDoseText(""); setMaxDoseText("");
-            }}>
-            <option value={-1}>— select drug —</option>
-            {DRUG_DB.map((d, i) =>
-              <option key={i} value={i}>{d.generic}</option>
-            )}
-          </select>
+          <div
+            onClick={() => { setDrugOpen(o => !o); setDrugFilter(""); }}
+            style={{ ...ctrlBase, display: "flex", alignItems: "center",
+                     justifyContent: "space-between", cursor: "pointer",
+                     fontFamily: SANS, color: drug ? "#111" : "#aaa" }}>
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+              {drug ? drug.generic : "-- select drug --"}
+            </span>
+            <span style={{ flexShrink: 0, marginLeft: 8, color: "#666" }}>v</span>
+          </div>
+          {drugOpen && (
+            <div onClick={e => e.stopPropagation()}
+                 style={{ position: "absolute", top: "100%", left: 0, right: 0,
+                          zIndex: 300, background: "#fff", border: "2px solid #b0b8c4",
+                          borderRadius: 5, boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                          maxHeight: 320, display: "flex", flexDirection: "column" }}>
+              <div style={{ padding: "6px 8px", borderBottom: "1px solid #eee", flexShrink: 0 }}>
+                <input
+                  autoFocus
+                  placeholder="Search drugs..."
+                  value={drugFilter}
+                  onChange={e => setDrugFilter(e.target.value)}
+                  onClick={e => e.stopPropagation()}
+                  style={{ width: "100%", border: "1px solid #ccc", borderRadius: 4,
+                           padding: "5px 8px", fontSize: 14, fontFamily: SANS,
+                           outline: "none" }} />
+              </div>
+              <div style={{ overflowY: "auto", flex: 1 }}>
+                {DRUG_DB
+                  .map((d, i) => ({ d, i }))
+                  .filter(({ d }) => d.generic.toLowerCase().includes(drugFilter.toLowerCase()))
+                  .map(({ d, i }) => (
+                    <div key={i}
+                      onClick={() => {
+                        setDrugIdx(i); setFormIdx(-1); setDrugOpen(false);
+                        setCommittedTarget(null); setCommittedMax(null);
+                        setDoseText(""); setMaxDoseText(""); setDrugFilter("");
+                      }}
+                      style={{ padding: "9px 12px", fontSize: 14, fontFamily: SANS,
+                               cursor: "pointer", color: "#111",
+                               background: i === drugIdx ? "#e8eef8" : "transparent",
+                               borderBottom: "1px solid #f0f0ee" }}>
+                      {d.generic}
+                    </div>
+                  ))}
+              </div>
+            </div>
+          )}
         </div>
 
-        {/* Row 2: Formulation | Max Dose */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 120px", gap: 8 }}>
-          <div>
-            <div style={{ display: "flex", alignItems: "baseline",
-                          marginBottom: 4 }}>
-              <span style={CAP}>Formulation</span>
+        {/* Row 2: Formulation | Max Dose — aligned grid */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 120px", gap: 8, alignItems: "end" }}>
+          <div style={{ position: "relative" }}>
+            <span style={CAP}>Formulation</span>
+            <div
+              onClick={() => drug && setFormOpen(o => !o)}
+              style={{ ...ctrlBase, display: "flex", alignItems: "center",
+                       justifyContent: "space-between", cursor: drug ? "pointer" : "default",
+                       fontFamily: SANS, color: formulation ? "#111" : "#aaa",
+                       opacity: drug ? 1 : 0.5 }}>
+              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                             fontSize: 13 }}>
+                {formulation ? formulation.label : "-- select --"}
+              </span>
+              <span style={{ flexShrink: 0, marginLeft: 8, color: "#666" }}>v</span>
             </div>
-            <select style={selStyle} value={formIdx} disabled={!drug}
-              onChange={e => selectForm(+e.target.value)}>
-              <option value={-1}>— select —</option>
-              {drug && drug.formulations.map((f, i) =>
-                <option key={i} value={i}>{f.label}</option>
-              )}
-            </select>
+            {formOpen && drug && (
+              <div onClick={e => e.stopPropagation()}
+                   style={{ position: "absolute", top: "100%", left: 0, right: 0,
+                            zIndex: 300, background: "#fff", border: "2px solid #b0b8c4",
+                            borderRadius: 5, boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                            maxHeight: 280, overflowY: "auto" }}>
+                {drug.formulations.map((f, i) => (
+                  <div key={i}
+                    onClick={() => { selectForm(i); setFormOpen(false); }}
+                    style={{ padding: "9px 12px", fontSize: 13, fontFamily: SANS,
+                             cursor: "pointer", color: "#111",
+                             background: i === formIdx ? "#e8eef8" : "transparent",
+                             borderBottom: "1px solid #f0f0ee" }}>
+                    {f.label}
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
           <div>
             <span style={CAP}>Max ({formulation?.unit ?? "mg"})</span>
             <input
-              style={ctrlBase}
+              style={{ ...ctrlBase, fontFamily: SANS }}
               type="number" placeholder="e.g. 60"
               value={maxDoseText} onChange={e => setMaxDoseText(e.target.value)}
               onBlur={commitMax} onKeyDown={e => e.key === "Enter" && e.target.blur()}
@@ -1143,42 +1205,6 @@ export default function PedsDoseTable() {
         )}
       </div>
 
-      {/* ── Identifiers ── */}
-      {formulation && (
-        <div style={{ padding: "6px 10px 4px", borderBottom: "1px solid #ddd",
-                      background: "#f8f8f5" }}>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: "6px 18px", alignItems: "baseline" }}>
-            {[
-              { label: "NDC",
-                value: formulation.ndc && formulation.ndc !== "***MANUAL***" ? formulation.ndc : null,
-                copy:  formulation.ndc ? formulation.ndc.replace(/^0(\d{4}-)/, '$1') : null },
-              { label: "RxCUI",
-                value: formulation.rxcui || null,
-                copy:  formulation.rxcui || null },
-              { label: "RxNorm",
-                value: formulation.rxnorm_name || null,
-                copy:  formulation.rxnorm_name || null },
-            ].map(({ label, value, copy }) => value ? (
-              <div key={label} style={{ display: "flex", alignItems: "baseline", gap: 5 }}>
-                <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 0.8,
-                               textTransform: "uppercase", color: "#999",
-                               fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif" }}>
-                  {label}
-                </span>
-                <span
-                  onClick={() => navigator.clipboard?.writeText(copy)}
-                  title={`Tap to copy ${label}`}
-                  style={{ fontSize: 11, color: "#555", cursor: "pointer",
-                           fontFamily: "-apple-system, BlinkMacSystemFont, sans-serif",
-                           userSelect: "all" }}>
-                  {value}
-                </span>
-              </div>
-            ) : null)}
-          </div>
-        </div>
-      )}
-
       {/* ── Drug Reference Windowshade ── */}
       {formulation && (
         <div style={{ borderBottom: "1px solid #d8d8d0" }}>
@@ -1222,6 +1248,31 @@ export default function PedsDoseTable() {
                 </div>
               ) : (
                 <div>
+                  {/* Identifiers — NDC and RxNorm, each copyable */}
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: "5px 16px",
+                                marginBottom: 10 }}>
+                    {[
+                      { label: "NDC",
+                        value: formulation.ndc && formulation.ndc !== "***MANUAL***" ? formulation.ndc : null,
+                        copy: formulation.ndc ? formulation.ndc.replace(/^0(\d{4}-)/, '$1') : null },
+                      { label: "RxCUI",
+                        value: formulation.rxcui || null,
+                        copy: formulation.rxcui || null },
+                      { label: "RxNorm",
+                        value: formulation.rxnorm_name || null,
+                        copy: formulation.rxnorm_name || null },
+                    ].filter(({ value }) => value).map(({ label, value, copy }) => (
+                      <div key={label} style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
+                        <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: 0.8,
+                                       textTransform: "uppercase", color: "#aaa" }}>{label}</span>
+                        <span onClick={() => navigator.clipboard?.writeText(copy)}
+                              title={`Tap to copy ${label}`}
+                              style={{ fontSize: 11, color: "#555", cursor: "pointer",
+                                       userSelect: "all" }}>{value}</span>
+                      </div>
+                    ))}
+                  </div>
+
                   {/* Brand / generic / manufacturer */}
                   <div style={{ fontSize: 14, fontWeight: 700, marginBottom: 2 }}>
                     {refInfo.brandName ?? formulation.label}
@@ -1238,7 +1289,6 @@ export default function PedsDoseTable() {
                       ["Route",        refInfo.route],
                       ["Product Type", refInfo.productType],
                       ["Substance",    refInfo.substanceName],
-                      ["RxCUI",        formulation.rxcui],
                       ["Source",       refInfo.source],
                     ].map(([lbl, val]) => (
                       <div key={lbl} style={{ background: "#f5f5f1", borderRadius: 5,
