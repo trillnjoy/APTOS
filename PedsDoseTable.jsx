@@ -516,6 +516,7 @@ const placeholderStyle = `
 `;
 const selStyle = {
   ...ctrlBase, appearance: "none", paddingRight: 28,
+  border: "2px solid #b0b8c4",
   backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23444' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E\")",
   backgroundRepeat: "no-repeat", backgroundPosition: "right 10px center", cursor: "pointer",
 };
@@ -1061,78 +1062,73 @@ export default function PedsDoseTable() {
           )}
         </div>
 
-        {/* Row 2: Formulation | Max Dose — aligned grid */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 120px", gap: 8, alignItems: "end" }}>
-          <div style={{ position: "relative" }}>
-            <span style={CAP}>Formulation</span>
-            <div
-              onClick={e => { e.stopPropagation(); drug && setFormOpen(o => !o); }}
-              style={{ ...ctrlBase, display: "flex", alignItems: "center",
-                       justifyContent: "space-between", cursor: drug ? "pointer" : "default",
-                       fontFamily: SANS, color: formulation ? "#111" : "#aaa",
-                       opacity: drug ? 1 : 0.5 }}>
-              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                             fontSize: 13 }}>
-                {formulation ? formulation.label : "-- select --"}
-              </span>
-              <span style={{ flexShrink: 0, marginLeft: 8, color: "#666" }}>v</span>
+        {/* Row 2: Formulation — full width */}
+        <div style={{ position: "relative" }}>
+          <span style={CAP}>Formulation</span>
+          <div
+            onClick={e => { e.stopPropagation(); drug && setFormOpen(o => !o); }}
+            style={{ ...ctrlBase, display: "flex", alignItems: "center",
+                     justifyContent: "space-between", cursor: drug ? "pointer" : "default",
+                     fontFamily: SANS, color: formulation ? "#111" : "#aaa",
+                     opacity: drug ? 1 : 0.5 }}>
+            <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                           fontSize: 14 }}>
+              {formulation ? formulation.label : "-- select --"}
+            </span>
+            <span style={{ flexShrink: 0, marginLeft: 8, color: "#666" }}>v</span>
+          </div>
+          {formOpen && drug && (
+            <div onMouseDown={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}
+                 onClick={e => e.stopPropagation()}
+                 style={{ position: "absolute", top: "100%", left: 0, right: 0,
+                          zIndex: 300, background: "#fff", border: "2px solid #b0b8c4",
+                          borderRadius: 5, boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
+                          maxHeight: 280, overflowY: "auto" }}>
+              {drug.formulations.map((f, i) => (
+                <div key={i}
+                  onClick={() => { selectForm(i); setFormOpen(false); }}
+                  style={{ padding: "9px 12px", fontSize: 13, fontFamily: SANS,
+                           cursor: "pointer", color: "#111",
+                           background: i === formIdx ? "#e8eef8" : "transparent",
+                           borderBottom: "1px solid #f0f0ee" }}>
+                  {f.label}
+                </div>
+              ))}
             </div>
-            {formOpen && drug && (
-              <div onMouseDown={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}
-                   onClick={e => e.stopPropagation()}
-                   style={{ position: "absolute", top: "100%", left: 0, right: 0,
-                            zIndex: 300, background: "#fff", border: "2px solid #b0b8c4",
-                            borderRadius: 5, boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-                            maxHeight: 280, overflowY: "auto" }}>
-                {drug.formulations.map((f, i) => (
-                  <div key={i}
-                    onClick={() => { selectForm(i); setFormOpen(false); }}
-                    style={{ padding: "9px 12px", fontSize: 13, fontFamily: SANS,
-                             cursor: "pointer", color: "#111",
-                             background: i === formIdx ? "#e8eef8" : "transparent",
-                             borderBottom: "1px solid #f0f0ee" }}>
-                    {f.label}
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-          <div>
-            <span style={CAP}>Max ({formulation?.unit ?? "mg"})</span>
-            <input
-              style={{ ...ctrlBase, fontFamily: SANS }}
-              type="number" placeholder="e.g. 60"
-              value={maxDoseText} onChange={e => setMaxDoseText(e.target.value)}
-              onBlur={commitMax} onKeyDown={e => e.key === "Enter" && e.target.blur()}
-              step="1" min="0" inputMode="decimal" disabled={!formulation}
-            />
-          </div>
+          )}
         </div>
 
-        {/* Row 3: Min Wt | Target Dose | Variance */}
-        <div style={{ display: "grid", gridTemplateColumns: "105px 1fr 100px", gap: 8 }}>
+        {/* Row 3: Min Wt | Target | Max | Variance */}
+        <div style={{ display: "grid", gridTemplateColumns: "90px 1fr 100px 90px", gap: 6 }}>
           <div>
-            <span style={CAP}>Min Wt (kg)</span>
+            <span style={CAP}>Min Wt</span>
             <input style={ctrlBase} type="number" placeholder="0.3"
               value={minWtText} onChange={e => setMinWtText(e.target.value)}
               onBlur={commitMinWt} onKeyDown={e => e.key === "Enter" && e.target.blur()}
               step="0.1" min="0" inputMode="decimal" />
           </div>
           <div>
-            <span style={CAP}>Target ({formulation?.doseUnit ?? "mg/kg"})</span>
+            <span style={CAP}>Dose/kg</span>
             <input style={ctrlBase} type="number" placeholder="e.g. 12.5"
               value={doseText} onChange={e => setDoseText(e.target.value)}
               onBlur={commitDose} onKeyDown={e => e.key === "Enter" && e.target.blur()}
               step="0.1" min="0" inputMode="decimal" />
           </div>
           <div>
-            <span style={CAP}>Variance</span>
+            <span style={CAP}>Max</span>
+            <input style={ctrlBase} type="number" placeholder="e.g. 60"
+              value={maxDoseText} onChange={e => setMaxDoseText(e.target.value)}
+              onBlur={commitMax} onKeyDown={e => e.key === "Enter" && e.target.blur()}
+              step="1" min="0" inputMode="decimal" disabled={!formulation} />
+          </div>
+          <div>
+            <span style={CAP}>Var</span>
             <select style={selStyle} value={variance}
               onChange={e => setVariance(Number(e.target.value))}>
-              <option value={5}>± 5%</option>
-              <option value={10}>± 10%</option>
-              <option value={15}>± 15%</option>
-              <option value={20}>± 20%</option>
+              <option value={5}>±5%</option>
+              <option value={10}>±10%</option>
+              <option value={15}>±15%</option>
+              <option value={20}>±20%</option>
             </select>
           </div>
         </div>
