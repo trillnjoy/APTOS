@@ -506,7 +506,7 @@ const MONO = "'DM Mono','Courier New',monospace";
 const INTER = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
 const SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif";
 const ctrlBase = {
-  fontFamily: SANS, fontSize: 15, border: "2px solid #b0b8c4", borderRadius: 5,
+  fontFamily: SANS, fontSize: 16, border: "2px solid #b0b8c4", borderRadius: 5,
   background: "#fff", color: "#111", width: "100%", boxSizing: "border-box",
   padding: "8px 10px", height: 42,
 };
@@ -932,7 +932,8 @@ export default function PedsDoseTable() {
 
   return (
     <div style={{ fontFamily: MONO, background: "#f2f2ee", minHeight: "100vh", color: "#1a1a1a" }}
-         onClick={() => { setDrugOpen(false); setFormOpen(false); }}>
+         onMouseDown={() => { setDrugOpen(false); setFormOpen(false); }}
+         onTouchStart={() => { setDrugOpen(false); setFormOpen(false); }}>
       <style>{placeholderStyle}</style>
 
       {/* ── Header ── */}
@@ -1002,14 +1003,15 @@ export default function PedsDoseTable() {
       )}
 
       {/* ── Controls ── */}
-      <div style={{ background: "#fff", borderBottom: "2px solid #1c2333",
+      <div onMouseDown={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}
+           style={{ background: "#fff", borderBottom: "2px solid #1c2333",
                     padding: "10px 12px", display: "flex", flexDirection: "column", gap: 7 }}>
 
         {/* Row 1: Drug — custom searchable dropdown */}
         <div style={{ position: "relative" }}>
           <span style={CAP}>Drug</span>
           <div
-            onClick={() => { setDrugOpen(o => !o); setDrugFilter(""); }}
+            onClick={e => { e.stopPropagation(); setDrugOpen(o => !o); setDrugFilter(""); }}
             style={{ ...ctrlBase, display: "flex", alignItems: "center",
                      justifyContent: "space-between", cursor: "pointer",
                      fontFamily: SANS, color: drug ? "#111" : "#aaa" }}>
@@ -1019,7 +1021,8 @@ export default function PedsDoseTable() {
             <span style={{ flexShrink: 0, marginLeft: 8, color: "#666" }}>v</span>
           </div>
           {drugOpen && (
-            <div onClick={e => e.stopPropagation()}
+            <div onMouseDown={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}
+                 onClick={e => e.stopPropagation()}
                  style={{ position: "absolute", top: "100%", left: 0, right: 0,
                           zIndex: 300, background: "#fff", border: "2px solid #b0b8c4",
                           borderRadius: 5, boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
@@ -1032,7 +1035,7 @@ export default function PedsDoseTable() {
                   onChange={e => setDrugFilter(e.target.value)}
                   onClick={e => e.stopPropagation()}
                   style={{ width: "100%", border: "1px solid #ccc", borderRadius: 4,
-                           padding: "5px 8px", fontSize: 14, fontFamily: SANS,
+                           padding: "5px 8px", fontSize: 16, fontFamily: SANS,
                            outline: "none" }} />
               </div>
               <div style={{ overflowY: "auto", flex: 1 }}>
@@ -1063,7 +1066,7 @@ export default function PedsDoseTable() {
           <div style={{ position: "relative" }}>
             <span style={CAP}>Formulation</span>
             <div
-              onClick={() => drug && setFormOpen(o => !o)}
+              onClick={e => { e.stopPropagation(); drug && setFormOpen(o => !o); }}
               style={{ ...ctrlBase, display: "flex", alignItems: "center",
                        justifyContent: "space-between", cursor: drug ? "pointer" : "default",
                        fontFamily: SANS, color: formulation ? "#111" : "#aaa",
@@ -1075,7 +1078,8 @@ export default function PedsDoseTable() {
               <span style={{ flexShrink: 0, marginLeft: 8, color: "#666" }}>v</span>
             </div>
             {formOpen && drug && (
-              <div onClick={e => e.stopPropagation()}
+              <div onMouseDown={e => e.stopPropagation()} onTouchStart={e => e.stopPropagation()}
+                   onClick={e => e.stopPropagation()}
                    style={{ position: "absolute", top: "100%", left: 0, right: 0,
                             zIndex: 300, background: "#fff", border: "2px solid #b0b8c4",
                             borderRadius: 5, boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
