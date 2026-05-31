@@ -2366,10 +2366,11 @@
           "_source": "STR/VOL",
           "canHalf": false,
           "canQuarter": false,
-          "rxcui": "833531",
-          "rxnorm_name": "amiodarone hydrochloride 50 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score10.8"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -4089,10 +4090,11 @@
           "_source": "STR/VOL",
           "canHalf": false,
           "canQuarter": false,
-          "rxcui": "485494",
-          "rxnorm_name": "aripiprazole 1 MG/ML",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score10.5"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ARIPiprazole 2.5 MG TAB SEG",
@@ -4107,10 +4109,11 @@
           "_source": "STR/VOL",
           "canHalf": false,
           "canQuarter": false,
-          "rxcui": "602964",
-          "rxnorm_name": "aripiprazole 2 MG Oral Tablet",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_constructed_score12.0"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -8212,10 +8215,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "2117608",
+          "rxnorm_name": "100 ML calcium gluconate 20 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_label_score12.1"
         },
         {
           "label": "CALCIUM GLUCONATE 20 MG/ML STND 50 ML NS",
@@ -8229,10 +8232,10 @@
           "ndc": "63323-0360-19E",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "2117608",
+          "rxnorm_name": "100 ML calcium gluconate 20 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_label_score12.1"
         },
         {
           "label": "CALCIUM GLUCONATE 20 MG/ML STND 500 ML NS",
@@ -8246,10 +8249,10 @@
           "ndc": "63323-0360-61A",
           "_source": "STR/VOL",
           "vialVol": 500,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "2117608",
+          "rxnorm_name": "100 ML calcium gluconate 20 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_label_score12.1"
         }
       ]
     },
@@ -9113,10 +9116,10 @@
           "ndc": "00143-9877-25B",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.1"
+          "rxcui": "337561",
+          "rxnorm_name": "cefoxitin 200 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score11.3"
         }
       ]
     },
@@ -9342,10 +9345,10 @@
           "ndc": "00409-7334-10A",
           "_source": "STR/VOL",
           "vialVol": 6.25,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.1"
+          "rxcui": "337560",
+          "rxnorm_name": "ceftriaxone 100 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score10.8"
         }
       ]
     },
@@ -11036,10 +11039,10 @@
           "ndc": "00338-9553-24a",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "309336",
+          "rxnorm_name": "50 ML clindamycin 18 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.1"
+          "_rxnorm_src": "approx_label_score13.4"
         }
       ]
     },
@@ -13891,10 +13894,11 @@
           "ndc": "60923-0508-17",
           "_source": "REF_DOSE_parsed",
           "vialVol": 170,
-          "rxcui": "2641702",
-          "rxnorm_name": "{17 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 16.5 - 17.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (18.5-19.4 kg)) INJ",
@@ -13908,10 +13912,11 @@
           "ndc": "60923-0510-19",
           "_source": "REF_DOSE_parsed",
           "vialVol": 190,
-          "rxcui": "2641706",
-          "rxnorm_name": "{19 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 18.5 - 19.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (19.5�20.4 kg)) INJ",
@@ -13925,10 +13930,11 @@
           "ndc": "60923-0511-20",
           "_source": "REF_DOSE_parsed",
           "vialVol": 200,
-          "rxcui": "2641708",
-          "rxnorm_name": "{20 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 19.5 - 20.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (20.5�21.4 kg)) INJ",
@@ -13942,10 +13948,11 @@
           "ndc": "60923-0512-21",
           "_source": "REF_DOSE_parsed",
           "vialVol": 210,
-          "rxcui": "2641710",
-          "rxnorm_name": "{21 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 20.5 - 21.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (21.5�22.4 kg)) INJ",
@@ -13959,10 +13966,11 @@
           "ndc": "60923-0513-22",
           "_source": "REF_DOSE_parsed",
           "vialVol": 220,
-          "rxcui": "2641712",
-          "rxnorm_name": "{22 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 21.5 - 22.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (11.5-12.4 kg)) INJ",
@@ -13976,10 +13984,11 @@
           "ndc": "60923-0503-12",
           "_source": "REF_DOSE_parsed",
           "vialVol": 120,
-          "rxcui": "2641692",
-          "rxnorm_name": "{12 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 11.5 - 12.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (57.5-58.4 kg)) INJ",
@@ -13993,10 +14002,11 @@
           "ndc": "60923-0549-58",
           "_source": "REF_DOSE_parsed",
           "vialVol": 580,
-          "rxcui": "2641785",
-          "rxnorm_name": "{58 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 57.5 - 58.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (58.5-59.4 kg)) INJ",
@@ -14010,10 +14020,11 @@
           "ndc": "60923-0550-59",
           "_source": "REF_DOSE_parsed",
           "vialVol": 590,
-          "rxcui": "2641787",
-          "rxnorm_name": "{59 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 58.5 - 59.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (60.5-61.4 kg)) INJ",
@@ -14027,10 +14038,11 @@
           "ndc": "60923-0552-61",
           "_source": "REF_DOSE_parsed",
           "vialVol": 610,
-          "rxcui": "2641831",
-          "rxnorm_name": "{61 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 60.5 - 61.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (27.5-28.4 kg)) INJ",
@@ -14044,10 +14056,11 @@
           "ndc": "60923-0519-28",
           "_source": "REF_DOSE_parsed",
           "vialVol": 280,
-          "rxcui": "2641724",
-          "rxnorm_name": "{28 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 27.5 - 28.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (25.5-26.4 kg)) INJ",
@@ -14061,10 +14074,11 @@
           "ndc": "60923-0517-26",
           "_source": "REF_DOSE_parsed",
           "vialVol": 260,
-          "rxcui": "2641720",
-          "rxnorm_name": "{26 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 25.5 - 26.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (23.5-24.4 kg)) INJ",
@@ -14078,10 +14092,11 @@
           "ndc": "60923-0515-24",
           "_source": "REF_DOSE_parsed",
           "vialVol": 240,
-          "rxcui": "2641716",
-          "rxnorm_name": "{24 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 23.5 - 24.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (26.5-27.4 kg)) INJ",
@@ -14095,10 +14110,11 @@
           "ndc": "60923-0518-27",
           "_source": "REF_DOSE_parsed",
           "vialVol": 270,
-          "rxcui": "2641722",
-          "rxnorm_name": "{27 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 26.5 - 27.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (28.5-29.4 kg)) INJ",
@@ -14112,10 +14128,11 @@
           "ndc": "60923-0520-29",
           "_source": "REF_DOSE_parsed",
           "vialVol": 290,
-          "rxcui": "2641726",
-          "rxnorm_name": "{29 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 28.5 - 29.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (29.5-30.4 kg)) INJ",
@@ -14129,10 +14146,11 @@
           "ndc": "60923-0521-30",
           "_source": "REF_DOSE_parsed",
           "vialVol": 300,
-          "rxcui": "2641728",
-          "rxnorm_name": "{30 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 29.5 - 30.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (22.5-23.4 kg)) INJ",
@@ -14146,10 +14164,11 @@
           "ndc": "60923-0514-23",
           "_source": "REF_DOSE_parsed",
           "vialVol": 230,
-          "rxcui": "2641714",
-          "rxnorm_name": "{23 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 22.5 - 23.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (24.5-25.4 kg)) INJ",
@@ -14163,10 +14182,11 @@
           "ndc": "60923-0516-25",
           "_source": "REF_DOSE_parsed",
           "vialVol": 250,
-          "rxcui": "2641718",
-          "rxnorm_name": "{25 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 24.5 - 25.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (42.5-43.4 kg)) INJ",
@@ -14180,10 +14200,11 @@
           "ndc": "60923-0534-43",
           "_source": "REF_DOSE_parsed",
           "vialVol": 430,
-          "rxcui": "2641755",
-          "rxnorm_name": "{43 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 42.5 - 43.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (41.5-42.4 kg)) INJ",
@@ -14197,10 +14218,11 @@
           "ndc": "60923-0533-42",
           "_source": "REF_DOSE_parsed",
           "vialVol": 420,
-          "rxcui": "2641753",
-          "rxnorm_name": "{42 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 41.5 - 42.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (39.5-40.4 kg)) INJ",
@@ -14214,10 +14236,11 @@
           "ndc": "60923-0531-40",
           "_source": "REF_DOSE_parsed",
           "vialVol": 400,
-          "rxcui": "2641748",
-          "rxnorm_name": "{40 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 39.5 - 40.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (14.5-15.4 kg)) INJ",
@@ -14231,10 +14254,11 @@
           "ndc": "60923-0506-15",
           "_source": "REF_DOSE_parsed",
           "vialVol": 150,
-          "rxcui": "2641698",
-          "rxnorm_name": "{15 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 14.5 - 15.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (12.5-13.4 kg)) INJ",
@@ -14248,10 +14272,11 @@
           "ndc": "60923-0504-13",
           "_source": "REF_DOSE_parsed",
           "vialVol": 130,
-          "rxcui": "2641694",
-          "rxnorm_name": "{13 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 12.5 - 13.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (31.5-32.4 kg)) INJ",
@@ -14265,10 +14290,11 @@
           "ndc": "60923-0523-32",
           "_source": "REF_DOSE_parsed",
           "vialVol": 320,
-          "rxcui": "2641732",
-          "rxnorm_name": "{32 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 31.5 - 32.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (32.5-33.4 kg)) INJ",
@@ -14282,10 +14308,11 @@
           "ndc": "60923-0524-33",
           "_source": "REF_DOSE_parsed",
           "vialVol": 330,
-          "rxcui": "2641734",
-          "rxnorm_name": "{33 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 32.5 - 33.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (44.5-45.4 kg)) INJ",
@@ -14299,10 +14326,11 @@
           "ndc": "60923-0536-45",
           "_source": "REF_DOSE_parsed",
           "vialVol": 450,
-          "rxcui": "2641759",
-          "rxnorm_name": "{45 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 44.5 - 45.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (45.5-46.4 kg)) INJ",
@@ -14316,10 +14344,11 @@
           "ndc": "60923-0537-46",
           "_source": "REF_DOSE_parsed",
           "vialVol": 460,
-          "rxcui": "2641761",
-          "rxnorm_name": "{46 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 45.5 - 46.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (46.5-47.4 kg)) INJ",
@@ -14333,10 +14362,11 @@
           "ndc": "60923-0538-47",
           "_source": "REF_DOSE_parsed",
           "vialVol": 470,
-          "rxcui": "2641763",
-          "rxnorm_name": "{47 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 46.5 - 47.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (47.5-48.4 kg)) INJ",
@@ -14350,10 +14380,11 @@
           "ndc": "60923-0539-48",
           "_source": "REF_DOSE_parsed",
           "vialVol": 480,
-          "rxcui": "2641765",
-          "rxnorm_name": "{48 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 47.5 - 48.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (50.5-51.4 kg)) INJ",
@@ -14367,10 +14398,11 @@
           "ndc": "60923-0542-51",
           "_source": "REF_DOSE_parsed",
           "vialVol": 510,
-          "rxcui": "2641771",
-          "rxnorm_name": "{51 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 50.5 - 51.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (51.5-52.4 kg)) INJ",
@@ -14384,10 +14416,11 @@
           "ndc": "60923-0543-52",
           "_source": "REF_DOSE_parsed",
           "vialVol": 520,
-          "rxcui": "2641773",
-          "rxnorm_name": "{52 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 51.5 - 52.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (53.5-54.4 kg)) INJ",
@@ -14401,10 +14434,11 @@
           "ndc": "60923-0545-54",
           "_source": "REF_DOSE_parsed",
           "vialVol": 540,
-          "rxcui": "2641777",
-          "rxnorm_name": "{54 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 53.5 - 54.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (10.5-11.4 kg)) INJ",
@@ -14418,10 +14452,11 @@
           "ndc": "60923-0502-11",
           "_source": "REF_DOSE_parsed",
           "vialVol": 110,
-          "rxcui": "2641690",
-          "rxnorm_name": "{11 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 10.5 - 11.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (43.5-44.4 kg)) INJ",
@@ -14435,10 +14470,11 @@
           "ndc": "60923-0535-44",
           "_source": "REF_DOSE_parsed",
           "vialVol": 440,
-          "rxcui": "2641757",
-          "rxnorm_name": "{44 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 43.5 - 44.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (40.5-41.4 kg)) INJ",
@@ -14452,10 +14488,11 @@
           "ndc": "60923-0532-41",
           "_source": "REF_DOSE_parsed",
           "vialVol": 410,
-          "rxcui": "2641751",
-          "rxnorm_name": "{41 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 40.5 - 41.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (13.5-14.4 kg)) INJ",
@@ -14469,10 +14506,11 @@
           "ndc": "60923-0505-14",
           "_source": "REF_DOSE_parsed",
           "vialVol": 140,
-          "rxcui": "2641696",
-          "rxnorm_name": "{14 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 13.5 - 14.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (15.5-16.4 kg)) INJ",
@@ -14486,10 +14524,11 @@
           "ndc": "60923-0507-16",
           "_source": "REF_DOSE_parsed",
           "vialVol": 160,
-          "rxcui": "2641700",
-          "rxnorm_name": "{16 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 15.5 - 16.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (30.5-31.4 kg)) INJ",
@@ -14503,10 +14542,11 @@
           "ndc": "60923-0522-31",
           "_source": "REF_DOSE_parsed",
           "vialVol": 310,
-          "rxcui": "2641730",
-          "rxnorm_name": "{31 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 30.5 - 31.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (33.5-34.4 kg)) INJ",
@@ -14520,10 +14560,11 @@
           "ndc": "60923-0525-34",
           "_source": "REF_DOSE_parsed",
           "vialVol": 340,
-          "rxcui": "2641736",
-          "rxnorm_name": "{34 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 33.5 - 34.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (34.5-35.4 kg)) INJ",
@@ -14537,10 +14578,11 @@
           "ndc": "60923-0526-35",
           "_source": "REF_DOSE_parsed",
           "vialVol": 350,
-          "rxcui": "2641738",
-          "rxnorm_name": "{35 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 34.5 - 35.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (35.5-36.4 kg)) INJ",
@@ -14554,10 +14596,11 @@
           "ndc": "60923-0527-36",
           "_source": "REF_DOSE_parsed",
           "vialVol": 360,
-          "rxcui": "2641740",
-          "rxnorm_name": "{36 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 35.5 - 36.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (36.5-37.4 kg)) INJ",
@@ -14571,10 +14614,11 @@
           "ndc": "60923-0528-37",
           "_source": "REF_DOSE_parsed",
           "vialVol": 370,
-          "rxcui": "2641742",
-          "rxnorm_name": "{37 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 36.5 - 37.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (37.5-38.4 kg)) INJ",
@@ -14588,10 +14632,11 @@
           "ndc": "60923-0529-38",
           "_source": "REF_DOSE_parsed",
           "vialVol": 380,
-          "rxcui": "2641744",
-          "rxnorm_name": "{38 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 37.5 - 38.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (38.5-39.4 kg)) INJ",
@@ -14605,10 +14650,11 @@
           "ndc": "60923-0530-39",
           "_source": "REF_DOSE_parsed",
           "vialVol": 390,
-          "rxcui": "2641746",
-          "rxnorm_name": "{39 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 38.5 - 39.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (48.5-49.4 kg)) INJ",
@@ -14622,10 +14668,11 @@
           "ndc": "60923-0540-49",
           "_source": "REF_DOSE_parsed",
           "vialVol": 490,
-          "rxcui": "2641767",
-          "rxnorm_name": "{49 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 48.5 - 49.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (49.5-50.4 kg)) INJ",
@@ -14639,10 +14686,11 @@
           "ndc": "60923-0541-50",
           "_source": "REF_DOSE_parsed",
           "vialVol": 500,
-          "rxcui": "2641769",
-          "rxnorm_name": "{50 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 49.5 - 50.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (52.5-53.4 kg)) INJ",
@@ -14656,10 +14704,11 @@
           "ndc": "60923-0544-53",
           "_source": "REF_DOSE_parsed",
           "vialVol": 530,
-          "rxcui": "2641775",
-          "rxnorm_name": "{53 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 52.5 - 53.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (54.5-55.4 kg)) INJ",
@@ -14673,10 +14722,11 @@
           "ndc": "60923-0546-55",
           "_source": "REF_DOSE_parsed",
           "vialVol": 550,
-          "rxcui": "2641779",
-          "rxnorm_name": "{55 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 54.5 - 55.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (55.5-56.4 kg)) INJ",
@@ -14690,10 +14740,11 @@
           "ndc": "60923-0547-56",
           "_source": "REF_DOSE_parsed",
           "vialVol": 560,
-          "rxcui": "2641781",
-          "rxnorm_name": "{56 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 55.5 - 56.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (56.5-57.4 kg)) INJ",
@@ -14707,10 +14758,11 @@
           "ndc": "60923-0548-57",
           "_source": "REF_DOSE_parsed",
           "vialVol": 570,
-          "rxcui": "2641783",
-          "rxnorm_name": "{57 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 56.5 - 57.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (10-10.4 kg)) INJ",
@@ -14724,10 +14776,11 @@
           "ndc": "60923-0501-10",
           "_source": "REF_DOSE_parsed",
           "vialVol": 100,
-          "rxcui": "2641688",
-          "rxnorm_name": "{10 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 10.0 - 10.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (59.5-60.4 kg)) INJ",
@@ -14741,10 +14794,11 @@
           "ndc": "60923-0551-60",
           "_source": "REF_DOSE_parsed",
           "vialVol": 600,
-          "rxcui": "2641789",
-          "rxnorm_name": "{60 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 59.5 - 60.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (69.5 kg and above)) INJ",
@@ -14758,10 +14812,11 @@
           "ndc": "60923-0561-70",
           "_source": "REF_DOSE_parsed",
           "vialVol": 700,
-          "rxcui": "2641849",
-          "rxnorm_name": "{70 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit > 69.5 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (61.5-62.4 kg)) INJ",
@@ -14775,10 +14830,11 @@
           "ndc": "60923-0553-62",
           "_source": "REF_DOSE_parsed",
           "vialVol": 620,
-          "rxcui": "2641833",
-          "rxnorm_name": "{62 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 61.5 - 62.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (63.5-64.4 kg)) INJ",
@@ -14792,10 +14848,11 @@
           "ndc": "60923-0555-64",
           "_source": "REF_DOSE_parsed",
           "vialVol": 640,
-          "rxcui": "2641837",
-          "rxnorm_name": "{64 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 63.5 - 64.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (64.5-65.4 kg)) INJ",
@@ -14809,10 +14866,11 @@
           "ndc": "60923-0556-65",
           "_source": "REF_DOSE_parsed",
           "vialVol": 650,
-          "rxcui": "2641839",
-          "rxnorm_name": "{65 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 64.5 - 65.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (66.5-67.4 kg)) INJ",
@@ -14826,10 +14884,11 @@
           "ndc": "60923-0558-67",
           "_source": "REF_DOSE_parsed",
           "vialVol": 670,
-          "rxcui": "2641843",
-          "rxnorm_name": "{67 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 66.5 - 67.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (68.5-69.4 kg)) INJ",
@@ -14843,10 +14902,11 @@
           "ndc": "60923-0560-69",
           "_source": "REF_DOSE_parsed",
           "vialVol": 690,
-          "rxcui": "2641847",
-          "rxnorm_name": "{69 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 68.5 - 69.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (62.5-63.4 kg)) INJ",
@@ -14860,10 +14920,11 @@
           "ndc": "60923-0554-63",
           "_source": "REF_DOSE_parsed",
           "vialVol": 630,
-          "rxcui": "2641835",
-          "rxnorm_name": "{63 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 62.5 - 63.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (65.5-66.4 kg)) INJ",
@@ -14877,10 +14938,11 @@
           "ndc": "60923-0557-66",
           "_source": "REF_DOSE_parsed",
           "vialVol": 660,
-          "rxcui": "2641841",
-          "rxnorm_name": "{66 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 65.5 - 66.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (67.5-68.4 kg)) INJ",
@@ -14894,10 +14956,11 @@
           "ndc": "60923-0559-68",
           "_source": "REF_DOSE_parsed",
           "vialVol": 680,
-          "rxcui": "2641845",
-          "rxnorm_name": "{68 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 67.5 - 68.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "DELANDISTROGENE (Elevidys (17.5-18.4 kg)) INJ",
@@ -14911,10 +14974,11 @@
           "ndc": "60923-0509-18",
           "_source": "REF_DOSE_parsed",
           "vialVol": 180,
-          "rxcui": "2641704",
-          "rxnorm_name": "{18 (10 ML delandistrogene moxeparvovec-rokl 13300000000000 VECTOR-GENOMES/ML Injection [Elevidys]) } Pack [Elevidys Kit 17.5 - 18.4 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -15938,10 +16002,11 @@
           "ndc": "00338-0023-02A",
           "_source": "REF_DOSE_parsed",
           "vialVol": 250,
-          "rxcui": "833007",
-          "rxnorm_name": "desmopressin acetate 0.2 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score9.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "D10%/0.2% SOD ACETATE 500 ML",
@@ -15955,10 +16020,11 @@
           "ndc": "00338-0023-02B",
           "_source": "REF_DOSE_parsed",
           "vialVol": 500,
-          "rxcui": "833007",
-          "rxnorm_name": "desmopressin acetate 0.2 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score9.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -16454,10 +16520,10 @@
           "ndc": "00173-0262-10A",
           "_source": "STR/VOL",
           "vialVol": 20,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "3407",
+          "rxnorm_name": "digoxin",
+          "rxnorm_tty": "IN",
+          "_rxnorm_src": "approx_generic_score12.3"
         }
       ]
     },
@@ -19245,9 +19311,9 @@
           "ndc": "42023-0168-01K",
           "_source": "STR/VOL",
           "vialVol": 250,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
+          "rxcui": "2719199",
+          "rxnorm_name": "epinephrine 0.04 MG/ML",
+          "rxnorm_tty": "SCDC",
           "_rxnorm_src": "approx_label_score13.8"
         },
         {
@@ -19343,10 +19409,10 @@
           "ndc": "42023-0168-01M",
           "_source": "STR/VOL",
           "vialVol": 100,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "317361",
+          "rxnorm_name": "epinephrine 0.1 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score11.4"
         },
         {
           "label": "NS EPINEPHrine 0.1 mg/mL STND 30 ML",
@@ -19360,10 +19426,10 @@
           "ndc": "42023-0168-01L",
           "_source": "STR/VOL",
           "vialVol": 30,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "317361",
+          "rxnorm_name": "epinephrine 0.1 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score11.4"
         }
       ]
     },
@@ -19789,10 +19855,10 @@
           "ndc": "25021-0199-20A",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "1734683",
+          "rxnorm_name": "ertapenem 1000 MG Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.1"
+          "_rxnorm_src": "approx_constructed_score12.2"
         }
       ]
     },
@@ -20054,10 +20120,10 @@
           "ndc": "10019-0055-61B",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "1736546",
+          "rxnorm_name": "10 ML esmolol hydrochloride 10 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.3"
+          "_rxnorm_src": "approx_constructed_score14.9"
         }
       ]
     },
@@ -20094,10 +20160,10 @@
           "ndc": "25021-0309-82A",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "979431",
+          "rxnorm_name": "esmolol hydrochloride 20 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score11.4"
         }
       ]
     },
@@ -20817,10 +20883,11 @@
           "ndc": "00053-0220-22H",
           "_source": "REF_DOSE_parsed",
           "vialVol": 220,
-          "rxcui": "2626852",
-          "rxnorm_name": "{44 (10 ML etranacogene dezaparvovec-drlb 10000000000000 VECTOR-GENOMES/ML Injection [Hemgenix]) } Pack [Hemgenix Kit 216 - 220 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "approx_constructed_score9.7"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -20840,10 +20907,11 @@
           "ndc": "00053-0250-25",
           "_source": "REF_DOSE_parsed",
           "vialVol": 250,
-          "rxcui": "2626811",
-          "rxnorm_name": "{25 (10 ML etranacogene dezaparvovec-drlb 10000000000000 VECTOR-GENOMES/ML Injection [Hemgenix]) } Pack [Hemgenix Kit 121 - 125 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -20863,10 +20931,11 @@
           "ndc": "00053-0100-10",
           "_source": "REF_DOSE_parsed",
           "vialVol": 100,
-          "rxcui": "2626781",
-          "rxnorm_name": "{10 (10 ML etranacogene dezaparvovec-drlb 10000000000000 VECTOR-GENOMES/ML Injection [Hemgenix]) } Pack [Hemgenix Kit 46 - 50 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -20886,10 +20955,11 @@
           "ndc": "00053-0110-11",
           "_source": "REF_DOSE_parsed",
           "vialVol": 110,
-          "rxcui": "2626783",
-          "rxnorm_name": "{11 (10 ML etranacogene dezaparvovec-drlb 10000000000000 VECTOR-GENOMES/ML Injection [Hemgenix]) } Pack [Hemgenix Kit 51 - 55 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -20909,10 +20979,11 @@
           "ndc": "00053-0160-16a",
           "_source": "REF_DOSE_parsed",
           "vialVol": 160,
-          "rxcui": "2626771",
-          "rxnorm_name": "etranacogene dezaparvovec Injection",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score12.8"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -20932,10 +21003,11 @@
           "ndc": "00053-0170-17a",
           "_source": "REF_DOSE_parsed",
           "vialVol": 170,
-          "rxcui": "2626838",
-          "rxnorm_name": "{34 (10 ML etranacogene dezaparvovec-drlb 10000000000000 VECTOR-GENOMES/ML Injection [Hemgenix]) } Pack [Hemgenix Kit 166 - 170 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "approx_constructed_score10.0"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -20955,10 +21027,11 @@
           "ndc": "00053-0180-18a",
           "_source": "REF_DOSE_parsed",
           "vialVol": 180,
-          "rxcui": "2627142",
-          "rxnorm_name": "{36 (10 ML etranacogene dezaparvovec-drlb 10000000000000 VECTOR-GENOMES/ML Injection [Hemgenix]) } Pack [Hemgenix Kit 176 - 180 KG]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "approx_constructed_score9.5"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -21672,10 +21745,10 @@
           "ndc": "73177-0102-01",
           "_source": "STR/VOL",
           "vialVol": 1,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "2474267",
+          "rxnorm_name": "2 ML fentanyl 0.05 MG/ML Prefilled Syringe",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.3"
+          "_rxnorm_src": "approx_label_score11.9"
         }
       ]
     },
@@ -26099,7 +26172,7 @@
           "rxcui": "1807637",
           "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_constructed_score15.9"
         }
       ]
     },
@@ -29612,10 +29685,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "238082",
+          "rxnorm_name": "ketamine 10 MG/ML Injectable Solution",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.3"
+          "_rxnorm_src": "approx_constructed_score15.1"
         },
         {
           "label": "KETAMINE 10 mg/mL STND 100 ML NS",
@@ -29630,10 +29703,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "238082",
+          "rxnorm_name": "ketamine 10 MG/ML Injectable Solution",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.3"
+          "_rxnorm_src": "approx_constructed_score15.1"
         },
         {
           "label": "KETAMINE 10 mg/mL STND 250 ML NS",
@@ -29648,10 +29721,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "238082",
+          "rxnorm_name": "ketamine 10 MG/ML Injectable Solution",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.3"
+          "_rxnorm_src": "approx_constructed_score15.1"
         },
         {
           "label": "KETAMINE 10 mg/mL STND 500 ML NS",
@@ -29666,10 +29739,10 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "238082",
+          "rxnorm_name": "ketamine 10 MG/ML Injectable Solution",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.3"
+          "_rxnorm_src": "approx_constructed_score15.1"
         }
       ]
     },
@@ -29754,10 +29827,10 @@
           "ndc": "00409-2051-05C",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "328379",
+          "rxnorm_name": "ketamine 100 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score10.8"
         }
       ]
     },
@@ -34295,10 +34368,10 @@
           "ndc": "63323-0508-30i",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "2664894",
+          "rxnorm_name": "meropenem 2000 MG Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.1"
+          "_rxnorm_src": "approx_constructed_score11.8"
         },
         {
           "label": "MEROPENEM 1000 MG VIAL",
@@ -36265,10 +36338,10 @@
           "ndc": "00409-0152-24A",
           "_source": "STR/VOL",
           "vialVol": 101,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "311683",
+          "rxnorm_name": "100 ML metronidazole 5 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.1"
+          "_rxnorm_src": "approx_constructed_score11.8"
         },
         {
           "label": "metroNIDAZOLE 250 MG TAB",
@@ -36986,10 +37059,10 @@
           "ndc": "00143-9709-10B",
           "_source": "STR/VOL",
           "vialVol": 20,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "52769",
+          "rxnorm_name": "milrinone",
+          "rxnorm_tty": "IN",
+          "_rxnorm_src": "approx_generic_score13.3"
         }
       ]
     },
@@ -37060,10 +37133,10 @@
           "ndc": "00143-9709-10C",
           "_source": "STR/VOL",
           "vialVol": 30,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "1791842",
+          "rxnorm_name": "200 ML milrinone lactate 0.2 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_constructed_score15.6"
         },
         {
           "label": "NS MILRINONE 0.2 MG/ML STND 100 ML",
@@ -37077,10 +37150,10 @@
           "ndc": "00143-9709-10D",
           "_source": "STR/VOL",
           "vialVol": 100,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "1791842",
+          "rxnorm_name": "200 ML milrinone lactate 0.2 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_constructed_score15.6"
         },
         {
           "label": "NS MILRINONE 0.2 MG/ML STND 200 ML",
@@ -37094,10 +37167,10 @@
           "ndc": "00143-9709-10E",
           "_source": "STR/VOL",
           "vialVol": 200,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "1791842",
+          "rxnorm_name": "200 ML milrinone lactate 0.2 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_constructed_score15.6"
         }
       ]
     },
@@ -37134,10 +37207,10 @@
           "ndc": "00143-9709-10F",
           "_source": "STR/VOL",
           "vialVol": 40,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "1791842",
+          "rxnorm_name": "200 ML milrinone lactate 0.2 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_constructed_score13.4"
         },
         {
           "label": "D5W MILRINONE 0.5 MG/ML STND 100 ML",
@@ -37168,10 +37241,10 @@
           "ndc": "00143-9709-10I",
           "_source": "STR/VOL",
           "vialVol": 100,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "1791842",
+          "rxnorm_name": "200 ML milrinone lactate 0.2 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "_rxnorm_src": "approx_constructed_score13.4"
         }
       ]
     },
@@ -37851,10 +37924,10 @@
           "ndc": "73177-0105-30",
           "_source": "STR/VOL",
           "vialVol": 30,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "892476",
+          "rxnorm_name": "morphine sulfate 1 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score10.0"
         }
       ]
     },
@@ -37874,10 +37947,10 @@
           "ndc": "00409-1134-03A",
           "_source": "STR/VOL",
           "vialVol": 50,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score13.8"
+          "rxcui": "895218",
+          "rxnorm_name": "morphine sulfate 5 MG/ML",
+          "rxnorm_tty": "SCDC",
+          "_rxnorm_src": "approx_label_score10.0"
         }
       ]
     },
@@ -38581,10 +38654,11 @@
           "ndc": "00186-1199-35",
           "_source": "REF_DOSE_unparsed",
           "vialVol": 10,
-          "rxcui": "1305882",
-          "rxnorm_name": "chlorophyllin copper complex 33.3 MG Oral Tablet [Nullo]",
-          "rxnorm_tty": "SBD",
-          "_rxnorm_src": "approx_constructed_score7.9"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -41419,10 +41493,11 @@
           "_source": "STR/VOL",
           "canHalf": false,
           "canQuarter": false,
-          "rxcui": "200034",
-          "rxnorm_name": "olanzapine 2.5 MG Oral Tablet",
-          "rxnorm_tty": "SCD",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "OLANZapine 5 MG ORAL DISINT TAB",
@@ -41756,10 +41831,11 @@
           "ndc": "71894-0125-04",
           "_source": "REF_DOSE_parsed",
           "vialVol": 30.3,
-          "rxcui": "2170289",
-          "rxnorm_name": "{1 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 3 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 5.1 - 5.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (5.6-6.0 kg)) INJ",
@@ -41773,10 +41849,11 @@
           "ndc": "71894-0126-04",
           "_source": "REF_DOSE_parsed",
           "vialVol": 33,
-          "rxcui": "2170291",
-          "rxnorm_name": "{4 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 5.6 - 6.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (13.1-13.5 kg)) INJ",
@@ -41790,10 +41867,11 @@
           "ndc": "71894-0141-09",
           "_source": "REF_DOSE_parsed",
           "vialVol": 74.3,
-          "rxcui": "2170257",
-          "rxnorm_name": "{9 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 13.1 - 13.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (2.6-3.0 kg)) INJ",
@@ -41807,10 +41885,11 @@
           "ndc": "71894-0120-02",
           "_source": "REF_DOSE_parsed",
           "vialVol": 16.5,
-          "rxcui": "2170255",
-          "rxnorm_name": "{2 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 2.6 - 3.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (3.6-4.0 kg)) INJ",
@@ -41824,10 +41903,11 @@
           "ndc": "71894-0122-03",
           "_source": "REF_DOSE_parsed",
           "vialVol": 22,
-          "rxcui": "2170249",
-          "rxnorm_name": "{1 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 2 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 3.6 - 4.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (4.1�4.5 kg)) INJ",
@@ -41841,10 +41921,11 @@
           "ndc": "71894-0123-03",
           "_source": "REF_DOSE_parsed",
           "vialVol": 24.8,
-          "rxcui": "2170251",
-          "rxnorm_name": "{3 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 4.1 - 4.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (3.1-3.5 kg)) INJ",
@@ -41858,10 +41939,11 @@
           "ndc": "71894-0121-03",
           "_source": "REF_DOSE_parsed",
           "vialVol": 19.3,
-          "rxcui": "2170247",
-          "rxnorm_name": "{2 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 1 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 3.1 - 3.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (8.6-9.0 kg)) INJ",
@@ -41875,10 +41957,11 @@
           "ndc": "71894-0132-06",
           "_source": "REF_DOSE_parsed",
           "vialVol": 49.5,
-          "rxcui": "2170282",
-          "rxnorm_name": "{6 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 8.6 - 9.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (9.1-9.5 kg)) INJ",
@@ -41892,10 +41975,11 @@
           "ndc": "71894-0133-07",
           "_source": "REF_DOSE_parsed",
           "vialVol": 52.3,
-          "rxcui": "2170284",
-          "rxnorm_name": "{2 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 5 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 9.1 - 9.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (10.1-10.5 kg)) INJ",
@@ -41909,10 +41993,11 @@
           "ndc": "71894-0135-07",
           "_source": "REF_DOSE_parsed",
           "vialVol": 57.8,
-          "rxcui": "2170261",
-          "rxnorm_name": "{7 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 10.1 - 10.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (10.6-11.0 kg)) INJ",
@@ -41926,10 +42011,11 @@
           "ndc": "71894-0136-08",
           "_source": "REF_DOSE_parsed",
           "vialVol": 60.5,
-          "rxcui": "2170263",
-          "rxnorm_name": "{2 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 6 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 10.6 - 11.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (11.1-11.5 kg)) INJ",
@@ -41943,10 +42029,11 @@
           "ndc": "71894-0137-08",
           "_source": "REF_DOSE_parsed",
           "vialVol": 63.3,
-          "rxcui": "2170265",
-          "rxnorm_name": "{1 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 7 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 11.1 - 11.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (12.1-12.5 kg)) INJ",
@@ -41960,10 +42047,11 @@
           "ndc": "71894-0139-09",
           "_source": "REF_DOSE_parsed",
           "vialVol": 68.8,
-          "rxcui": "2170274",
-          "rxnorm_name": "{2 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 7 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 12.1 - 12.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (6.1-6.5 kg)) INJ",
@@ -41977,10 +42065,11 @@
           "ndc": "71894-0127-05",
           "_source": "REF_DOSE_parsed",
           "vialVol": 35.8,
-          "rxcui": "2170293",
-          "rxnorm_name": "{2 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 3 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 6.1 - 6.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (6.6-7.0 kg)) INJ",
@@ -41994,10 +42083,11 @@
           "ndc": "71894-0128-05",
           "_source": "REF_DOSE_parsed",
           "vialVol": 38.5,
-          "rxcui": "2170295",
-          "rxnorm_name": "{1 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 4 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 6.6 - 7.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (7.1-7.5 kg)) INJ",
@@ -42011,10 +42101,11 @@
           "ndc": "71894-0129-05",
           "_source": "REF_DOSE_parsed",
           "vialVol": 41.3,
-          "rxcui": "2170272",
-          "rxnorm_name": "{5 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 7.1 - 7.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (7.6-8.0 kg)) INJ",
@@ -42028,10 +42119,11 @@
           "ndc": "71894-0130-06",
           "_source": "REF_DOSE_parsed",
           "vialVol": 44,
-          "rxcui": "2170276",
-          "rxnorm_name": "{2 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 4 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 7.6 - 8.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (8.1-8.5 kg)) INJ",
@@ -42045,10 +42137,11 @@
           "ndc": "71894-0131-06",
           "_source": "REF_DOSE_parsed",
           "vialVol": 46.8,
-          "rxcui": "2170279",
-          "rxnorm_name": "{1 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 5 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 8.1 - 8.5 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (9.6-10.0 kg)) INJ",
@@ -42062,10 +42155,11 @@
           "ndc": "71894-0134-07",
           "_source": "REF_DOSE_parsed",
           "vialVol": 55,
-          "rxcui": "2170259",
-          "rxnorm_name": "{1 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 6 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 9.6 - 10.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (11.6-12.0 kg)) INJ",
@@ -42079,10 +42173,11 @@
           "ndc": "71894-0138-08",
           "_source": "REF_DOSE_parsed",
           "vialVol": 66,
-          "rxcui": "2170267",
-          "rxnorm_name": "{8 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 11.6 - 12.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (12.6-13.0 kg)) INJ",
@@ -42096,10 +42191,11 @@
           "ndc": "71894-0140-09",
           "_source": "REF_DOSE_parsed",
           "vialVol": 71.5,
-          "rxcui": "2170297",
-          "rxnorm_name": "{1 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 8 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 12.6 - 13.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "ONASEMNOGENE (Zolgensma (4.6-5.0 kg)) INJ",
@@ -42113,10 +42209,11 @@
           "ndc": "71894-0124-04",
           "_source": "REF_DOSE_parsed",
           "vialVol": 27.5,
-          "rxcui": "2170253",
-          "rxnorm_name": "{2 (5.5 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) / 2 (8.3 ML onasemnogene abeparvovec-xioi 20000000000000 VECTOR-GENOMES/ML Injection [Zolgensma]) } Pack [Zolgensma Kit 4.6 - 5.0 kg]",
-          "rxnorm_tty": "BPCK",
-          "_rxnorm_src": "ndc"
+          "_rxnorm_ignore": "gene_therapy_weight_banded",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         }
       ]
     },
@@ -43441,10 +43538,10 @@
           "ndc": "71288-0600-11A",
           "_source": "STR/VOL",
           "vialVol": 10,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "2675781",
+          "rxnorm_name": "100 ML pantoprazole 0.4 MG/ML Injection",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score15.1"
+          "_rxnorm_src": "approx_label_score11.3"
         }
       ]
     },
@@ -52078,10 +52175,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score18.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM UD SUSP  2.5 ML",
@@ -52096,10 +52194,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score16.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM UD SUSP  5 ML",
@@ -52114,10 +52213,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score18.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM UD SUSP  7.5ML",
@@ -52132,10 +52232,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score16.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM UD SUSP  3 ML",
@@ -52150,10 +52251,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score18.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM UD SUSP  3.5 ML",
@@ -52168,10 +52270,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score16.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM UD SUSP  3.75ML",
@@ -52186,10 +52289,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score16.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM UD SUSP  4 ML",
@@ -52204,10 +52308,11 @@
           "_source": "STR/VOL",
           "preferredVols": [],
           "deviceLimited": false,
-          "rxcui": "374229",
-          "rxnorm_name": "trimethoprim Oral Suspension",
-          "rxnorm_tty": "SCDF",
-          "_rxnorm_src": "approx_label_score18.6"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM.ORAL SUSP",
@@ -52288,10 +52393,11 @@
           "_source": "STR/VOL",
           "canHalf": false,
           "canQuarter": false,
-          "rxcui": "402626",
-          "rxnorm_name": "trimethoprim 20 MG",
-          "rxnorm_tty": "SCDC",
-          "_rxnorm_src": "approx_label_score16.1"
+          "_rxnorm_ignore": "manual",
+          "rxcui": null,
+          "rxnorm_name": null,
+          "rxnorm_tty": null,
+          "_rxnorm_src": "ignored"
         },
         {
           "label": "SULFAMETH -TRIMETHOPRIM TAB SS 40 MG SEG",
@@ -53915,10 +54021,10 @@
           "ndc": "63323-0306-30A",
           "_source": "STR/VOL",
           "vialVol": 4,
-          "rxcui": "1807637",
-          "rxnorm_name": "10 ML sodium chloride 9 MG/ML Injection",
+          "rxcui": "313416",
+          "rxnorm_name": "tobramycin 10 MG/ML Injectable Solution",
           "rxnorm_tty": "SCD",
-          "_rxnorm_src": "approx_label_score16.6"
+          "_rxnorm_src": "approx_label_score11.2"
         },
         {
           "label": "TOBRAMYCIN 80 MG/2 ML INJ VIAL",
@@ -58374,8 +58480,8 @@
       "Investigational": 75,
       "dialysate": 24
     },
-    "rxnorm_enriched": 2611,
-    "rxnorm_not_found": 192,
-    "rxnorm_run_date": "2026-05-31T15:49:49.351Z"
+    "rxnorm_enriched": 2642,
+    "rxnorm_not_found": 161,
+    "rxnorm_run_date": "2026-05-31T19:32:44.527Z"
   }
 }
