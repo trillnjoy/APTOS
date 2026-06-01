@@ -379,7 +379,11 @@ function buildCrossTabletTable(formulations, targetMgKg, variancePct, maxDose) {
     }
 
     // Selection: tier first (0=whole best), then widest coverage, then fewest units
-    const best = reachable.reduce((a, b) => {
+    // Require candidate to provide meaningful band width (> 0.05 kg)
+    // to prevent hair-thin collision bands at cross-formulation boundaries
+    const meaningful = reachable.filter(c => c.wHigh - cursor > 0.05);
+    const pool = meaningful.length ? meaningful : reachable;
+    const best = pool.reduce((a, b) => {
       if (a.tier !== b.tier)                       return a.tier < b.tier ? a : b;
       if (Math.abs(b.wHigh - a.wHigh) > 0.0001)   return b.wHigh > a.wHigh ? b : a;
       if (a.dispensed !== b.dispensed)              return a.dispensed < b.dispensed ? a : b;
