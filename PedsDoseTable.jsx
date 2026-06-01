@@ -840,7 +840,7 @@ export default function PedsDoseTable() {
         {/* Row 1: Drug */}
         <div style={{ position:"relative" }}>
           <span style={CAP}>Drug</span>
-          <div onClick={e => { e.stopPropagation(); setDrugOpen(o => !o); setDrugFilter(""); }}
+          <div onClick={e => { e.stopPropagation(); setDrugOpen(o => !o); }}
                style={{ ...ctrlBase, display:"flex", alignItems:"center", justifyContent:"space-between",
                         cursor:"pointer", fontFamily:SANS, color:drug?"#111":"#aaa" }}>
             <span style={{ overflow:"hidden", textOverflow:"ellipsis", whiteSpace:"nowrap" }}>
@@ -862,12 +862,19 @@ export default function PedsDoseTable() {
                        style={{ width:"100%", border:"1px solid #ccc", borderRadius:4,
                                 padding:"5px 8px", fontSize:16, fontFamily:SANS, outline:"none" }} />
               </div>
-              <div style={{ overflowY:"auto", flex:1 }}>
+              <div style={{ overflowY:"auto", flex:1 }}
+                   ref={el => {
+                     if (el && drugIdx >= 0) {
+                       const sel = el.querySelector('[data-selected="true"]');
+                       if (sel) sel.scrollIntoView({ block:"nearest" });
+                     }
+                   }}>
                 {DRUG_DB
                   .map((d, i) => ({ d, i }))
                   .filter(({ d }) => d.generic.toLowerCase().includes(drugFilter.toLowerCase()))
                   .map(({ d, i }) => (
-                    <div key={i} onClick={() => selectDrug(i)}
+                    <div key={i} data-selected={i===drugIdx?"true":"false"}
+                         onClick={() => { selectDrug(i); setDrugFilter(""); }}
                          style={{ padding:"9px 12px", fontSize:14, fontFamily:SANS, cursor:"pointer",
                                   color:"#111", background:i===drugIdx?"#e8eef8":"transparent",
                                   borderBottom:"1px solid #f0f0ee" }}>
