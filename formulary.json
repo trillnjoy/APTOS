@@ -249,6 +249,58 @@
           "rxnorm_name": null,
           "rxnorm_tty": null,
           "_rxnorm_src": "not_found"
+        },
+        {
+          "label": "ACETAMINOPHEN 120 MG SUPP",
+          "concentration": 120.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "3813",
+          "ndc": "51672-2115-02",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "ACETAMINOPHEN 325 MG SUPP",
+          "concentration": 325.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "3816",
+          "ndc": "51672-2116-02",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "ACETAMINOPHEN 650 MG SUPP",
+          "concentration": 650.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "3817",
+          "ndc": "45802-0730-30",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "ACETAMINOPHEN 80 MG SUPP",
+          "concentration": 80.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "3867",
+          "ndc": "51672-2114-02",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
         }
       ]
     },
@@ -3528,6 +3580,32 @@
           "rxnorm_name": "aspirin 325 MG Delayed Release Oral Tablet",
           "rxnorm_tty": "SCD",
           "_rxnorm_src": "ndc"
+        },
+        {
+          "label": "ASPIRIN 300 MG SUPP",
+          "concentration": 300.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "3837",
+          "ndc": "00574-7034-12",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "ASPIRIN 600 MG SUPP",
+          "concentration": 600.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "3838",
+          "ndc": "00574-7036-12",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
         }
       ]
     },
@@ -12037,6 +12115,32 @@
           "rxnorm_name": "diazepam 5 MG/ML Injectable Solution",
           "rxnorm_tty": "SCD",
           "_rxnorm_src": "ndc"
+        },
+        {
+          "label": "diazePAM RECTAL GEL 10 MG",
+          "concentration": 10.0,
+          "unit": "mg",
+          "form": "gel",
+          "form_canonical": "rectal gel",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "13225",
+          "ndc": "68682-0652-20",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "diazePAM RECTAL GEL 20 MG",
+          "concentration": 20.0,
+          "unit": "mg",
+          "form": "gel",
+          "form_canonical": "rectal gel",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "13227",
+          "ndc": "68682-0655-20",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
         }
       ]
     },
@@ -20679,6 +20783,19 @@
           "rxnorm_name": "indomethacin 75 MG Extended Release Oral Capsule",
           "rxnorm_tty": "SCD",
           "_rxnorm_src": "ndc"
+        },
+        {
+          "label": "INDOMETHACIN 50 MG SUPP",
+          "concentration": 50.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "2132",
+          "ndc": "70710-1852-07",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
         }
       ]
     },
@@ -34153,6 +34270,45 @@
           "rxnorm_name": "prochlorperazine 5 MG Oral Tablet",
           "rxnorm_tty": "SCD",
           "_rxnorm_src": "ndc"
+        },
+        {
+          "label": "PROCHLORPERAZINE 2.5 MG SUPP",
+          "concentration": 2.5,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "2629",
+          "ndc": "00007-3360-03",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "PROCHLORPERAZINE 25 MG SUPP",
+          "concentration": 25.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "2633",
+          "ndc": "00713-0135-12",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "PROCHLORPERAZINE 5 MG SUPP",
+          "concentration": 5.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "2637",
+          "ndc": "00007-3361-03",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
         }
       ]
     },
@@ -34232,6 +34388,45 @@
           "rxnorm_name": "promethazine hydrochloride 1.25 MG/ML Oral Solution",
           "rxnorm_tty": "SCD",
           "_rxnorm_src": "ndc"
+        },
+        {
+          "label": "PROMETHAZINE 12.5 MG SUPP",
+          "concentration": 12.5,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "2717",
+          "ndc": "00713-0536-12",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "PROMETHAZINE 25 MG SUPP",
+          "concentration": 25.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "2718",
+          "ndc": "00713-0526-12",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
+        },
+        {
+          "label": "PROMETHAZINE 50 MG SUPP",
+          "concentration": 50.0,
+          "unit": "mg",
+          "form": "suppository",
+          "form_canonical": "rectal suppository",
+          "doseUnit": null,
+          "maxDose": null,
+          "item_id": "2719",
+          "ndc": "00713-0132-12",
+          "_source": "STR/VOL",
+          "_rxnorm_src": null
         }
       ]
     },
@@ -43075,7 +43270,7 @@
   ],
   "_meta": {
     "total_drugs": 785,
-    "total_formulations": 2101,
+    "total_formulations": 2116,
     "review_count": 68,
     "form_counts": {
       "injectable": 1025,
