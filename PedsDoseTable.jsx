@@ -268,28 +268,37 @@ function buildLiquidTable(formulation, targetMgKg, variancePct, maxDose, activeS
 
 // ── Tablet candidate generator ────────────────────────────────────────────────
 // Returns all dispensable dose steps for ONE formulation as annotated objects.
-// Used by the cross-formulation band builder.
+// Tier hierarchy (lower = preferred by sequential filter):
+//   0 = whole tab             — always preferred
+//   1 = half tab  (X½)        — accepted when whole doesn't reach cursor
+//   2 = ¾ tab                 — necessary evil; disappears as weight/tolerance permits
+//   3 = ¼ tab                 — finest necessary evil; lowest weights only
+// ¾ and ¼ only generated when canQuarter=true.
 function tabletCandidates(formulation, targetMgKg, variancePct, maxDose) {
-  const { concentration: strength, unit, canHalf = false, canQuarter = false } = formulation;
+  const { concentration: strength, unit, canHalf = false, canQuarter = false,
+          formulary = true } = formulation;
   const effectiveMax = maxDose ?? Infinity;
   const vf    = variancePct / 100;
   const MAX_W = 150;
-  const maxTabs = Math.min(Math.ceil(effectiveMax / strength), 40); // cap at 40 tabs
+  const maxTabs = Math.min(Math.ceil(effectiveMax / strength), 40);
 
   const ann = steps => steps
     .filter(s => s.dose <= effectiveMax + 0.001)
     .map(s => ({
       ...s, unit,
       formLabel: formulation.label,
+      formulary,
       wLow:  s.dose / (targetMgKg * (1 + vf)),
       wHigh: s.dose / (targetMgKg * (1 - vf)),
     }));
 
+  // Tier 0 — whole tabs
   const wholes = ann(Array.from({ length: maxTabs }, (_, i) => ({
     dispensed: i + 1, dose: (i + 1) * strength,
     label: `${i + 1} ${i === 0 ? "tab" : "tabs"}`, tier: 0,
   })));
 
+  // Tier 1 — half tabs (X.5 multiples, skip whole numbers)
   const halves = canHalf ? ann(Array.from({ length: maxTabs * 2 }, (_, i) => {
     const d = (i + 1) * 0.5;
     if (d % 1 === 0) return null;
@@ -298,112 +307,98 @@ function tabletCandidates(formulation, targetMgKg, variancePct, maxDose) {
              label: `${whole > 0 ? whole : ""}½ ${d === 0.5 ? "tab" : "tabs"}`, tier: 1 };
   }).filter(Boolean)) : [];
 
-  const quarters = canQuarter ? ann(Array.from({ length: maxTabs * 4 }, (_, i) => {
-    const d = (i + 1) * 0.25;
-    if (d % 0.5 === 0) return null;
+  // Tier 2 — ¾ tabs (0.75, 1.75, 2.75 ... requires canQuarter)
+  const threeQuarters = canQuarter ? ann(Array.from({ length: maxTabs * 4 }, (_, i) => {
+    const d = Math.round((i + 1) * 0.25 * 1000) / 1000;
+    const frac = Math.round((d - Math.floor(d)) * 1000) / 1000;
+    if (Math.abs(frac - 0.75) > 0.001) return null;
     const whole = Math.floor(d);
-    const frac  = d - whole;
     return { dispensed: d, dose: d * strength,
-             label: `${whole > 0 ? whole : ""}${frac < 0.3 ? "¼" : "¾"} ${d < 1 ? "tab" : "tabs"}`,
-             tier: 2 };
+             label: `${whole > 0 ? whole : ""}¾ ${d < 1 ? "tab" : "tabs"}`, tier: 2 };
   }).filter(Boolean)) : [];
 
-  return [...wholes, ...halves, ...quarters]
+  // Tier 3 — ¼ tabs (0.25, 1.25, 2.25 ... requires canQuarter)
+  const quarters = canQuarter ? ann(Array.from({ length: maxTabs * 4 }, (_, i) => {
+    const d = Math.round((i + 1) * 0.25 * 1000) / 1000;
+    const frac = Math.round((d - Math.floor(d)) * 1000) / 1000;
+    if (Math.abs(frac - 0.25) > 0.001) return null;
+    const whole = Math.floor(d);
+    return { dispensed: d, dose: d * strength,
+             label: `${whole > 0 ? whole : ""}¼ ${d < 1 ? "tab" : "tabs"}`, tier: 3 };
+  }).filter(Boolean)) : [];
+
+  return [...wholes, ...halves, ...threeQuarters, ...quarters]
     .filter(s => s.wLow < MAX_W)
     .sort((a, b) => a.dose - b.dose || a.tier - b.tier);
 }
 
 // ── Cross-formulation tablet table builder ─────────────────────────────────────
-// Accepts multiple tablet/capsule formulations; for each weight band finds the
-// optimal product+quantity combination. Returns rows with formLabel field
-// identifying which formulation satisfies each band.
-//
-// Algorithm:
-//   1. Collect all dispensable steps across all active formulations.
-//   2. Build a merged sequence of unique dose values (whole → half → quarter,
-//      all formulations interleaved), sorted by dose ascending.
-//   3. Walk the sequence with the same anchor+fill logic as the single-formulation
-//      version, but the fill candidates now span all formulations.
-//   4. Tie-breaking: within-tolerance candidates preferred by:
-//      (a) tier (whole > half > quarter)
-//      (b) fewest units dispensed (smallest dispensed count)
-//      (c) formulary status (formulary preferred)
+// Unified candidate pool across all active formulations.
+// Sequential filter identical in spirit to the liquid syringe algorithm:
+//   - Walk from MIN_W upward via cursor
+//   - At each cursor, all candidates whose wLow ≤ cursor are reachable
+//   - Select by tier first (whole > half > ¾ > ¼), then widest coverage,
+//     then fewest units — natural coarsening as weight increases
+//   - ¼ and ¾ appear at low weights where only fine fractions reach cursor;
+//     they disappear as soon as halves and wholes satisfy the tolerance window
+//   - Honest gaps: weight ranges where nothing lands within tolerance have no row
 function buildCrossTabletTable(formulations, targetMgKg, variancePct, maxDose) {
   if (!formulations.length) return [];
 
   const MAX_W = 150;
   const MIN_W = 0.3;
-  const vf    = variancePct / 100;
   const effectiveMax = maxDose ?? Infinity;
+  const unit = formulations[0].unit;
 
-  // Gather all candidates from all active formulations
-  const allCandidates = formulations.flatMap(f =>
+  // Unified candidate pool from all active formulations
+  const all = formulations.flatMap(f =>
     tabletCandidates(f, targetMgKg, variancePct, effectiveMax)
   ).filter(s => s.wLow < MAX_W);
 
-  if (!allCandidates.length) return [];
+  if (!all.length) return [];
 
-  // Extract unit from first formulation (all in same class share unit)
-  const unit = formulations[0].unit;
-
-  // Score a candidate for tie-breaking (lower = better)
-  const score = c => c.tier * 1000 + c.dispensed;
-
-  // Whole-tab anchors: one per unique dose level, best candidate wins
-  const doseMap = new Map();
-  allCandidates.filter(c => c.tier === 0).forEach(c => {
-    const key = Math.round(c.dose * 10000);
-    const ex  = doseMap.get(key);
-    if (!ex || score(c) < score(ex)) doseMap.set(key, c);
-  });
-  const wholes = [...doseMap.values()].sort((a, b) => a.dose - b.dose);
-
-  if (!wholes.length) return [];
-
-  // Fill candidates (halves, quarters) across all formulations
-  const fills = allCandidates.filter(c => c.tier > 0);
-
-  function fillBetween(gapStart, gapEnd, minD, maxD) {
-    const rows = []; let cursor = gapStart, lastD = minD;
-    const el = fills.filter(s =>
-      s.dispensed > minD + 0.0001 && s.dispensed < maxD - 0.0001 &&
-      s.wLow <= gapStart + 0.0001 && s.dose > minD * targetMgKg * 0.99);
-    while (cursor < gapEnd - 0.0001) {
-      const elig = el.filter(s => s.wLow <= cursor + 0.0001 && s.dose > lastD + 0.0001 * targetMgKg);
-      if (!elig.length) break;
-      const best = elig.reduce((a, b) => {
-        if (b.wHigh > a.wHigh + 0.0001) return b;
-        if (Math.abs(b.wHigh - a.wHigh) <= 0.0001 && score(b) < score(a)) return b;
-        return a;
-      });
-      rows.push({ step: best, rowWLow: cursor, rowWHigh: Math.min(best.wHigh, gapEnd), isLast: false });
-      lastD = best.dose; cursor = best.wHigh;
-    }
-    return rows;
-  }
-
+  // Sequential filter — cursor walk
   const rawSeq = [];
-  for (let i = 0; i < wholes.length; i++) {
-    const anchor = wholes[i], nextAnchor = wholes[i + 1];
-    const isLast = anchor.dose >= effectiveMax - 0.001;
-    rawSeq.push({ step: anchor, rowWLow: anchor.wLow,
-                  rowWHigh: isLast ? MAX_W : anchor.wHigh, isLast });
-    if (isLast || !nextAnchor) break;
-    const gapS = anchor.wHigh, gapE = nextAnchor.wLow;
-    if (gapE > gapS + 0.0001) {
-      rawSeq.push(...fillBetween(gapS, gapE, anchor.dispensed, nextAnchor.dispensed));
+  let cursor = MIN_W;
+
+  while (cursor < MAX_W - 0.0001) {
+    // All candidates reachable at this cursor position
+    const reachable = all.filter(c =>
+      c.wLow <= cursor + 0.0001 &&
+      c.wHigh > cursor + 0.0001
+    );
+
+    if (!reachable.length) {
+      // Honest gap — advance to next reachable candidate
+      const next = all
+        .filter(c => c.wLow > cursor)
+        .sort((a, b) => a.wLow - b.wLow)[0];
+      if (!next) break;
+      cursor = next.wLow;
+      continue;
     }
+
+    // Selection: tier first (0=whole best), then widest coverage, then fewest units
+    const best = reachable.reduce((a, b) => {
+      if (a.tier !== b.tier)                       return a.tier < b.tier ? a : b;
+      if (Math.abs(b.wHigh - a.wHigh) > 0.0001)   return b.wHigh > a.wHigh ? b : a;
+      if (a.dispensed !== b.dispensed)              return a.dispensed < b.dispensed ? a : b;
+      return a;
+    });
+
+    const isLast = best.dose >= effectiveMax - 0.001;
+    rawSeq.push({
+      step:     best,
+      rowWLow:  cursor,
+      rowWHigh: isLast ? MAX_W : best.wHigh,
+      isLast,
+    });
+
+    cursor = isLast ? MAX_W : best.wHigh;
+    if (isLast) break;
   }
 
-  // Stitch row boundaries
-  for (let i = 1; i < rawSeq.length; i++) rawSeq[i].rowWLow = rawSeq[i - 1].rowWHigh;
-  for (let i = 0; i < rawSeq.length - 1; i++) {
-    const c = rawSeq[i], n = rawSeq[i + 1];
-    if (n.rowWLow <= c.rowWHigh + 0.0001) continue;
-    const ic  = Math.abs((c.step.dose - n.rowWLow  * targetMgKg) / (n.rowWLow  * targetMgKg) * 100);
-    const in_ = Math.abs((n.step.dose - c.rowWHigh * targetMgKg) / (c.rowWHigh * targetMgKg) * 100);
-    if (ic <= in_) c.rowWHigh = n.rowWLow; else n.rowWLow = c.rowWHigh;
-  }
+  if (!rawSeq.length) return [];
 
   return rawSeq
     .filter(({ rowWLow, rowWHigh, isLast }) =>
@@ -711,11 +706,11 @@ export default function PedsDoseTable() {
 
     const pdfLiquid = isLiquid;
     const colHeaders = pdfLiquid
-      ? ["Wt (kg)","Dose","Vol","Syr","Under","Over"]
-      : ["Wt (kg)","Dose","Qty","Formulation","Under","Over"];
+      ? ["Wt (kg)","Dose","Under","Over","Vol","Syr"]
+      : ["Wt (kg)","Dose","Under","Over","Qty","Formulation"];
     const colX = pdfLiquid
-      ? [ML, ML+100, ML+185, ML+255, ML+305, ML+375]
-      : [ML, ML+100, ML+175, ML+240, ML+360, ML+420];
+      ? [ML, ML+90, ML+170, ML+225, ML+285, ML+355]
+      : [ML, ML+90, ML+170, ML+225, ML+280, ML+340];
 
     const hdrH = 18;
     doc.setFillColor(245,245,241); doc.rect(ML, y, PW-ML-MR, hdrH, "F");
@@ -734,23 +729,24 @@ export default function PedsDoseTable() {
       doc.setTextColor(26,26,26);
       doc.text(typeof r.wEnd==="string"?`>= ${r.wStart}`:`${r.wStart}-${r.wEnd}`, colX[0], textY);
       doc.setFont("helvetica","bold"); doc.text(r.doseLabel, colX[1], textY);
-      doc.setFont("helvetica","normal"); doc.text(r.volLabel, colX[2], textY);
-      if (pdfLiquid) {
-        doc.setTextColor(85,85,85); doc.text(r.syringeLabel||"", colX[3], textY);
-      } else {
-        doc.setTextColor(85,85,85); doc.setFontSize(8);
-        doc.text((r.formLabel||"").substring(0,28), colX[3], textY);
-        doc.setFontSize(9);
-      }
-      const uIdx = 4; const oIdx = 5;
+      doc.setFont("helvetica","normal");
       const uOot = r.underPct!==null && Math.abs(r.underPct) > variance+0.05;
       doc.setTextColor(...(uOot?[192,57,43]:[68,68,68]));
       doc.setFont("helvetica", uOot?"bold":"normal");
-      doc.text(pdfPct(r.underPct), colX[uIdx], textY);
+      doc.text(pdfPct(r.underPct), colX[2], textY);
       const oOot = Math.abs(r.overPct) > variance+0.05;
       doc.setTextColor(...(oOot?[192,57,43]:[68,68,68]));
       doc.setFont("helvetica", oOot?"bold":"normal");
-      doc.text(pdfPct(r.overPct), colX[oIdx], textY);
+      doc.text(pdfPct(r.overPct), colX[3], textY);
+      doc.setFont("helvetica","normal"); doc.setTextColor(26,26,26);
+      doc.text(r.volLabel, colX[4], textY);
+      if (pdfLiquid) {
+        doc.setTextColor(85,85,85); doc.text(r.syringeLabel||"", colX[5], textY);
+      } else {
+        doc.setTextColor(85,85,85); doc.setFontSize(8);
+        doc.text((r.formLabel||"").substring(0,28), colX[5], textY);
+        doc.setFontSize(9);
+      }
       doc.setDrawColor(220,220,216); doc.line(ML, y+rowH, PW-MR, y+rowH);
       y += rowH;
     });
@@ -1131,11 +1127,11 @@ export default function PedsDoseTable() {
                 <tr style={{ background:"#f5f5f1" }}>
                   <th style={{ ...TH, textAlign:"left",   color:"#444" }}>Wt (kg)</th>
                   <th style={{ ...TH, textAlign:"left",   color:"#444" }}>Dose</th>
+                  <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>Under</th>
+                  <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>Over</th>
                   <th style={{ ...TH, textAlign:"right",  color:"#444" }}>{isLiquid ? "Vol" : "Qty"}</th>
                   {isLiquid && <th style={{ ...TH, textAlign:"center", color:"#444", padding:"6px 4px" }}>Syr</th>}
                   {!isLiquid && <th style={{ ...TH, textAlign:"left",  color:"#444" }}>Formulation</th>}
-                  <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>Under</th>
-                  <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>Over</th>
                 </tr>
               </thead>
               <tbody>
@@ -1157,6 +1153,16 @@ export default function PedsDoseTable() {
                     <td style={{ ...TD, fontWeight:r.oot?400:700, color:r.oot?"#999":"inherit" }}>
                       {r.doseLabel}
                     </td>
+                    <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontWeight:600,
+                                 color:r.oot?"#bbb"
+                                   :(r.underPct!==null&&Math.abs(r.underPct)>variance+0.05)?"#c0392b":"#444" }}>
+                      {fmtPct(r.underPct)}
+                    </td>
+                    <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontWeight:600,
+                                 color:r.oot?"#bbb"
+                                   :Math.abs(r.overPct)>variance+0.05?"#c0392b":"#444" }}>
+                      {fmtPct(r.overPct)}
+                    </td>
                     <td style={{ ...TD, textAlign:"right", color:r.oot?"#999":"inherit" }}>
                       {r.volLabel}
                     </td>
@@ -1172,16 +1178,6 @@ export default function PedsDoseTable() {
                         {r.formLabel}
                       </td>
                     )}
-                    <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontWeight:600,
-                                 color:r.oot?"#bbb"
-                                   :(r.underPct!==null&&Math.abs(r.underPct)>variance+0.05)?"#c0392b":"#444" }}>
-                      {fmtPct(r.underPct)}
-                    </td>
-                    <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontWeight:600,
-                                 color:r.oot?"#bbb"
-                                   :Math.abs(r.overPct)>variance+0.05?"#c0392b":"#444" }}>
-                      {fmtPct(r.overPct)}
-                    </td>
                   </tr>
                 ))}
               </tbody>
