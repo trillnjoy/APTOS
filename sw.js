@@ -1,5 +1,5 @@
-// APTOS Service Worker v2.0
-const CACHE_VERSION = "2.0";
+// APTOS Service Worker v2.1
+const CACHE_VERSION = "2.1";
 const CACHE_NAME    = `aptos-v${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [
@@ -8,7 +8,6 @@ const PRECACHE_URLS = [
   "/APTOS/manifest.json",
   "/APTOS/Aptos_192.png",
   "/APTOS/Aptos_512.png",
-  "/APTOS/PedsDoseTable.jsx",
 ];
 
 self.addEventListener("install", event => {
@@ -36,8 +35,9 @@ self.addEventListener("fetch", event => {
   // CDN requests go straight to network
   if (!url.origin.includes("trillnjoy.github.io")) return;
 
-  // Data files always fetched fresh
+  // Data files and app logic always fetched fresh — never served from cache
   if (url.pathname.includes('formulary.json')) return;
+  if (url.pathname.includes('PedsDoseTable.jsx')) return;
 
   event.respondWith(
     caches.match(event.request).then(cached => {
