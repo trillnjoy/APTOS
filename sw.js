@@ -1,5 +1,5 @@
-// APTOS Service Worker v1.8
-const CACHE_VERSION = "1.8";
+// APTOS Service Worker v2.0
+const CACHE_VERSION = "2.0";
 const CACHE_NAME    = `aptos-v${CACHE_VERSION}`;
 
 const PRECACHE_URLS = [

@@ -41,7 +41,7 @@
     <img src="Aptos_512.png" alt="APTOS" />
     <div class="name">APTOS</div>
     <div class="tag">Doses Designed to Fit</div>
-    <div style="font-family:'Courier New',monospace;font-size:11px;color:#4a6080;margin-top:8px;letter-spacing:1px;">v1.8</div>
+    <div style="font-family:'Courier New',monospace;font-size:11px;color:#4a6080;margin-top:8px;letter-spacing:1px;">v2.0</div>
   </div>
   <div id="root"></div>
 
@@ -51,7 +51,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script defer>
-    const APP_VERSION = "1.8";
+    const APP_VERSION = "2.0";
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -91,7 +91,7 @@
             const formularyData = await formularyRes.json();
 
             // ── Build DRUG_DB directly from formulary.json ─────────────────
-            // v1.8: aptos_params.json removed — formulary.json is the sole
+            // v2.0: aptos_params.json removed — formulary.json is the sole
             // data source. doseUnit and maxDose are entered by the user.
             // canHalf / canQuarter / canEighth come from transform_formulary.py
             // SEG collapse logic.
