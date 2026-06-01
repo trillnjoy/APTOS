@@ -41,7 +41,7 @@
     <img src="Aptos_512.png" alt="APTOS" />
     <div class="name">APTOS</div>
     <div class="tag">Doses Designed to Fit</div>
-    <div style="font-family: 'Courier New', monospace; font-size: 11px; color: #4a6080; margin-top: 8px; letter-spacing: 1px;">v1.7</div>
+    <div style="font-family:'Courier New',monospace;font-size:11px;color:#4a6080;margin-top:8px;letter-spacing:1px;">v1.8</div>
   </div>
   <div id="root"></div>
 
@@ -51,9 +51,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script defer>
-    const APP_VERSION = "1.7";
+    const APP_VERSION = "1.8";
 
-    // Service worker registration
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -76,130 +75,101 @@
 
     async function loadApp() {
       const startTime = Date.now();
-
       try {
-        // Fallback catalogue — used when formulary.json is unavailable (e.g. artifact sandbox)
-        const FALLBACK_DB = [
-          {
-            generic: "Acetaminophen",
-            formulary: true,
-            formulations: [
-              { label: "160 mg/5 mL suspension (32 mg/mL)", concentration: 32, unit: "mg",
-                form: "liquid", doseUnit: "mg/kg", maxDose: 960,
-                preferredVols: [1.25, 2.5, 3.75, 8, 10], deviceLimited: false,
-                ndc: "50580-0140-04", item_id: "FALLBACK", _source: "FALLBACK" },
-              { label: "325 mg tablet", concentration: 325, unit: "mg",
-                form: "tablet", doseUnit: "mg/kg", maxDose: 975,
-                canHalf: true, canQuarter: true,
-                ndc: "50580-0449-30", item_id: "FALLBACK", _source: "FALLBACK" },
-            ]
-          },
-          {
-            generic: "morphine",
-            formulary: true,
-            formulations: [
-              { label: "MORPHINE 2 MG/ML INJ", concentration: 2, unit: "mg",
-                form: "injectable", doseUnit: "mg/kg", maxDose: 15,
-                vialVol: 10, ndc: "00641-6008-25", item_id: "FALLBACK", _source: "FALLBACK" },
-            ]
-          },
-        ];
-
-        // Fetch JSX first (required), then data files with graceful fallback
-        const [jsxRes, formularyRes, paramsRes] = await Promise.all([
+        // Fetch JSX (required) and formulary (graceful fallback to FALLBACK_DB)
+        const [jsxRes, formularyRes] = await Promise.all([
           fetch('PedsDoseTable.jsx'),
           fetch(`formulary.json?v=${Date.now()}`).catch(() => null),
-          fetch(`aptos_params.json?v=${Date.now()}`).catch(() => null),
         ]);
 
         const code = await jsxRes.text();
 
-        let mergedDrugs = FALLBACK_DB;
+        let drugDB = null;  // null → JSX uses its FALLBACK_DB
 
-        if (formularyRes && paramsRes) {
+        if (formularyRes && formularyRes.ok) {
           try {
-            const [formularyData, paramsData] = await Promise.all([
-              formularyRes.json(),
-              paramsRes.json(),
+            const formularyData = await formularyRes.json();
+
+            // ── Build DRUG_DB directly from formulary.json ─────────────────
+            // v1.8: aptos_params.json removed — formulary.json is the sole
+            // data source. doseUnit and maxDose are entered by the user.
+            // canHalf / canQuarter / canEighth come from transform_formulary.py
+            // SEG collapse logic.
+            const EXCLUDED_FORMS = new Set([
+              'topical','ophthalmic','otic','nasal','inhalation','suppository'
             ]);
 
-        // ── Merge formulary + params into DRUG_DB ──────────────────────────
-        const paramsMap = {};
-        for (const p of paramsData.params) {
-          paramsMap[p.generic.toLowerCase()] = p;
-        }
+            drugDB = [];
+            for (const drug of formularyData.drugs) {
+              const formulations = [];
+              for (const f of drug.formulations) {
+                if (EXCLUDED_FORMS.has(f.form)) continue;
+                const label = (f.label || '').toLowerCase();
+                if (/ophthalm|otic|topical|nasal|inhal|suppository|cream|ointment|gel|lotion|patch|spray/.test(label)) continue;
 
-        mergedDrugs = [];
-        for (const drug of formularyData.drugs) {
-          const p = paramsMap[drug.generic.toLowerCase()];
-          const overrides = p?.formulation_overrides || [];
+                const formulation = {
+                  label:          f.label,
+                  concentration:  f.concentration,
+                  unit:           f.unit,
+                  form:           f.form,
+                  form_canonical: f.form_canonical || f.form,
+                  doseUnit:       null,   // user-entered
+                  maxDose:        null,   // user-entered
+                  item_id:        f.item_id,
+                  ndc:            f.ndc,
+                  _source:        f._source,
+                };
 
-          const formulations = [];
-          const EXCLUDED_FORMS = new Set(['topical','ophthalmic','otic','nasal','inhalation','suppository']);
-          for (const f of drug.formulations) {
-            // Suppress non-APTOS routes
-            if (EXCLUDED_FORMS.has(f.form)) continue;
-            const label = f.label.toLowerCase();
-            if (/ophthalm|otic|topical|nasal|inhal|suppository|cream|ointment|gel|lotion|patch|spray/.test(label)) continue;
-            // Find matching override by label fragment (case-insensitive)
-            const ov = overrides.find(o =>
-              f.label.toLowerCase().includes(o.match_label_fragment.toLowerCase())
-            );
+                // Enrichment fields
+                if (f.rxcui)        formulation.rxcui       = f.rxcui;
+                if (f.rxnorm_name)  formulation.rxnorm_name = f.rxnorm_name;
+                if (f.rxnorm_tty)   formulation.rxnorm_tty  = f.rxnorm_tty;
+                if (f._rxnorm_src)  formulation._rxnorm_src = f._rxnorm_src;
 
-            if (!ov) {
-              // No params — include as disabled placeholder
-              formulations.push({ ...f, doseUnit: null, maxDose: null, _disabled: true });
-              continue;
+                // Liquid-specific
+                if (f.form === 'liquid') {
+                  formulation.preferredVols = f.preferredVols || [];
+                  formulation.deviceLimited = f.deviceLimited || false;
+                }
+
+                // Solid divisibility (from SEG collapse in transform v3)
+                if (f.form === 'tablet' || f.form === 'capsule') {
+                  formulation.canHalf    = f.canHalf    ?? false;
+                  formulation.canQuarter = f.canQuarter ?? false;
+                  formulation.canEighth  = f.canEighth  ?? false;
+                }
+
+                // Injectable
+                if (f.form === 'injectable') {
+                  formulation.vialVol = f.vialVol || null;
+                }
+
+                formulations.push(formulation);
+              }
+              if (formulations.length === 0) continue;
+              drugDB.push({
+                generic:      drug.generic,
+                formulary:    drug.formulary,
+                formulations,
+              });
             }
 
-            const merged = {
-              ...f,
-              doseUnit:      p.doseUnit ?? null,
-              maxDose:       ov.maxDose ?? null,
-              _disabled:     false,
-            };
-
-            // Apply optional overrides
-            if (ov.preferredVols  !== undefined) merged.preferredVols  = ov.preferredVols;
-            if (ov.deviceLimited  !== undefined) merged.deviceLimited  = ov.deviceLimited;
-            if (ov.canHalf        !== undefined) merged.canHalf        = ov.canHalf;
-            if (ov.canQuarter     !== undefined) merged.canQuarter     = ov.canQuarter;
-
-            // Ensure liquid defaults
-            if (merged.form === 'liquid' && merged.preferredVols === undefined) {
-              merged.preferredVols = [];
-            }
-            if (merged.form === 'liquid' && merged.deviceLimited === undefined) {
-              merged.deviceLimited = false;
-            }
-
-            formulations.push(merged);
-          }
-
-          if (formulations.length === 0) continue;
-          mergedDrugs.push({
-            generic:      drug.generic,
-            formulary:    drug.formulary,
-            formulations,
-          });
-        }
-
-        // True alphabetic sort — locale-aware, case-insensitive
-        mergedDrugs.sort((a, b) => a.generic.localeCompare(b.generic, 'en', { sensitivity: 'base' }));
+            // Alphabetic sort — locale-aware, case-insensitive
+            drugDB.sort((a, b) => a.generic.localeCompare(b.generic, 'en', { sensitivity: 'base' }));
 
           } catch(e) {
-            console.warn('Formulary merge failed, using fallback:', e);
-            mergedDrugs = FALLBACK_DB;
+            console.warn('Formulary load failed, using FALLBACK_DB:', e);
+            drugDB = null;
           }
         }
 
-        window.APTOS_DRUG_DB = mergedDrugs;
+        window.APTOS_DRUG_DB = drugDB;  // null → JSX uses FALLBACK_DB
 
-        // ── Compile and mount component ────────────────────────────────────
+        // ── Compile and mount ──────────────────────────────────────────────
         const cleaned = code
           .replace(/^import.*?;\n/gm, '')
           .replace(/export default /, '')
-          .replace(/[^\x00-\x7F]/g, ' ');  // strip non-ASCII (em-dashes in comments)
+          .replace(/[^\x00-\x7F]/g, ' ');
 
         const transpiled = Babel.transform(cleaned, { presets: ['react'] }).code;
 
@@ -214,13 +184,12 @@
         root.render(React.createElement(PedsDoseTable));
 
         const elapsed = Date.now() - startTime;
-        const remaining = Math.max(0, 2000 - elapsed);
         setTimeout(() => {
           const splash = document.getElementById('splash');
           if (splash) splash.style.display = 'none';
-        }, remaining);
+        }, Math.max(0, 2000 - elapsed));
 
-      } catch (err) {
+      } catch(err) {
         console.error('Failed to load app:', err);
         document.getElementById('splash').innerHTML =
           '<p style="color:#e74c3c;padding:20px;font-family:sans-serif;">Error loading APTOS</p>';
