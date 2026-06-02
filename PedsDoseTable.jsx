@@ -49,6 +49,38 @@ const FALLBACK_DB = [
         rxcui: "892473", rxnorm_name: "Morphine Sulfate 2 MG/ML Injectable Solution", _rxnorm_src: "ndc" },
     ]
   },
+  {
+    generic: "cephalexin",
+    formulary: true,
+    formulations: [
+      { label: "CEPHALEXIN 250 MG CAP", concentration: 250, unit: "mg",
+        form: "capsule", form_canonical: "capsule",
+        canHalf: false, canQuarter: false, canEighth: false,
+        ndc: "00093-3147-01", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "309112", rxnorm_name: "cephalexin 250 MG Oral Capsule", _rxnorm_src: "ndc" },
+      { label: "CEPHALEXIN 500 MG CAP", concentration: 500, unit: "mg",
+        form: "capsule", form_canonical: "capsule",
+        canHalf: false, canQuarter: false, canEighth: false,
+        ndc: "00093-3148-01", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "309114", rxnorm_name: "cephalexin 500 MG Oral Capsule", _rxnorm_src: "ndc" },
+    ]
+  },
+  {
+    generic: "HYDROmorphone",
+    formulary: true,
+    formulations: [
+      { label: "HYDROmorphone ORAL 2 MG TAB", concentration: 2, unit: "mg",
+        form: "tablet", form_canonical: "tablet",
+        canHalf: true, canQuarter: true, canEighth: false,
+        ndc: "00406-3241-01", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "897696", rxnorm_name: "hydromorphone hydrochloride 2 MG Oral Tablet", _rxnorm_src: "ndc" },
+      { label: "HYDROmorphone ORAL 4 MG TAB", concentration: 4, unit: "mg",
+        form: "tablet", form_canonical: "tablet",
+        canHalf: true, canQuarter: true, canEighth: false,
+        ndc: "00406-3242-01", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "897702", rxnorm_name: "hydromorphone hydrochloride 4 MG Oral Tablet", _rxnorm_src: "ndc" },
+    ]
+  },
 ];
 
 const DRUG_DB = window.APTOS_DRUG_DB || FALLBACK_DB;
@@ -341,7 +373,9 @@ function tabletCandidates(formulation, targetMgKg, variancePct, maxDose) {
 //     then fewest units — natural coarsening as weight increases
 //   - ¼ and ¾ appear at low weights where only fine fractions reach cursor;
 //     they disappear as soon as halves and wholes satisfy the tolerance window
-//   - Honest gaps: weight ranges where nothing lands within tolerance have no row
+//   - Gaps: when no candidate reaches cursor, the previous band expands to absorb
+//     the gap (underdose default). Existing variance flagging shows the cost honestly.
+//     Before first band, gap is honest absence — table starts at first reachable weight.
 function buildCrossTabletTable(formulations, targetMgKg, variancePct, maxDose) {
   if (!formulations.length) return [];
 
@@ -369,11 +403,20 @@ function buildCrossTabletTable(formulations, targetMgKg, variancePct, maxDose) {
     );
 
     if (!reachable.length) {
-      // Honest gap — advance to next reachable candidate
+      // Gap — no candidate reaches cursor within tolerance.
+      // Default: underdose — extend the previous band's wHigh to absorb the gap.
+      // The existing variance flagging will show the honest out-of-tolerance cost.
+      // If no previous band exists (gap before first candidate), advance silently
+      // to first reachable candidate — table starts there, min weight is higher
+      // than requested and that is the honest answer.
       const next = all
         .filter(c => c.wLow > cursor)
         .sort((a, b) => a.wLow - b.wLow)[0];
       if (!next) break;
+      if (rawSeq.length > 0) {
+        // Extend previous band to cover the gap
+        rawSeq[rawSeq.length - 1].rowWHigh = next.wLow;
+      }
       cursor = next.wLow;
       continue;
     }
@@ -547,10 +590,21 @@ export default function PedsDoseTable() {
   }, []);
 
   // When class changes: default all formulations in class to checked
+  const SOLID_CLASSES = new Set(["oral-tablet-ir","oral-tablet-er","oral-capsule"]);
+
   const selectClass = useCallback((cls) => {
     setFormClass(cls); setCheckedForms({}); setRefFormIdx(-1);
     setCommittedTarget(null); setCommittedMax(null);
     setDoseText(""); setMaxDoseText("");
+    // Solid oral forms: default min weight 15 kg — rare child under 15 kg
+    // can swallow intact tablets/capsules. User can override.
+    if (SOLID_CLASSES.has(cls)) {
+      setMinWtText("15");
+      setCommittedMinWt(15);
+    } else {
+      setMinWtText("");
+      setCommittedMinWt(null);
+    }
   }, []);
 
   const toggleForm = useCallback((idx) => {
@@ -950,7 +1004,8 @@ export default function PedsDoseTable() {
           <div style={{ display:"grid", gridTemplateColumns:"90px 1fr 100px 90px", gap:6 }}>
             <div>
               <span style={CAP}>Min Wt</span>
-              <input style={ctrlBase} type="number" placeholder="0.3"
+              <input style={ctrlBase} type="number"
+                     placeholder={SOLID_CLASSES.has(formClass) ? "15" : "0.3"}
                      value={minWtText} onChange={e => setMinWtText(e.target.value)}
                      onBlur={commitMinWt} onKeyDown={e => e.key==="Enter"&&e.target.blur()}
                      step="0.1" min="0" inputMode="decimal" />
