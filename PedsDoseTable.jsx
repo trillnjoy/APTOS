@@ -569,7 +569,7 @@ export default function PedsDoseTable() {
 
   // For liquid: use the first active formulation (liquids don't cross-formulate)
   const liquidFormulation = isLiquid ? activeFormulations[0] ?? null : null;
-  const isApap = isLiquid && drug?.generic === "Acetaminophen";
+  const isApap = isLiquid && drug?.generic?.toLowerCase() === "acetaminophen";
 
   // Drug ref formulation
   const refFormulation = refFormIdx >= 0 && drug
@@ -596,8 +596,6 @@ export default function PedsDoseTable() {
     setFormClass(cls); setCheckedForms({}); setRefFormIdx(-1);
     setCommittedTarget(null); setCommittedMax(null);
     setDoseText(""); setMaxDoseText("");
-    // Solid oral forms: default min weight 15 kg — rare child under 15 kg
-    // can swallow intact tablets/capsules. User can override.
     if (SOLID_CLASSES.has(cls)) {
       setMinWtText("15");
       setCommittedMinWt(15);
@@ -605,7 +603,13 @@ export default function PedsDoseTable() {
       setMinWtText("");
       setCommittedMinWt(null);
     }
-  }, []);
+    // Acetaminophen oral liquid: auto-enable APAP syringe and 1 mL (0.05)
+    if (cls === "oral-liquid" && drug?.generic?.toLowerCase() === "acetaminophen") {
+      setActiveSyringes(new Set(["1mL_005", "3mL", "5mL_std", "10mL", "5mL_apap"]));
+    } else {
+      setActiveSyringes(new Set(["1mL_005", "3mL", "5mL_std", "10mL"]));
+    }
+  }, [drug]);
 
   const toggleForm = useCallback((idx) => {
     setCheckedForms(prev => ({ ...prev, [idx]: prev[idx] === false ? true : false }));

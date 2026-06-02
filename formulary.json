@@ -160,7 +160,7 @@
         },
         {
           "label": "ACETAMINOPHEN 325MG/10.15ML UD",
-          "concentration": 32.019704,
+          "concentration": 32.0,
           "unit": "mg",
           "form": "liquid",
           "form_canonical": "oral suspension",
@@ -169,7 +169,14 @@
           "item_id": "3864",
           "ndc": "68094-0330-61",
           "_source": "STR/VOL",
-          "preferredVols": [],
+          "preferredVols": [
+            1.25,
+            2.5,
+            3.75,
+            5.0,
+            8.0,
+            10.0
+          ],
           "deviceLimited": false,
           "rxcui": "307668",
           "rxnorm_name": "acetaminophen 32 MG/ML Oral Suspension",
