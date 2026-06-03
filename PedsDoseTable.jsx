@@ -81,6 +81,20 @@ const FALLBACK_DB = [
         rxcui: "897702", rxnorm_name: "hydromorphone hydrochloride 4 MG Oral Tablet", _rxnorm_src: "ndc" },
     ]
   },
+  {
+    generic: "ciprofloxacin",
+    formulary: true,
+    formulations: [
+      { label: "CIPROFLOXACIN 200 MG/100 ML D5W BAG", concentration: 2, unit: "mg",
+        form: "injectable", form_canonical: "injectable solution",
+        vialVol: 100, ndc: "25021-0192-82", item_id: "1296", _source: "FALLBACK",
+        rxcui: "1665210", rxnorm_name: "100 ML ciprofloxacin 2 MG/ML Injection", _rxnorm_src: "ndc" },
+      { label: "CIPROFLOXACIN 400 MG/200 ML D5W BAG", concentration: 2, unit: "mg",
+        form: "injectable", form_canonical: "injectable solution",
+        vialVol: 200, ndc: "25021-0192-87", item_id: "1291", _source: "FALLBACK",
+        rxcui: "1665212", rxnorm_name: "200 ML ciprofloxacin 2 MG/ML Injection", _rxnorm_src: "ndc" },
+    ]
+  },
 ];
 
 const DRUG_DB = window.APTOS_DRUG_DB || FALLBACK_DB;
@@ -469,6 +483,247 @@ function buildCrossTabletTable(formulations, targetMgKg, variancePct, maxDose) {
     });
 }
 
+// ── Injectable communicability helpers ────────────────────────────────────────
+// deriveCommQuantum: largest round-mg step achievable at an integer mL volume.
+// At 2 mg/mL: 5 mL = 10 mg → quantum = 10. Used to snap near-round doses.
+function deriveCommQuantum(conc) {
+  if (!conc || conc <= 0) return 1;
+  for (const q of [100, 50, 25, 10, 5, 2, 1]) {
+    const mL = q / conc;
+    // Require integer mL AND at most 10 mL per quantum step — prevents returning
+    // 100 mg (50 mL) for 2 mg/mL when 10 mg (5 mL) is the clinically sensible unit.
+    if (Math.round(mL) >= 1 && Math.abs(mL - Math.round(mL)) < 0.0001 && mL <= 10) return q;
+  }
+  return 1;
+}
+
+// snapToComm: given a raw dose and the current cursor, return the nearest
+// commQuantum multiple if it (a) is within 70% of one quantum step of raw,
+// (b) reaches within REACH_SLACK of the cursor, and (c) the overdose at
+// cursor stays within SNAP_GATE.
+//
+// SNAP_GATE = variancePct + 2.5%: honors the 5% step spacing of the variance
+// selector (2.5% = half a step). 158→160 at ±10% produces +11.1%; gate=12.5%; fires.
+//
+// REACH_SLACK = min(commQuantum×0.7 / (target×(1+vf)), cursor×5%):
+// Scales with the weight-space width of a quantum step rather than an absolute
+// kg value. The 5% of cursor cap prevents wide slack at low weights — 0.5 kg
+// slack at 9 kg is clinically significant; capped at 0.45 kg (5% of 9 kg).
+// At 45 kg the formula governs (1.06 kg < 2.25 kg cap). Dangerous upward snaps
+// at low weights (e.g. 63→70 mg, wLow(70) is 1.52 kg past cursor, cap=0.45 kg)
+// are correctly blocked; safe downward snaps (63→60, diff≈0) are allowed.
+//
+// Scoring: when candidates are within commQuantum/4 of each other (equidistant
+// at the scale of the quantum), prefer lower absolute overdose. Otherwise closer wins.
+function snapToComm(rawDose, cursor, conc, targetMgKg, variancePct, commQuantum) {
+  const vf              = variancePct / 100;
+  const THRESHOLD       = commQuantum * 0.7;
+  const SNAP_GATE       = variancePct + 2.5;
+  const REACH_SLACK     = Math.min(
+    commQuantum * 0.7 / (targetMgKg * (1 + vf)),
+    cursor * 0.05
+  );
+  const DIST_TIE_WINDOW = commQuantum / 4;
+
+  let bestSnap = null, bestDist = Infinity, bestOv = null;
+  for (const snapped of [
+    Math.floor(rawDose / commQuantum) * commQuantum,
+    Math.ceil(rawDose  / commQuantum) * commQuantum,
+  ]) {
+    if (snapped <= 0 || snapped === rawDose) continue;
+    const dist = Math.abs(snapped - rawDose);
+    if (dist > THRESHOLD) continue;
+    const wLowSnapped = snapped / (targetMgKg * (1 + vf));
+    const overPct     = (snapped - cursor * targetMgKg) / (cursor * targetMgKg) * 100;
+    if (wLowSnapped > cursor + REACH_SLACK) continue;
+    if (Math.abs(overPct) > SNAP_GATE) continue;
+    const absOv = Math.abs(overPct);
+    if (!bestSnap) { bestSnap = snapped; bestDist = dist; bestOv = absOv; continue; }
+    const distDiff = Math.abs(dist - bestDist);
+    if (distDiff > DIST_TIE_WINDOW) {
+      if (dist < bestDist) { bestSnap = snapped; bestDist = dist; bestOv = absOv; }
+    } else {
+      if (absOv < bestOv - 0.05) { bestSnap = snapped; bestDist = dist; bestOv = absOv; }
+    }
+  }
+  return bestSnap ?? rawDose;
+}
+
+// ── Injectable candidate generator ────────────────────────────────────────────
+// Generates dose candidates for ONE injectable formulation.
+// Below 30 mL: syringe pool graduations (same tiers as oral liquid).
+// Above 30 mL: integer mL steps at concentration (natural coarsening via
+//   sequential filter — no artificial step size imposed).
+// Whole-bag/vial volume → tier 0 (preferred over all partial draws).
+// Infinitely divisible — no canHalf/canQuarter; all volumes are candidates.
+function buildInjectableCandidates(formulation, targetMgKg, variancePct, maxDose, activeSyringes) {
+  const { concentration: conc, unit, vialVol } = formulation;
+  if (!conc || conc <= 0) return [];
+  const effectiveMax = maxDose ?? Infinity;
+  const vf    = variancePct / 100;
+  const MAX_W = 150;
+
+  const ann = (vol) => {
+    const dose = Math.round(vol * conc * 100000) / 100000;
+    if (dose <= 0 || dose > effectiveMax + 0.001) return null;
+    const isWholeBag = vialVol && Math.abs(vol - vialVol) < 0.001;
+    // Tier: whole bag = 0; whole mL (>30) = 1; syringe tiers (≤30) carried from pool
+    let tier = isWholeBag ? 0 : (vol > 30 ? 1 : 5); // syringe tiers filled below
+    return {
+      vol, dose, tier, unit,
+      label:     `${vol} mL`,
+      formLabel: formulation.label,
+      wLow:  dose / (targetMgKg * (1 + vf)),
+      wHigh: dose / (targetMgKg * (1 - vf)),
+    };
+  };
+
+  const candidates = [];
+
+  // ── Below 30 mL: syringe pool ──────────────────────────────────────────────
+  const pool = buildSyringePool(activeSyringes);
+  for (const s of pool) {
+    if (s.vol > 30) continue;
+    const c = ann(s.vol);
+    if (!c) continue;
+    // Check if this volume is exactly a whole vial — override tier to 0
+    const isWholeBag = vialVol && Math.abs(s.vol - vialVol) < 0.001;
+    c.tier = isWholeBag ? 0 : s.tier;
+    c.syringeLabel = s.syringeLabel;
+    candidates.push(c);
+  }
+
+  // ── Above 30 mL: integer mL steps up to vialVol ceiling ───────────────────
+  // Start from 31 mL (or first integer above last syringe vol)
+  // Safety cap: never iterate past 500 mL regardless of vialVol or maxDose.
+  const ceiling = vialVol
+    ? Math.min(vialVol, 500)
+    : (effectiveMax < Infinity ? Math.min(Math.ceil(effectiveMax / conc) + 5, 500) : 500);
+  for (let v = 31; v <= ceiling + 0.001; v++) {
+    const vr = Math.round(v * 100000) / 100000;
+    const c = ann(vr);
+    if (!c) continue;
+    // Tier already set: 0 for whole bag, 1 for integer mL
+    candidates.push(c);
+  }
+
+  return candidates.filter(c => c.wLow < MAX_W);
+}
+
+// ── Cross-formulation injectable table builder ─────────────────────────────────
+// Same sequential filter as tablets — unified candidate pool across all active
+// formulations, cursor walk from MIN_W, tier-first selection.
+// Whole-bag doses (tier 0) win as soon as they enter the tolerance window,
+// producing natural coarsening from fine syringe steps to full-bag doses.
+// Gap-fill: underdose default (extend previous band), same as tablet algorithm.
+function buildCrossInjectableTable(formulations, targetMgKg, variancePct, maxDose, activeSyringes) {
+  if (!formulations.length) return [];
+
+  const MAX_W = 150;
+  const MIN_W = 0.3;
+  const effectiveMax = maxDose ?? Infinity;
+  const unit = formulations[0].unit;
+
+  // Unified candidate pool from all active formulations
+  const all = formulations.flatMap(f =>
+    buildInjectableCandidates(f, targetMgKg, variancePct, effectiveMax, activeSyringes)
+  ).filter(c => c.wLow < MAX_W);
+
+  if (!all.length) return [];
+
+  // Sequential filter — cursor walk (identical structure to tablet algorithm)
+  const rawSeq = [];
+  let cursor = MIN_W;
+
+  while (cursor < MAX_W - 0.0001) {
+    const reachable = all.filter(c =>
+      c.wLow <= cursor + 0.0001 &&
+      c.wHigh > cursor + 0.0001
+    );
+
+    if (!reachable.length) {
+      const next = all
+        .filter(c => c.wLow > cursor)
+        .sort((a, b) => a.wLow - b.wLow)[0];
+      if (!next) break;
+      // Gap-fill: underdose default — extend previous band
+      if (rawSeq.length > 0) rawSeq[rawSeq.length - 1].rowWHigh = next.wLow;
+      cursor = next.wLow;
+      continue;
+    }
+
+    // Minimum band width filter — prevent hair-thin collision bands
+    const meaningful = reachable.filter(c => c.wHigh - cursor > 0.05);
+    const pool2 = meaningful.length ? meaningful : reachable;
+
+    const best = pool2.reduce((a, b) => {
+      if (a.tier !== b.tier)                     return a.tier < b.tier ? a : b;
+      if (Math.abs(b.wHigh - a.wHigh) > 0.0001) return b.wHigh > a.wHigh ? b : a;
+      if (a.vol !== b.vol)                       return a.vol < b.vol ? a : b;
+      return a;
+    });
+
+    const isLast = best.dose >= effectiveMax - 0.001;
+
+    // Communicability snap: if best is a non-round integer-mL step (tier 1),
+    // try rounding its dose to the nearest commQuantum multiple. Only accepted
+    // if the snapped dose still reaches cursor and overPct stays within tolerance.
+    // Whole-bag (tier 0) and syringe candidates (tier ≥ 2) are never snapped.
+    let finalStep = best;
+    if (best.tier === 1 && !isLast) {
+      const conc = best.dose / best.vol;
+      const commQuantum = deriveCommQuantum(conc);
+      const snappedDose = snapToComm(best.dose, cursor, conc, targetMgKg, variancePct, commQuantum);
+      if (snappedDose !== best.dose) {
+        const snappedVol = Math.round(snappedDose / conc * 100000) / 100000;
+        const snappedWHigh = snappedDose / (targetMgKg * (1 - variancePct/100));
+        // Safety: snapped wHigh must advance cursor, otherwise skip snap
+        if (snappedWHigh > cursor + 0.0001) {
+          finalStep = { ...best, dose: snappedDose, vol: snappedVol,
+                        wLow:  snappedDose / (targetMgKg * (1 + variancePct/100)),
+                        wHigh: snappedWHigh };
+        }
+      }
+    }
+
+    // Re-check isLast against finalStep dose (snap may have crossed maxDose)
+    const finalIsLast = isLast || finalStep.dose >= effectiveMax - 0.001;
+
+    rawSeq.push({
+      step:     finalStep,
+      rowWLow:  cursor,
+      rowWHigh: finalIsLast ? MAX_W : finalStep.wHigh,
+      isLast:   finalIsLast,
+    });
+
+    cursor = finalIsLast ? MAX_W : finalStep.wHigh;
+    if (finalIsLast) break;
+  }
+
+  if (!rawSeq.length) return [];
+
+  return rawSeq
+    .filter(({ rowWLow, rowWHigh, isLast }) =>
+      isLast ? rowWLow >= MIN_W - 0.0001 : rowWHigh > MIN_W + 0.0001)
+    .map(({ step, rowWLow, rowWHigh, isLast }) => {
+      const displayWLow = Math.max(rowWLow, MIN_W);
+      const overPct  = ((step.dose - displayWLow * targetMgKg) / (displayWLow * targetMgKg)) * 100;
+      const underPct = isLast ? null
+        : ((step.dose - rowWHigh * targetMgKg) / (rowWHigh * targetMgKg)) * 100;
+      const flagged  = Math.abs(overPct) > variancePct + 0.05 ||
+                       (!isLast && underPct !== null && Math.abs(underPct) > variancePct + 0.05);
+      return {
+        wStart:       roundW(displayWLow),
+        wEnd:         isLast ? `>= ${roundW(displayWLow)}` : roundW(rowWHigh),
+        doseLabel:    `${step.dose} ${unit}`,
+        volLabel:     `${step.vol} mL`,
+        formLabel:    step.formLabel,
+        syringeLabel: step.syringeLabel || "",
+        overPct, underPct, flagged, oot: false, isLast,
+      };
+    });
+}
+
 // ── Styles ─────────────────────────────────────────────────────────────────────
 const INTER = "'Inter', -apple-system, BlinkMacSystemFont, sans-serif";
 const SANS  = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif";
@@ -564,9 +819,9 @@ export default function PedsDoseTable() {
     classFormulations.filter(({ i }) => checkedForms[i] !== false).map(({ f }) => f),
     [classFormulations, checkedForms]);
 
-  const isLiquid = formClass === "oral-liquid" || formClass === "injectable";
-  const isSolid  = formClass === "oral-tablet-ir" || formClass === "oral-tablet-er" || formClass === "oral-capsule";
-
+  const isLiquid     = formClass === "oral-liquid";
+  const isInjectable = formClass === "injectable";
+  const isSolid      = formClass === "oral-tablet-ir" || formClass === "oral-tablet-er" || formClass === "oral-capsule";
   // For liquid: use the first active formulation (liquids don't cross-formulate)
   const liquidFormulation = isLiquid ? activeFormulations[0] ?? null : null;
   const isApap = isLiquid && drug?.generic?.toLowerCase() === "acetaminophen";
@@ -591,6 +846,13 @@ export default function PedsDoseTable() {
 
   // When class changes: default all formulations in class to checked
   const SOLID_CLASSES = new Set(["oral-tablet-ir","oral-tablet-er","oral-capsule"]);
+
+  // Auto-select route-form class when drug has only one
+  useEffect(() => {
+    if (availableClasses.length === 1 && formClass === null) {
+      selectClass(availableClasses[0]);
+    }
+  }, [availableClasses]);
 
   const selectClass = useCallback((cls) => {
     setFormClass(cls); setCheckedForms({}); setRefFormIdx(-1);
@@ -705,6 +967,8 @@ export default function PedsDoseTable() {
     if (isLiquid) {
       if (!liquidFormulation) return null;
       raw = buildLiquidTable(liquidFormulation, committedTarget, variance, effectiveMax, activeSyringes);
+    } else if (isInjectable) {
+      raw = buildCrossInjectableTable(activeFormulations, committedTarget, variance, effectiveMax, activeSyringes);
     } else {
       raw = buildCrossTabletTable(activeFormulations, committedTarget, variance, effectiveMax);
     }
@@ -722,9 +986,14 @@ export default function PedsDoseTable() {
     }
     return filtered.length ? filtered : null;
   }, [drug, formClass, committedTarget, variance, activeFormulations,
-      liquidFormulation, activeSyringes, effectiveMax, effectiveMinWt, isLiquid]);
+      liquidFormulation, activeSyringes, effectiveMax, effectiveMinWt,
+      isLiquid, isInjectable]);
 
   const fmtPct = v => v === null ? "—" : (v >= 0 ? "+" : "\u2212") + Math.abs(v).toFixed(1) + "%";
+
+  // Vol-based display: liquid and injectable both show mL column
+  // Injectable also shows Formulation column (cross-formulation like solid)
+  const isFluid = isLiquid || isInjectable;
 
   // Column count: liquid has syringe col; solid has formulation col
   const colCount = isLiquid ? 6 : 6; // wt | dose | form/vol | syr(liquid only) | formLabel(solid only) | under | over
@@ -766,7 +1035,7 @@ export default function PedsDoseTable() {
     doc.setFontSize(8); doc.text(meta, ML+8, y+36);
     y += bandH;
 
-    const pdfLiquid = isLiquid;
+    const pdfLiquid = isFluid;
     const colHeaders = pdfLiquid
       ? ["Wt (kg)","Dose","Under","Over","Vol","Syr"]
       : ["Wt (kg)","Dose","Under","Over","Qty","Formulation"];
@@ -817,7 +1086,7 @@ export default function PedsDoseTable() {
     doc.text("Weight bands: lower bound inclusive, upper bound exclusive  ·  Pharmacy verification required before clinical use",
       PW/2, y+12, { align:"center" });
     doc.save(`APTOS_${drug.generic.replace(/\s+/g,"_")}_${now.toISOString().slice(0,10)}.pdf`);
-  }, [rows, drug, formClass, committedTarget, effectiveMax, effectiveMinWt, variance, isLiquid]);
+  }, [rows, drug, formClass, committedTarget, effectiveMax, effectiveMinWt, variance, isLiquid, isInjectable, isFluid]);
 
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
@@ -1042,7 +1311,7 @@ export default function PedsDoseTable() {
         )}
 
         {/* Liquid: syringe checkboxes */}
-        {isLiquid && formClass && (
+        {(isLiquid || isInjectable) && formClass && (
           <div style={{ borderTop:"1px solid #eee", paddingTop:5 }}>
             <span style={CAP}>Syringes available</span>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:"4px 0" }}>
@@ -1192,7 +1461,7 @@ export default function PedsDoseTable() {
                   <th style={{ ...TH, textAlign:"left",   color:"#444" }}>Dose</th>
                   <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>Under</th>
                   <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>Over</th>
-                  <th style={{ ...TH, textAlign:"right",  color:"#444" }}>{isLiquid ? "Vol" : "Qty"}</th>
+                  <th style={{ ...TH, textAlign:"right",  color:"#444" }}>{isFluid ? "Vol" : "Qty"}</th>
                   {isLiquid && <th style={{ ...TH, textAlign:"center", color:"#444", padding:"6px 4px" }}>Syr</th>}
                   {!isLiquid && <th style={{ ...TH, textAlign:"left",  color:"#444" }}>Formulation</th>}
                 </tr>
