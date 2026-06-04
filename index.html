@@ -41,7 +41,7 @@
     <img src="Aptos_512.png" alt="APTOS" />
     <div class="name">APTOS</div>
     <div class="tag">Doses Designed to Fit</div>
-    <div style="font-family:'Courier New',monospace;font-size:11px;color:#4a6080;margin-top:8px;letter-spacing:1px;">v2.5</div>
+    <div style="font-family:'Courier New',monospace;font-size:11px;color:#4a6080;margin-top:8px;letter-spacing:1px;">v2.6</div>
   </div>
   <div id="root"></div>
 
@@ -51,7 +51,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
   <script defer>
-    const APP_VERSION = "2.5";
+    const APP_VERSION = "2.6";
 
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -76,7 +76,6 @@
     async function loadApp() {
       const startTime = Date.now();
       try {
-        // Fetch JSX (required) and formulary (graceful fallback to FALLBACK_DB)
         const [jsxRes, formularyRes] = await Promise.all([
           fetch('PedsDoseTable.jsx'),
           fetch(`formulary.json?v=${Date.now()}`).catch(() => null),
@@ -84,17 +83,12 @@
 
         const code = await jsxRes.text();
 
-        let drugDB = null;  // null → JSX uses its FALLBACK_DB
+        let drugDB = null;
 
         if (formularyRes && formularyRes.ok) {
           try {
             const formularyData = await formularyRes.json();
 
-            // ── Build DRUG_DB directly from formulary.json ─────────────────
-            // v2.3: aptos_params.json removed — formulary.json is the sole
-            // data source. doseUnit and maxDose are entered by the user.
-            // canHalf / canQuarter / canEighth come from transform_formulary.py
-            // SEG collapse logic.
             const EXCLUDED_FORMS = new Set([
               'topical','ophthalmic','otic','nasal','inhalation','suppository'
             ]);
@@ -113,33 +107,29 @@
                   unit:           f.unit,
                   form:           f.form,
                   form_canonical: f.form_canonical || f.form,
-                  doseUnit:       null,   // user-entered
-                  maxDose:        null,   // user-entered
+                  doseUnit:       null,
+                  maxDose:        null,
                   item_id:        f.item_id,
                   ndc:            f.ndc,
                   _source:        f._source,
                 };
 
-                // Enrichment fields
                 if (f.rxcui)        formulation.rxcui       = f.rxcui;
                 if (f.rxnorm_name)  formulation.rxnorm_name = f.rxnorm_name;
                 if (f.rxnorm_tty)   formulation.rxnorm_tty  = f.rxnorm_tty;
                 if (f._rxnorm_src)  formulation._rxnorm_src = f._rxnorm_src;
 
-                // Liquid-specific
                 if (f.form === 'liquid') {
                   formulation.preferredVols = f.preferredVols || [];
                   formulation.deviceLimited = f.deviceLimited || false;
                 }
 
-                // Solid divisibility (from SEG collapse in transform v3)
                 if (f.form === 'tablet' || f.form === 'capsule') {
                   formulation.canHalf    = f.canHalf    ?? false;
                   formulation.canQuarter = f.canQuarter ?? false;
                   formulation.canEighth  = f.canEighth  ?? false;
                 }
 
-                // Injectable
                 if (f.form === 'injectable') {
                   formulation.vialVol = f.vialVol || null;
                 }
@@ -154,7 +144,6 @@
               });
             }
 
-            // Alphabetic sort — locale-aware, case-insensitive
             drugDB.sort((a, b) => a.generic.localeCompare(b.generic, 'en', { sensitivity: 'base' }));
 
           } catch(e) {
@@ -163,15 +152,11 @@
           }
         }
 
-        window.APTOS_DRUG_DB = drugDB;  // null → JSX uses FALLBACK_DB
+        window.APTOS_DRUG_DB = drugDB;
 
-        // ── Compile and mount ──────────────────────────────────────────────
         const cleaned = code
           .replace(/^import.*?;\n/gm, '')
           .replace(/export default /, '')
-          // Strip only characters known to break Babel transpilation:
-          // em-dash (—), smart quotes (\u201c\u201d\u2018\u2019), ellipsis (…)
-          // Do NOT strip ½ ¼ ¾ or other Unicode used in labels
           .replace(/[\u2013\u2014\u201c\u201d\u2018\u2019\u2026]/g, ' ');
 
         const transpiled = Babel.transform(cleaned, { presets: ['react'] }).code;

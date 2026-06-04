@@ -1,5 +1,29 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 
+// ── Shared clinical constants ──────────────────────────────────────────────────
+// Single source of truth for weight bounds and NICU zone threshold.
+// All three band builders (liquid, tablet, injectable) reference these values.
+// Do not change without understanding the clinical rationale for each.
+const CONFIG = {
+  // Minimum weight for any displayed band. Below 0.300 kg oral dosing of the
+  // drugs covered by this application is not clinically feasible. (Manifesto p.3)
+  MIN_W: 0.3,
+
+  // Maximum weight ceiling. Bands open-end at >= wLow(maxDose) above this.
+  MAX_W: 150,
+
+  // NICU zone upper boundary. Below this cursor position, the liquid and
+  // injectable builders retain every step at the finest active syringe
+  // graduation rather than applying tier-preference selection.
+  // Primary purpose: contain the influence of the 0.01 mL neonatal syringe
+  // (off by default, activated by checkbox) to the weight range where
+  // hundredths-of-mL precision is genuinely needed. Above 1.0 kg the tier
+  // system naturally outcompetes 0.01 mL steps with coarser, simpler
+  // graduations — no special containment needed. Below 1.0 kg every step
+  // matters and should be retained regardless of tier.
+  NICU_MAX_W: 1.0,
+};
+
 // ── Drug catalogue ─────────────────────────────────────────────────────────────
 const FALLBACK_DB = [
   {
@@ -95,8 +119,107 @@ const FALLBACK_DB = [
         rxcui: "1665212", rxnorm_name: "200 ML ciprofloxacin 2 MG/ML Injection", _rxnorm_src: "ndc" },
     ]
   },
+  {
+    generic: "caffeine citrate",
+    formulary: true,
+    formulations: [
+      { label: "CAFFEINE CITRATE 20 MG/ML ORAL SOLN 3 ML",
+        concentration: 20, unit: "mg",
+        form: "liquid", form_canonical: "oral solution",
+        preferredVols: [], deviceLimited: false,
+        ndc: "00409-4955-01", item_id: "SAMPLE", _source: "FALLBACK",
+        rxcui: "849928",
+        rxnorm_name: "caffeine citrate 20 MG/ML Oral Solution",
+        _rxnorm_src: "ndc" },
+    ]
+  },
+  {
+    generic: "morphine",
+    formulary: true,
+    formulations: [
+      // 1 mg/mL, 10 mL PF vial — standard NICU dilution.
+      // At 0.05–0.1 mg/kg exercises NICU zone; whole vial (10 mL = 10 mg) is tier-0.
+      { label: "MORPHINE INJ *PF* 10 MG/10 ML",
+        concentration: 1, unit: "mg",
+        form: "injectable", form_canonical: "injectable solution",
+        vialVol: 10,
+        ndc: "00409-3815-12", item_id: "8763", _source: "FALLBACK",
+        rxcui: "1728800",
+        rxnorm_name: "10 ML morphine sulfate 1 MG/ML Injection",
+        _rxnorm_src: "ndc" },
+      // 0.5 mg/mL, 10 mL PF vial (Duramorph) — finest concentration, neonatal.
+      // At 0.05 mg/kg: 0.3 kg neonate = 0.015 mg = 0.03 mL. Deep NICU zone.
+      // Cross-formulation with 1 mg/mL tests coarsening across concentrations.
+      { label: "MORPHINE INJ *PF* 5 MG/10 ML",
+        concentration: 0.5, unit: "mg",
+        form: "injectable", form_canonical: "injectable solution",
+        vialVol: 10,
+        ndc: "00641-6020-10", item_id: "8762", _source: "FALLBACK",
+        rxcui: "892473",
+        rxnorm_name: "10 ML morphine sulfate 0.5 MG/ML Injection [Duramorph]",
+        _rxnorm_src: "ndc" },
+    ]
+  },
+  {
+    generic: "vecuronium",
+    formulary: true,
+    formulations: [
+      // 10 mg/mL, 1 mL vial — undiluted concentrate (all one time or PICU use).
+      // Entire dose range is sub-1 mL: 0.1 mg/kg at 10 kg = 1 mg = 0.1 mL.
+      // Tests syringe pool at very small volumes across the PICU weight range.
+      { label: "VECURONIUM 10 MG VIAL (all one time or PICU)",
+        concentration: 10, unit: "mg",
+        form: "injectable", form_canonical: "injectable solution",
+        vialVol: 1,
+        ndc: "81565-0206-02", item_id: "3449", _source: "FALLBACK",
+        rxcui: "859437",
+        rxnorm_name: "vecuronium bromide 1 MG/ML Injectable Solution",
+        _rxnorm_src: "ndc" },
+      // 1 mg/mL, 10 mL vial — diluted (CTICU/NICCU prn).
+      // At 0.1 mg/kg: 0.3 kg neonate = 0.03 mg = 0.03 mL. NICU zone.
+      // Cross-formulation with 10 mg/mL: same dose, 10× the volume — algorithm
+      // must select the formulation appropriate to each weight range.
+      { label: "VECURONIUM 1 MG/ML in SW INJ (all CTICU / NICCU prn)",
+        concentration: 1, unit: "mg",
+        form: "injectable", form_canonical: "injectable solution",
+        vialVol: 10,
+        ndc: "81565-0206-02A", item_id: "24399", _source: "FALLBACK",
+        rxcui: null,
+        rxnorm_name: null,
+        _rxnorm_src: "ignored" },
+    ]
+  },
+  {
+    // levETIRAcetam — tall-man lettering preserved from formulary
+    generic: "levETIRAcetam",
+    formulary: true,
+    formulations: [
+      // 100 mg/mL oral solution — the deviceLimited test case.
+      // NOTE: formulary has deviceLimited: false. The FALLBACK_DB previously had
+      // deviceLimited: true for levetiracetam. Batch 5 should resolve which is correct.
+      // At 20-60 mg/kg pediatric dosing, 100 mg/mL produces 0.2-0.6 mL/kg —
+      // device-limited behavior (0.1 mL precision throughout) is clinically appropriate
+      // even if the flag is not set in the current extract.
+      { label: "levETIRAcetam ORAL 100 MG/ML SOLN",
+        concentration: 100, unit: "mg",
+        form: "liquid", form_canonical: "oral solution",
+        preferredVols: [], deviceLimited: false,
+        ndc: "31722-0574-47", item_id: "9068", _source: "FALLBACK",
+        rxcui: "403884",
+        rxnorm_name: "levetiracetam 100 MG/ML Oral Solution",
+        _rxnorm_src: "ndc" },
+      // 500 mg/5 mL unit-dose — same concentration, different pack.
+      { label: "levETIRAcetam UD 500 MG/5 ML SOLN",
+        concentration: 100, unit: "mg",
+        form: "liquid", form_canonical: "oral solution",
+        preferredVols: [], deviceLimited: false,
+        ndc: "60687-0249-77", item_id: "9068", _source: "FALLBACK",
+        rxcui: "403884",
+        rxnorm_name: "levetiracetam 100 MG/ML Oral Solution",
+        _rxnorm_src: "ndc" },
+    ]
+  },
 ];
-
 const DRUG_DB = window.APTOS_DRUG_DB || FALLBACK_DB;
 
 // ── Route-form class classification ───────────────────────────────────────────
@@ -213,8 +336,8 @@ function buildLiquidTable(formulation, targetMgKg, variancePct, maxDose, activeS
   const { concentration: conc, preferredVols = [], unit, deviceLimited = false } = formulation;
   const effectiveMax = maxDose ?? Infinity;
   const vf    = variancePct / 100;
-  const MIN_W = 0.3;
-  const MAX_W = 150;
+  const MIN_W = CONFIG.MIN_W;
+  const MAX_W = CONFIG.MAX_W;
   const wLow  = dose => dose / (targetMgKg * (1 + vf));
   const wHigh = dose => dose / (targetMgKg * (1 - vf));
   const pVar  = (dose, wt) => (dose - wt * targetMgKg) / (wt * targetMgKg) * 100;
@@ -223,6 +346,14 @@ function buildLiquidTable(formulation, targetMgKg, variancePct, maxDose, activeS
   const eligible = deviceLimited ? poolVols.filter(v => v.tier >= 3 || v.vol > 3.0) : poolVols;
 
   const forcedVolKeys = new Set();
+  // Forced aliquots at 1, 2.5, 5, 7.5, 10 mL anchor the clinically standard
+  // reference volumes for suspensions labeled "x mg/5 mL". These VOLUMES are
+  // the landmarks (Meyers 2024 Table 1) — the resulting mg dose is whatever it is.
+  // Do NOT filter by dose roundness: senna (1.76 mg/mL) produces 8.8 mg at 5 mL
+  // which is non-integer but IS the label dose. Same for diphenhydrAMINE (12.5 mg),
+  // tacrolimus, cloBAZam, losartan, and 13 other formulary drugs.
+  // The tier-check in useForced (below) prevents disruptive insertion — that is the
+  // correct general solution. Do not add dose-roundness suppression here.
   [1.0, 2.5, 5.0, 7.5, 10.0].forEach(v => {
     const dose = Math.round(v * conc * 10000) / 10000;
     if (dose <= effectiveMax + 0.001) forcedVolKeys.add(Math.round(v * 100000));
@@ -238,7 +369,9 @@ function buildLiquidTable(formulation, targetMgKg, variancePct, maxDose, activeS
                        forced: forcedVolKeys.has(Math.round(v.vol * 100000)) }))
     .filter(c => c.dose > 0 && c.dose <= effectiveMax + 0.001);
 
-  const NICU_MAX_W = 2.5;
+  // NICU zone: retain every step at the finest active syringe graduation.
+  // Applies only while prevWtH < CONFIG.NICU_MAX_W. See CONFIG block for rationale.
+  const NICU_MAX_W = CONFIG.NICU_MAX_W;
   const retained = []; const retainedKeys = new Set();
   let prevWtH = MIN_W;
 
@@ -265,7 +398,14 @@ function buildLiquidTable(formulation, targetMgKg, variancePct, maxDose, activeS
         });
       }
     }
-    const useForced = readyForced.length > 0 && (!best || readyForced[0].vol <= best.vol);
+    // A forced waypoint wins only when its tier is no worse than the organic best.
+    // This prevents a tier-1 forced volume (e.g. 7.5 mL = X.5 mark on 10 mL syringe)
+    // from inserting itself between two tier-0 organic candidates (whole-mL steps),
+    // which would create a narrow micro-band. Example: diphenhydrAMINE 2.5 mg/mL —
+    // 7.5 mL = 18.75 mg (tier-1) must not displace 8 mL = 20 mg (tier-0 organic).
+    // DO NOT remove this tier check without re-validating diphenhydrAMINE at max=25.
+    const useForced = readyForced.length > 0 &&
+      (!best || (readyForced[0].vol <= best.vol && readyForced[0].tier <= best.tier));
     return useForced ? readyForced[0] : best;
   }
 
@@ -325,7 +465,7 @@ function tabletCandidates(formulation, targetMgKg, variancePct, maxDose) {
           formulary = true } = formulation;
   const effectiveMax = maxDose ?? Infinity;
   const vf    = variancePct / 100;
-  const MAX_W = 150;
+  const MAX_W = CONFIG.MAX_W;
   const maxTabs = Math.min(Math.ceil(effectiveMax / strength), 40);
 
   const ann = steps => steps
@@ -393,8 +533,8 @@ function tabletCandidates(formulation, targetMgKg, variancePct, maxDose) {
 function buildCrossTabletTable(formulations, targetMgKg, variancePct, maxDose) {
   if (!formulations.length) return [];
 
-  const MAX_W = 150;
-  const MIN_W = 0.3;
+  const MAX_W = CONFIG.MAX_W;
+  const MIN_W = CONFIG.MIN_W;
   const effectiveMax = maxDose ?? Infinity;
   const unit = formulations[0].unit;
 
@@ -561,7 +701,7 @@ function buildInjectableCandidates(formulation, targetMgKg, variancePct, maxDose
   if (!conc || conc <= 0) return [];
   const effectiveMax = maxDose ?? Infinity;
   const vf    = variancePct / 100;
-  const MAX_W = 150;
+  const MAX_W = CONFIG.MAX_W;
 
   const ann = (vol) => {
     const dose = Math.round(vol * conc * 100000) / 100000;
@@ -611,117 +751,157 @@ function buildInjectableCandidates(formulation, targetMgKg, variancePct, maxDose
 }
 
 // ── Cross-formulation injectable table builder ─────────────────────────────────
-// Same sequential filter as tablets — unified candidate pool across all active
-// formulations, cursor walk from MIN_W, tier-first selection.
-// Whole-bag doses (tier 0) win as soon as they enter the tolerance window,
-// producing natural coarsening from fine syringe steps to full-bag doses.
-// Gap-fill: underdose default (extend previous band), same as tablet algorithm.
+// Architecture mirrors buildLiquidTable (retained-array, liquid-style gaps) rather
+// than the tablet solid-style rawSeq builder. Rationale: injectables share the same
+// continuous volumetric candidate space as oral liquids — syringe graduations below
+// 30 mL, integer-mL steps above 30 mL. Gaps are rare and when they occur represent
+// genuine clinical absence, not a tablet formulation boundary. Showing them honestly
+// (liquid approach) is safer than silently extending the previous band (solid approach).
+//
+// Two candidate zones, unified in one cursor walk:
+//   Sub-30 mL  — syringe pool tiers (same as oral liquid). NICU zone applies.
+//   Above-30 mL — integer-mL tier-1 steps; whole-bag tier-0. Snap applies.
+//
+// NICU zone (prevWtH < CONFIG.NICU_MAX_W): retain smallest-vol candidate at each
+// step — same behavior as liquid builder. Applies only to low-concentration
+// injectables at low doses in small patients (e.g. morphine 0.1 mg/kg neonatal).
+// Has no effect when cursor is already past NICU_MAX_W at band-generation start.
+//
+// Gap behavior (liquid style):
+//   Before first band: silently advance cursor to first reachable candidate.
+//   Mid-table gap: silently advance cursor. The resulting gap in weight coverage
+//   is visible in the output as missing weight ranges — honest, not hidden.
+//   For narrow-therapeutic-index drugs (morphine) this is the correct behavior.
+//
+// Communicability snap: applied post-selection to tier-1 (above-30 mL) candidates
+// only. Tier-0 (whole bag) and syringe candidates (tier ≥ 2) are never snapped.
 function buildCrossInjectableTable(formulations, targetMgKg, variancePct, maxDose, activeSyringes) {
   if (!formulations.length) return [];
 
-  const MAX_W = 150;
-  const MIN_W = 0.3;
+  const MAX_W = CONFIG.MAX_W;
+  const MIN_W = CONFIG.MIN_W;
+  const NICU_MAX_W = CONFIG.NICU_MAX_W;
   const effectiveMax = maxDose ?? Infinity;
+  const vf   = variancePct / 100;
   const unit = formulations[0].unit;
 
-  // Unified candidate pool from all active formulations
+  const wLow  = dose => dose / (targetMgKg * (1 + vf));
+  const wHigh = dose => dose / (targetMgKg * (1 - vf));
+  const pVar  = (dose, wt) => (dose - wt * targetMgKg) / (wt * targetMgKg) * 100;
+
+  // Unified candidate pool — all formulations, all volumes
   const all = formulations.flatMap(f =>
     buildInjectableCandidates(f, targetMgKg, variancePct, effectiveMax, activeSyringes)
   ).filter(c => c.wLow < MAX_W);
 
   if (!all.length) return [];
 
-  // Sequential filter — cursor walk (identical structure to tablet algorithm)
-  const rawSeq = [];
-  let cursor = MIN_W;
+  // ── Sequential filter — retained-array cursor walk ─────────────────────────
+  // Mirrors buildLiquidTable structure. prevWtH is the upper weight of the last
+  // retained band (starts at MIN_W). retained holds chosen candidates in order.
+  const retained = [];
+  const retainedKeys = new Set();  // keyed by Math.round(vol * 100000)
+  let prevWtH = MIN_W;
 
-  while (cursor < MAX_W - 0.0001) {
+  while (prevWtH < MAX_W - 0.0001) {
+    const lastDose = retained.length > 0 ? retained[retained.length - 1].dose : 0;
+    const inNicuZone = prevWtH < NICU_MAX_W;
+
+    // Reachable: not yet retained, dose advances, wLow within cursor
     const reachable = all.filter(c =>
-      c.wLow <= cursor + 0.0001 &&
-      c.wHigh > cursor + 0.0001
+      !retainedKeys.has(Math.round(c.vol * 100000)) &&
+      c.dose > lastDose + 0.0001 &&
+      c.wLow <= prevWtH + 0.0001 &&
+      c.wHigh > prevWtH + 0.0001
     );
 
     if (!reachable.length) {
-      const next = all
-        .filter(c => c.wLow > cursor)
+      // Gap: no candidate reaches this cursor position.
+      // Liquid-style: silently advance to the next reachable candidate.
+      // The gap will be visible in the output as a missing weight range.
+      const nextAny = all
+        .filter(c => !retainedKeys.has(Math.round(c.vol * 100000)) && c.dose > lastDose)
         .sort((a, b) => a.wLow - b.wLow)[0];
-      if (!next) break;
-      // Gap-fill: underdose default — extend previous band
-      if (rawSeq.length > 0) rawSeq[rawSeq.length - 1].rowWHigh = next.wLow;
-      cursor = next.wLow;
+      if (!nextAny || nextAny.wLow >= MAX_W - 0.0001) break;
+      prevWtH = nextAny.wLow;
       continue;
     }
 
-    // Minimum band width filter — prevent hair-thin collision bands
-    const meaningful = reachable.filter(c => c.wHigh - cursor > 0.05);
-    const pool2 = meaningful.length ? meaningful : reachable;
+    // Selection
+    let chosen;
+    if (inNicuZone) {
+      // NICU zone: smallest vol — every graduation retained for finest precision
+      chosen = reachable.reduce((a, b) => a.vol <= b.vol ? a : b);
+    } else {
+      // Tier-first, then widest coverage, then smallest vol (fewer mL = simpler)
+      // Tier hierarchy: 0=whole bag > 1=integer mL (above 30) > 2-5=syringe steps
+      const meaningful = reachable.filter(c => c.wHigh - prevWtH > 0.05);
+      const pool = meaningful.length ? meaningful : reachable;
+      chosen = pool.reduce((a, b) => {
+        if (a.tier !== b.tier)                     return a.tier < b.tier ? a : b;
+        if (Math.abs(b.wHigh - a.wHigh) > 0.0001) return b.wHigh > a.wHigh ? b : a;
+        if (a.vol !== b.vol)                       return a.vol < b.vol ? a : b;
+        return a;
+      });
+    }
 
-    const best = pool2.reduce((a, b) => {
-      if (a.tier !== b.tier)                     return a.tier < b.tier ? a : b;
-      if (Math.abs(b.wHigh - a.wHigh) > 0.0001) return b.wHigh > a.wHigh ? b : a;
-      if (a.vol !== b.vol)                       return a.vol < b.vol ? a : b;
-      return a;
-    });
-
-    const isLast = best.dose >= effectiveMax - 0.001;
-
-    // Communicability snap: if best is a non-round integer-mL step (tier 1),
-    // try rounding its dose to the nearest commQuantum multiple. Only accepted
-    // if the snapped dose still reaches cursor and overPct stays within tolerance.
-    // Whole-bag (tier 0) and syringe candidates (tier ≥ 2) are never snapped.
-    let finalStep = best;
-    if (best.tier === 1 && !isLast) {
-      const conc = best.dose / best.vol;
+    // Communicability snap — tier-1 (above-30 mL integer steps) only, not last band
+    const isLast = chosen.dose >= effectiveMax - 0.001;
+    if (chosen.tier === 1 && !isLast) {
+      const conc = chosen.dose / chosen.vol;
       const commQuantum = deriveCommQuantum(conc);
-      const snappedDose = snapToComm(best.dose, cursor, conc, targetMgKg, variancePct, commQuantum);
-      if (snappedDose !== best.dose) {
-        const snappedVol = Math.round(snappedDose / conc * 100000) / 100000;
-        const snappedWHigh = snappedDose / (targetMgKg * (1 - variancePct/100));
-        // Safety: snapped wHigh must advance cursor, otherwise skip snap
-        if (snappedWHigh > cursor + 0.0001) {
-          finalStep = { ...best, dose: snappedDose, vol: snappedVol,
-                        wLow:  snappedDose / (targetMgKg * (1 + variancePct/100)),
-                        wHigh: snappedWHigh };
+      const snappedDose = snapToComm(chosen.dose, prevWtH, conc, targetMgKg, variancePct, commQuantum);
+      if (snappedDose !== chosen.dose) {
+        const snappedVol   = Math.round(snappedDose / conc * 100000) / 100000;
+        const snappedWHigh = snappedDose / (targetMgKg * (1 - vf));
+        if (snappedWHigh > prevWtH + 0.0001) {
+          chosen = { ...chosen, dose: snappedDose, vol: snappedVol,
+                     wLow:  snappedDose / (targetMgKg * (1 + vf)),
+                     wHigh: snappedWHigh };
         }
       }
     }
 
-    // Re-check isLast against finalStep dose (snap may have crossed maxDose)
-    const finalIsLast = isLast || finalStep.dose >= effectiveMax - 0.001;
+    // Re-check isLast after snap (snap may have crossed effectiveMax)
+    const finalIsLast = isLast || chosen.dose >= effectiveMax - 0.001;
 
-    rawSeq.push({
-      step:     finalStep,
-      rowWLow:  cursor,
-      rowWHigh: finalIsLast ? MAX_W : finalStep.wHigh,
-      isLast:   finalIsLast,
-    });
-
-    cursor = finalIsLast ? MAX_W : finalStep.wHigh;
+    retainedKeys.add(Math.round(chosen.vol * 100000));
+    retained.push({ ...chosen, isLast: finalIsLast });
+    prevWtH = finalIsLast ? MAX_W : chosen.wHigh;
     if (finalIsLast) break;
   }
 
-  if (!rawSeq.length) return [];
+  if (!retained.length) return [];
 
-  return rawSeq
-    .filter(({ rowWLow, rowWHigh, isLast }) =>
-      isLast ? rowWLow >= MIN_W - 0.0001 : rowWHigh > MIN_W + 0.0001)
-    .map(({ step, rowWLow, rowWHigh, isLast }) => {
-      const displayWLow = Math.max(rowWLow, MIN_W);
-      const overPct  = ((step.dose - displayWLow * targetMgKg) / (displayWLow * targetMgKg)) * 100;
-      const underPct = isLast ? null
-        : ((step.dose - rowWHigh * targetMgKg) / (rowWHigh * targetMgKg)) * 100;
-      const flagged  = Math.abs(overPct) > variancePct + 0.05 ||
-                       (!isLast && underPct !== null && Math.abs(underPct) > variancePct + 0.05);
-      return {
-        wStart:       roundW(displayWLow),
-        wEnd:         isLast ? `>= ${roundW(displayWLow)}` : roundW(rowWHigh),
-        doseLabel:    `${step.dose} ${unit}`,
-        volLabel:     `${step.vol} mL`,
-        formLabel:    step.formLabel,
-        syringeLabel: step.syringeLabel || "",
-        overPct, underPct, flagged, oot: false, isLast,
-      };
+  // ── Display row construction — mirrors buildLiquidTable ────────────────────
+  // Band top = wLow(next retained candidate), matching liquid builder convention.
+  // This produces conservative, non-overlapping bands whose boundaries align with
+  // where the next dose becomes appropriate, not where the current dose's tolerance
+  // window ends. Honest gaps appear as weight ranges with no row.
+  const displayable = retained.filter(r => wLow(r.dose) >= MIN_W - 0.0001);
+  const rows = [];
+  for (let i = 0; i < displayable.length; i++) {
+    const r    = displayable[i];
+    const next = displayable[i + 1];
+    const rowWtL      = wLow(r.dose);
+    const rawWtH      = r.isLast ? MAX_W : (next ? wLow(next.dose) : wHigh(r.dose));
+    const effectiveWtH = Math.min(rawWtH, MAX_W);
+    if (effectiveWtH <= rowWtL + 0.0001 && !r.isLast) continue;
+    const overPct  = pVar(r.dose, rowWtL);
+    const underPct = r.isLast ? null : pVar(r.dose, effectiveWtH);
+    const flagged  = Math.abs(overPct) > variancePct + 0.05 ||
+                     (!r.isLast && underPct !== null && Math.abs(underPct) > variancePct + 0.05);
+    rows.push({
+      wStart:       roundW(rowWtL),
+      wEnd:         r.isLast ? `>= ${roundW(rowWtL)}` : roundW(effectiveWtH),
+      doseLabel:    `${r.dose} ${unit}`,
+      volLabel:     `${r.vol} mL`,
+      formLabel:    r.formLabel,
+      syringeLabel: r.syringeLabel || "",
+      overPct, underPct, flagged, oot: false, isLast: r.isLast,
     });
+  }
+  return rows;
 }
 
 // ── Styles ─────────────────────────────────────────────────────────────────────
