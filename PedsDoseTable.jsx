@@ -469,11 +469,17 @@ function buildLiquidTable(formulation, targetMgKg, variancePct, maxDose, activeS
 // ¾ and ¼ only generated when canQuarter=true.
 function tabletCandidates(formulation, targetMgKg, variancePct, maxDose) {
   const { concentration: strength, unit, canHalf = false, canQuarter = false,
-          formulary = true } = formulation;
+          formulary = true,
+          // maxTablets: max whole tablets dispensed in a single dose. Default 4 —
+          // beyond this, a different strength should be used. Set higher in the
+          // formulary for drugs where no larger strength exists (e.g. carvedilol
+          // 3.125 mg when 6.25 mg is unavailable). Set to 1 for capsules that
+          // cannot be split and exist only in one strength.
+          maxTablets = 4 } = formulation;
   const effectiveMax = maxDose ?? Infinity;
   const vf    = variancePct / 100;
   const MAX_W = CONFIG.MAX_W;
-  const maxTabs = Math.min(Math.ceil(effectiveMax / strength), 40);
+  const maxTabs = Math.min(Math.ceil(effectiveMax / strength), maxTablets);
 
   const ann = steps => steps
     .filter(s => s.dose <= effectiveMax + 0.001)
@@ -576,24 +582,21 @@ function buildCrossOralTable(liquidFormulations, solidFormulations, targetMgKg, 
     }).filter(Boolean);
   });
 
-  // ── Solid candidates with whole-tab forced flags ───────────────────────────
-  const solidCandidates = solidFormulations.flatMap(f =>
+  // ── Solid candidates — deduplicated by dose across formulations ───────────────
+  // When multiple strengths produce the same dose (e.g. 200 mg = 2×100 mg or 1×200 mg),
+  // keep the candidate requiring fewest physical units (lowest dispensed count).
+  const rawSolidCandidates = solidFormulations.flatMap(f =>
     tabletCandidates(f, targetMgKg, variancePct, effectiveMax).map(c => {
-      // tabletCandidates uses 'dispensed' (tablet count) not 'vol'.
-      // Whole tabs: dispensed is integer ≥ 1 → forced waypoints in solid zone.
       const disp = c.dispensed;
       const isForced = typeof disp === 'number' &&
                        Math.abs(disp - Math.round(disp)) < 0.001 && disp >= 1;
-      return {
-        ...c,
-        vol:      disp,   // alias for consistent dedup key arithmetic
-        key:      `tab:${Math.round(disp * 100000)}:${f.label}`,
-        volLabel: c.label,
-        isLiquid: false,
-        isForced,
-      };
+      return { ...c, vol: disp,
+               key: `tab:${Math.round(disp * 100000)}:${c.formLabel}`,
+               volLabel: c.label, isLiquid: false, isForced };
     })
-  );
+  ).filter(c => c.wLow < MAX_W);
+
+  const solidCandidates = deduplicateTabletCandidates(rawSolidCandidates);
 
   const all = [...liquidCandidates, ...solidCandidates]
     .filter(c => c.wLow < MAX_W)
@@ -705,6 +708,27 @@ function buildCrossOralTable(liquidFormulations, solidFormulations, targetMgKg, 
   }
   return rows;
 }
+// ── Cross-strength tablet deduplication ───────────────────────────────────────
+// When multiple tablet strengths are active (e.g. amiodarone 100 mg + 200 mg),
+// both generate candidates at shared dose points (200 mg = 2×100 mg or 1×200 mg,
+// 400 mg = 4×100 mg or 2×200 mg). For each unique dose, keep the candidate that
+// requires the fewest physical units (lowest dispensed count) — minimum dispensing
+// steps, minimum error surface. Tiebreak on tier (whole tab preferred over fraction).
+function deduplicateTabletCandidates(candidates) {
+  const best = new Map(); // dose (rounded) → best candidate
+  for (const c of candidates) {
+    const key = Math.round(c.dose * 1000);
+    const prev = best.get(key);
+    if (!prev) { best.set(key, c); continue; }
+    // Prefer fewest units dispensed; break ties by tier (lower = better)
+    if (c.dispensed < prev.dispensed ||
+        (c.dispensed === prev.dispensed && c.tier < prev.tier)) {
+      best.set(key, c);
+    }
+  }
+  return [...best.values()].sort((a, b) => a.dose - b.dose || a.tier - b.tier);
+}
+
 // Unified candidate pool across all active formulations.
 // Sequential filter identical in spirit to the liquid syringe algorithm:
 //   - Walk from MIN_W upward via cursor
@@ -724,10 +748,12 @@ function buildCrossTabletTable(formulations, targetMgKg, variancePct, maxDose) {
   const effectiveMax = maxDose ?? Infinity;
   const unit = formulations[0].unit;
 
-  // Unified candidate pool from all active formulations
-  const all = formulations.flatMap(f =>
-    tabletCandidates(f, targetMgKg, variancePct, effectiveMax)
-  ).filter(s => s.wLow < MAX_W);
+  // Unified candidate pool — deduplicated by dose across formulations
+  const all = deduplicateTabletCandidates(
+    formulations.flatMap(f =>
+      tabletCandidates(f, targetMgKg, variancePct, effectiveMax)
+    ).filter(s => s.wLow < MAX_W)
+  );
 
   if (!all.length) return [];
 
@@ -1896,6 +1922,7 @@ export default function PedsDoseTable() {
       <div style={{ padding:"8px 10px" }}>
         {rows ? (
           <div style={{ background:"#fff", borderRadius:6, overflow:"hidden", border:"1px solid #d0d0c8" }}>
+            <div style={{ overflowX:"auto", WebkitOverflowScrolling:"touch" }}>
             <table style={{ width:"100%", borderCollapse:"collapse", fontFamily:INTER }}>
               <thead>
                 <tr style={{ background:"#1c2333" }}>
@@ -1983,6 +2010,7 @@ export default function PedsDoseTable() {
                 ))}
               </tbody>
             </table>
+            </div>{/* end scroll wrapper */}
             <div style={{ fontSize:11, color:"#999", textAlign:"center", padding:"5px",
                           borderTop:"1px solid #eee" }}>
               Weight bands: lower bound inclusive, upper bound exclusive
