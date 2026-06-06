@@ -1477,7 +1477,13 @@ export default function PedsDoseTable() {
     doc.setFont("helvetica","italic"); doc.setFontSize(7); doc.setTextColor(150,150,150);
     doc.text("Weight bands: lower bound inclusive, upper bound exclusive  ·  Pharmacy verification required before clinical use",
       PW/2, y+12, { align:"center" });
-    doc.save(`APTOS_${drug.generic.replace(/\s+/g,"_")}_${now.toISOString().slice(0,10)}.pdf`);
+    // Use window.open with a blob URL so iOS PWA hands off to Safari rather
+    // than opening the PDF inside the webview (which traps the user with no back navigation).
+    const blob = doc.output("blob");
+    const url  = URL.createObjectURL(blob);
+    window.open(url, "_blank");
+    // Revoke after a short delay to free memory once Safari has taken the handoff
+    setTimeout(() => URL.revokeObjectURL(url), 10000);
   }, [rows, drug, formClasses, committedTarget, effectiveMax, effectiveMinWt, variance, isLiquid, isInjectable, isFluid]);
 
   const generateXLSX = useCallback(() => {
@@ -1898,6 +1904,8 @@ export default function PedsDoseTable() {
                   <th style={{ ...TH, textAlign:"right",  color:"#444" }}>{isFluid ? "Vol" : "Qty"}</th>
                   {isLiquid && <th style={{ ...TH, textAlign:"center", color:"#444", padding:"6px 4px" }}>Syr</th>}
                   {!isLiquid && <th style={{ ...TH, textAlign:"left",  color:"#444" }}>Formulation</th>}
+                  <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>From</th>
+                  <th style={{ ...TH, textAlign:"right", color:"#444", padding:"6px 4px" }}>To</th>
                 </tr>
               </thead>
               <tbody>
@@ -1944,6 +1952,12 @@ export default function PedsDoseTable() {
                         {r.formLabel}
                       </td>
                     )}
+                    <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontSize:11, color:r.oot?"#bbb":"#666" }}>
+                      {(r.wStart * committedTarget).toFixed(1)}
+                    </td>
+                    <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontSize:11, color:r.oot?"#bbb":"#666" }}>
+                      {r.isLast ? "—" : (r.wEnd * committedTarget).toFixed(1)}
+                    </td>
                   </tr>
                 ))}
               </tbody>
