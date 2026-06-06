@@ -22,6 +22,13 @@ const CONFIG = {
   // graduations — no special containment needed. Below 1.0 kg every step
   // matters and should be retained regardless of tier.
   NICU_MAX_W: 1.0,
+
+  // Weight threshold for the unified oral builder (buildCrossOralTable).
+  // Below this: liquid forced waypoints apply, liquid preferred at equal tier.
+  // At/above this: whole-tablet doses become forced waypoints, liquid waypoints
+  // suppressed. ~20 kg is where most children can reliably swallow tablets and
+  // where dispensing a measured liquid volume offers diminishing benefit.
+  SOLID_PREF_WT: 20,
 };
 
 // ── Drug catalogue ─────────────────────────────────────────────────────────────
@@ -518,7 +525,186 @@ function tabletCandidates(formulation, targetMgKg, variancePct, maxDose) {
     .sort((a, b) => a.dose - b.dose || a.tier - b.tier);
 }
 
-// ── Cross-formulation tablet table builder ─────────────────────────────────────
+// ── Cross-formulation oral table builder (liquid + solid unified) ──────────────
+// Unified candidate pool across all active liquid AND solid oral formulations.
+// Two-zone forced waypoint strategy:
+//
+//   Below CONFIG.SOLID_PREF_WT (20 kg): liquid forced waypoints apply (1,2.5,5,7.5,10 mL)
+//     anchoring the standard "x mg/5 mL" reference volumes. Liquid preferred at equal tier.
+//
+//   At/above CONFIG.SOLID_PREF_WT: whole-tablet doses become forced waypoints.
+//     Liquid forced waypoints suppressed to prevent crowding (e.g. 320 mg liquid
+//     immediately before 325 mg tablet). Solid preferred at equal tier.
+//
+// This produces the clinically expected sequence: liquid precision steps at low
+// weights → natural transition → tablet doses (whole, half, quarter) at high weights.
+// Candidate key: compound "form:volKey:label" — prevents dedup collision between
+// liquid 1.0 mL and solid 1.0 whole tab.
+function buildCrossOralTable(liquidFormulations, solidFormulations, targetMgKg, variancePct, maxDose, activeSyringes) {
+  const MAX_W         = CONFIG.MAX_W;
+  const MIN_W         = CONFIG.MIN_W;
+  const NICU_MAX_W    = CONFIG.NICU_MAX_W;
+  const SOLID_PREF_WT = CONFIG.SOLID_PREF_WT;
+  const effectiveMax  = maxDose ?? Infinity;
+  const vf = variancePct / 100;
+
+  const wLow  = dose => dose / (targetMgKg * (1 + vf));
+  const wHigh = dose => dose / (targetMgKg * (1 - vf));
+  const pVar  = (dose, wt) => (dose - wt * targetMgKg) / (wt * targetMgKg) * 100;
+
+  const pool = buildSyringePool(activeSyringes);
+
+  // ── Liquid candidates with forced waypoint flags ───────────────────────────
+  // Forced waypoints (1,2.5,5,7.5,10 mL) are tagged; they are only honored
+  // when cursor < SOLID_PREF_WT.
+  const FORCED_VOLS_ML = new Set([1.0, 2.5, 5.0, 7.5, 10.0]);
+  const liquidCandidates = liquidFormulations.flatMap(f => {
+    const conc = f.concentration;
+    return pool.map(({ vol, syringeLabel, tier }) => {
+      const dose = Math.round(vol * conc * 100000) / 100000;
+      if (dose <= 0 || dose > effectiveMax + 0.001) return null;
+      const isForced = FORCED_VOLS_ML.has(vol);
+      return {
+        key:          `liq:${Math.round(vol * 100000)}:${f.label}`,
+        vol, dose, tier, unit: f.unit,
+        volLabel:     `${vol} mL`,
+        formLabel:    f.label,
+        syringeLabel, isLiquid: true, isForced,
+        wLow:  wLow(dose),
+        wHigh: wHigh(dose),
+      };
+    }).filter(Boolean);
+  });
+
+  // ── Solid candidates with whole-tab forced flags ───────────────────────────
+  const solidCandidates = solidFormulations.flatMap(f =>
+    tabletCandidates(f, targetMgKg, variancePct, effectiveMax).map(c => {
+      // tabletCandidates uses 'dispensed' (tablet count) not 'vol'.
+      // Whole tabs: dispensed is integer ≥ 1 → forced waypoints in solid zone.
+      const disp = c.dispensed;
+      const isForced = typeof disp === 'number' &&
+                       Math.abs(disp - Math.round(disp)) < 0.001 && disp >= 1;
+      return {
+        ...c,
+        vol:      disp,   // alias for consistent dedup key arithmetic
+        key:      `tab:${Math.round(disp * 100000)}:${f.label}`,
+        volLabel: c.label,
+        isLiquid: false,
+        isForced,
+      };
+    })
+  );
+
+  const all = [...liquidCandidates, ...solidCandidates]
+    .filter(c => c.wLow < MAX_W)
+    .sort((a, b) => a.dose - b.dose || a.tier - b.tier);
+
+  if (!all.length) return [];
+
+  const retained     = [];
+  const retainedKeys = new Set();
+  let prevWtH = MIN_W;
+
+  while (prevWtH < MAX_W - 0.0001) {
+    const lastDose    = retained.length > 0 ? retained[retained.length - 1].dose : 0;
+    const inNicuZone  = prevWtH < NICU_MAX_W;
+    const solidZone   = prevWtH >= SOLID_PREF_WT;
+
+    const reachable = all.filter(c =>
+      !retainedKeys.has(c.key) &&
+      c.dose > lastDose + 0.0001 &&
+      c.wLow <= prevWtH + 0.0001 &&
+      c.wHigh > prevWtH + 0.0001
+    );
+
+    if (!reachable.length) {
+      const nextAny = all
+        .filter(c => !retainedKeys.has(c.key) && c.dose > lastDose)
+        .sort((a, b) => a.wLow - b.wLow)[0];
+      if (!nextAny || nextAny.wLow >= MAX_W - 0.0001) break;
+      prevWtH = nextAny.wLow;
+      continue;
+    }
+
+    let chosen;
+
+    if (inNicuZone) {
+      // NICU zone: finest step
+      chosen = reachable.reduce((a, b) => a.vol <= b.vol ? a : b);
+
+    } else if (solidZone) {
+      // Solid zone (≥ SOLID_PREF_WT): whole-tablet forced candidates take priority.
+      // Among forced solid candidates, prefer lowest dose (next logical tablet step).
+      // If no forced solid is reachable, fall through to tier-first organic selection.
+      const forcedSolid = reachable.filter(c => !c.isLiquid && c.isForced);
+      if (forcedSolid.length > 0) {
+        chosen = forcedSolid.reduce((a, b) => a.dose < b.dose ? a : b);
+      } else {
+        // Organic: tier-first, same-tier prefer solid over liquid, then coverage
+        const meaningful = reachable.filter(c => c.wHigh - prevWtH > 0.05);
+        const p = meaningful.length ? meaningful : reachable;
+        chosen = p.reduce((a, b) => {
+          if (a.tier !== b.tier) return a.tier < b.tier ? a : b;
+          // Same tier: prefer solid in solid zone
+          if (a.isLiquid !== b.isLiquid) return a.isLiquid ? b : a;
+          return b.wHigh > a.wHigh ? b : a;
+        });
+      }
+
+    } else {
+      // Liquid zone (< SOLID_PREF_WT): liquid forced waypoints take priority.
+      const forcedLiquid = reachable.filter(c => c.isLiquid && c.isForced);
+      if (forcedLiquid.length > 0) {
+        // Among multiple forced liquid candidates, pick lowest vol (next clean step)
+        chosen = forcedLiquid.reduce((a, b) => a.vol < b.vol ? a : b);
+      } else {
+        // Organic: tier-first, prefer liquid, then coverage
+        const meaningful = reachable.filter(c => c.wHigh - prevWtH > 0.05);
+        const p = meaningful.length ? meaningful : reachable;
+        chosen = p.reduce((a, b) => {
+          if (a.tier !== b.tier) return a.tier < b.tier ? a : b;
+          // Same tier: prefer liquid in liquid zone
+          if (a.isLiquid !== b.isLiquid) return a.isLiquid ? a : b;
+          return b.wHigh > a.wHigh ? b : a;
+        });
+      }
+    }
+
+    const isLast = chosen.dose >= effectiveMax - 0.001;
+    retainedKeys.add(chosen.key);
+    retained.push({ ...chosen, isLast });
+    prevWtH = isLast ? MAX_W : wHigh(chosen.dose);
+    if (isLast) break;
+  }
+
+  if (!retained.length) return [];
+
+  const displayable = retained.filter(r => wLow(r.dose) >= MIN_W - 0.0001);
+  const rows = [];
+  for (let i = 0; i < displayable.length; i++) {
+    const r    = displayable[i];
+    const next = displayable[i + 1];
+    const rowWtL      = wLow(r.dose);
+    const rawWtH      = r.isLast ? MAX_W : (next ? wLow(next.dose) : wHigh(r.dose));
+    const effectiveWtH = Math.min(rawWtH, MAX_W);
+    if (effectiveWtH <= rowWtL + 0.0001 && !r.isLast) continue;
+    const overPct  = pVar(r.dose, rowWtL);
+    const underPct = r.isLast ? null : pVar(r.dose, effectiveWtH);
+    const flagged  = Math.abs(overPct) > variancePct + 0.05 ||
+                     (!r.isLast && underPct !== null && Math.abs(underPct) > variancePct + 0.05);
+    rows.push({
+      wStart:      roundW(rowWtL),
+      wEnd:        r.isLast ? `>= ${roundW(rowWtL)}` : roundW(effectiveWtH),
+      doseLabel:   `${r.dose} ${r.unit}`,
+      volLabel:    r.volLabel,
+      formLabel:   r.formLabel,
+      syringeLabel: r.syringeLabel || "",
+      overPct, underPct, flagged, oot: false, isLast: r.isLast,
+      isLiquid: r.isLiquid,
+    });
+  }
+  return rows;
+}
 // Unified candidate pool across all active formulations.
 // Sequential filter identical in spirit to the liquid syringe algorithm:
 //   - Walk from MIN_W upward via cursor
@@ -955,7 +1141,7 @@ function RefSection({ title, text }) {
 // ── Component ──────────────────────────────────────────────────────────────────
 export default function PedsDoseTable() {
   const [drugIdx,         setDrugIdx]         = useState(-1);
-  const [formClass,       setFormClass]       = useState(null);   // selected route-form class
+  const [formClasses,     setFormClasses]     = useState(new Set()); // active route-form classes
   const [checkedForms,    setCheckedForms]    = useState({});     // formIdx → boolean
   const [refFormIdx,      setRefFormIdx]      = useState(-1);     // formulation selected for drug ref
   const [doseText,        setDoseText]        = useState("");
@@ -986,25 +1172,27 @@ export default function PedsDoseTable() {
     return [...seen];
   }, [drug]);
 
-  // Formulations in the selected class
+  // Formulations in all selected classes (flat, no segregation when multi-select)
   const classFormulations = useMemo(() => {
-    if (!drug || !formClass) return [];
+    if (!drug || !formClasses.size) return [];
     return drug.formulations
       .map((f, i) => ({ f, i }))
-      .filter(({ f }) => getFormClass(f) === formClass);
-  }, [drug, formClass]);
+      .filter(({ f }) => formClasses.has(getFormClass(f)));
+  }, [drug, formClasses]);
 
   // Checked (active) formulations — those contributing to band generation
   const activeFormulations = useMemo(() =>
     classFormulations.filter(({ i }) => checkedForms[i] !== false).map(({ f }) => f),
     [classFormulations, checkedForms]);
 
-  const isLiquid     = formClass === "oral-liquid";
-  const isInjectable = formClass === "injectable";
-  const isSolid      = formClass === "oral-tablet-ir" || formClass === "oral-tablet-er" || formClass === "oral-capsule";
-  // For liquid: use the first active formulation (liquids don't cross-formulate)
+  const isLiquid     = formClasses.size === 1 && formClasses.has("oral-liquid");
+  const isInjectable = formClasses.size === 1 && formClasses.has("injectable");
+  const isSolid      = formClasses.size > 0 && [...formClasses].every(c =>
+    c === "oral-tablet-ir" || c === "oral-tablet-er" || c === "oral-capsule");
+  const isOralMulti  = formClasses.size > 1 && !formClasses.has("injectable");
+  // For single liquid class: use first active formulation
   const liquidFormulation = isLiquid ? activeFormulations[0] ?? null : null;
-  const isApap = isLiquid && drug?.generic?.toLowerCase() === "acetaminophen";
+  const isApap = (isLiquid || isOralMulti) && drug?.generic?.toLowerCase() === "acetaminophen";
 
   // Drug ref formulation
   const refFormulation = refFormIdx >= 0 && drug
@@ -1018,34 +1206,55 @@ export default function PedsDoseTable() {
 
   // When drug changes: reset everything
   const selectDrug = useCallback((idx) => {
-    setDrugIdx(idx); setFormClass(null); setCheckedForms({});
+    setDrugIdx(idx); setFormClasses(new Set()); setCheckedForms({});
     setRefFormIdx(-1); setCommittedTarget(null); setCommittedMax(null);
     setDoseText(""); setMaxDoseText(""); setDrugFilter(""); setDrugOpen(false);
     setRefOpen(false); setRefInfo(null);
   }, []);
 
-  // When class changes: default all formulations in class to checked
   const SOLID_CLASSES = new Set(["oral-tablet-ir","oral-tablet-er","oral-capsule"]);
 
-  // Auto-select route-form class when drug has only one
+  // Auto-select route-form class when drug has only one available
   useEffect(() => {
-    if (availableClasses.length === 1 && formClass === null) {
-      selectClass(availableClasses[0]);
+    if (availableClasses.length === 1 && formClasses.size === 0) {
+      toggleClass(availableClasses[0]);
     }
   }, [availableClasses]);
 
-  const selectClass = useCallback((cls) => {
-    setFormClass(cls); setCheckedForms({}); setRefFormIdx(-1);
+  // Toggle a route-form class on/off.
+  // Injectable is exclusive — clears all oral classes when selected (and vice versa).
+  const toggleClass = useCallback((cls) => {
+    setFormClasses(prev => {
+      const next = new Set(prev);
+      const isInj = cls === "injectable";
+      const hasInj = next.has("injectable");
+
+      if (next.has(cls)) {
+        // Deselecting: remove this class
+        next.delete(cls);
+      } else {
+        // Selecting: injectable clears oral; oral clears injectable
+        if (isInj) next.clear();
+        else if (hasInj) next.clear();
+        next.add(cls);
+      }
+      return next;
+    });
+
+    // Reset params when class selection changes
+    setCheckedForms({}); setRefFormIdx(-1);
     setCommittedTarget(null); setCommittedMax(null);
     setDoseText(""); setMaxDoseText("");
-    if (SOLID_CLASSES.has(cls)) {
-      setMinWtText("15");
-      setCommittedMinWt(15);
+
+    // Min weight: default 15 for solid-only selections
+    const willBeSolid = SOLID_CLASSES.has(cls);
+    if (willBeSolid) {
+      setMinWtText("15"); setCommittedMinWt(15);
     } else {
-      setMinWtText("");
-      setCommittedMinWt(null);
+      setMinWtText(""); setCommittedMinWt(null);
     }
-    // Acetaminophen oral liquid: auto-enable APAP syringe and 1 mL (0.05)
+
+    // Syringe defaults
     if (cls === "oral-liquid" && drug?.generic?.toLowerCase() === "acetaminophen") {
       setActiveSyringes(new Set(["1mL_005", "3mL", "5mL_std", "10mL", "5mL_apap"]));
     } else {
@@ -1140,11 +1349,15 @@ export default function PedsDoseTable() {
 
   // ── Band generation ────────────────────────────────────────────────────────
   const rows = useMemo(() => {
-    if (!drug || !formClass || committedTarget === null) return null;
+    if (!drug || !formClasses.size || committedTarget === null) return null;
     if (activeFormulations.length === 0) return null;
 
     let raw;
-    if (isLiquid) {
+    if (isOralMulti) {
+      const liquidForms = activeFormulations.filter(f => f.form === "liquid");
+      const solidForms  = activeFormulations.filter(f => f.form !== "liquid" && f.form !== "injectable");
+      raw = buildCrossOralTable(liquidForms, solidForms, committedTarget, variance, effectiveMax, activeSyringes);
+    } else if (isLiquid) {
       if (!liquidFormulation) return null;
       raw = buildLiquidTable(liquidFormulation, committedTarget, variance, effectiveMax, activeSyringes);
     } else if (isInjectable) {
@@ -1165,14 +1378,12 @@ export default function PedsDoseTable() {
       if (firstStart < floor) filtered[0] = { ...first, wStart: roundW(floor) };
     }
     return filtered.length ? filtered : null;
-  }, [drug, formClass, committedTarget, variance, activeFormulations,
+  }, [drug, formClasses, committedTarget, variance, activeFormulations,
       liquidFormulation, activeSyringes, effectiveMax, effectiveMinWt,
-      isLiquid, isInjectable]);
+      isLiquid, isInjectable, isOralMulti]);
 
   const fmtPct = v => v === null ? "—" : (v >= 0 ? "+" : "\u2212") + Math.abs(v).toFixed(1) + "%";
 
-  // Vol-based display: liquid and injectable both show mL column
-  // Injectable also shows Formulation column (cross-formulation like solid)
   const isFluid = isLiquid || isInjectable;
 
   // Column count: liquid has syringe col; solid has formulation col
@@ -1210,7 +1421,8 @@ export default function PedsDoseTable() {
     doc.setFont("helvetica","bold"); doc.setFontSize(11); doc.setTextColor(255,255,255);
     doc.text(drug.generic, ML+8, y+13);
     doc.setFont("helvetica","normal"); doc.setFontSize(9); doc.setTextColor(184,207,224);
-    doc.text(CLASS_LABELS[formClass] || formClass, ML+8, y+24);
+    const formClassLabel = [...formClasses].map(c => CLASS_LABELS[c] || c).join(" + ");
+    doc.text(formClassLabel, ML+8, y+24);
     const meta = `Target ${committedTarget} mg/kg   ·   min ${effectiveMinWt} kg${effectiveMax ? `   ·   max ${effectiveMax} mg` : ""}   ·   +/-${variance}%   ·   ${rows.length} rows`;
     doc.setFontSize(8); doc.text(meta, ML+8, y+36);
     y += bandH;
@@ -1266,7 +1478,46 @@ export default function PedsDoseTable() {
     doc.text("Weight bands: lower bound inclusive, upper bound exclusive  ·  Pharmacy verification required before clinical use",
       PW/2, y+12, { align:"center" });
     doc.save(`APTOS_${drug.generic.replace(/\s+/g,"_")}_${now.toISOString().slice(0,10)}.pdf`);
-  }, [rows, drug, formClass, committedTarget, effectiveMax, effectiveMinWt, variance, isLiquid, isInjectable, isFluid]);
+  }, [rows, drug, formClasses, committedTarget, effectiveMax, effectiveMinWt, variance, isLiquid, isInjectable, isFluid]);
+
+  const generateXLSX = useCallback(() => {
+    if (!rows || !drug) return;
+    const XLSX = window.XLSX;
+    if (!XLSX) { alert("SheetJS not loaded"); return; }
+
+    const formClassLabel = [...formClasses].map(c => CLASS_LABELS[c] || c).join(" + ");
+    const meta = [
+      ["Drug",     drug.generic],
+      ["Form",     formClassLabel],
+      ["Target",   `${committedTarget} mg/kg`],
+      ["Min Wt",   `${effectiveMinWt} kg`],
+      ["Max Dose", effectiveMax ? `${effectiveMax} mg` : "—"],
+      ["Variance", `±${variance}%`],
+      ["Rows",     rows.length],
+      ["Note",     "Pharmacy verification required before clinical use"],
+      [],
+    ];
+    const isMultiForm = [...formClasses].length > 1 || isInjectable;
+    const headers = ["Wt (kg)","Dose","Vol","Under %","Over %",
+                     ...(isMultiForm ? ["Formulation"] : [])];
+    const dataRows = rows.map(r => {
+      const wt   = r.isLast ? `>= ${r.wStart}` : `${r.wStart}–${r.wEnd}`;
+      const base = [wt, r.doseLabel, r.volLabel,
+        r.underPct !== null ? r.underPct.toFixed(1) : "—",
+        r.overPct  !== null ? r.overPct.toFixed(1)  : "—"];
+      return isMultiForm ? [...base, r.formLabel] : base;
+    });
+    const wsData = [...meta, headers, ...dataRows];
+    const ws = XLSX.utils.aoa_to_sheet(wsData);
+    ws["!cols"] = [
+      { wch:14 },{ wch:14 },{ wch:12 },{ wch:10 },{ wch:10 },
+      ...(isMultiForm ? [{ wch:40 }] : []),
+    ];
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Dosing Bands");
+    const now = new Date();
+    XLSX.writeFile(wb, `APTOS_${drug.generic.replace(/\s+/g,"_")}_${now.toISOString().slice(0,10)}.xlsx`);
+  }, [rows, drug, formClasses, committedTarget, effectiveMax, effectiveMinWt, variance, isInjectable]);
 
   // ── Render ─────────────────────────────────────────────────────────────────
   return (
@@ -1393,27 +1644,30 @@ export default function PedsDoseTable() {
           )}
         </div>
 
-        {/* Row 2: Route-form class — segment control */}
+        {/* Row 2: Route-form class — multi-select (injectable exclusive) */}
         {drug && availableClasses.length > 0 && (
           <div>
             <span style={CAP}>Route / Form</span>
             <div style={{ display:"flex", gap:4, flexWrap:"wrap" }}>
-              {availableClasses.map(cls => (
-                <button key={cls} onClick={() => selectClass(cls)}
-                        style={{ fontFamily:SANS, fontSize:13, fontWeight:600, border:"2px solid",
-                                 borderColor: formClass===cls ? "#1c2333" : "#b0b8c4",
-                                 borderRadius:5, padding:"6px 12px", cursor:"pointer",
-                                 background: formClass===cls ? "#1c2333" : "#fff",
-                                 color: formClass===cls ? "#fff" : "#555" }}>
-                  {CLASS_LABELS[cls] || cls}
-                </button>
-              ))}
+              {availableClasses.map(cls => {
+                const active = formClasses.has(cls);
+                return (
+                  <button key={cls} onClick={() => toggleClass(cls)}
+                          style={{ fontFamily:SANS, fontSize:13, fontWeight:600, border:"2px solid",
+                                   borderColor: active ? "#1c2333" : "#b0b8c4",
+                                   borderRadius:5, padding:"6px 12px", cursor:"pointer",
+                                   background: active ? "#1c2333" : "#fff",
+                                   color: active ? "#fff" : "#555" }}>
+                    {CLASS_LABELS[cls] || cls}
+                  </button>
+                );
+              })}
             </div>
           </div>
         )}
 
-        {/* Row 3: Formulation multi-select */}
-        {formClass && classFormulations.length > 0 && (
+        {/* Row 3: Formulation multi-select — flat list across all active classes */}
+        {formClasses.size > 0 && classFormulations.length > 0 && (
           <div>
             <span style={CAP}>Formulations</span>
             <div style={{ display:"flex", flexDirection:"column", gap:3,
@@ -1453,12 +1707,12 @@ export default function PedsDoseTable() {
         )}
 
         {/* Row 4: Min Wt | Dose/kg | Max | Var */}
-        {formClass && (
+        {formClasses.size > 0 && (
           <div style={{ display:"grid", gridTemplateColumns:"90px 1fr 100px 90px", gap:6 }}>
             <div>
               <span style={CAP}>Min Wt</span>
               <input style={ctrlBase} type="number"
-                     placeholder={SOLID_CLASSES.has(formClass) ? "15" : "0.3"}
+                     placeholder={isSolid ? "15" : "0.3"}
                      value={minWtText} onChange={e => setMinWtText(e.target.value)}
                      onBlur={commitMinWt} onKeyDown={e => e.key==="Enter"&&e.target.blur()}
                      step="0.1" min="0" inputMode="decimal" />
@@ -1490,8 +1744,8 @@ export default function PedsDoseTable() {
           </div>
         )}
 
-        {/* Liquid: syringe checkboxes */}
-        {(isLiquid || isInjectable) && formClass && (
+        {/* Liquid/injectable: syringe checkboxes — shown when any liquid or injectable class is active */}
+        {(isLiquid || isInjectable || isOralMulti) && formClasses.size > 0 && (
           <div style={{ borderTop:"1px solid #eee", paddingTop:5 }}>
             <span style={CAP}>Syringes available</span>
             <div style={{ display:"grid", gridTemplateColumns:"repeat(4, 1fr)", gap:"4px 0" }}>
@@ -1623,7 +1877,7 @@ export default function PedsDoseTable() {
                       {drug.generic}
                     </div>
                     <div style={{ color:"#c8d8e8", fontWeight:500, fontSize:12, marginTop:2, fontFamily:SANS }}>
-                      {CLASS_LABELS[formClass]}
+                      {[...formClasses].map(c => CLASS_LABELS[c] || c).join(" + ")}
                       {isLiquid && liquidFormulation ? ` — ${liquidFormulation.label}` : ""}
                     </div>
                     <div style={{ color:"#b8cfe0", fontSize:11, marginTop:3, whiteSpace:"nowrap",
@@ -1704,7 +1958,7 @@ export default function PedsDoseTable() {
           <div style={{ textAlign:"center", padding:"30px 0", color:"#555", fontSize:14 }}>
             {!drug
               ? "Select a drug"
-              : !formClass
+              : !formClasses.size
                 ? "Select route / form"
                 : committedTarget === null
                   ? "Enter target dose/kg"
@@ -1713,19 +1967,26 @@ export default function PedsDoseTable() {
                     : "Tap away from dose field to generate"}
           </div>
         )}
-      </div>
 
-      {/* Floating PDF button */}
-      {rows && (
-        <div style={{ position:"fixed", bottom:24, right:20, zIndex:100 }}>
-          <button onClick={generatePDF} style={{
-            background:"#1c2333", color:"#fff", border:"none", borderRadius:28,
-            padding:"12px 22px", fontSize:14, fontWeight:700, cursor:"pointer",
-            fontFamily:SANS, boxShadow:"0 4px 16px rgba(0,0,0,0.35)", letterSpacing:0.3 }}>
-            ⬇ PDF
-          </button>
-        </div>
-      )}
+        {/* Export buttons — inline below table */}
+        {rows && (
+          <div style={{ display:"flex", gap:10, justifyContent:"center",
+                        padding:"12px 16px 20px", background:"#f2f2ee" }}>
+            <button onClick={generatePDF} style={{
+              background:"#1c2333", color:"#fff", border:"none", borderRadius:8,
+              padding:"10px 22px", fontSize:14, fontWeight:700, cursor:"pointer",
+              fontFamily:SANS, boxShadow:"0 2px 8px rgba(0,0,0,0.25)", letterSpacing:0.3 }}>
+              ⬇ PDF
+            </button>
+            <button onClick={generateXLSX} style={{
+              background:"#1d6b38", color:"#fff", border:"none", borderRadius:8,
+              padding:"10px 22px", fontSize:14, fontWeight:700, cursor:"pointer",
+              fontFamily:SANS, boxShadow:"0 2px 8px rgba(0,0,0,0.25)", letterSpacing:0.3 }}>
+              ⬇ Excel
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
