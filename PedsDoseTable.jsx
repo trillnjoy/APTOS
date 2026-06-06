@@ -1393,11 +1393,15 @@ export default function PedsDoseTable() {
   const generatePDF = useCallback(async () => {
     if (!rows || !drug) return;
     const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ orientation: "portrait", unit: "pt", format: "letter" });
-    const PW = doc.internal.pageSize.getWidth();
-    const PH = doc.internal.pageSize.getHeight();
+    // Landscape letter — more horizontal room for Formulation column
+    const doc = new jsPDF({ orientation: "landscape", unit: "pt", format: "letter" });
+    const PW = doc.internal.pageSize.getWidth();   // 792 pt
+    const PH = doc.internal.pageSize.getHeight();  // 612 pt
     const ML = 36, MR = 36, MT = 36;
     let y = MT;
+
+    // Helper: strip trailing .0 from a one-decimal string
+    const fmtDose = v => String(parseFloat(v.toFixed(1)));
 
     try {
       const res = await fetch("Aptos_512.png");
@@ -1427,18 +1431,29 @@ export default function PedsDoseTable() {
     doc.setFontSize(8); doc.text(meta, ML+8, y+36);
     y += bandH;
 
+    // Column layout (landscape 720 pt usable):
+    // Wt(80) Dose(70) Under(52) Over(52) Vol(52) Syr/Formulation(flex) From(52) To(52)
+    // For liquid: Syr is narrow (30). For solid/multi: Formulation gets remaining ~260pt.
     const pdfLiquid = isFluid;
+    const C = {
+      wt:   ML,
+      dose: ML + 82,
+      und:  ML + 162,
+      ovr:  ML + 214,
+      vol:  ML + 266,
+      form: ML + 318,   // Syr label (liquid) or Formulation (solid) — full string
+      from: ML + 580,
+      to:   ML + 636,
+    };
     const colHeaders = pdfLiquid
-      ? ["Wt (kg)","Dose","Under","Over","Vol","Syr"]
-      : ["Wt (kg)","Dose","Under","Over","Qty","Formulation"];
-    const colX = pdfLiquid
-      ? [ML, ML+90, ML+170, ML+225, ML+285, ML+355]
-      : [ML, ML+90, ML+170, ML+225, ML+280, ML+340];
+      ? ["Wt (kg)","Dose","Under","Over","Vol","Syr","From","To"]
+      : ["Wt (kg)","Dose","Under","Over","Qty","Formulation","From","To"];
+    const colXArr = [C.wt, C.dose, C.und, C.ovr, C.vol, C.form, C.from, C.to];
 
     const hdrH = 18;
     doc.setFillColor(245,245,241); doc.rect(ML, y, PW-ML-MR, hdrH, "F");
     doc.setFont("helvetica","bold"); doc.setFontSize(8); doc.setTextColor(34,34,34);
-    colHeaders.forEach((h,i) => doc.text(h.toUpperCase(), colX[i], y+12));
+    colHeaders.forEach((h, i) => doc.text(h.toUpperCase(), colXArr[i], y+12));
     y += hdrH;
 
     const rowH = 16;
@@ -1450,26 +1465,30 @@ export default function PedsDoseTable() {
       const textY = y + 11;
       const pdfPct = v => v===null?"--":(v>=0?"+":"-")+Math.abs(v).toFixed(1)+"%";
       doc.setTextColor(26,26,26);
-      doc.text(typeof r.wEnd==="string"?`>= ${r.wStart}`:`${r.wStart}-${r.wEnd}`, colX[0], textY);
-      doc.setFont("helvetica","bold"); doc.text(r.doseLabel, colX[1], textY);
+      doc.text(typeof r.wEnd==="string"?`>= ${r.wStart}`:`${r.wStart}-${r.wEnd}`, C.wt, textY);
+      doc.setFont("helvetica","bold"); doc.text(r.doseLabel, C.dose, textY);
       doc.setFont("helvetica","normal");
       const uOot = r.underPct!==null && Math.abs(r.underPct) > variance+0.05;
       doc.setTextColor(...(uOot?[192,57,43]:[68,68,68]));
       doc.setFont("helvetica", uOot?"bold":"normal");
-      doc.text(pdfPct(r.underPct), colX[2], textY);
+      doc.text(pdfPct(r.underPct), C.und, textY);
       const oOot = Math.abs(r.overPct) > variance+0.05;
       doc.setTextColor(...(oOot?[192,57,43]:[68,68,68]));
       doc.setFont("helvetica", oOot?"bold":"normal");
-      doc.text(pdfPct(r.overPct), colX[3], textY);
+      doc.text(pdfPct(r.overPct), C.ovr, textY);
       doc.setFont("helvetica","normal"); doc.setTextColor(26,26,26);
-      doc.text(r.volLabel, colX[4], textY);
+      doc.text(r.volLabel, C.vol, textY);
+      doc.setTextColor(85,85,85); doc.setFontSize(8);
       if (pdfLiquid) {
-        doc.setTextColor(85,85,85); doc.text(r.syringeLabel||"", colX[5], textY);
+        doc.text(r.syringeLabel||"", C.form, textY);
       } else {
-        doc.setTextColor(85,85,85); doc.setFontSize(8);
-        doc.text((r.formLabel||"").substring(0,28), colX[5], textY);
-        doc.setFontSize(9);
+        // Full formulation string — landscape gives ~260 pt ≈ 42 chars at size 8
+        doc.text(r.formLabel||"", C.form, textY);
       }
+      doc.setFontSize(8); doc.setTextColor(100,100,100);
+      doc.text(fmtDose(r.wStart * committedTarget), C.from, textY);
+      doc.text(r.isLast ? "—" : fmtDose(r.wEnd * committedTarget), C.to, textY);
+      doc.setFontSize(9);
       doc.setDrawColor(220,220,216); doc.line(ML, y+rowH, PW-MR, y+rowH);
       y += rowH;
     });
@@ -1505,19 +1524,23 @@ export default function PedsDoseTable() {
     ];
     const isMultiForm = [...formClasses].length > 1 || isInjectable;
     const headers = ["Wt (kg)","Dose","Vol","Under %","Over %",
-                     ...(isMultiForm ? ["Formulation"] : [])];
+                     ...(isMultiForm ? ["Formulation"] : []),
+                     "From","To"];
     const dataRows = rows.map(r => {
       const wt   = r.isLast ? `>= ${r.wStart}` : `${r.wStart}–${r.wEnd}`;
+      const from = parseFloat((r.wStart * committedTarget).toFixed(1));
+      const to   = r.isLast ? "—" : parseFloat((r.wEnd * committedTarget).toFixed(1));
       const base = [wt, r.doseLabel, r.volLabel,
         r.underPct !== null ? r.underPct.toFixed(1) : "—",
         r.overPct  !== null ? r.overPct.toFixed(1)  : "—"];
-      return isMultiForm ? [...base, r.formLabel] : base;
+      return isMultiForm ? [...base, r.formLabel, from, to] : [...base, from, to];
     });
     const wsData = [...meta, headers, ...dataRows];
     const ws = XLSX.utils.aoa_to_sheet(wsData);
     ws["!cols"] = [
       { wch:14 },{ wch:14 },{ wch:12 },{ wch:10 },{ wch:10 },
       ...(isMultiForm ? [{ wch:40 }] : []),
+      { wch:10 },{ wch:10 },
     ];
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Dosing Bands");
@@ -1953,10 +1976,10 @@ export default function PedsDoseTable() {
                       </td>
                     )}
                     <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontSize:11, color:r.oot?"#bbb":"#666" }}>
-                      {(r.wStart * committedTarget).toFixed(1)}
+                      {String(parseFloat((r.wStart * committedTarget).toFixed(1)))}
                     </td>
                     <td style={{ ...TD, padding:"6px 4px", textAlign:"right", fontSize:11, color:r.oot?"#bbb":"#666" }}>
-                      {r.isLast ? "—" : (r.wEnd * committedTarget).toFixed(1)}
+                      {r.isLast ? "—" : String(parseFloat((r.wEnd * committedTarget).toFixed(1)))}
                     </td>
                   </tr>
                 ))}
