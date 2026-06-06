@@ -1434,7 +1434,6 @@ export default function PedsDoseTable() {
     // Column layout (landscape 720 pt usable):
     // Wt(80) Dose(70) Under(52) Over(52) Vol(52) Syr/Formulation(flex) From(52) To(52)
     // For liquid: Syr is narrow (30). For solid/multi: Formulation gets remaining ~260pt.
-    const pdfLiquid = isFluid;
     const C = {
       wt:   ML,
       dose: ML + 82,
@@ -1445,9 +1444,9 @@ export default function PedsDoseTable() {
       from: ML + 580,
       to:   ML + 636,
     };
-    const colHeaders = pdfLiquid
+    const colHeaders = isLiquid
       ? ["Wt (kg)","Dose","Under","Over","Vol","Syr","From","To"]
-      : ["Wt (kg)","Dose","Under","Over","Qty","Formulation","From","To"];
+      : ["Wt (kg)","Dose","Under","Over","Vol","Formulation","From","To"];
     const colXArr = [C.wt, C.dose, C.und, C.ovr, C.vol, C.form, C.from, C.to];
 
     const hdrH = 18;
@@ -1479,10 +1478,9 @@ export default function PedsDoseTable() {
       doc.setFont("helvetica","normal"); doc.setTextColor(26,26,26);
       doc.text(r.volLabel, C.vol, textY);
       doc.setTextColor(85,85,85); doc.setFontSize(8);
-      if (pdfLiquid) {
+      if (isLiquid) {
         doc.text(r.syringeLabel||"", C.form, textY);
       } else {
-        // Full formulation string — landscape gives ~260 pt ≈ 42 chars at size 8
         doc.text(r.formLabel||"", C.form, textY);
       }
       doc.setFontSize(8); doc.setTextColor(100,100,100);
